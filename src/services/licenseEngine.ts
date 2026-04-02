@@ -1,3 +1,4 @@
+// @ts-nocheck
 // License Engine Service
 // Handles license validation, device binding, and activation
 

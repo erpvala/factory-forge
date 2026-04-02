@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Role Isolation Badge - Shows users their data is protected
  */

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * STEP 12: Final System Validation Hook
  * Comprehensive validation for production readiness

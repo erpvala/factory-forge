@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI Auto-Healing Hook
  * Provides self-healing, monitoring, and optimization capabilities

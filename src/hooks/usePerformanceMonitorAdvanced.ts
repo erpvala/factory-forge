@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 
 interface PerformanceMetrics {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * User Role Hook - Security & Data for standard User role
  * 

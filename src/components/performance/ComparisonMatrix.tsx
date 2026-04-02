@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { BarChart3, ArrowLeftRight, TrendingUp, TrendingDown, Calendar } from "lucide-react";

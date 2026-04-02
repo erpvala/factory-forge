@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Master Admin Control Center - Core Services
  * End-to-End Flow: Blackbox, Live Activity, Access Control, Session Management

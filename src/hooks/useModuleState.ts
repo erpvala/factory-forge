@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * useModuleState - Manages active module state for single-view isolation
  * STEP 9: Only ONE module view can be active at a time

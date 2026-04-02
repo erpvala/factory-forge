@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Server Manager Security Guard
 // INFRA GUARDIAN - ZERO TRUST

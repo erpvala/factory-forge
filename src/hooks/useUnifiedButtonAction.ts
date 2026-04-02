@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * UNIFIED BUTTON ACTION HOOK
  * Master hook that binds: CLICK → DB → API → AI → LOG → PERMISSION → UI

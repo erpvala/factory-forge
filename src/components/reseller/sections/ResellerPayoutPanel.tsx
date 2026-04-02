@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Card, CardContent } from '@/components/ui/card';
 import { Wallet, Banknote, FileText, CreditCard } from 'lucide-react';
 

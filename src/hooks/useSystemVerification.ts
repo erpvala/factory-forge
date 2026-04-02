@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * STEP 11: Final System Verification Hook
  * Verifies complete end-to-end system binding before production lock

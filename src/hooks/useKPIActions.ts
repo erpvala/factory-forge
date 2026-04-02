@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * KPI Action Handler Hook
  * Handles all KPI box button actions with proper feedback

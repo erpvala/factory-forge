@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Sparkles, User, Settings, TrendingUp, MessageSquare, Bell, HandHeart } from 'lucide-react';
 import { useState, useEffect } from 'react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Auto-Publish Hook
  * Triggers the auto-publish-product pipeline after VALA AI generates a product

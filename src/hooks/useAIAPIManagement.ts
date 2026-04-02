@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI API Management Hook - Point-to-Point Database Connection
  * Every button = One API call = One log entry

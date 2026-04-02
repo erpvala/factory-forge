@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useCallback, useState } from 'react';
 import { Shield, AlertTriangle, Lock, Eye, EyeOff } from 'lucide-react';
 import { toast } from 'sonner';

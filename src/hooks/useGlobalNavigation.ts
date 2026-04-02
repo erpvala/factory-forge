@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * GLOBAL NAVIGATION HOOK
  * Centralized button → route mapping

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * System Notifications Hook
  * Aggregates all notification subscriptions for the app

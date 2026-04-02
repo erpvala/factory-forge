@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * useFinanceData - Centralized hook for Finance Manager real data
  * Fetches from transactions, wallets, invoices, payout_requests

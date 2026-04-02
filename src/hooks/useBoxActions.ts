@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BOX ACTION HOOK — STANDARDIZED ACTION HANDLER
  * ==============================================

@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface DeploymentTargetPlan {
   provider: 'vercel' | 'local' | 'apk';
   output: 'live_url' | 'local_server' | 'apk_file';

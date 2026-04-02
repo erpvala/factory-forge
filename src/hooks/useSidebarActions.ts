@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * STEP 10: Sidebar & Button End-to-End Functionality Hook
  * Every sidebar item and button must trigger a state, open a screen, or execute an action

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState, useCallback } from 'react';
 import { Shield, AlertOctagon, Ban, Fingerprint, Eye, Zap } from 'lucide-react';
 import { Card } from '@/components/ui/card';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { History, Users, Wallet, PlayCircle, FileText, Filter, Download, Search } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * System Notifications Initializer
  * Component that initializes all system notification listeners

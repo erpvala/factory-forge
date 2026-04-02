@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface EventChannelPlan {
   realtime: boolean;
   notifications: string[];

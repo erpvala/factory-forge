@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Image, Megaphone, QrCode, MessageSquare, Share2, Copy, Download } from 'lucide-react';

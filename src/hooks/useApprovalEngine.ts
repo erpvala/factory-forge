@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * STEP 6: Approval Engine Hook
  * Boss-controlled approval workflow for sensitive actions

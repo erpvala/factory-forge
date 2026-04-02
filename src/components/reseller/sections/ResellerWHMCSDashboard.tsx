@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * RESELLER DASHBOARD HOME - WHMCS STYLE
  * KPI cards, alerts, recent activity

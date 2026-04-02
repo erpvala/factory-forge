@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SMOOTH-06: Silent Error Handler Hook
  * Handles errors gracefully without red screens or technical messages

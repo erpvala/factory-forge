@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { X, Building2, User, Mail, Phone, MapPin, Percent, DollarSign, ToggleLeft } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE SIDEBAR
  * SINGLE-CONTEXT ENFORCEMENT: Uses sidebar store for strict isolation

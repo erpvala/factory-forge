@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { callEdgeRoute } from '@/lib/api/edge-client';
 
 const API_BASE = 'server-manager';

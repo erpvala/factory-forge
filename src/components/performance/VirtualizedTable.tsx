@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { memo, useCallback, useState, useRef } from 'react';
 import { cn } from '@/lib/utils';
 

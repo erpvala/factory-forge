@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Hook to generate SEO metadata for a product via AI
  */

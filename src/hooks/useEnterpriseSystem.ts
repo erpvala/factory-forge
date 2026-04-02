@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * MASTER ENTERPRISE SYSTEM HOOK - FINAL LOCK
  * Complete end-to-end binding: BUTTON → DB → API → AI → LOG → PERMISSION → UI

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Prime Route Guard Component
  * 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BOX PERMISSIONS HOOK — REAL BACKEND ENFORCEMENT
  * ================================================

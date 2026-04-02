@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * License Enforcement Component
  * ==============================

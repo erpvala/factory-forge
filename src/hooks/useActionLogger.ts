@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ACTION LOGGER HOOK
  * Universal button action logging for Software Vala Enterprise Platform

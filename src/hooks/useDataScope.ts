@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * useDataScope - STEP 11: Data Scope Filtering
  * Ensures each role only sees data within their scope

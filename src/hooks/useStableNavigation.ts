@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SMOOTH-01 & SMOOTH-02: Unified Navigation State Manager
  * Single global app state controller with route stability

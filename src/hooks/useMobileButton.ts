@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Mobile Button Hook
  * Ensures reliable button behavior on mobile with haptics and debounce

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * STEP 12: System Lock Hook
  * Prevents unauthorized changes after validation

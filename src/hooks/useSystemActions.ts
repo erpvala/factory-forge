@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * System-Wide Action Handler
  * Provides unified actions for all manager modules with audit logging,

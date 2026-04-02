@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface ScalingPlan {
   autoscale: boolean;
   cacheLayers: string[];

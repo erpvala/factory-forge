@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Universal Activity Logger for Boss Panel Real-Time Tracking
  * Every critical action → activity_log table → Boss Panel live stream

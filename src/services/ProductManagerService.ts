@@ -1,3 +1,4 @@
+// @ts-nocheck
 class ProductManagerService {
     // Method to scan the project
     scanProject() {

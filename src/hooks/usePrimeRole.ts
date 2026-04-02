@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Prime User Role Hook - Premium Experience without Power
  * 

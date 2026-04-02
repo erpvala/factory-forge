@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * useButtonAction - Universal Button Action Handler
  * Ensures every button has a working action

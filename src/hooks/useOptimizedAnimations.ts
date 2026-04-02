@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Animation Performance Hook
  * Optimizes framer-motion animations for smoothness

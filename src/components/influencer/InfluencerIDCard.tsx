@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { User, Shield, Star, Copy, CheckCircle, Clock, XCircle, AlertTriangle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';

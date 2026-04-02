@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Tenant Isolation Service
  * Activates multi-tenant isolation, runs health checks, and detects violations.

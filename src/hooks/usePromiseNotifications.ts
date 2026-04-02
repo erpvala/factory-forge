@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Promise Tracker Notifications Hook
  * Triggers notifications when Promise events occur

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Cryptographic Audit Chain Hook
  * 

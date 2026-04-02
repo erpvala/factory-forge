@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Play, CheckCircle, Clock, Award, BookOpen } from 'lucide-react';

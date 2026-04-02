@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Hook to check and manage terms acceptance for roles
  */

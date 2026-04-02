@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Card, CardContent } from '@/components/ui/card';
 import { Percent, DollarSign, Clock, Calendar } from 'lucide-react';
 

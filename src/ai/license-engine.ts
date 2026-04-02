@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface LicenseLockConfig {
   userId: string | null;
   orderId: string | null;

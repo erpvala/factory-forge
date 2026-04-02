@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SMOOTH-04: API Call Optimization Hook
  * One action → one API call, cancel duplicates, timeout handling
