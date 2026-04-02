@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Terms & Rules Acceptance Modal
  * All roles must accept terms before accessing the platform

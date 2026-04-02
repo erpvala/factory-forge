@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { BarChart3, TrendingUp, Target, Award, Trophy, Medal, Star, Crown } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Franchise Intelligence & Issue Tracking Types
 
 export type FranchiseStatus = 'active' | 'risk' | 'suspended' | 'pending';

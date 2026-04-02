@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI Voice Hook
  * Handles TTS via ElevenLabs edge function

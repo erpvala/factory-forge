@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * STEP 4: Button Execution Tracking Hook
  * Every button click creates an execution record

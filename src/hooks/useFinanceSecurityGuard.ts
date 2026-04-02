@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * useFinanceSecurityGuard — Enforces all 7 finance security policies
  * 

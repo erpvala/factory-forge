@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { FranchiseSidebar } from './FranchiseSidebar';

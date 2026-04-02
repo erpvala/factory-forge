@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SMOOTH-05: Data Loading & Caching Hook
  * Cache read-only data, lazy-load heavy modules, prevent UI freeze

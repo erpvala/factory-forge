@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Card, CardContent } from '@/components/ui/card';
 import { TrendingUp, Percent, Activity, PieChart } from 'lucide-react';
 

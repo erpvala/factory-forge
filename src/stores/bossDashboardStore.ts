@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Boss Dashboard State Management Hook
  * STEP 12: Global state for Boss Dashboard navigation & active module

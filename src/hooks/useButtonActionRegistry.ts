@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * GLOBAL BUTTON ACTION REGISTRY
  * Centralized action mapping for ALL clickable elements

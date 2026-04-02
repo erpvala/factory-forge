@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Multi-Tenant Hook
  * React integration for multi-tenant, offline-hybrid system

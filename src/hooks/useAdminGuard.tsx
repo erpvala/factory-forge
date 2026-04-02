@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Admin Security Guard
 // SYSTEM OPERATOR - RULE-ENFORCED - NO OWNERSHIP

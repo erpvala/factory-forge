@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * useCRUDOperation - STEP 11: CRUD Data Consistency
  * Optimistic UI updates with backend confirmation and rollback

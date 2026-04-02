@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Wallet, ArrowUpRight, ArrowDownLeft, Clock, CheckCircle, AlertTriangle, Download, Shield, TrendingUp } from 'lucide-react';

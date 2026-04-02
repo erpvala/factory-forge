@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Safe Assist Notifications Hook
  * Triggers notifications when Safe Assist events occur

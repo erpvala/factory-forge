@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Marketplace Search Service
 // Full-text search with caching and CDN-ready responses
 

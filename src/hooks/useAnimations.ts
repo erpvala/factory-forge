@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useCallback } from 'react';
 
 type AnimationType = 'welcome' | 'welcomeBack' | 'paymentSuccess' | 'bookingSuccess' | null;

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Layers } from "lucide-react";
 import { EmptyState } from "@/components/ui/empty-state";

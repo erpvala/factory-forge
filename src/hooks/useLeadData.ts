@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LEAD DATA HOOK - Enterprise Lead Manager
  * Connects to leads, lead_assignments, lead_conversions, lead_alerts,

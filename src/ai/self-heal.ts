@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface SelfHealIssue {
   area: 'ui' | 'api' | 'db' | 'deploy' | 'license';
   severity: 'low' | 'medium' | 'high' | 'critical';

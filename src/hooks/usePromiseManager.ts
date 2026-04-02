@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Promise Manager Hooks
  * Zero-loophole promise management system

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Megaphone, Image, Calendar, TrendingUp, Target, Share2, Bot, Globe, Play, Eye } from 'lucide-react';

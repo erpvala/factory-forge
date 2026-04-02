@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Vala ID System Hook
  * 

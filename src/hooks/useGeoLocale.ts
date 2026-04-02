@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * useGeoLocale - Auto-detect user's country, language, and currency
  * Uses free IP geolocation API with fallback

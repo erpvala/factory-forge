@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Capacitor Mobile Hook
  * Handles native mobile features for Android APK

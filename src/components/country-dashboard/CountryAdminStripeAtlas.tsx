@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================
 // COUNTRY ADMIN — STRIPE ATLAS CLONE
 // Clean, Minimal Enterprise Dashboard

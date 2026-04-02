@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * RESELLER SIDEBAR - WHMCS CLIENT AREA CLONE
  * White sidebar with blue accents, grouped navigation

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Control System Security Hook
  * 

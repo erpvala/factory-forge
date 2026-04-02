@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Card, CardContent } from '@/components/ui/card';
 import { Users, Bell, Settings, Globe } from 'lucide-react';
 

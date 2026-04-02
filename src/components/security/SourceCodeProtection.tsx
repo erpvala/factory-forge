@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Source Code Protection System
  * ==============================

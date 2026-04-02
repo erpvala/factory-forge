@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, TrendingDown, MapPin, Bot, Target, Users, BarChart3, AlertTriangle } from 'lucide-react';

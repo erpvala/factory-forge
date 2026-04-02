@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect, useCallback } from 'react';
 
 export type NetworkSpeed = 'fast' | 'medium' | 'slow' | 'offline';

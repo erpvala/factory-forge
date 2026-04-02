@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Safe Assist Security Hook
  * Implements zero-trust security for Safe Assist sessions

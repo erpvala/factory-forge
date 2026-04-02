@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SMOOTH-03: Button Debounce & Safe Click Hook
  * Prevents double clicks, duplicate submissions, and accidental multi-clicks

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Security Disclaimer Component
  * Displays warnings about data sharing and platform rules

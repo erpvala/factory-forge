@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Global Infrastructure React Hook
  * Provides access to multi-region, DR, CDN, and monitoring

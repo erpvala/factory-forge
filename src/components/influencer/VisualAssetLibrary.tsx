@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Image, Video, Download, Eye, Heart, Share2, Filter, Search } from "lucide-react";

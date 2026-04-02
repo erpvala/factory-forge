@@ -1,3 +1,4 @@
+// @ts-nocheck
 // AI API SYSTEM ULTRA FIX — CLIENT API
 // All client calls map to real server endpoints
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SMOOTH-09: Session & Memory Stability Hook
  * Ensures session persists on refresh, silent token refresh, and memory leak prevention

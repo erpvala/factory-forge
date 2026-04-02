@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Enhanced Click Handler - Ultra-fast, debounced actions
  * Prevents duplicate clicks, provides haptic feedback

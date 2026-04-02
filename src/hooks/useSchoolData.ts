@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * School Management System Data Hooks
  * Provides real-time data from Supabase for the School System

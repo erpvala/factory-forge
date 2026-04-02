@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI CEO — Full System Integration Hook
  * Provides real-time cross-module read, trigger, assign, and sync

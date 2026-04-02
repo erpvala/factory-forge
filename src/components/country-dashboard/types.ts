@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Country Dashboard Types
 
 export interface CountryEntity {

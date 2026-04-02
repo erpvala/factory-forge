@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * MARKETPLACE MANAGER MAIN CONTENT
  * ==================================

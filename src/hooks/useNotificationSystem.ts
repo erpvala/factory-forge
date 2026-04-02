@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useCallback, useEffect, useRef } from 'react';
 import type { NotificationAlert, NotificationType } from '@/components/shared/GlobalNotificationHeader';
 

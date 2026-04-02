@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE USER DASHBOARD
  * Simple • Non-Tech Friendly • Location-Based

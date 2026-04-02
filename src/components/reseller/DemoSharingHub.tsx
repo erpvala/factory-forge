@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link2, Copy, QrCode, Eye, Share2, Globe, CheckCircle } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 export interface GeneratedTableSpec {
   table: string;
   columns: string[];

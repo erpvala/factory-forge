@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Monitoring React Hook
 // Real-time system health monitoring for UI

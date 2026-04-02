@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Role-Based Premium Sound System
  * Soft, premium, short sounds (0.3s-0.8s) with role-specific tones

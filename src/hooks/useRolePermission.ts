@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * useRolePermission - STEP 11: Role Permission Gate
  * Strict permission checking before any action

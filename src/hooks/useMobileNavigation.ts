@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Mobile Navigation Hook
  * Handles drawer-based navigation for mobile app

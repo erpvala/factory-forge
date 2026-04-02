@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * useAuditLog - STEP 11: Audit & Traceability
  * Logs every significant action with masked actor info

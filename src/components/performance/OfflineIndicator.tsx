@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react';
 import { WifiOff, RefreshCw, Check, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';

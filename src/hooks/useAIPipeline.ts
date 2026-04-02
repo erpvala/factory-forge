@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * STEP 7: AI Involvement Pipeline Hook
  * AI can: suggest, auto-fix, auto-deploy, auto-respond

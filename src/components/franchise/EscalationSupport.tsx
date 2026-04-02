@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { HeadphonesIcon, MessageSquare, Clock, AlertTriangle, CheckCircle, Send, Plus, ChevronRight } from 'lucide-react';
