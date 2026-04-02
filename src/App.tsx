@@ -200,7 +200,7 @@ import SuperAdminSecurity from "@/pages/super-admin-system/Security";
 import SuperAdminSystemDashboard from "@/pages/super-admin-system/Dashboard";
 import SuperAdminSystemLock from "@/pages/super-admin-system/SystemLock";
 import SuperAdminUsers from "@/pages/super-admin-system/Users";
-import SupportDashboard from "@/components/internal-support-ai/sections/SupportDashboard";
+import { SupportDashboard } from "@/components/internal-support-ai/sections/SupportDashboard";
 import SystemAudit from "@/pages/super-admin/SystemAudit";
 import SystemNotificationsInitializer from "@/components/notifications/SystemNotificationsInitializer";
 import SystemSettings from "@/pages/SystemSettings";
@@ -216,7 +216,7 @@ import ValaControlHub from "@/pages/vala-control/ValaControlHub";
 import ValaMasterWorkspace from "@/pages/vala-control/ValaMasterWorkspace";
 import ValaOperationWorkspace from "@/pages/vala-control/ValaOperationWorkspace";
 import ValaRegionalWorkspace from "@/pages/vala-control/ValaRegionalWorkspace";
-import WireframeRoutes from "@/components/wireframe/WireframeRoutes";
+import { WireframeRoutes } from "@/components/wireframe/WireframeRoutes";
 
 const queryClient = new QueryClient();
 
@@ -403,8 +403,8 @@ const App = () => (
               </Route>
 
               {/* Continent Super Admin Routes */}
-              <Route path="/continent-super-admin" element={<RequireRole allowed={["boss_owner"]}><ContinentSuperAdminDashboard /></RequireRole>} />
-              <Route path="/continent-super-admin/*" element={<RequireRole allowed={["boss_owner"]}><ContinentSuperAdminDashboard /></RequireRole>} />
+              <Route path="/continent-super-admin" element={<RequireRole allowed={["boss_owner"]}><ContinentSuperAdminDashboard config={{}} /></RequireRole>} />
+              <Route path="/continent-super-admin/*" element={<RequireRole allowed={["boss_owner"]}><ContinentSuperAdminDashboard config={{}} /></RequireRole>} />
 
               {/* Super Admin Routes - Redirect to unified RoleSwitchDashboard to prevent duplicate layouts */}
               <Route path="/admin" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
