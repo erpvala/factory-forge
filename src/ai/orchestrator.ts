@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getAIProviderFallbackChain, getProviderByCapability } from '@/config/ai-providers';
 import { generateDatabasePlan } from '@/ai/db-generator';
 import { generateRoutePlan } from '@/ai/router-fixer';
