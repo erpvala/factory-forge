@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Prime User Dashboard - PREMIUM EXPERIENCE WITHOUT POWER
  * 

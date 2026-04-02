@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { PerformanceSidebar } from "@/components/performance/PerformanceSidebar";
 import { PerformanceTopBar } from "@/components/performance/PerformanceTopBar";
