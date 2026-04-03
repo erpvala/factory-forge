@@ -1,8 +1,8 @@
 // @ts-nocheck
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
 import { BossPanelHeader } from './BossPanelHeader';
 import { BossPanelSidebar } from './BossPanelSidebar';
+import { BossPanelContent } from './BossPanelContent';
 
 export type BossPanelSection = 
   | 'dashboard'
@@ -54,7 +54,7 @@ export function BossPanelLayout({ children }: BossPanelLayoutProps) {
           onCollapsedChange={setSidebarCollapsed}
         />
 
-        {/* Main Content - White background like reference */}
+        {/* Main Content */}
         <main 
           className="flex-1 p-6 transition-all duration-300"
           style={{ 
@@ -62,7 +62,7 @@ export function BossPanelLayout({ children }: BossPanelLayoutProps) {
             background: '#F8FAFC'
           }}
         >
-          {children || <Outlet context={{ activeSection, streamingOn }} />}
+          {children || <BossPanelContent activeSection={activeSection} streamingOn={streamingOn} />}
         </main>
       </div>
     </div>
