@@ -32,6 +32,7 @@ import AutomotiveDemo from "@/pages/demos/AutomotiveDemo";
 import BlockingClassCleanup from "@/components/shared/BlockingClassCleanup";
 import BootstrapAdmins from "@/pages/admin/BootstrapAdmins";
 import BossFortressAuth from "@/pages/auth/BossFortressAuth";
+import BossPanel from "@/pages/BossPanel";
 import BossRegister from "@/pages/auth/BossRegister";
 import BulkActionsReference from "@/pages/admin/BulkActionsReference";
 import BulkUserCreation from "@/pages/admin/BulkUserCreation";
