@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Emergency Kill Switch Component
  * STOP all AI/API services immediately

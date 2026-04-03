@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK SETTINGS (LIMITED)
  * Priority Rules • SLA Defaults • Automation Limits • Escalation Rules

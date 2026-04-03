@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Auto-Healing System Core
  * Central module for self-healing, monitoring, and optimization

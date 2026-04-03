@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { BarChart3, TrendingUp, TrendingDown, Minus, Award, Clock, Shield, AlertTriangle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';

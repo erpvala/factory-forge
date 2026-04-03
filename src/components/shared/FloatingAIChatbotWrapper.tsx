@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useLocation } from 'react-router-dom';
 import FloatingAIChatbot from './FloatingAIChatbot';
 

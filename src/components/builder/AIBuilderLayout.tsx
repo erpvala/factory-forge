@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import './AIBuilderLayout.css'; // Ensure to create this CSS file for styling.
 

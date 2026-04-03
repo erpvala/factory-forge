@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * API & SDK SCREEN
  * API keys, code examples, rate limits

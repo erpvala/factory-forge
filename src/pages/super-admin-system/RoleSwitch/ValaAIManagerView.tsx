@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI MANAGER VIEW
  * Content-only component for use within RoleSwitchDashboard

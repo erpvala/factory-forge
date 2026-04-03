@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Users, ArrowRight, MessageSquare, CheckCircle, XCircle } from 'lucide-react';

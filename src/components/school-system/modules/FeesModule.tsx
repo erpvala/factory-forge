@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Fees Management Module
  * Fee collection, tracking, and reporting

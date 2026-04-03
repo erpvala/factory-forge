@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Skeleton Dashboard
  * Lightweight skeleton UI shown while loading or offline

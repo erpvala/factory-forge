@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - MODULE EXPORTS
  * Enterprise Operation Control

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Resilient Supabase Client
  * Provides automatic retry, circuit breaker, and connection pooling

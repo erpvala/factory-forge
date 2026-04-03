@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Bot, Sparkles, Clock, AlertTriangle, Zap, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';

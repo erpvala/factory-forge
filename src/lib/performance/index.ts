@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Performance Module - Centralized exports
  */

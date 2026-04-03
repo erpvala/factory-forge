@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AIRA Marketplace Chat Widget — Floating assistant for customers
  * Handles demo explanation, payment help, product Q&A

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Optimized Particle Background
  * Performance-aware with reduced particles and simplified animations

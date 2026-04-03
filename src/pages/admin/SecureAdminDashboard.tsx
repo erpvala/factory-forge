@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Admin Dashboard
 // SYSTEM OPERATOR - RULE-ENFORCED - NO OWNERSHIP

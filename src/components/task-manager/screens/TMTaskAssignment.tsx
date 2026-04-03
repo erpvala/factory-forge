@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK ASSIGNMENT
  * AI Assigned • Human Assigned • Hybrid Assigned

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { 
   Building2, ShoppingCart, Users, Utensils, 

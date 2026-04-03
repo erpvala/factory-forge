@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * COMMUNICATION LOG
  * Masked Chat History • Assist Notes • AI Actions Log

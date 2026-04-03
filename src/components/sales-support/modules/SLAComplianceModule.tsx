@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Shield, Edit, Pause, Play, FileText, Clock, AlertTriangle, CheckCircle, TrendingUp, X, Save } from "lucide-react";

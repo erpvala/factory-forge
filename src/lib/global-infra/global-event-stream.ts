@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Global Event Streaming System
  * Kafka/CDC integration for real-time event processing

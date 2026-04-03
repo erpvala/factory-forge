@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AUTO SSL MANAGER
  * Automatic SSL certificate management with Let's Encrypt

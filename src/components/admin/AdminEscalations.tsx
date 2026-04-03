@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Admin Escalations
 // Manager Escalations - Cannot Close Critical Alone

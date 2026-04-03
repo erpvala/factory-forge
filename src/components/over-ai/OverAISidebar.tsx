@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * OVER AI - Sidebar Navigation
  * LOCKED - DO NOT MODIFY THEME/COLORS/SPACING

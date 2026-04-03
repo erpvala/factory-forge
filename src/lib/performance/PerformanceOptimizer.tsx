@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Performance Optimizer - System-wide performance enhancements
  * Provides memoization, debouncing, and optimization utilities

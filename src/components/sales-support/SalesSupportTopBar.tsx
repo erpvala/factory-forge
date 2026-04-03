@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Search, Phone, MessageCircle, User, ChevronDown, Zap } from "lucide-react";

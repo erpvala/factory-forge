@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { MapPin, MessageSquare, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';

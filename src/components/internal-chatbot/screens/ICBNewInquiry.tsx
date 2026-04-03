@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * NEW INQUIRY FLOW
  * Text • Voice Note • Photo

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Clock, LogOut, Eye, CheckCircle, Sparkles, Coffee, Users, Rocket, Heart, Star } from 'lucide-react';

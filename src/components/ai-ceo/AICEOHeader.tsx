@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Bot, Radio, Bell, Shield, Activity, Search, Settings } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";

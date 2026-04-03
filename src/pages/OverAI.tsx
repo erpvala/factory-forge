@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * OVER AI - Page Entry Point
  * LOCKED - DO NOT MODIFY

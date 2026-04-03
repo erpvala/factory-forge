@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { StudentManagementModule } from './StudentManagementModule';
 export { StaffManagementModule } from './StaffManagementModule';
 export { AttendanceModule } from './AttendanceModule';

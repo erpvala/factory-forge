@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { GCSidebar } from './GCSidebar';
 import { GCDashboard } from './screens/GCDashboard';

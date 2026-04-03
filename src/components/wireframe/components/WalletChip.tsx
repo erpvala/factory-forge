@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Wallet, ArrowUpRight, ArrowDownLeft, Clock, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';

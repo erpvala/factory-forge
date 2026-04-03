@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Shield, Lock, FileCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 

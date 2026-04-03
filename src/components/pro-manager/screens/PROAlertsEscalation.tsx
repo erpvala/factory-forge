@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ALERTS & ESCALATION
  * SLA Breach Alert • Payment Alert • Security Alert

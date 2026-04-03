@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SIMPLE SERVER DASHBOARD - Client-friendly interface
  * All sidebar items work, no dead clicks

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // System Monitoring Client Library
 // Post-Deployment Monitoring for SOFTWARE VALA

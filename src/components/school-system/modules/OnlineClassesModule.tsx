@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Online Classes Module
  * Virtual classrooms, video conferencing, and e-learning

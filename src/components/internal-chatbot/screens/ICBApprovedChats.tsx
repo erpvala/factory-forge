@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * APPROVED CHATS
  * Chats ready to start

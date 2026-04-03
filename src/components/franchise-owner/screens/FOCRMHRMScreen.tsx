@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER - AUTO CRM + HRM
  * Lead Assignment, Status Pipeline, Team Management

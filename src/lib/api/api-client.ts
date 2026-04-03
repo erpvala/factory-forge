@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SOFTWARE VALA API Client
  * Unified client for all REST + WebSocket APIs

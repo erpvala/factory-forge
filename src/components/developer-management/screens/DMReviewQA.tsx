@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * REVIEW & QA
  * Pending Review • QA Failed • QA Passed

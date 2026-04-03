@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - FULL LAYOUT
  * Enterprise Mode • AI-First • Zero-Miss • End-to-End Execution

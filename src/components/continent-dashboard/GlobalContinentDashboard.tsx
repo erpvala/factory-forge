@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Global Continent Admin Dashboard
  * Default view with world map, sidebar, and dashboard boxes

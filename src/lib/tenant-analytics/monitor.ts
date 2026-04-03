@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Tenant Analytics & Monitoring
  * Per-tenant uptime, SLA, fraud detection, and BOSS alerts

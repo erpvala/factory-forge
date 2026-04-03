@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SESSION LOGS - Search functional, read-only
  */

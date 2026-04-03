@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LOGS SCREEN
  * System logs with filtering

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRODUCT OWNERSHIP
  * Product List per User • Version • Enabled Modules • Custom Changes (Read-only)

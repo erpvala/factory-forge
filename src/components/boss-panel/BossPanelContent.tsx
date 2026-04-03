@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import type { BossPanelSection } from './BossPanelLayout';

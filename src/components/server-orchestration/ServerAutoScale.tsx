@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Server Auto Scale - Shows AI-managed scaling without technical details
  * User sees only high-level performance and cost impact

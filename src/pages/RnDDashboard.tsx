@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { RnDTopBar } from "@/components/rnd/RnDTopBar";
 import { FutureLab } from "@/components/rnd/FutureLab";

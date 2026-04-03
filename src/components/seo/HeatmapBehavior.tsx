@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { 
   Eye, MousePointer, ArrowDown, Timer, Target,

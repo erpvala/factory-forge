@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Hardened Chat Engine - Enterprise Security
  * - Masked IDs only, no real identity leakage

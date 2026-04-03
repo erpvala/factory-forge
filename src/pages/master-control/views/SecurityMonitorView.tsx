@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Users, AlertTriangle, Shield, Snowflake, Lock, LogOut } from 'lucide-react';

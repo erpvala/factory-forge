@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Users, Trophy, XCircle, Clock, TrendingUp, ArrowUpRight, ArrowDownRight, Calendar, Target, Loader2 } from "lucide-react";

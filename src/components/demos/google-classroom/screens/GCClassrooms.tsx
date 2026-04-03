@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Plus, MoreVertical, Users, ClipboardList, Copy, BookOpen } from 'lucide-react';

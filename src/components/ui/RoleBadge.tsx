@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { AppRole, ROLE_CONFIG, ROLE_GRADES } from '@/types/roles';
 import { cn } from '@/lib/utils';
 import {

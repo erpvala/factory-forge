@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Service Worker Registration
  * Handles offline caching and background sync

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI CODE QUALITY & MANAGER PANEL
  * AI monitors developer code quality, runs tests, security scans

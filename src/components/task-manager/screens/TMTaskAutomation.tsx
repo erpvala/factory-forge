@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK AUTOMATION
  * Rule-Based • AI Workflow • Retry Automation

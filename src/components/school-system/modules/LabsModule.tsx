@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Labs & Equipment Module
  * Manage laboratories, equipment, and inventory

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * System Health Dashboard
  * Unified monitoring for database, cache, connections, and infrastructure

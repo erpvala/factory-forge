@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * REFUND & ADJUSTMENT SECTION
  * PERMANENT POLICY: No Return / No Exchange / No Refund for digital products

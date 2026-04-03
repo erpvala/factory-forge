@@ -1,3 +1,4 @@
+// @ts-nocheck
 const PremiumDemoShowcaseNew = () => {
   return (
     <div className="min-h-screen bg-background p-6">

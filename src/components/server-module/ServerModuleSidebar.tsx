@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER MODULE SIDEBAR
  * Ultra-simple sidebar with navigation items

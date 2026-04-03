@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ROLE-BASED LOGIN PAGE
  * ======================

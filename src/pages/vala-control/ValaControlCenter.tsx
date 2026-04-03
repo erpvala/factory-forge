@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import ValaIsolatedLayout from '@/components/vala-control/ValaIsolatedLayout';

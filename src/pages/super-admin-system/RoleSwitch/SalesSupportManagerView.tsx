@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useCallback } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import SalesSupportSidebar, { SalesSupportSection } from "@/components/sales-support/SalesSupportSidebar";

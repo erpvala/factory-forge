@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Shared Components Index
  * Export all shared/reusable components

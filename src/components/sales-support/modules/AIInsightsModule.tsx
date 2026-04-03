@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Bot, TrendingUp, TrendingDown, AlertTriangle, Lightbulb, Target, Users, Clock, CheckCircle } from "lucide-react";

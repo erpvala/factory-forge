@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, forwardRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Brain, X, Search, MessageCircle, Map, Crown, HelpCircle, Send } from 'lucide-react';

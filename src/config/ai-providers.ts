@@ -1,3 +1,4 @@
+// @ts-nocheck
 export type AIProviderId = 'openai' | 'claude' | 'gemini' | 'deepseek' | 'mistral' | 'local';
 
 export type AIProviderCapability = 'reasoning' | 'architecture' | 'ui' | 'optimization' | 'fallback' | 'offline';

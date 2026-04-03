@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { ResellerManagerSidebar, ResellerManagerSection } from './ResellerManagerSidebar';

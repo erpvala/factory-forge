@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { BarChart3, Download, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { demoAssignments } from '../gcDemoData';

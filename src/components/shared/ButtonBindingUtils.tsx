@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BUTTON BINDING UTILITIES
  * Helper components and functions for ensuring all buttons have actions

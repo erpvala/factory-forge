@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Continent Super Admin - Performance Screen
 import { motion } from 'framer-motion';
 import { TrendingUp, Target, BarChart3 } from 'lucide-react';

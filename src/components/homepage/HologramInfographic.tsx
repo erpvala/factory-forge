@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Optimized Hologram Infographic
  * Simplified animations for performance

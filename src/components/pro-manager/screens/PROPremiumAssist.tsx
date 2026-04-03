@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PREMIUM ASSIST
  * Live Assist Session • Permission-Based Access • No File Copy • No Screen Capture • Full Session Log

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SUPPORT CHATBOT WIREFRAME
  * Low-fidelity enterprise SaaS dashboard

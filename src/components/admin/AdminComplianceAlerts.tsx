@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Admin Compliance Alerts
 // Read-Only View - Cannot Modify

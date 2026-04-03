@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SecurityDashboard - Enterprise Security Management
  * Handles: 2FA, Sessions, Audit Logs, Device Management

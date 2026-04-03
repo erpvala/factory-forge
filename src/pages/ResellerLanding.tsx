@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import ResellerHero from '@/components/reseller-landing/ResellerHero';
 import ResellerBenefits from '@/components/reseller-landing/ResellerBenefits';

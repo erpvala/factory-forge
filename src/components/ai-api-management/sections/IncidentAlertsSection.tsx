@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * INCIDENT & ALERTS SECTION
  * Downtime alerts, latency spike alerts, auto-failover

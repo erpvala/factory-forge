@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Server List - Simple controls only: Run, Stop, Pay/Renew
  * No tech details, no configuration

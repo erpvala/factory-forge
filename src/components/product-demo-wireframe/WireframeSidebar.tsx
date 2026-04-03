@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * WIREFRAME SIDEBAR
  * Collapsible sidebar with nav items

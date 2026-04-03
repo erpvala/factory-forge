@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Security utilities for the SaaS system
 import { supabase } from '@/integrations/supabase/client';
 

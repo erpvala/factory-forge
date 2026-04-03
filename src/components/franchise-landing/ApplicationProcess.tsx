@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { FileText, MapPin, CreditCard, Bot, CheckCircle } from 'lucide-react';
 

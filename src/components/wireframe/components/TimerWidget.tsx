@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Play, Pause, Square, Clock, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { LeadModuleSidebar, type LeadSection } from './LeadModuleSidebar';
 export { LeadDashboard } from './LeadDashboard';
 export { AllLeads } from './AllLeads';

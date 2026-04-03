@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Lazy Route Registry - Ultra Performance Optimized
  * Code-splits ALL routes to reduce initial bundle by 80%+

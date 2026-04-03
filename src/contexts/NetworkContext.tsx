@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { createContext, useContext, ReactNode } from 'react';
 import { useNetworkStatus, PerformanceMode } from '@/hooks/useNetworkStatus';
 

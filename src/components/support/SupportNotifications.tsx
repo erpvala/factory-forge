@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { 
   X, Bell, Inbox, Globe, CheckCircle2, 

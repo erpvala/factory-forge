@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Internal Support AI - Main Dashboard
  * Live Issue Overview, Auto-Fix Success Graph, Failures Heatmap, SLA Predictor

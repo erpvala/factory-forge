@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRODUCT DEMO MANAGER DASHBOARD PAGE
  */

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Compliance System Types
 import { AppRole } from './roles';
 

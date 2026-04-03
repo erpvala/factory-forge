@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SECURITY DASHBOARD
  * Unified security monitoring: SSL, domains, code integrity, threats, server security

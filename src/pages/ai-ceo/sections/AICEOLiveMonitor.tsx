@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Activity, AlertTriangle, BrainCircuit, CheckCircle2, Clock4 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';

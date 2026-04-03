@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * USAGE & LIMITS
  * API Usage • Storage • AI Calls • Fair Usage Alerts

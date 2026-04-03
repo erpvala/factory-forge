@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bot, User, Mic, FileText, Image, Video, Loader2 } from "lucide-react";

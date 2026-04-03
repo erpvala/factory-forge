@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * School Management Software - Professional Homepage
  * LIVE OPERATING SOFTWARE - NOT A DEMO

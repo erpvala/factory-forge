@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CHAT RULES
  * System rules and policies

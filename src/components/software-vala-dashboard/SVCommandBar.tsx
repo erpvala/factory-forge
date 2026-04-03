@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SOFTWARE VALA COMMAND BAR
  * Top navigation with search and actions

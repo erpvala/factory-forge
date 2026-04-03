@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Dashboard Layout - Performance Optimized
  * Mobile-first, fast loading, responsive

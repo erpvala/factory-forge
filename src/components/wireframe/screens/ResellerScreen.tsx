@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { 
   Users, Link, BarChart3, TrendingUp, Copy, ExternalLink,

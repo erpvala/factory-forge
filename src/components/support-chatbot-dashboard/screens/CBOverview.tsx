@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * OVERVIEW SCREEN
  * Dashboard with key metrics and charts

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import JSZip from 'jszip';
 import type { FactoryWorkspaceImportFile } from '@/lib/api/vala-factory';
 

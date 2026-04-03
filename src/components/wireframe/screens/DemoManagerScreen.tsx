@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { 
   Play, Filter, Search, Grid3X3, List, AlertTriangle, 

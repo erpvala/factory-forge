@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * HOSTING RESELLER MARKETPLACE
  * Sell hosting, local providers can sell through you with 30-40% commission

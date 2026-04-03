@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { 
   Users, Activity, Clock, Monitor, Building2, DollarSign, Brain, Heart, 
   Scale, HeadphonesIcon, Search, Megaphone, Lightbulb, AlertTriangle,

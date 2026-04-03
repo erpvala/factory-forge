@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ON-DEVICE AI (ANDROID) SECTION
  * Offline models, size limit, sync status

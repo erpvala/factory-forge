@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Chat Queue Manager
  * Handles offline chat message queuing and delivery

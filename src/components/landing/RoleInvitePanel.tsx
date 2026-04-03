@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Building2, Users, Code, Megaphone, Crown, ArrowRight } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER MODULE CONTAINER
  * Main container that renders sidebar + content

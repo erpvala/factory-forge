@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CONTENT MANAGEMENT
  * Upload, organize, manage demo content

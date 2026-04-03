@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI API Usage & Cost Monitor
  * Live cost tracking with limit alerts

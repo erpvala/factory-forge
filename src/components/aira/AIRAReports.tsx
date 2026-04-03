@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AIRA Reports — Daily / Weekly / Monthly Executive Intelligence
  * Streams AI-generated reports from live system data

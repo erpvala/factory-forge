@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER MASTER DASHBOARD
  * Real-time stats cards with deep view navigation

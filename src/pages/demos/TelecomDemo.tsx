@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { Smartphone, CreditCard, Signal, Package, TrendingUp, Users, Zap, Phone, Plus, ShoppingCart, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";

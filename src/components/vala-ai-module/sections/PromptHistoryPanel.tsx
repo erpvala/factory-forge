@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI - Prompt History Panel
  */

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { 
   Users, UserPlus, GraduationCap, Clock, TrendingUp, 

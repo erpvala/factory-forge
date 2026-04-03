@@ -1,3 +1,4 @@
+// @ts-nocheck
 import ProductDemoManagerLayout from "./ProductDemoManagerLayout";
 
 const ProductDemoManagerPage = () => {

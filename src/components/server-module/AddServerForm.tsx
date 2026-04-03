@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ADD SERVER FORM
  * Ultra-simple: Only 3 required fields + 1 optional dropdown

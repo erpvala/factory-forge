@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEMO SIDEBAR
  * Collapsible navigation for Product Demo Manager

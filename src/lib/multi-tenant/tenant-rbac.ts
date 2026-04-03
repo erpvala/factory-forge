@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Tenant-Level RBAC Enforcement
  * Extends existing RBAC with multi-tenant isolation

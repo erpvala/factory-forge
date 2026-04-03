@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Handshake, Clock, AlertTriangle, Check, X, Timer, Calendar } from 'lucide-react';

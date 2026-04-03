@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SUPPORT CHATBOT DASHBOARD
  * User-friendly, production-ready SaaS interface

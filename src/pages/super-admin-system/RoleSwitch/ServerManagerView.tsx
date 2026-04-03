@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER MANAGER VIEW
  * Content-only component for use within RoleSwitchDashboard

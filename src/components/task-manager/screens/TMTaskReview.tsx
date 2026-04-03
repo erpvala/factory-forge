@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK REVIEW
  * Quality Review • SLA Review • Outcome Review

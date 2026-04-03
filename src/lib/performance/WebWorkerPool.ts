@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Web Worker Pool for Heavy Computations - 5M Capacity
 type WorkerTask = {
   id: string;

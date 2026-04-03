@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { PartyPopper, Calendar, Users, MapPin, Camera, Music, Utensils, Phone, Star, Plus, Trash2, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";

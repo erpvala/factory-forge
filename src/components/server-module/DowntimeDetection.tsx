@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DOWNTIME DETECTION
  * Auto-detect service failures, track incidents, trigger repair

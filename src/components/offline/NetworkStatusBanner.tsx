@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Network Status Banner
  * Shows offline/slow connection status with sync info

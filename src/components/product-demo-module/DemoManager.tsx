@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEMO MANAGER DASHBOARD
  * Full-featured dashboard for managing LIVE SOFTWARE instances

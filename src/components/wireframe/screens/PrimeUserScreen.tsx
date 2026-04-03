@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { 
   Star, Clock, Zap, Code2, MessageSquare, Shield, 

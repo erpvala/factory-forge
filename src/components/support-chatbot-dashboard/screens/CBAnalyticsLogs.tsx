@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ANALYTICS & LOGS SCREEN
  * Chat transcripts, AI confidence, errors

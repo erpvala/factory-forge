@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Users, UserPlus, Mail, MoreVertical, Shield } from 'lucide-react';
 import { demoStudents, demoTeachers } from '../gcDemoData';

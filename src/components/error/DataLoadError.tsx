@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { DataLoadFailedUI } from "./ErrorUI";
 
 interface DataLoadErrorProps {

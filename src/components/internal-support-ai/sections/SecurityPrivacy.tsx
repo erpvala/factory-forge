@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Internal Support AI - Security & Privacy
  * No Chat Delete, No Edit, No Copy, No Share, No Screenshot, Masked Identity

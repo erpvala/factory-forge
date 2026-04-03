@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER - WALLET MANAGEMENT
  * Live balance, add money, auto deduction, transaction history

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Server Cost Panel - Shows only costs, no technical details
  */

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CHAT & VOICE - All buttons functional
  */

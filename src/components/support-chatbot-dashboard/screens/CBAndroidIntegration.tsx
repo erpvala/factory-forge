@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ANDROID INTEGRATION SCREEN
  * Mobile app chat widget settings

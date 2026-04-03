@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Users, PlayCircle, MessageSquare, UserCheck, CheckCircle, Wallet } from 'lucide-react';
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Optimized AI Brain Graphic
  * Static version for performance

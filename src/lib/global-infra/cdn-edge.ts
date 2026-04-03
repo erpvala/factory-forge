@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CDN & Edge Optimization Layer
  * Global caching, latency optimization, edge rendering

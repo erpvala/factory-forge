@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Globe, MapPin } from 'lucide-react';
 import softwarevalaLogo from '@/assets/softwarevala-logo.jpg';

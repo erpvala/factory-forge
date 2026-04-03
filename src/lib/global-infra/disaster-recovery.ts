@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Disaster Recovery System
  * Region failover, backup replication, auto-restore

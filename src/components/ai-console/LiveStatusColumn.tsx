@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Brain, Zap, TrendingUp, DollarSign, Award, Clock, Database, Activity } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';

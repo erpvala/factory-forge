@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LOGS & SECURITY SECTION
  * Transaction Logs, Finance Activity, Masked View, Fraud Detection

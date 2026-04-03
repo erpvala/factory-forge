@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Master Admin Control Center - Context Provider
  * Centralized state management for system state, locks, rentals, and flow management

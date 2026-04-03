@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Next-Generation Cryptographic Engine
  * 

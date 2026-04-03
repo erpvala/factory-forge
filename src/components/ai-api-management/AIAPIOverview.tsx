@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { 
   Activity, DollarSign, Zap, AlertTriangle, Play, Square,

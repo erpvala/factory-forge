@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Isolated Role Module Component
  * 

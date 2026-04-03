@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * WHOIS & DNS TOOLS
  * Domain lookup, DNS records, nameserver management

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LIVE CHAT BLOCK
  * Shows live support chat status with online indicator

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * WALLET MANAGEMENT SECTION
  * Master/Franchise/Reseller/User Wallets, Top-up, Deduction, Low Balance

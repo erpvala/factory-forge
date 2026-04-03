@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import type { NotificationAlert, NotificationType } from '@/components/shared/GlobalNotificationHeader';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import {
   AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell,

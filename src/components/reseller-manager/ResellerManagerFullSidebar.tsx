@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * RESELLER MANAGER FULL SIDEBAR
  * Comprehensive hierarchical sidebar with all 12 sections

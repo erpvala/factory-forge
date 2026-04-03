@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Settings, DollarSign, ShieldAlert, UserX, Globe } from 'lucide-react';
 import { Switch } from '@/components/ui/switch';

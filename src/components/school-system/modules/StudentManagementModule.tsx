@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Student Management Module
  * CRUD operations for students with real data

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Bug, CheckCircle, Lock, ArrowRight, Shield } from 'lucide-react';

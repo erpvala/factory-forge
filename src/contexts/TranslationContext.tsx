@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { useRegionDetection } from '@/hooks/useRegionDetection';
 

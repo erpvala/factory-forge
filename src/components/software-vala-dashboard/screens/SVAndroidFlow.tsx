@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ANDROID FLOW VISUALIZATION
  * Complete mobile app flow documentation

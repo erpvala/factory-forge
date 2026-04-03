@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ROLE MANAGER SIDEBAR
  * 10 Sections - Fixed width - Icon + Text

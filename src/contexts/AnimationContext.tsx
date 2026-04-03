@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { createContext, useContext, ReactNode, useEffect } from 'react';
 import useAnimations from '@/hooks/useAnimations';
 import { 

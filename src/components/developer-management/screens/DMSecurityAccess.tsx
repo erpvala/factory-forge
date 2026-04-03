@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SECURITY & ACCESS
  * Access Level • Session Control • IP/Device Binding

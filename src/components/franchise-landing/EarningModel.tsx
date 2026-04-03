@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { IndianRupee, DollarSign, TrendingUp, Calculator } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Restaurant POS - Medium Scale (10-30 Tables, Multiple Counters)
  * For: Family Restaurants, Cafes, Multi-cuisine

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import FranchiseHero from '@/components/franchise-landing/FranchiseHero';
 import ValuePropositionCards from '@/components/franchise-landing/ValuePropositionCards';

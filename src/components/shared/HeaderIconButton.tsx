@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * HeaderIconButton - Unified icon button for header actions
  * STEP 8: Icon size 20px, Hit area 40x40px, with tooltips

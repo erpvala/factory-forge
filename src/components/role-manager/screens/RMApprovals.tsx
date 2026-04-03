@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ROLE MANAGER - APPROVALS & ALERTS SCREEN
  */

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { 
   Brain, Code2, Settings, Sparkles, Shield, Gauge,

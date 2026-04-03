@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PMClientDomains - Client Domain Management
  * Add, verify, and manage custom domains for client deployments

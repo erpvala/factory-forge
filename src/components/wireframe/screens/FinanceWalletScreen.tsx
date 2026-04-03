@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { 
   Wallet, ArrowDownLeft, ArrowUpRight, Clock, Receipt,

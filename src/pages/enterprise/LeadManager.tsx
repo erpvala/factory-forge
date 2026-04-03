@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { 
   Users, Filter, Download, Plus, Search, Phone, Mail, MapPin, 

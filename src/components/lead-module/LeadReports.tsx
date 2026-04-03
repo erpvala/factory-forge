@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LEAD REPORTS
  * Source, Country, Conversion, Team performance

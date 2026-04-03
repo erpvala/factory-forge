@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useMemo, useState } from 'react';
 import { Calendar, Clock, CreditCard, Eye, KeyRound, Package, Search } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';

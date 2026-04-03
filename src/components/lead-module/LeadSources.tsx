@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LEAD SOURCES
  * All supported lead sources

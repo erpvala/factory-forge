@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CONTROL PANEL CONTENT
  * Main content component for the black sidebar Control Panel

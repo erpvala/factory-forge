@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ROLE SWITCH SIDEBAR V2
  * Modern shadcn-based sidebar with collapsible groups

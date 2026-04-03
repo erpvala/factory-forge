@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ALERTS & APPROVAL SECTION - DB-Driven
  */

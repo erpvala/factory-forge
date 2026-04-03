@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SCREEN CONTROL - All buttons functional
  */

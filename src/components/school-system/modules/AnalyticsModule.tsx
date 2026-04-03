@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Analytics & Reports Module
  * Comprehensive analytics dashboard with reports

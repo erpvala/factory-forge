@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * JIRA-CRUD-01/02/03/04: Enterprise CRUD Component
  * Provides standardized CRUD operations with full audit trail

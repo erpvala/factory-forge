@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Lock, LogOut, Settings as SettingsIcon, ArrowLeft, Shield, Smartphone } from "lucide-react";

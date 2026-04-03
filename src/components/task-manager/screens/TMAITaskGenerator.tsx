@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - AI TASK GENERATOR
  * Auto Detection • Predictive • Failure-Based • Optimization

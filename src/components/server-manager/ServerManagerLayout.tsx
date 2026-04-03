@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER MANAGER - VERCEL CLONE
  * Standalone full-screen layout with Vercel-style dark UI

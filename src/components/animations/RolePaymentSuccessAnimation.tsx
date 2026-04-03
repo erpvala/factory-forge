@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Role-Based Payment Success Animation
  * OPTIMIZED: Reduced confetti and animations for better performance

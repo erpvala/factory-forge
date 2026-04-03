@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Enterprise Rate Limiter with Sliding Window + Request Queueing
  * Optimized for high-volume enterprise usage

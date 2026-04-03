@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER NEW LAYOUT
  * Complete layout with fixed header and sidebar

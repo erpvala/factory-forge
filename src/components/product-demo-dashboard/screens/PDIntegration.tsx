@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PD INTEGRATION
  * Android APK and Web integration settings

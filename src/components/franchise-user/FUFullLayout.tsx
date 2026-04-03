@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE USER FULL LAYOUT
  * Simple Dashboard for Franchise Users

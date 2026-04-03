@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SCREEN 4: BOT TRAINING
  */

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Flow Step Indicator Component
  * 

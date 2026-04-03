@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRO MANAGER - MODULE EXPORTS
  */

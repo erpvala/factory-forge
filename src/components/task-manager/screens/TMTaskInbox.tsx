@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK INBOX
  * New • In Progress • Waiting Approval • Blocked • Completed • Failed

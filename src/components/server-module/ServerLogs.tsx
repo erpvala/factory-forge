@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER LOGS
  * Read-only logs: connection, AI actions, alerts

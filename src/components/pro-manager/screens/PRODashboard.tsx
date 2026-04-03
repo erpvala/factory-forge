@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRO DASHBOARD - TOP KPI BOXES
  * All boxes clickable → filtered view

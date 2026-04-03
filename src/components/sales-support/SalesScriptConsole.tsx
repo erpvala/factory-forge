@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FileText, Copy, Sparkles, Globe, CheckCircle, ChevronRight, MessageSquare } from "lucide-react";

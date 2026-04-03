@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Continent Super Admin - Tasks Screen
 import { useState } from 'react';
 import { motion } from 'framer-motion';

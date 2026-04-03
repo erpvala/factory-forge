@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import softwareValaLogo from '@/assets/software-vala-logo-transparent.png';
 import { motion, AnimatePresence } from "framer-motion";

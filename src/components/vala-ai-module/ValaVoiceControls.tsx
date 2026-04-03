@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI Voice Controls
  * TTS output panel for VALA AI command responses

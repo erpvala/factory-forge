@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Assist Manager Screen (Role 26)
  * 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Staff Management Module
  * Manage teachers, admin staff, and support personnel

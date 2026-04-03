@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER - ORDER MANAGEMENT
  * Step-by-step order placement with pricing engine

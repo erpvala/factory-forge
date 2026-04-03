@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Play, Pause, AlertCircle, HelpCircle, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';

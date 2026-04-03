@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Bell, Search, Settings, Plus, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';

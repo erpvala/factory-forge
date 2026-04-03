@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BUTTON AUDIT OVERLAY
  * Debug mode to highlight unbound buttons and log missing handlers

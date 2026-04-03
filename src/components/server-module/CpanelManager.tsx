@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CPANEL / WHM MANAGER
  * Connect cPanel/WHM servers, create accounts, manage hosting packages

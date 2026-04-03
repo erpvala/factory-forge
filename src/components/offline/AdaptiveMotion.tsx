@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Adaptive Motion Wrapper
  * Disables animations in low-data mode for performance

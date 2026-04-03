@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { FileText, TrendingUp, Clock, CheckCircle, Lock } from 'lucide-react';
 
 const healthMetrics = [

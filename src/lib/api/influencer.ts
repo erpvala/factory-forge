@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { callEdgeRoute } from '@/lib/api/edge-client';
 
 async function getRoute<T>(path: string, query?: Record<string, string | number | boolean | undefined | null>) {

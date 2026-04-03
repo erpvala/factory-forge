@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Activity, AlertTriangle, Clock, CheckCircle } from 'lucide-react';

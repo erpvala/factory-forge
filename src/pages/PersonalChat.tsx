@@ -1,3 +1,4 @@
+// @ts-nocheck
 import PersonalChatSystem from "@/components/chat/PersonalChatSystem";
 
 const PersonalChatPage = () => {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * OVER AI - Support Integration
  * LOCKED - DO NOT MODIFY

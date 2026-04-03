@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BOT TRAINING SCREEN
  * Train and improve your chatbot

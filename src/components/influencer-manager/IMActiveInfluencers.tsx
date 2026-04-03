@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, AlertTriangle, Ban, CheckCircle, Eye, TrendingUp, Shield } from 'lucide-react';

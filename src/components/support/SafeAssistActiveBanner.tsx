@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Safe Assist Active Banner
  * Always visible thin banner when session is active

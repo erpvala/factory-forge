@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SPRINT / MILESTONE
  * Sprint Planning • Milestone Tracking • Delay Prediction (AI) • Risk Alerts

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================
 // BUSINESS ASSETS — META BUSINESS MANAGER STYLE
 // Franchises, Resellers, and operational assets

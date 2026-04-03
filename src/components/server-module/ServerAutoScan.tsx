@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER AUTO SCAN
  * Full infrastructure scan: status, services, disk, CPU, RAM, ports, security

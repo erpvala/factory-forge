@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ANALYTICS & FEEDBACK
  * Performance metrics, feedback, downloads

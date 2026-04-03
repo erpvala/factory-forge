@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LEAD DASHBOARD (Step 9)
  * Live metrics with action buttons

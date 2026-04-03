@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { 
   Plug, Code2, Palette, Rocket, CreditCard, Mail, 

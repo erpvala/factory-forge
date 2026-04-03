@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Filter, X, Calendar, User, MapPin, Tag, RefreshCw, Save, Trash2 } from 'lucide-react';

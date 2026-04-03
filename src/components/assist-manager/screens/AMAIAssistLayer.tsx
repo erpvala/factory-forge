@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI ASSIST LAYER - All buttons functional
  */

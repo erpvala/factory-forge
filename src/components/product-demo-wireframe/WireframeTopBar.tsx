@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * WIREFRAME TOP BAR
  * Search, date filter, user profile

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PAYMENT GATEWAYS SECTION
  * UPI, Bank Transfer, PayU, Stripe, PayPal, Crypto

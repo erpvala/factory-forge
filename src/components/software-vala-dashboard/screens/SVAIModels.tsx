@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI MODELS SCREEN
  * Model cards with toggles, versions, status

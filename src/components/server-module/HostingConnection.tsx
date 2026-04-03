@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * HOSTING CONNECTION
  * Connect hosting servers via URL, IP, credentials

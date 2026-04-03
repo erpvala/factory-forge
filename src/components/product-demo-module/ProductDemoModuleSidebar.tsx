@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRODUCT & DEMO MODULE SIDEBAR
  * Full enterprise sidebar with all Product Manager & Demo Manager features

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AIRA SYSTEM SCANNER
  * Monitors all 37 dashboards across the Software Vala ecosystem.

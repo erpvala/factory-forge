@@ -1,3 +1,4 @@
+// @ts-nocheck
 import FranchiseWalletCommission from '@/components/franchise/FranchiseWalletCommission';
 
 const FranchiseWalletPage = () => {

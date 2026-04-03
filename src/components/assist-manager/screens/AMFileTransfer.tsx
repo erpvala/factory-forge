@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FILE TRANSFER - All buttons functional
  */

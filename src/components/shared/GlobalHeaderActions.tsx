@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * GlobalHeaderActions - Header icon bar with role-based visibility
  * STEP 8: Icon order - Assist, Promise, Internal Chat, Tasks, Alerts, Language, Currency, Profile

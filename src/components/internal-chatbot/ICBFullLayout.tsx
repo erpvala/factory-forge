@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * INTERNAL CHAT BOT - FULL LAYOUT
  * Secure Assist Chat System

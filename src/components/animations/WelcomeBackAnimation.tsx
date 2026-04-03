@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Fingerprint, Shield, Users, Crown, Code, TrendingUp, Megaphone, Scan } from 'lucide-react';

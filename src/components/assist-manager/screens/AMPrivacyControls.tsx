@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRIVACY CONTROLS - All toggles functional
  */

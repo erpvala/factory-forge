@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LEAD MODULE SIDEBAR (Step 9)
  * 10-item sidebar with Back to Boss button

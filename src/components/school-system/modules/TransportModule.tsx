@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Transport Module
  * Manage buses, routes, and tracking

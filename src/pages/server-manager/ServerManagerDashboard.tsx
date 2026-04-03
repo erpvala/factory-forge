@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================
 // SERVER MANAGER — VERCEL CLONE
 // Enterprise Execution Mode

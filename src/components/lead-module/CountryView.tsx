@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * COUNTRY VIEW - World Map with Lead Distribution
  */

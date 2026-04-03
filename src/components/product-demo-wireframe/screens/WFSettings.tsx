@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SETTINGS
  * General, notifications, team

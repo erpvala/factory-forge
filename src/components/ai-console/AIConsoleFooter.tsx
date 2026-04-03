@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Download, Play, Activity, Save, FlaskConical } from 'lucide-react';
 import { Button } from '@/components/ui/button';

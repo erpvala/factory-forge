@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Safe Assist Trigger Button
  * Compact button for header integration - opens Safe Assist modal

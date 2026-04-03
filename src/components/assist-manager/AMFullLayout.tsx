@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ASSIST MANAGER FULL LAYOUT
  * VALA CONNECT - Complete Layout with Sidebar

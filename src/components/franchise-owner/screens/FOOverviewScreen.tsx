@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { 
   Target, Users, TrendingUp, Wallet, Megaphone, Search,

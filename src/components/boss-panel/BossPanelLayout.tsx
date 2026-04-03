@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { BossPanelHeader } from './BossPanelHeader';

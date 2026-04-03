@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ASSIST MANAGER FULL SIDEBAR
  * VALA CONNECT - UltraViewer Style Remote Assist

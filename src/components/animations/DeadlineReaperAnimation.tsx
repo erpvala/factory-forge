@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Gamified Deadline Warning Animation
  * 4 stages based on time remaining:

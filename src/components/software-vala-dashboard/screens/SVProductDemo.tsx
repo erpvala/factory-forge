@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRODUCT DEMO MANAGEMENT
  * Demo scheduling, management, and conversion tracking

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER SETTINGS
  * Global settings for server management

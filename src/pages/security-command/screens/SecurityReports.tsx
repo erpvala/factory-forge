@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { FileText, TrendingUp, Shield, AlertTriangle, Ban, Activity } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

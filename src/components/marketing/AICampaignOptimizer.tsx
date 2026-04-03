@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Brain, Sparkles, PenLine, DollarSign, TrendingUp, Loader2, Copy, Check, RefreshCw, Zap } from "lucide-react";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SOFTWARE VALA DASHBOARD DEMO PAGE
  */

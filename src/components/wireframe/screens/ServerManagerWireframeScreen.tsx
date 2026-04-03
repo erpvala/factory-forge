@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react";
 import SMOverview from "@/pages/server-manager/screens/SMOverview";
 

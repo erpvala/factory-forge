@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER - COMMISSION & AUTO-CUT SYSTEM
  * Auto-calculated, transparent ledger

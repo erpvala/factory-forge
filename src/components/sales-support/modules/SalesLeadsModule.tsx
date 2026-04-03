@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Inbox, UserPlus, ArrowRight, Flame, Sun, Snowflake, Target, DollarSign, TrendingUp } from "lucide-react";

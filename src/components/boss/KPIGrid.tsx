@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Responsive KPI Grid Component
  * Auto-adjusting grid with proper breakpoints

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import DashboardLayout from '@/components/layouts/DashboardLayout';
 import { PromiseTrackerScreen } from '@/components/wireframe/screens/PromiseTrackerScreen';

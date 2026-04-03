@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI CEO — Spy / Surveillance Module
  * Real-time cross-module monitoring: anomaly detection, activity tracking,

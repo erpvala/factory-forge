@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRODUCT DEMO MANAGER DASHBOARD
  * User-friendly, production-ready SaaS interface

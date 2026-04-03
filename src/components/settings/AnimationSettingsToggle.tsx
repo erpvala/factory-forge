@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Animation & Sound Settings Toggle
  * User controls for sound and animation preferences

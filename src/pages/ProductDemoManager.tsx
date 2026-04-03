@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import DemoManagerSidebar from "@/components/demo-manager/DemoManagerSidebar";

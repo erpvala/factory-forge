@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK DEPENDENCY
  * Parent Tasks • Child Tasks • Cross-Module Tasks

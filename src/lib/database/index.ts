@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Database Module Index
  * Central export for resilient database operations

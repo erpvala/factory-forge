@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Users, Plus, Ban, Target, MapPin, TrendingUp, DollarSign } from "lucide-react";

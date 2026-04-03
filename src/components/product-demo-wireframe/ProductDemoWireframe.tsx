@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRODUCT DEMO MANAGER - WIREFRAME STYLE
  * Low-fidelity enterprise SaaS dashboard

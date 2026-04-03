@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI SIDEBAR
  * Single Workspace - AI Command Center

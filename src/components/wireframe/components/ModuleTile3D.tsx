@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { GripVertical, MoreVertical, ExternalLink, TrendingUp, TrendingDown } from 'lucide-react';

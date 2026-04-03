@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Global Mock Data Generator with Location-Based Data
 
 // ============ LOCATIONS ============

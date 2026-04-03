@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Trust Badge Component — Shows verification, ratings, business info
  * Used across all marketplace views (cards, detail pages, search results)

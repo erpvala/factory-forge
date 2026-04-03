@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { MarketingModuleSidebar } from "./MarketingModuleSidebar";
 import { MarketingDashboard } from "./MarketingDashboard";

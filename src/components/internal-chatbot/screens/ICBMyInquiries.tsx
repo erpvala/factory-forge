@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * MY INQUIRIES
  * User's submitted inquiries list

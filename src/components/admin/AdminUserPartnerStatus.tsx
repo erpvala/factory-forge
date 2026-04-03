@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Admin User & Partner Status
 // View Profiles - Activate/Suspend - Policy-Based

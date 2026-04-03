@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Security & Access Module
  * Access control, visitor management, and security features

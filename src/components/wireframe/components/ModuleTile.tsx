@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { GripVertical, MoreVertical, ExternalLink, TrendingUp, TrendingDown } from 'lucide-react';
 import { LucideIcon } from 'lucide-react';

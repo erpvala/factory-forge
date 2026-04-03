@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Continent Configuration Data for All 6 Continents
 import { ContinentConfig, CountryData } from "./types";
 

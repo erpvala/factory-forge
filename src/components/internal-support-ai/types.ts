@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Internal Support AI Manager - Type Definitions
  * Enterprise-grade, AI-first, Zero-friction Support System

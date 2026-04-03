@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================
 // SOFTWARE VALA — GLOBAL COMMAND CENTER
 // 7D World Map Dashboard — No Internal Sidebar

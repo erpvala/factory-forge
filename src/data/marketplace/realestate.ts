@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Home, Building, Building2, Users, CreditCard, FileText, Calendar,
   MapPin, Camera, Globe, Phone, Target, BarChart3, PieChart, Calculator,

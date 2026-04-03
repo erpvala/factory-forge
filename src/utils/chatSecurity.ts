@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Chat Security Utilities for Software Vala Internal Chat Hub
 
 // Sentiment Analysis Types

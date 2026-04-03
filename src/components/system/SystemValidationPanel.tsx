@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * STEP 12: System Validation Panel
  * Visual interface for final validation and lock

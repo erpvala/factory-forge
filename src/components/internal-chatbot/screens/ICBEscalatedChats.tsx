@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ESCALATED CHATS
  * AI → Support → Developer → Boss

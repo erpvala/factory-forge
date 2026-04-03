@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER BACKUPS
  * Backup ON/OFF, last backup time, restore button

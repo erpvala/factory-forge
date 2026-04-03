@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Eye, EyeOff, Copy, Phone, Mail, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';

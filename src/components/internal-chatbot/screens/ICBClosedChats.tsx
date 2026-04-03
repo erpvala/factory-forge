@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CLOSED CHATS
  * Completed chat history

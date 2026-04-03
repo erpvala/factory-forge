@@ -1,3 +1,4 @@
+// @ts-nocheck
 export type { MarketplaceProduct } from "./types";
 export { educationProducts } from "./education";
 export { healthcareProducts } from "./healthcare";

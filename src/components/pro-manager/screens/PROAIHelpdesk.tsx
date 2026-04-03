@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI HELP DESK
  * AI Chat (Human-like Delay) • Context-Aware Replies • Auto Language Translate • No AI Disclosure

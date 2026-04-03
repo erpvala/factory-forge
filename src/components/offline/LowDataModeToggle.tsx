@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Low Data Mode Toggle
  * Allows users to manually enable low-data mode

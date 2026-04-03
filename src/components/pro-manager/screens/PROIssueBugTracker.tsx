@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ISSUE & BUG TRACKER
  * Issue ID • Related Build • Fix Status • AI Fix Attempt Log

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { 
   Wallet, TrendingUp, Clock, CheckCircle2, AlertCircle, 

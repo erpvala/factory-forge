@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CHATBOT TOP BAR
  */

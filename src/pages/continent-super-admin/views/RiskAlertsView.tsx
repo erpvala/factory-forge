@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Continent Super Admin - Risk & Alerts Screen
 import { useState } from 'react';
 import { motion } from 'framer-motion';

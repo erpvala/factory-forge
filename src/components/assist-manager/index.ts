@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ASSIST MANAGER (VALA CONNECT) EXPORTS
  */

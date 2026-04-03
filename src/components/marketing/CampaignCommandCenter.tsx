@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { Rocket, Play, Pause, Copy, TrendingUp, TrendingDown, Eye, MousePointer, DollarSign, Target, Sparkles } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

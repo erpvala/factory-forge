@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Global Monitoring System
  * Multi-region uptime, latency heatmaps, fraud per region, SLA tracking

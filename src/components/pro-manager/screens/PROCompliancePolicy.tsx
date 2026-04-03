@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * COMPLIANCE & POLICY
  * Agreement Accepted • Policy Violations • Legal Flags

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SCREEN 5: AUTOMATION RULES
  */

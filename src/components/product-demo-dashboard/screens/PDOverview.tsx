@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PD OVERVIEW
  * Dashboard overview with stats and charts

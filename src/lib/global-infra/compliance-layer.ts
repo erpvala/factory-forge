@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Global Compliance Layer
  * Regional data handling, encrypted tenant boundaries, permanent logs

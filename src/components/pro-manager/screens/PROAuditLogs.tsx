@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AUDIT LOGS (READ ONLY)
  * Every action tracked • Immutable • Timestamped

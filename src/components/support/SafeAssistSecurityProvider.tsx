@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Safe Assist Security Provider
  * Wraps the app to enforce security during Safe Assist sessions

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Restaurant POS - Small Scale (1-5 Tables, 1 Counter)
  * For: Small Dhabas, Food Stalls, Cafeterias

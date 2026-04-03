@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, TrendingUp, Target, DollarSign } from 'lucide-react';

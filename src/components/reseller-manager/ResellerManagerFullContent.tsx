@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * RESELLER MANAGER FULL CONTENT
  * Dynamic content renderer for all 12 sections

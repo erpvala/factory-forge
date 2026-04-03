@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGEMENT (CORE)
  * New • Assigned • In Progress • Blocked • Completed

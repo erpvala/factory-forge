@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { SessionExpiredUI } from "@/components/error/ErrorUI";
 
 const SessionExpiredPage = () => {

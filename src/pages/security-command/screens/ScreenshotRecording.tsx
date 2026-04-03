@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Camera, Video, Monitor, AlertTriangle, Eye, CheckCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

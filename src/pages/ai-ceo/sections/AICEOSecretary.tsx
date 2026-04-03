@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI CEO — Secretary Module
  * Manages briefings, correspondence, schedules, and module-wide

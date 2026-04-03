@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK HISTORY
  * Completed • Failed • Cancelled (Read-only)

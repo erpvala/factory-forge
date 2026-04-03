@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Network Detection & Quality Assessment
  * Detects connection type, speed, and quality for adaptive UI

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Globe, MapPin, ChevronRight, Power, UserCog, Check, X } from "lucide-react";

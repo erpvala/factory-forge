@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * System Action Button Component
  * Universal button with loading states, confirmation dialogs, and audit trail

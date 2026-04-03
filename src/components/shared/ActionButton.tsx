@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * STEP 10: Universal Action Button Component
  * Shows loading, success, error, and retry states

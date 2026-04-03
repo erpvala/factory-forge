@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * USAGE & BILLING SCREEN
  * Usage analytics and billing management

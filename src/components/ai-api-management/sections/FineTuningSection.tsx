@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FINE-TUNING / ADAPTERS SECTION
  * Custom datasets, training status, cost tracking

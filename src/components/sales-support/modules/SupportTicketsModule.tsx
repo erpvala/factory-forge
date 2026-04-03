@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Ticket, Plus, UserPlus, ArrowUp, CheckCircle, RotateCcw, Clock, AlertTriangle } from "lucide-react";

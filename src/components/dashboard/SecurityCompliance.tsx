@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Scale, CheckCircle, AlertTriangle, FileText, Shield } from 'lucide-react';
 

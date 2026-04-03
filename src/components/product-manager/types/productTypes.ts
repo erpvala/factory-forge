@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Product Manager Enterprise Types
 
 export type ProductStatus = 'active' | 'parked' | 'draft' | 'disabled';

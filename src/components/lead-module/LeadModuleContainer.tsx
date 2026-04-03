@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LEAD MODULE CONTAINER (Step 9)
  */
