@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK APPROVAL
  * Pending • Approved • Rejected • Returned

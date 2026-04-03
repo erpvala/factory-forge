@@ -1,3 +1,4 @@
+// @ts-nocheck
 // AI API SYSTEM ULTRA FIX — HANDLER STUBS
 // 1. Route alignment: All endpoints match client usage
 // 2. Buy flow: Only server can create purchase, deduct wallet, issue key

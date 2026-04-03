@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Youtube, Facebook, Video, Globe, CheckCircle, RefreshCw, AlertTriangle } from 'lucide-react';

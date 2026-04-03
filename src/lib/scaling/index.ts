@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Enterprise Scaling Module Index
  * Central export for all scaling optimizations

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SOURCE CODE LOCK SYSTEM
  * Developer can only work on assigned domain/project

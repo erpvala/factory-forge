@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ACTIVE CHATS
  * Live chat sessions

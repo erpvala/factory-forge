@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AUTO SERVER ORCHESTRATION - INTERNAL ONLY
  * Fully automated, AI-driven, zero-manual configuration

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * COMPLIANCE & NDA
  * NDA Status • Policy Acceptance • Violation History

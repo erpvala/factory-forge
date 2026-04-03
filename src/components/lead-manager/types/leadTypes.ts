@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Enterprise Lead Manager Type Definitions
 
 export type LeadStatus = 

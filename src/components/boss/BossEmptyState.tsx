@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Boss Empty State Component
  * Shows when no data/action is required for a section

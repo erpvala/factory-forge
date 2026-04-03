@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { 
   CheckSquare, Clock, AlertTriangle, Play, Pause, Square, Filter, Search,

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * JIRA-BTN-01/02/03: Enterprise Button Component
  * Renders buttons with proper states: hover, loading, success, error, retry

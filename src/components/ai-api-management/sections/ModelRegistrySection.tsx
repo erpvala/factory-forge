@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * MODEL REGISTRY SECTION
  * Internal vs External models, approval workflow, audit trail

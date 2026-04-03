@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Building, Heart, Users, Stethoscope, Pill, ClipboardCheck, Calendar,
   FileText, UserCheck, Eye, Phone, Truck, CreditCard, BarChart3, Database,

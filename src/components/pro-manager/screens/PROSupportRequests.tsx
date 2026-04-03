@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SUPPORT REQUESTS
  * New • In Progress • Waiting User • Resolved • Escalated

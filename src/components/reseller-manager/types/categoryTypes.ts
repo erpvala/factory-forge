@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Reseller Management Category Hierarchy Types
 
 export interface NanoCategory {

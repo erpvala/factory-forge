@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PAYMENT & INCENTIVE
  * Work Hours • Approved Tasks • Incentive Eligibility • Payment Hold

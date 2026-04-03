@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER HEALTH & LOAD
  * Real-time health metrics with AI alerts

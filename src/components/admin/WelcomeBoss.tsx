@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { Crown } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";

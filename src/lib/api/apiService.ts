@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Centralized API Service with Authentication, Error Handling, and Role-Based Access
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";

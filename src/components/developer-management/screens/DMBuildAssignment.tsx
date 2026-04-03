@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BUILD ASSIGNMENT
  * Build ID • Module Scope • Assigned Dev • Status

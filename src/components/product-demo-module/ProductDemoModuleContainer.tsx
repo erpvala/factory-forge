@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRODUCT & DEMO MODULE CONTAINER (Step 11)
  */

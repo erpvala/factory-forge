@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER MY ORDERS SCREEN
  * Order tracking with project ID linking

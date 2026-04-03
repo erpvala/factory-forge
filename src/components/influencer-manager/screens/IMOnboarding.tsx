@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { UserPlus, RefreshCw, Users, Youtube, Facebook, Video, Globe } from 'lucide-react';

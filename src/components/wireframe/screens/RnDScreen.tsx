@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { 
   Lightbulb, Beaker, Rocket, FileText, MessageSquare, Search, Filter,

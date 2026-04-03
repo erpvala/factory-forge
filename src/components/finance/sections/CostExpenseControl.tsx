@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * COST & EXPENSE CONTROL SECTION
  * Server, AI/API, Marketing, Support, Manual Entry

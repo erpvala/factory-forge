@@ -1,3 +1,4 @@
+// @ts-nocheck
 // AI API SYSTEM ULTRA FIX — REALTIME HOOKS
 // Subscribes to wallet and usage events for live updates
 

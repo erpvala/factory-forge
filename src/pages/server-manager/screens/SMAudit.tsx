@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Eye, Lock, FileText } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 

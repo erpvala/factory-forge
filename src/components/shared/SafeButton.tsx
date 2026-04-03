@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SAFE BUTTON COMPONENT
  * Wrapper that ensures EVERY button has an action

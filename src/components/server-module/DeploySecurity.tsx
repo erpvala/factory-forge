@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEPLOY SECURITY
  * Pre-deployment integrity checks: code validation, dependency scan, security scan

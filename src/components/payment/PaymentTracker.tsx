@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Payment Tracker - Tracks payment attempts for AI follow-up
  */

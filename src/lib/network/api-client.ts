@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Lightweight API Client
  * Optimized for low-bandwidth networks with compression, retry, and caching

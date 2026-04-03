@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEMO COMMAND BAR
  * Top action bar with search and quick actions

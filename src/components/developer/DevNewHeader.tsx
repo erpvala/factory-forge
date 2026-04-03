@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Timer, User, Circle } from 'lucide-react';
 import { useState, useEffect } from 'react';

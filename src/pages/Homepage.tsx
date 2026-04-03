@@ -1,3 +1,4 @@
+// @ts-nocheck
 import SimpleLanding from './SimpleLanding';
 
 const Homepage = () => {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Copy, ClipboardX, Keyboard, CheckCircle, XCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

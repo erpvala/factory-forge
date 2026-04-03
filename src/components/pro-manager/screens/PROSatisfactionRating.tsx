@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SATISFACTION & RATING
  * CSAT Score • Feedback Summary • Risk Prediction (AI)

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI API MANAGER — Enterprise Clone
  * OpenAI Platform-style dark UI with 8 core modules

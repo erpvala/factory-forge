@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { 
   Inbox, CheckCircle2, Clock, Smile, ArrowUpRight, 

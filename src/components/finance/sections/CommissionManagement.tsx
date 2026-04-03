@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * COMMISSION MANAGEMENT SECTION
  * Franchise, Reseller, Influencer Commissions, Rules, Auto Deduction

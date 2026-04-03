@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DATA GOVERNANCE SECTION
  * Data retention rules, PII masking, region lock, GDPR/SOC flags

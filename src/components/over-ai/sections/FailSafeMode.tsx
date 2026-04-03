@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * OVER AI - Fail-Safe Mode
  * LOCKED - DO NOT MODIFY

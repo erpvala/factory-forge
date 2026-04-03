@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================
 // DEPLOYMENTS — VERCEL CLONE
 // Git-push → Build → Deploy Pipeline

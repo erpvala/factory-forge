@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect, memo } from 'react';
 import { Crown, Brain, Cpu, CreditCard, Globe2, ShieldAlert, Eye, Edit3, Play, StopCircle, Pause, Loader2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';

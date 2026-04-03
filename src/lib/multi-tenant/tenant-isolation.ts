@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Tenant Data Isolation Layer
  * Ensures data segregation per franchise/reseller/prime

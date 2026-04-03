@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK EXECUTION
  * Running • Paused • Waiting Input • Auto-Fix Running

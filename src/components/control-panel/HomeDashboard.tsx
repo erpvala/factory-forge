@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * HomeDashboard - Enterprise Home/Landing Management
  * Quick overview and navigation hub

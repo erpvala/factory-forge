@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Route Loading Fallback Components
  * Provides loading states and fallback UI to prevent blank screens

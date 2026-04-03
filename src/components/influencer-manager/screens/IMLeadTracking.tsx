@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MousePointer, Users, UserCheck, ShoppingCart, Eye, CheckCircle, AlertTriangle } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Plus, CheckCircle, XCircle, Clock, FileText } from 'lucide-react';

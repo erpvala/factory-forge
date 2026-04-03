@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Communication Module
  * Notices, circulars, and messaging

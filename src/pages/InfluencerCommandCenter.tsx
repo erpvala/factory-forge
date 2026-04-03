@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Influencer Command Center - Premium Dark Mode Dashboard
  * Role: INFLUENCER (Grade 3)

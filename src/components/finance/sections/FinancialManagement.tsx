@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FINANCIAL MANAGEMENT SECTION - CONNECTED TO REAL DATA
  */

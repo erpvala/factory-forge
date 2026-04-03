@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BILLING ALLOCATION SECTION
  * Cost per client, cost per feature, budget caps

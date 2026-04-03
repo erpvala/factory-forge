@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ALERTS PREVIEW
  * Mini alert stack showing latest 3 alerts

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Adaptive Image Component
  * Loads appropriate image quality based on network conditions

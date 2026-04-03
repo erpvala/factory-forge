@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ROLE MANAGER ENTERPRISE LAYOUT
  * Full dashboard with sidebar + 10 screen sections

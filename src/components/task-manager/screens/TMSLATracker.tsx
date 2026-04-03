@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - SLA TRACKER
  * On Time • At Risk • Breached

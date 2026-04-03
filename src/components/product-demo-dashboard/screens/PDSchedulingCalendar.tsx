@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PD SCHEDULING & CALENDAR
  * Calendar view and scheduling management

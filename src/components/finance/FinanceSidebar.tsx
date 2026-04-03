@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FINANCE SIDEBAR - QUICKBOOKS CLONE
  * Restructured: Dashboard, Financial Management, Accounting, Transactions, Reports

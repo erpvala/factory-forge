@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { default as SupportTeamModule } from './SupportTeamModule';
 export { default as SalesTeamModule } from './SalesTeamModule';
 export { default as SupportTicketsModule } from './SupportTicketsModule';

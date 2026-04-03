@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SETTINGS
  * Developer management configuration

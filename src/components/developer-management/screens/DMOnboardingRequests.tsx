@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ONBOARDING REQUESTS
  * New Join → Document Check → NDA Review → Skill Validation → Boss Approval

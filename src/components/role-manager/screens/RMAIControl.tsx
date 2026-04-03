@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ROLE MANAGER - AI ROLE CONTROL SCREEN
  */

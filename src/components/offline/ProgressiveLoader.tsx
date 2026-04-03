@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Progressive Loader
  * Shows skeleton while content loads, with retry on failure

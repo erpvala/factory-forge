@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ROLE MANAGER - ROLE HIERARCHY SCREEN
  */

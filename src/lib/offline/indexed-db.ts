@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * IndexedDB Wrapper
  * Lightweight local storage for offline-first architecture

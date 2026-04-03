@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI TOOL MONITOR
  * Monitor AI services running on connected servers

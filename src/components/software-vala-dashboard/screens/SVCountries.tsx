@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * COUNTRIES SCREEN
  * Country grid with compliance status

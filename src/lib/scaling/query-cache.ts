@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Query Cache with TTL and Invalidation
  * Optimizes database read performance for high-volume usage

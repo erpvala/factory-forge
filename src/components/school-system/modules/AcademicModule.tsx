@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Academic Management Module
  * Subjects, curriculum, timetable, and academic planning

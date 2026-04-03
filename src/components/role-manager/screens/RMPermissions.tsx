@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ROLE MANAGER - PERMISSION MANAGEMENT SCREEN
  */

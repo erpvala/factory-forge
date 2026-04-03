@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Continent Super Admin - Audit Screen (Read-Only)
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';

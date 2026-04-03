@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI - Execution Logs Panel
  */

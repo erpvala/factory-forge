@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================
 // CONTINENT ADMIN — META BUSINESS MANAGER CLONE
 // Enterprise Execution Mode

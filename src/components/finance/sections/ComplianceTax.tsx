@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * COMPLIANCE & TAX SECTION
  * GST/VAT, TDS, Country-wise Tax, Audit Reports

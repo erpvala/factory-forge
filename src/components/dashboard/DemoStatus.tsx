@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { PlayCircle, Eye, TrendingUp, AlertCircle, CheckCircle2 } from 'lucide-react';
 

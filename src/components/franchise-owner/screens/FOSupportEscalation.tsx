@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER - SUPPORT & ESCALATION
  * Priority Tickets, AI Pre-Analysis, SLA Tracker

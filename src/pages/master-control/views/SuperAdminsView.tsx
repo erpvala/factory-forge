@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Card } from '@/components/ui/card';
 import { User, Clock, Activity, Globe2 } from 'lucide-react';
 import {

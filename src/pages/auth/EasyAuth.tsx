@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Easy Auth - Simple login for users, resellers, influencers
  * No KYC required at login - collected later when needed

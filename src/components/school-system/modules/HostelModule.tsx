@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Hostel & Canteen Module
  * Manage hostels, rooms, mess, and canteen

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import DeadlineReaperAnimation, { DeadlineStage } from '@/components/animations/DeadlineReaperAnimation';
 

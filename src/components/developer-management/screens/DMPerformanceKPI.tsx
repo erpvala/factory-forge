@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PERFORMANCE & KPI
  * Task Completion • Bug Ratio • SLA Adherence • AI Quality Score

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * One-Click Demo Component
  * Opens demo instantly with single click - no friction

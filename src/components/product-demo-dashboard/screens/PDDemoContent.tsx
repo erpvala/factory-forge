@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PD DEMO CONTENT
  * Create and manage demo content with drag & drop

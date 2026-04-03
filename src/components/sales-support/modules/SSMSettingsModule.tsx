@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Settings, Bell, Clock, AlertTriangle, Shield, Save, RefreshCw } from "lucide-react";

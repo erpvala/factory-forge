@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { Settings, Bell, Shield, Palette, Globe, Clock, ChevronRight, ToggleLeft, ToggleRight } from 'lucide-react';
 

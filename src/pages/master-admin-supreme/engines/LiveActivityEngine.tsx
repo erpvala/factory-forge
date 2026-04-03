@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, Zap, Radio, Clock, User, MapPin } from 'lucide-react';

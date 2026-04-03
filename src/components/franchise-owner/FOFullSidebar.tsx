@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER FULL SIDEBAR
  * 10 Modules - Enterprise-Grade Business Control

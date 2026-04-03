@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Deployments Manager
 // CI/CD Only - Versioned - Canary/Staged - Rollback

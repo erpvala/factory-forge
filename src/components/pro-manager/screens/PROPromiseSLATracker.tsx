@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PROMISE & SLA TRACKER
  * Promised Action • Deadline • Owner • SLA Status

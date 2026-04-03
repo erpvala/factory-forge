@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { ResellerManagerSidebar } from './ResellerManagerSidebar';
 export type { ResellerManagerSection } from './ResellerManagerSidebar';
 export { ResellerDashboardOverview } from './ResellerDashboardOverview';

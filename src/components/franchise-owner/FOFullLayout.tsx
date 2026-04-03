@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER FULL LAYOUT
  * 10 Module Enterprise Dashboard

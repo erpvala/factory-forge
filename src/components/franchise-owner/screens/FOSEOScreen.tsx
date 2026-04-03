@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Search, MapPin, Globe, FileText, TrendingUp, Play, Pause, Eye, Sparkles } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

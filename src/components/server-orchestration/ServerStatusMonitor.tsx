@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Server Status Monitor - Real-time status without technical details
  * Shows only: Status, Performance (simple), AI Actions

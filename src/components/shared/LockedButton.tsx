@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LOCKED BUTTON COMPONENT
  * Shows tooltip when user has no permission

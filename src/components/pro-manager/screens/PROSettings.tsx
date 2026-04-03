@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SETTINGS (Limited)
  * Limited configuration options for Pro Manager

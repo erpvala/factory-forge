@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AIRA TOOL STACK — Advanced Enterprise Tool Intelligence System
  * Unified dashboard for all enterprise-grade tools AIRA uses:

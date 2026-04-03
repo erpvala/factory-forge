@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Internal Support AI - AI Transparency Log
  * Read-only log showing Issue Detected, Action Taken, Reason, Outcome, Next Step

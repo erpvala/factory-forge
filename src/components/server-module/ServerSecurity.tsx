@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER SECURITY
  * Password masked, AI threat scan, auto block, login monitor

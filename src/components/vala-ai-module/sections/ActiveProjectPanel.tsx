@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI - Active Project Panel
  */

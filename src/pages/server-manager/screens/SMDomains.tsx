@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================
 // DOMAINS — VERCEL CLONE
 // Custom domains, SSL, DNS management

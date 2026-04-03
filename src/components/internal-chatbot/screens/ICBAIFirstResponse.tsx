@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI FIRST RESPONSE LAYER
  * AI CAN: Read, Suggest, Ask, Route

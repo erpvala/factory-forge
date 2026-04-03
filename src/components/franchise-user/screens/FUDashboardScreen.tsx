@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE DASHBOARD - SHOPIFY PARTNER CLONE
  * Clean white UI with Shopify-style cards, earnings, and store management

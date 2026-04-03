@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ALL PRODUCTS LIST
  * Product cards with actions

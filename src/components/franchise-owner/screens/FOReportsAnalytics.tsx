@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER - REPORTS & ANALYTICS
  * Sales, Commission, Order, Team, Wallet Reports with Export

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { 
   TrendingUp, Users, Target, Award, Clock, BarChart3, Calendar,

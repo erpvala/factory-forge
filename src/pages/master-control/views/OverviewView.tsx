@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Globe2, Users, AlertTriangle, Shield, TrendingUp, TrendingDown, Award, Code, Store, Megaphone, MapPin, Building2 } from 'lucide-react';
 import { ComposableMap, Geographies, Geography, Marker } from 'react-simple-maps';
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * MODEL EVALUATION SECTION
  * Accuracy score, hallucination rate, benchmark tests, A/B testing

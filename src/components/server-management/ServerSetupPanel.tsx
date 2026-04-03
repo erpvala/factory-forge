@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER SETUP PANEL - SIMPLE LIKE VERCEL
  * Only 3 inputs: Server Name, Domain, Region

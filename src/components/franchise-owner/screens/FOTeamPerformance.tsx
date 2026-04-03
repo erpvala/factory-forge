@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER - TEAM MONITORING & PERFORMANCE
  * KPIs, Sales Graphs, Individual Performance

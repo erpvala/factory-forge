@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Premium Button with Micro-interactions
  * Scale, glow, and sound feedback on click

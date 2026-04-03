@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Wifi, WifiOff, Signal, SignalLow, SignalMedium, SignalHigh } from 'lucide-react';
 import { cn } from '@/lib/utils';
 

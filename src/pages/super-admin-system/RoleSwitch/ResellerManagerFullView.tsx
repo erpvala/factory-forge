@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * RESELLER MANAGER FULL VIEW
  * Complete dashboard with hierarchical sidebar

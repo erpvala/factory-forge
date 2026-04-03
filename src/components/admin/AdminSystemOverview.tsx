@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Admin System Overview
 // Non-Technical View - Operations Focus

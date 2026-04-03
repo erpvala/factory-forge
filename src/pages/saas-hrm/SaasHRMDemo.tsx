@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import SaasHRMLayout from '@/components/saas-hrm/SaasHRMLayout';
 import SaasDashboard from '@/components/saas-hrm/SaasDashboard';

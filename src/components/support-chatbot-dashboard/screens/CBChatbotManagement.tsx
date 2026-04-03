@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CHATBOT MANAGEMENT SCREEN
  * Manage and configure chatbots

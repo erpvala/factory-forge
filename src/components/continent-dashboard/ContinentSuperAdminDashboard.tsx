@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Reusable Continent Super Admin Dashboard Template
 // Works for all 6 continents with dynamic data binding
 

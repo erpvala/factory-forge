@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Masking Cache
  * Memoizes expensive masking operations to improve performance

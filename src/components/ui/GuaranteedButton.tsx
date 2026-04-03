@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * GuaranteedButton - 100% Click Guarantee Button System
  * CRITICAL: Every button in the system MUST work

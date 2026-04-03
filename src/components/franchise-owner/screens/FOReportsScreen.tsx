@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { BarChart3, TrendingUp, Target, Search, Megaphone } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

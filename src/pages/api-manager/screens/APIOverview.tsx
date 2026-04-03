@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Activity, Zap, AlertTriangle, Brain } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

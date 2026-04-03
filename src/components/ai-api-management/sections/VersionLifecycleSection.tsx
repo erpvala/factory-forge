@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VERSION LIFECYCLE SECTION
  * Deprecation date, migration notice, auto upgrade

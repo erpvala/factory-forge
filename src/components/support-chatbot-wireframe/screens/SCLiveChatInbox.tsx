@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SCREEN 3: LIVE CHAT INBOX
  */

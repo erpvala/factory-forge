@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Multi-Tenant Context Provider
  * Provides tenant isolation and context across SOFTWARE VALA

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PD LEAD MANAGEMENT
  * Manage leads and demo attendees

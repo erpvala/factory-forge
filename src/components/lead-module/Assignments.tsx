@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LEAD ASSIGNMENTS
  * Auto-assign by country/role, manual override

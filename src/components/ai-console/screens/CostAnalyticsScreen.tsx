@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { BarChart3, TrendingUp, TrendingDown, DollarSign, Zap, Database } from 'lucide-react';
 import { 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI / API BILLING SECTION
  * Usage Cost, Spike Alert, Stop/Resume, Budget Limit

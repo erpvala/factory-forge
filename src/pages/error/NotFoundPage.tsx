@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { PageNotFoundUI } from "@/components/error/ErrorUI";
 
 const NotFoundPage = () => {

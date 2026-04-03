@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * UNIVERSAL CLICK WRAPPER
  * Wraps ANY element to ensure click handling

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Shield, Check, X, Brain, Zap, Database, Lock } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';

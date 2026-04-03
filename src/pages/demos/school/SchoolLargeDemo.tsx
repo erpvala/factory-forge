@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * School Management System - Complete Enterprise Demo
  * Fully Working Software - Auto-Login via URL

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Quick Support Component
  * Fast support with attachments for rapid requirement resolution

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { FormEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 import {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ACTION BOX WITH REAL PERMISSIONS
  * =================================

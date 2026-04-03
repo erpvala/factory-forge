@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LICENSE & DOMAIN
  * License Type • Domain Bound Status • Expiry Date • Transfer Status

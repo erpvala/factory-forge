@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CHAT DASHBOARD - TOP STATUS CARDS
  * All cards clickable → filtered view

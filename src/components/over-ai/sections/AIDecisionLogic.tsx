@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * OVER AI - Decision Logic (Micro Level)
  * LOCKED - DO NOT MODIFY

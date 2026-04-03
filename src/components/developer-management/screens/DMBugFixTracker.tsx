@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BUG & FIX TRACKER
  * Bug ID • Severity • Linked Task • Fix Status

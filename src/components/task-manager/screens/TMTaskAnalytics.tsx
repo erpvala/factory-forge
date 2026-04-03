@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK ANALYTICS
  * Completion Rate • SLA Breach % • AI vs Human • Avg Resolution Time

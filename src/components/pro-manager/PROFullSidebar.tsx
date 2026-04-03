@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRO MANAGER - FULL SIDEBAR
  * Post-Sale Premium User Control

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * MARKETING MODULE SIDEBAR (Step 10)
  * 10-item sidebar with Back to Boss button

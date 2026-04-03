@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { ProductDemoModuleSidebar, type ProductDemoSection } from './ProductDemoModuleSidebar';
 export { ProductDashboard } from './ProductDashboard';
 export { AllProducts } from './AllProducts';

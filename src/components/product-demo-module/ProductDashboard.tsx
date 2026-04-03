@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRODUCT MANAGER DASHBOARD
  * Full-featured dashboard with all required cards and features

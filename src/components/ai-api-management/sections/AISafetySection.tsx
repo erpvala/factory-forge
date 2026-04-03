@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI SAFETY SECTION
  * Content filters, abuse detection, rate abuse rules

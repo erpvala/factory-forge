@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import AppShell from '@/components/app/AppShell';

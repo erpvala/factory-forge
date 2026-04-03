@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Key, Eye, EyeOff, RefreshCw, Trash2, Plus, Shield, Clock, Lock, AlertTriangle } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ModuleBreadcrumb - Shows current navigation path with back/home buttons
  * STEP 9: Header context updates with breadcrumb

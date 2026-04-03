@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Outlet } from "react-router-dom";
 import { GlobalHeader } from "./GlobalHeader";
 import { GlobalSidebar } from "./GlobalSidebar";

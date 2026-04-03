@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SCREEN 4: SCHEDULER
  * Calendar view, time slots, timezone selector

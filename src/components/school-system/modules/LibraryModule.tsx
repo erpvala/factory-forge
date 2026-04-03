@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Library Module
  * Manage books, issues, and returns

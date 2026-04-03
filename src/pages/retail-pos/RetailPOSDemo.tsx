@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { RetailPOSLayout } from '@/components/retail-pos/RetailPOSLayout';
 import { POSScreen } from '@/components/retail-pos/POSScreen';

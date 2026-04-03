@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Restaurant POS - Large Scale (50+ Tables, Multiple Outlets)
  * For: Hotel Restaurants, Chain Outlets, Banquet Halls

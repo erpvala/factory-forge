@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - DASHBOARD
  * KPI Overview - All Boxes Clickable

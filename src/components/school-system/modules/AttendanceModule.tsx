@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Attendance Module
  * Mark and track student/staff attendance

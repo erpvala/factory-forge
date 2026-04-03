@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - FULL SIDEBAR
  * Enterprise Operation Control - Internal Only

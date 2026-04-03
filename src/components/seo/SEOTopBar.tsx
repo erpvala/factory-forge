@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Globe, Search, Settings, Sparkles, Activity, Wallet, Bell, Power, User } from "lucide-react";

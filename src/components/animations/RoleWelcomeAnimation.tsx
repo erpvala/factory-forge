@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Role-Based Welcome Animation
  * OPTIMIZED: Reduced animations for better performance

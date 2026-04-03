@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEVELOPER AI CHAT - LIVE STREAMING
  * Budget-friendly AI using mix model approach

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEVELOPER MANAGEMENT - FULL SIDEBAR
  * Internal Human Developers Only

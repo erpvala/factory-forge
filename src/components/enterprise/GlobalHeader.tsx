@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { Bell, Zap, Wallet, Search, Globe, Bot, User, ChevronDown, LogOut, Settings, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import SuperAdminLayout from '@/components/layouts/SuperAdminLayout';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

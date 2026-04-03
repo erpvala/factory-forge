@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useParams, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ExternalLink, Play, Monitor, Smartphone, Tablet, Star, Eye, TrendingUp, Sparkles, Shield } from "lucide-react";

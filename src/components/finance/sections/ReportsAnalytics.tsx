@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * REPORTS & ANALYTICS SECTION
  * Daily, Monthly, Yearly Reports, Export

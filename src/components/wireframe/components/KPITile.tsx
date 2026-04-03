@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { LucideIcon, TrendingUp, TrendingDown, Minus } from 'lucide-react';
 

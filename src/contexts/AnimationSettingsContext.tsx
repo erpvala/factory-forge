@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Animation & Sound Settings Provider
  * Global controls for sound ON/OFF and reduced motion

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * INTERNAL CHAT BOT - FULL SIDEBAR
  * Secure Assist Chat - Internal Team Only

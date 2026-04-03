@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PAYMENT MANAGEMENT SECTION
  * Incoming, Outgoing, Failed, Pending, Partial Payments

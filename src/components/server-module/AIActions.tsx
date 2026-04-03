@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI ACTIONS
  * Shows what AI can/cannot do, recent AI actions

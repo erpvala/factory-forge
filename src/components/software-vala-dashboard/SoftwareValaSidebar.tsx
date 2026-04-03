@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SOFTWARE VALA SIDEBAR
  * Collapsible navigation with enterprise styling

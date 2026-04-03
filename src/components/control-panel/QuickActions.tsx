@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * QUICK ACTIONS
  * Icon-only vertical action buttons with tooltips

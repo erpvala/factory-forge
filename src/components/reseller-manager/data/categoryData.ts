@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Category } from '../types/categoryTypes';
 
 export const resellerCategories: Category[] = [

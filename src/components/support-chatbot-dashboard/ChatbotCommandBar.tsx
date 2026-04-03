@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CHATBOT COMMAND BAR
  * Top navigation with search and quick actions

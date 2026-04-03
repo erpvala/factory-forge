@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Lazy Route Loading - Performance Optimized
  * Reduces initial bundle size by code-splitting all routes

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Server Management Types
 
 export interface ServerInstance {

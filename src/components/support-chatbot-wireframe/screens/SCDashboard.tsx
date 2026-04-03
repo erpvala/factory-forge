@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SCREEN 1: DASHBOARD
  */

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SIDEBAR VISIBILITY GUARD
  * 

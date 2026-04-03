@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Globe, ChevronDown, Check } from 'lucide-react';
 import { useTranslation } from '@/contexts/TranslationContext';

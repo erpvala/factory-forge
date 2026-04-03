@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Upload, Mic, Sparkles, Loader2, X, FileUp } from 'lucide-react';

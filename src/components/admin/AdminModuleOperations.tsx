@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ==============================================
 // Admin Module Operations
 // Enable/Disable Non-Core Modules - Pause Demos

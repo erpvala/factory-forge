@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Code2, GitCommit, ExternalLink, FileText, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';

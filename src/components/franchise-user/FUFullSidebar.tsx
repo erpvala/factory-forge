@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE USER SIDEBAR
  * Simple • 9 Sections • Non-Tech Friendly

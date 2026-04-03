@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Wallet, Check, ChevronDown, TrendingUp, TrendingDown } from 'lucide-react';

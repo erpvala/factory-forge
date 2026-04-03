@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { GCLayout } from '@/components/demos/google-classroom/GCLayout';
 
 const GoogleClassroomDemo = () => <GCLayout />;

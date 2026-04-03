@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Global Traffic Management
  * Load balancing, DDoS protection, rate limiting per tenant

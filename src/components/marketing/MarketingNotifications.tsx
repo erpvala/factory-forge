@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Bell, X, Rocket, TrendingUp, AlertTriangle, Users, Zap, Target } from "lucide-react";

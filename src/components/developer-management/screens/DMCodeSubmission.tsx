@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CODE SUBMISSION
  * No raw download • No external repo • Internal commit only

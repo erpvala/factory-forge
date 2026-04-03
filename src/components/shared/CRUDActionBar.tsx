@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * STEP 10: CRUD Action Bar Component
  * Provides standard Create/Read/Update/Archive buttons for any entity

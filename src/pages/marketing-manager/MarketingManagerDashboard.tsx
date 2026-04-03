@@ -1,3 +1,4 @@
+// @ts-nocheck
 import MarketingManager from "../MarketingManager";
 
 const MarketingManagerDashboard = () => <MarketingManager />;

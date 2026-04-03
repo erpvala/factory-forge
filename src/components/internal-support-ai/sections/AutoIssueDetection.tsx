@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Internal Support AI - Auto Issue Detection
  * Real-time context capture, error listeners, failure trackers

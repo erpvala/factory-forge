@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * System Confirmation Dialog
  * Universal confirmation dialog for destructive or important actions

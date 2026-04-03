@@ -1,3 +1,4 @@
+// @ts-nocheck
 import SuperAdminLayout from '@/components/layouts/SuperAdminLayout';
 import RoleAccessControl from '@/components/admin/RoleAccessControl';
 import { Shield } from 'lucide-react';

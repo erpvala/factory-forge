@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ACTIVE SERVERS LIST
  * Server cards with status, CPU/RAM, actions

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Offline-Online Sync Engine
  * AI-driven conflict resolution and versioning

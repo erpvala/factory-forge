@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { memo, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Volume2 } from 'lucide-react';

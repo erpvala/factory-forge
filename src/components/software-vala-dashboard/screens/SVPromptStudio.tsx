@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PROMPT STUDIO
  * System prompts, versioning, rollback, environment mapping

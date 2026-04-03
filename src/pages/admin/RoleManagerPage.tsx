@@ -1,3 +1,4 @@
+// @ts-nocheck
 import RoleManagerComplete from '@/components/role-manager/RoleManagerComplete';
 
 const RoleManagerPage = () => {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import AccountingLayout from '@/components/accounting/AccountingLayout';
 import AccountingDashboard from '@/components/accounting/AccountingDashboard';

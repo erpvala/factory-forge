@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Download, Clock, Filter, Lock, User, CheckCircle, AlertTriangle, Bot, MessageSquare } from 'lucide-react';

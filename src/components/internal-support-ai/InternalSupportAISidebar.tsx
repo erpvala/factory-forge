@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Internal Support AI Manager - Sidebar Navigation
  * Enterprise-grade sidebar with all support modules

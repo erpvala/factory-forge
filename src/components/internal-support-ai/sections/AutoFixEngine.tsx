@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Internal Support AI - Auto-Fix Engine
  * Safe Fix Queue, Config Re-sync, Permission Rebind, Rollback

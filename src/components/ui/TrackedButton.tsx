@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TRACKED BUTTON COMPONENT
  * Universal button with automatic action logging

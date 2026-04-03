@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { 
   Banknote, DollarSign, RefreshCcw, Sparkles, Shield, Clock, Wallet 

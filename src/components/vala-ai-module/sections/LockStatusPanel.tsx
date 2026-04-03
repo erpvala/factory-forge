@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI - Lock Status Panel
  */

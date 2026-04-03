@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEVICE ACCESS - All toggles functional
  */

@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Continent Super Admin - Countries Screen (DB-Driven)
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';

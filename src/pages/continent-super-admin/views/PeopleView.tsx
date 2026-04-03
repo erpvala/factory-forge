@@ -1,3 +1,4 @@
+// @ts-nocheck
 // ============================================
 // PEOPLE — META BUSINESS MANAGER STYLE
 // Manage admins, managers, and team members

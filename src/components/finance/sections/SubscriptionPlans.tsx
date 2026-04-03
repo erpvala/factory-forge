@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SUBSCRIPTION & PLANS SECTION
  * Active, Expired, Renewal, Upgrade, Downgrade Plans

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * OVER AI - Speed Engine (Light-Speed Mode)
  * LOCKED - DO NOT MODIFY

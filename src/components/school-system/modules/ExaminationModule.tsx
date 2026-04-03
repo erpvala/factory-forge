@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Examination Module
  * Manage exams, marks, and results

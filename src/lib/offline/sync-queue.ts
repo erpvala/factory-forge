@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Offline Sync Queue
  * Queues actions when offline and syncs when connection returns

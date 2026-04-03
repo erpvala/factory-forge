@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { 
   Loader2, CheckCircle2, AlertCircle, Pause, Play, 

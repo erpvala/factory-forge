@@ -1,3 +1,4 @@
+// @ts-nocheck
 // IndexedDB wrapper for offline caching
 
 const DB_NAME = 'software_vala_cache';

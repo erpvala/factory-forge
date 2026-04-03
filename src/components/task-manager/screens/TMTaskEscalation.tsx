@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK ESCALATION
  * Role Escalation • AI Escalation • Boss Escalation

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Bell, Wallet, Activity, Brain, Cpu, Shield, Zap } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';

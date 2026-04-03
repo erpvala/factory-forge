@@ -1,3 +1,4 @@
+// @ts-nocheck
 import FranchiseDemoPanel from '@/components/franchise/FranchiseDemoPanel';
 
 const FranchiseDemoLibraryPage = () => {

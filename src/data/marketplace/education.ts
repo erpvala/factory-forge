@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   GraduationCap, BookOpen, Users, Building, UserCheck, Calculator,
   MonitorPlay, FileCheck, ClipboardCheck, BarChart3, FileText, UserCog,

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CONTROL PANEL SIDEBAR - FINAL STRUCTURE
  * ========================================

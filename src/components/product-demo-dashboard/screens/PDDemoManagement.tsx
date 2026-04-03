@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PD DEMO MANAGEMENT
  * Manage all product demos

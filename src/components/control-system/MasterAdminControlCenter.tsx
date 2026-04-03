@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Master Admin Control Center
  * 

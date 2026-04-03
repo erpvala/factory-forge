@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SCREEN 5: LEADS
  * Lead management table

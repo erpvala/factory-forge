@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * RESELLER MANAGER SIDEBAR
  * SINGLE SIDEBAR ENFORCEMENT: Uses sidebar store

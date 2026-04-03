@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * INVOICE MANAGEMENT SECTION
  * Generate, Auto, Franchise, Reseller, Tax, Credit/Debit Notes

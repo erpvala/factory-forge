@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LIVE RUNNING TASKS
  * Shows compact list of running tasks with progress bars

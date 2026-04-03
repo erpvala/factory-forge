@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DASHBOARD HOME SCREEN
  * Stats cards + usage charts

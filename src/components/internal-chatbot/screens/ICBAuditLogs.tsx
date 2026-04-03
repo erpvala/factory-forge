@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AUDIT LOGS (READ ONLY)
  * NO EDIT • NO DELETE

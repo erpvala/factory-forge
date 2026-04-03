@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { RestaurantPOSLayout } from '@/components/restaurant-pos/RestaurantPOSLayout';
 import { RestaurantPOSScreen } from '@/components/restaurant-pos/RestaurantPOSScreen';

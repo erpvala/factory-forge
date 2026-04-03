@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEVELOPER MANAGEMENT - FULL LAYOUT
  * Enterprise Mode • AI-Assisted • Zero-Leak

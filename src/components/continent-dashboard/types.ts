@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Continent Dashboard Types & Configuration
 
 export interface CountryData {

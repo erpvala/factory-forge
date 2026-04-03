@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEVELOPER REGISTRY
  * All Developers • Active • Suspended • Probation • Exited

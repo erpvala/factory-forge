@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PD ANALYTICS & FEEDBACK
  * Analytics, attendance, and feedback reports

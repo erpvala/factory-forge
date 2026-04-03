@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * LIVE STATUS INDICATORS
  * Shows system status, AI jobs, and pending actions

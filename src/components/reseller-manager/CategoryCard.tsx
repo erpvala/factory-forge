@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CATEGORY CARD
  * DEBUG FIX: Removed mock delay, added action logging

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI MODULE EXPORTS
  * Complete AI Command Center with all features

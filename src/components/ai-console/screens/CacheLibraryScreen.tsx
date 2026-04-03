@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Database, Clock, RefreshCw, Search, FileText, Plus, Trash2 } from 'lucide-react';

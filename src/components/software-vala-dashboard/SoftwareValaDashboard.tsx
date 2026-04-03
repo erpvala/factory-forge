@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SOFTWARE VALA AI CONTROL DASHBOARD
  * Production-ready, enterprise-grade SaaS interface

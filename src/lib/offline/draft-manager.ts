@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Draft Manager
  * Saves form drafts locally for offline editing

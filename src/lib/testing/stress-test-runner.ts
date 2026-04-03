@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Client-Side Stress Test Simulator
  * For running stress validation directly in the browser

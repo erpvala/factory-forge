@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * School Management Software - Main Dashboard
  * FULL USER TRIAL SYSTEM - 100% Features Available

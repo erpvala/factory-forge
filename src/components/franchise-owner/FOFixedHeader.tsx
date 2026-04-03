@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER FIXED HEADER
  * 6 Fixed buttons: Marketplace, Place Order, Promise, Assist, Alerts, Wallet

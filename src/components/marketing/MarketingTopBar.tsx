@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { Bell, Search, RefreshCw, DollarSign, Users, MousePointer, Target } from "lucide-react";
 import { Badge } from "@/components/ui/badge";

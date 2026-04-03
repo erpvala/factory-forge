@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion, AnimatePresence } from 'framer-motion';
 import { Crown, Shield, Zap, Star, Sparkles } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';

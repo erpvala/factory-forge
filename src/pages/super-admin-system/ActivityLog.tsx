@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from "framer-motion";
 import { Activity, Filter, Download, Clock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";

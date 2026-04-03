@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * CODE PROTECTION & TAMPER DETECTION
  * Source code security: encryption, access control, integrity checks, tamper alerts

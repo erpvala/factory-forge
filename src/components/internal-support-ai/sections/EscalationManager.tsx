@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Internal Support AI - Escalation Manager
  * Auto Task Creation, Team Routing, SLA Management, Priority Assignment

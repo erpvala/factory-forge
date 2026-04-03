@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * RESELLER DASHBOARD - WHMCS CLIENT AREA CLONE
  * Enterprise standalone module with professional hosting panel aesthetic

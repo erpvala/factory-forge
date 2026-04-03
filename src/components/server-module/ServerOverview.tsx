@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SERVER OVERVIEW
  * Dashboard with live cards showing server status

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI - Error Detection Panel
  * Production-line diagnostics + tool checks

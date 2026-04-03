@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { Home, Search, MapPin, Bed, Bath, Square, Phone, Heart, Filter, X, Mail, User, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";

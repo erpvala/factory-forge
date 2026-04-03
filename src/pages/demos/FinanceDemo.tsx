@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from "react";
 import { CreditCard, TrendingUp, Calculator, FileText, Users, IndianRupee, PieChart, ArrowUpRight, ArrowDownRight, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";

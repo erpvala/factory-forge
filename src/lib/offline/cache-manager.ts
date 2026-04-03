@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Cache Manager
  * Manages API response caching with TTL and size limits

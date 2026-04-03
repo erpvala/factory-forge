@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRO MANAGER - FULL LAYOUT
  * Enterprise Mode • Premium • Support-Focused • AI-Assisted

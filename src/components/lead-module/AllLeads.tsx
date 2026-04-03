@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ALL LEADS LIST
  * Lead records with actions

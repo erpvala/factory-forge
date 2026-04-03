@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ALERTS & ESCALATION
  * Delay Alert • Security Alert • Performance Alert

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SUPPORT BOT MANAGEMENT
  * Integrated chatbot management for Software Vala

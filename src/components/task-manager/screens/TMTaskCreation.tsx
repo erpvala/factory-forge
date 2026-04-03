@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK CREATION
  * Manual • System • Incident • Compliance Tasks

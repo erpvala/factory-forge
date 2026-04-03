@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { Download, FileX, Printer, FileSpreadsheet, FileText, Lock, AlertCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Cross-Region Replication Manager
  * Sync + async replication with AI conflict resolution

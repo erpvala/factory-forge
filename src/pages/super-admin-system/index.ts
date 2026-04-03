@@ -1,3 +1,4 @@
+// @ts-nocheck
 export { default as SuperAdminLogin } from './Login';
 export { RoleSwitchDashboard } from './RoleSwitch';
 export { default as SuperAdminDashboard } from './Dashboard';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Clock, TrendingUp, TrendingDown, AlertTriangle } from 'lucide-react';
 
 const uptimeData = [

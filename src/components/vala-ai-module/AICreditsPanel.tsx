@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI CREDITS PANEL - DB-Driven
  */

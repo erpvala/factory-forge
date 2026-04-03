@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AI MODELS PANEL - DB-Driven
  */

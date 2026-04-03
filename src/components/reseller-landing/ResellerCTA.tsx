@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Link2, Package, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';

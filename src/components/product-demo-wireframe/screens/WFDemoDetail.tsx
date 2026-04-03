@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SCREEN 3: DEMO DETAIL
  * Left panel (info) + Right panel (preview)

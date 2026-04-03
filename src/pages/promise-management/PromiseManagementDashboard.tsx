@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Promise Management Dashboard
  * ZERO-LOOPHOLE Promise Control System

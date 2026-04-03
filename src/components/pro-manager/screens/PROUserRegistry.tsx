@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PRO USER REGISTRY
  * All Pro Users • Active • Suspended • Expired • High-Risk

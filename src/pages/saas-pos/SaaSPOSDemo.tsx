@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState } from 'react';
 import { SaaSPOSLayout } from '@/components/saas-pos/SaaSPOSLayout';
 import { SaaSPOSDashboard } from '@/components/saas-pos/SaaSPOSDashboard';

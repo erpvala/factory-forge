@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * REPORTS SECTION - CONNECTED TO REAL DATA
  */

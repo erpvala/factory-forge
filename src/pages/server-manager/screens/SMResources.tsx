@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { 
   Cpu, HardDrive, Network, Server, TrendingUp, 

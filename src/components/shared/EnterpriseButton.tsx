@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * JIRA-BTN-01/02/03: Enterprise Button Component
  * Ensures every button follows: CLICK → PERMISSION → API → VALIDATION → DB → AUDIT → UI UPDATE

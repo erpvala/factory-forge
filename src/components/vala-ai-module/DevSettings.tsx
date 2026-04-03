@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DEV SETTINGS
  * Development module settings

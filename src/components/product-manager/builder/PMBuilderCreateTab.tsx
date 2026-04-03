@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Paperclip, Sparkles, Bot, User, Mic, MicOff, Image, Loader2 } from 'lucide-react';

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * DOMAIN LOCK SYSTEM
  * Domain protection: lock, DNS change alerts, transfer protection

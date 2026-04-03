@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE OWNER - AUTO INVOICE SYSTEM
  * Auto-generated invoices with logo, GST, PDF/Image

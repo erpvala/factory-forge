@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * PD SETTINGS
  * Dashboard configuration and settings

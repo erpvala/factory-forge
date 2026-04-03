@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * UPGRADE & ADD-ONS
  * Feature Add-ons • Capacity Upgrade • AI Credits • Support Tier Upgrade

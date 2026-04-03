@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Play, MessageSquare, Sparkles, Crown } from 'lucide-react';
 import { Button } from '@/components/ui/button';

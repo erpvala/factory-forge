@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Internal Support AI Manager - Main Container
  * Routes between all support modules

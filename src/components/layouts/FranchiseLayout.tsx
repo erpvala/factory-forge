@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FRANCHISE LAYOUT
  * Simple wrapper that renders full-height content

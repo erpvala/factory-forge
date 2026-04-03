@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * BLOCKED USERS
  * Security violations

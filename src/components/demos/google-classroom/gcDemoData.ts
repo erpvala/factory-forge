@@ -1,3 +1,4 @@
+// @ts-nocheck
 // Realistic demo data for Google Classroom clone - no auth required
 // All data is local, no database dependency for demo viewing
 

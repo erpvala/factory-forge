@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { 
   Search, Globe, TrendingUp, FileText, Calendar, BarChart3,

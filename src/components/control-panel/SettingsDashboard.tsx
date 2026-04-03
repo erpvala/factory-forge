@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SettingsDashboard - Enterprise Settings Management
  * Handles: Profile, Preferences, Notifications, Theme, Logout

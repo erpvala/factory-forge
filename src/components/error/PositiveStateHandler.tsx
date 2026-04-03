@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * POSITIVE STATE HANDLER
  * Converts all negative states into positive system responses

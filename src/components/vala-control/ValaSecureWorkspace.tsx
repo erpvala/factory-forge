@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useCallback, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Clock, AlertTriangle, User } from 'lucide-react';

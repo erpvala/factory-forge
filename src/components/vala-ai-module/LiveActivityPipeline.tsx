@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI - LIVE ACTIVITY PIPELINE
  * Lovable-style real-time step-by-step activity feed

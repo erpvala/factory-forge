@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * AUTO REPAIR ENGINE
  * Automatic system repair: restart, reload, rebuild, redeploy

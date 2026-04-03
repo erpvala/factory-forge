@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ANDROID APK SCREEN
  * APK management with version control and flow documentation

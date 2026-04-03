@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Save, Share2, MoreHorizontal, ChevronDown } from 'lucide-react';

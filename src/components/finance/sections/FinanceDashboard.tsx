@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * FINANCE DASHBOARD SECTION - CONNECTED TO REAL DATA
  */

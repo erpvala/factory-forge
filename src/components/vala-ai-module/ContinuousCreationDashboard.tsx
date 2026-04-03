@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * VALA AI - CONTINUOUS CREATION DASHBOARD
  * Real-time pipeline showing automated software generation

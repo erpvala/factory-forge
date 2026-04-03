@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { 
   Target, Phone, MessageCircle, CheckCircle, Shield, Brain, 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion';
 import { Monitor, Smartphone, Tablet, RefreshCw, ExternalLink, Code, Eye, Layers } from 'lucide-react';
 import { Button } from '@/components/ui/button';

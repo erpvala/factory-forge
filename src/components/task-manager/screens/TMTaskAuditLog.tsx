@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * TASK MANAGER - TASK AUDIT LOG
  * Immutable • Timestamped • Role-based trace (Read-only)

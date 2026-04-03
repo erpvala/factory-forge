@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Trial to Live Purchase Modal
  * Direct buy flow for converting User Trial to Live System

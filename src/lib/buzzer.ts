@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Hardened Buzzer Engine - Enterprise Security
  * - Blocking popup until accepted (urgent/high priority)

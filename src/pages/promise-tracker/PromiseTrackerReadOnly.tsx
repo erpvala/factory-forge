@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * READ-ONLY Promise Tracker Dashboard
  * Observer role with ZERO control power

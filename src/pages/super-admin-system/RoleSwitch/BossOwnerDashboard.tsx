@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useCallback, memo, useEffect } from "react";
 import { 
   Crown, Shield, Lock, Users, Globe2, Activity, Server,

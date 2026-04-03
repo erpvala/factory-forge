@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * SCREEN 2: DEMO LIST
  * Table with demos

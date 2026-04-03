@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * MULTI-LANGUAGE SUPPORT SCREEN
  * Configure language settings

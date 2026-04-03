@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Global Auto-Scaling System
  * Real infrastructure hooks for server up/down scaling

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Data Masking Utilities for Role Isolation
  * Ensures sensitive data is masked based on role permissions

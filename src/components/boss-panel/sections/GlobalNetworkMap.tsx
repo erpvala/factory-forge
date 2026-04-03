@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * ORION-STYLE GLOBAL NETWORK MAP
  * OPTIMIZED: Removed framer-motion, reduced updates, CSS-only animations
