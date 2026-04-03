@@ -344,6 +344,10 @@ const App = () => (
               <Route path="/boss-register" element={<BossRegister />} />
               <Route path="/boss/login" element={<SuperAdminLogin />} />
 
+              {/* Boss Panel */}
+              <Route path="/boss-panel" element={<BossPanel />} />
+              <Route path="/boss-panel/*" element={<BossPanel />} />
+
               {/* Owner Dashboard - SoftwareWala Business Control */}
               <Route path="/owner" element={<RequireRole allowed={["boss_owner"]}><SoftwareWalaOwnerDashboard /></RequireRole>} />
               <Route path="/owner/*" element={<RequireRole allowed={["boss_owner"]}><SoftwareWalaOwnerDashboard /></RequireRole>} />
