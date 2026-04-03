@@ -1,6 +1,5 @@
 // @ts-nocheck
 import React from 'react';
-import { useOutletContext } from 'react-router-dom';
 import type { BossPanelSection } from './BossPanelLayout';
 import { BossDashboard } from './sections/BossDashboard';
 import { FullAutoSystem } from './sections/FullAutoSystem';
@@ -18,14 +17,12 @@ import { CodePilot } from './sections/CodePilot';
 import { ServerHosting } from './sections/ServerHosting';
 import { ValaAIModuleContainer } from '@/components/vala-ai-module/ValaAIModuleContainer';
 
-interface BossPanelContext {
+interface BossPanelContentProps {
   activeSection: BossPanelSection;
   streamingOn: boolean;
 }
 
-export function BossPanelContent() {
-  const { activeSection, streamingOn } = useOutletContext<BossPanelContext>();
-
+export function BossPanelContent({ activeSection, streamingOn }: BossPanelContentProps) {
   const renderSection = () => {
     switch (activeSection) {
       case 'dashboard':
