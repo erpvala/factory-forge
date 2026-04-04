@@ -76,16 +76,25 @@ export type Database = {
       }
       user_roles: {
         Row: {
+          approval_status: Database["public"]["Enums"]["approval_status"]
+          created_at: string
+          force_logged_out_at: string | null
           id: string
           role: Database["public"]["Enums"]["app_role"]
           user_id: string
         }
         Insert: {
+          approval_status?: Database["public"]["Enums"]["approval_status"]
+          created_at?: string
+          force_logged_out_at?: string | null
           id?: string
           role: Database["public"]["Enums"]["app_role"]
           user_id: string
         }
         Update: {
+          approval_status?: Database["public"]["Enums"]["approval_status"]
+          created_at?: string
+          force_logged_out_at?: string | null
           id?: string
           role?: Database["public"]["Enums"]["app_role"]
           user_id?: string
