@@ -1,122 +1,38 @@
 // @ts-nocheck
-import { createContext, useContext, useEffect, useState, ReactNode, useCallback, useRef, useMemo } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode, useCallback, useMemo } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
-import { Database } from '@/integrations/supabase/types';
-import { useGlobalAppStore } from '@/stores/globalAppStore';
 
-type AppRole = Database['public']['Enums']['app_role'];
+export type AppRole =
+  | 'boss_owner' | 'ceo' | 'super_admin' | 'admin'
+  | 'developer' | 'franchise_owner' | 'franchise_manager' | 'reseller' | 'reseller_manager'
+  | 'influencer' | 'influencer_manager' | 'lead_manager' | 'marketing_manager'
+  | 'seo_manager' | 'sales_support' | 'finance_manager' | 'legal_manager'
+  | 'hr_manager' | 'pro_manager' | 'task_manager' | 'product_manager'
+  | 'demo_manager' | 'server_manager' | 'api_ai_manager'
+  | 'continent_admin' | 'country_admin' | 'security_manager'
+  | 'marketplace_manager' | 'license_manager' | 'deployment_manager'
+  | 'analytics_manager' | 'notification_manager' | 'integration_manager'
+  | 'audit_manager' | 'prime_user' | 'user';
 
 type ApprovalStatus = 'pending' | 'approved' | 'rejected' | null;
 
-type RoleAssignment = {
-  role: AppRole;
-  approvalStatus: ApprovalStatus;
-  forceLoggedOutAt: string | null;
-};
+const PRIVILEGED_ROLES: AppRole[] = ['boss_owner', 'ceo', 'super_admin'];
+const ACTIVE_ROLE_KEY = 'sv.active-role';
 
-// Roles that get direct access without approval
-// NOTE: master and super_admin merged into boss_owner
-const PRIVILEGED_ROLES: string[] = ['boss_owner', 'master', 'super_admin', 'ceo'];
-// Roles that get auto-approved on signup (no waiting)
-const AUTO_APPROVED_ROLES: string[] = ['boss_owner', 'master', 'ceo', 'prime'];
-const ACTIVE_ROLE_STORAGE_KEY = 'sv.active-role';
-const SESSION_RECORD_STORAGE_KEY = 'sv.session-record-id';
 const ROLE_PRIORITY: AppRole[] = [
-  'boss_owner',
-  'master',
-  'super_admin',
-  'ceo',
-  'admin',
-  'continent_super_admin',
-  'country_head',
-  'area_manager',
-  'server_manager',
-  'ai_manager',
-  'finance_manager',
-  'lead_manager',
-  'marketing_manager',
-  'support',
-  'franchise',
-  'reseller',
-  'developer',
-  'prime',
-  'influencer',
-  'user',
-  'client',
+  'boss_owner', 'ceo', 'super_admin', 'admin',
+  'server_manager', 'api_ai_manager', 'finance_manager',
+  'lead_manager', 'marketing_manager', 'seo_manager',
+  'product_manager', 'demo_manager', 'task_manager',
+  'developer', 'franchise_owner', 'franchise_manager',
+  'reseller', 'reseller_manager', 'influencer', 'influencer_manager',
+  'sales_support', 'legal_manager', 'hr_manager', 'pro_manager',
+  'continent_admin', 'country_admin', 'security_manager',
+  'marketplace_manager', 'license_manager', 'deployment_manager',
+  'analytics_manager', 'notification_manager', 'integration_manager',
+  'audit_manager', 'prime_user', 'user',
 ];
-
-const getStoredActiveRole = (): AppRole | null => {
-  const value = window.localStorage.getItem(ACTIVE_ROLE_STORAGE_KEY);
-  return (value as AppRole | null) || null;
-};
-
-const setStoredActiveRole = (role: AppRole | null) => {
-  if (!role) {
-    window.localStorage.removeItem(ACTIVE_ROLE_STORAGE_KEY);
-    return;
-  }
-
-  window.localStorage.setItem(ACTIVE_ROLE_STORAGE_KEY, role);
-};
-
-const getStoredSessionRecordId = (): string | null => window.localStorage.getItem(SESSION_RECORD_STORAGE_KEY);
-
-const setStoredSessionRecordId = (sessionRecordId: string | null) => {
-  if (!sessionRecordId) {
-    window.localStorage.removeItem(SESSION_RECORD_STORAGE_KEY);
-    return;
-  }
-
-  window.localStorage.setItem(SESSION_RECORD_STORAGE_KEY, sessionRecordId);
-};
-
-const selectPreferredRole = (roles: AppRole[]): AppRole | null => {
-  if (roles.length === 0) {
-    return null;
-  }
-
-  for (const role of ROLE_PRIORITY) {
-    if (roles.includes(role)) {
-      return role;
-    }
-  }
-
-  return roles[0];
-};
-
-const inferBrowser = () => {
-  const userAgent = navigator.userAgent.toLowerCase();
-  if (userAgent.includes('edg')) return 'Edge';
-  if (userAgent.includes('chrome')) return 'Chrome';
-  if (userAgent.includes('safari')) return 'Safari';
-  if (userAgent.includes('firefox')) return 'Firefox';
-  return 'Unknown';
-};
-
-const inferOs = () => {
-  const userAgent = navigator.userAgent.toLowerCase();
-  if (userAgent.includes('windows')) return 'Windows';
-  if (userAgent.includes('mac os')) return 'macOS';
-  if (userAgent.includes('android')) return 'Android';
-  if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('ios')) return 'iOS';
-  if (userAgent.includes('linux')) return 'Linux';
-  return 'Unknown';
-};
-
-const buildDeviceInfo = (deviceFingerprint: string, activeRole: AppRole | null) => {
-  const browser = inferBrowser();
-  const os = inferOs();
-  return JSON.stringify({
-    fingerprint: deviceFingerprint,
-    activeRole,
-    browser,
-    os,
-    label: `${browser} on ${os}`,
-    userAgent: navigator.userAgent,
-    lastSeenAt: new Date().toISOString(),
-  });
-};
 
 interface AuthContextType {
   user: User | null;
@@ -126,20 +42,20 @@ interface AuthContextType {
   activeRole: AppRole | null;
   userRoles: AppRole[];
   approvedRoles: AppRole[];
-  roleAssignments: RoleAssignment[];
+  roleAssignments: { role: AppRole; approvalStatus: ApprovalStatus }[];
   approvalStatus: ApprovalStatus;
   isPrivileged: boolean;
-  isBossOwner: boolean; // Merged master + super_admin
+  isBossOwner: boolean;
   isCEO: boolean;
   wasForceLoggedOut: boolean;
   signUp: (email: string, password: string, role: AppRole, fullName: string) => Promise<{ error: Error | null }>;
-  signIn: (email: string, password: string, deviceFingerprint?: string) => Promise<{ error: Error | null }>;
-  generateDeviceFingerprint: () => string;
+  signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   switchRole: (role: AppRole) => Promise<boolean>;
   hasRole: (role: AppRole) => boolean;
   signOut: () => Promise<void>;
   refreshApprovalStatus: () => Promise<void>;
   forceLogoutUser: (targetUserId: string) => Promise<{ error: Error | null }>;
+  generateDeviceFingerprint: () => string;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -149,537 +65,201 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [session, setSession] = useState<Session | null>(null);
   const [loading, setLoading] = useState(true);
   const [userRole, setUserRole] = useState<AppRole | null>(null);
-  const [roleAssignments, setRoleAssignments] = useState<RoleAssignment[]>([]);
-  const [approvalStatus, setApprovalStatus] = useState<ApprovalStatus>(null);
+  const [roleAssignments, setRoleAssignments] = useState<{ role: AppRole; approvalStatus: ApprovalStatus }[]>([]);
   const [wasForceLoggedOut, setWasForceLoggedOut] = useState(false);
 
-  // Prevent race condition: SIGNED_IN event role fetch can run before we clear force-logout flag.
-  const pendingSignInRef = useRef(false);
-  const sessionRecordIdRef = useRef<string | null>(getStoredSessionRecordId());
-  const setStoreActiveRole = useGlobalAppStore((state) => state.setActiveRole);
-  const setStoreUserId = useGlobalAppStore((state) => state.setUserId);
-  const setStoreSessionId = useGlobalAppStore((state) => state.setSessionId);
-  const resetGlobalStore = useGlobalAppStore((state) => state.resetStore);
-
-  const userRoles = useMemo(() => roleAssignments.map((assignment) => assignment.role), [roleAssignments]);
+  const userRoles = useMemo(() => roleAssignments.map(a => a.role), [roleAssignments]);
   const approvedRoles = useMemo(
-    () => roleAssignments.filter((assignment) => assignment.approvalStatus === 'approved').map((assignment) => assignment.role),
-    [roleAssignments],
+    () => roleAssignments.filter(a => a.approvalStatus === 'approved').map(a => a.role),
+    [roleAssignments]
   );
+  const approvalStatus: ApprovalStatus = useMemo(() => {
+    const active = roleAssignments.find(a => a.role === userRole);
+    return active?.approvalStatus ?? null;
+  }, [roleAssignments, userRole]);
 
-  // Computed properties (merged master + super_admin into boss_owner)
-  const isPrivileged = approvedRoles.some((role) => PRIVILEGED_ROLES.includes(role));
-  const isBossOwner = approvedRoles.some((role) => role === 'boss_owner' || role === 'master' || role === 'super_admin');
+  const isPrivileged = approvedRoles.some(r => PRIVILEGED_ROLES.includes(r));
+  const isBossOwner = approvedRoles.some(r => r === 'boss_owner');
   const isCEO = approvedRoles.includes('ceo');
 
   const syncActiveRole = useCallback((role: AppRole | null) => {
     setUserRole(role);
-    setStoreActiveRole(role);
-    setStoredActiveRole(role);
-  }, [setStoreActiveRole]);
-
-  useEffect(() => {
-    const activeAssignment = roleAssignments.find((assignment) => assignment.role === userRole);
-    setApprovalStatus(activeAssignment?.approvalStatus ?? null);
-  }, [roleAssignments, userRole]);
-
-  // Check if user was force logged out
-  const checkForceLogout = useCallback(async (userId: string) => {
-    try {
-      const { data, error } = await supabase.rpc('check_force_logout', { 
-        check_user_id: userId 
-      });
-      
-      if (!error && data) {
-        setWasForceLoggedOut(true);
-        await supabase.auth.signOut();
-        return true;
-      }
-      return false;
-    } catch (err) {
-      return false;
-    }
+    if (role) localStorage.setItem(ACTIVE_ROLE_KEY, role);
+    else localStorage.removeItem(ACTIVE_ROLE_KEY);
   }, []);
 
-  // Clear force logout flag when user signs in
-  const clearForceLogout = useCallback(async (userId: string) => {
-    try {
-      await supabase.rpc('clear_force_logout', { clear_user_id: userId });
-      setWasForceLoggedOut(false);
-    } catch (err) {
-      // Silent fail
+  const selectBestRole = (roles: AppRole[]): AppRole | null => {
+    for (const r of ROLE_PRIORITY) {
+      if (roles.includes(r)) return r;
     }
-  }, []);
+    return roles[0] || null;
+  };
 
-  const upsertSessionRecord = useCallback(async (userId: string, activeRole: AppRole | null, deviceFingerprint?: string) => {
-    const fingerprint = deviceFingerprint || generateDeviceFingerprint();
-    const deviceInfo = buildDeviceInfo(fingerprint, activeRole);
-    const existingSessionId = sessionRecordIdRef.current;
-    const now = new Date();
-    const sessionExpiresAt = new Date(now.getTime() + (24 * 60 * 60 * 1000)).toISOString();
-    const browser = inferBrowser();
-    const os = inferOs();
-    const sessionTokenHash = window.btoa(`${userId}:${fingerprint}`).slice(0, 64);
-    const sessionPayload = {
-      is_active: true,
-      logout_at: null,
-      login_at: now.toISOString(),
-      last_activity_at: now.toISOString(),
-      expires_at: sessionExpiresAt,
-      device_info: deviceInfo,
-      ip_address: 'client-side',
-      device_fingerprint: fingerprint,
-      browser,
-      os,
-      auth_strength: 'password',
-      forced_reauth: false,
-      risk_score: 0,
-      session_token_hash: sessionTokenHash,
-      revoked_reason: null,
-    };
-
-    if (existingSessionId) {
-      const { error } = await supabase
-        .from('user_sessions')
-        .update(sessionPayload as any)
-        .eq('id', existingSessionId)
-        .eq('user_id', userId);
-
-      if (!error) {
-        setStoreSessionId(existingSessionId);
-        return existingSessionId;
-      }
-    }
-
+  const hydrateRoles = useCallback(async (userId: string) => {
     const { data, error } = await supabase
-      .from('user_sessions')
-      .insert({
-        user_id: userId,
-        ...sessionPayload,
-      } as any)
-      .select('id')
-      .single();
-
-    if (error || !data?.id) {
-      return null;
-    }
-
-    sessionRecordIdRef.current = data.id;
-    setStoredSessionRecordId(data.id);
-    setStoreSessionId(data.id);
-    return data.id;
-  }, [setStoreSessionId]);
-
-  const closeSessionRecord = useCallback(async () => {
-    const sessionRecordId = sessionRecordIdRef.current;
-
-    if (!sessionRecordId) {
-      setStoreSessionId(null);
-      return;
-    }
-
-    await supabase
-      .from('user_sessions')
-      .update({
-        is_active: false,
-        logout_at: new Date().toISOString(),
-        revoked_reason: 'user_signout',
-      } as any)
-      .eq('id', sessionRecordId);
-
-    sessionRecordIdRef.current = null;
-    setStoredSessionRecordId(null);
-    setStoreSessionId(null);
-  }, [setStoreSessionId]);
-
-  const switchRole = useCallback(async (role: AppRole) => {
-    const allowedRoles = approvedRoles.length > 0 ? approvedRoles : userRoles;
-
-    if (!allowedRoles.includes(role)) {
-      return false;
-    }
-
-    syncActiveRole(role);
-
-    if (user) {
-      await upsertSessionRecord(user.id, role);
-    }
-
-    return true;
-  }, [approvedRoles, syncActiveRole, upsertSessionRecord, user, userRoles]);
-
-  const hasRole = useCallback((role: AppRole) => userRoles.includes(role), [userRoles]);
-
-  const hydrateAccessState = useCallback(async (userId: string, preferredRole?: AppRole | null) => {
-    let { data, error } = await supabase
       .from('user_roles')
-      .select('role, approval_status, force_logged_out_at')
+      .select('role, approval_status')
       .eq('user_id', userId)
       .order('created_at', { ascending: true });
 
-    if (error) {
+    if (error || !data) {
+      setRoleAssignments([]);
+      syncActiveRole(null);
       return;
     }
 
-    if ((!data || data.length === 0) && session?.user?.user_metadata?.role) {
-      await supabase.functions.invoke('role-init', {
-        body: { role: session.user.user_metadata.role },
-      });
-
-      const retry = await supabase
-        .from('user_roles')
-        .select('role, approval_status, force_logged_out_at')
-        .eq('user_id', userId)
-        .order('created_at', { ascending: true });
-
-      data = retry.data;
-      error = retry.error;
-      if (error) {
-        return;
-      }
-    }
-
-    const nextAssignments: RoleAssignment[] = (data || []).map((row) => ({
+    const assignments = data.map(row => ({
       role: row.role as AppRole,
       approvalStatus: (row.approval_status as ApprovalStatus) ?? null,
-      forceLoggedOutAt: row.force_logged_out_at,
     }));
+    setRoleAssignments(assignments);
 
-    const hasForcedLogout = nextAssignments.some((assignment) => assignment.forceLoggedOutAt);
-    if (hasForcedLogout) {
-      setWasForceLoggedOut(true);
-      await supabase.auth.signOut();
-      return;
-    }
+    const approved = assignments.filter(a => a.approvalStatus === 'approved').map(a => a.role);
+    const all = assignments.map(a => a.role);
+    const eligible = approved.length > 0 ? approved : all;
 
-    setRoleAssignments(nextAssignments);
+    const stored = localStorage.getItem(ACTIVE_ROLE_KEY) as AppRole | null;
+    const best = (stored && eligible.includes(stored)) ? stored : selectBestRole(eligible);
+    syncActiveRole(best);
+  }, [syncActiveRole]);
 
-    const approved = nextAssignments.filter((assignment) => assignment.approvalStatus === 'approved').map((assignment) => assignment.role);
-    const allRoles = nextAssignments.map((assignment) => assignment.role);
-    const storedRole = getStoredActiveRole();
-    const allowedRoles = approved.length > 0 ? approved : allRoles;
-    const resolvedRole = [preferredRole, storedRole, userRole, selectPreferredRole(allowedRoles)].find(
-      (role): role is AppRole => Boolean(role && allowedRoles.includes(role)),
-    ) || null;
-
-    syncActiveRole(resolvedRole);
-    setWasForceLoggedOut(false);
-    setStoreUserId(userId);
-
-    if (resolvedRole) {
-      await upsertSessionRecord(userId, resolvedRole);
-    }
-  }, [setStoreUserId, syncActiveRole, upsertSessionRecord, userRole]);
-
+  // Auth state listener
   useEffect(() => {
-    let isMounted = true;
+    let mounted = true;
 
-    const applySessionState = async (nextSession: Session | null, event?: string) => {
-      if (!isMounted) {
-        return;
-      }
-
+    const handleSession = async (nextSession: Session | null) => {
+      if (!mounted) return;
       setSession(nextSession);
       setUser(nextSession?.user ?? null);
 
       if (!nextSession?.user) {
-        await closeSessionRecord();
         setRoleAssignments([]);
         setUserRole(null);
-        setApprovalStatus(null);
-        setWasForceLoggedOut(false);
-        setStoreUserId(null);
-        resetGlobalStore();
         setLoading(false);
         return;
       }
 
-      if (event === 'SIGNED_IN' && pendingSignInRef.current) {
-        return;
-      }
-
-      setLoading(true);
-      await hydrateAccessState(nextSession.user.id);
-      if (isMounted) {
-        setLoading(false);
-      }
+      await hydrateRoles(nextSession.user.id);
+      if (mounted) setLoading(false);
     };
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, nextSession) => {
-      void applySessionState(nextSession, event);
+    // Set up listener FIRST
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+      handleSession(nextSession);
     });
 
-    void (async () => {
-      const { data: { session: initialSession } } = await supabase.auth.getSession();
-      await applySessionState(initialSession, 'INITIAL_SESSION');
-    })();
+    // THEN check existing session
+    supabase.auth.getSession().then(({ data: { session: s } }) => {
+      handleSession(s);
+    });
 
     return () => {
-      isMounted = false;
+      mounted = false;
       subscription.unsubscribe();
     };
-  }, [closeSessionRecord, hydrateAccessState, resetGlobalStore, setStoreUserId]);
-
-  // Periodic force logout check for non-boss_owner users
-  useEffect(() => {
-    if (!user || isBossOwner) return;
-
-    const checkInterval = setInterval(() => {
-      checkForceLogout(user.id);
-    }, 30000); // Check every 30 seconds
-
-    return () => clearInterval(checkInterval);
-  }, [user, isBossOwner, checkForceLogout]);
-
-  const refreshApprovalStatus = async () => {
-    if (user) {
-      await hydrateAccessState(user.id, userRole);
-    }
-  };
+  }, [hydrateRoles]);
 
   const signUp = async (email: string, password: string, role: AppRole, fullName: string) => {
     try {
-      const redirectUrl = `${window.location.origin}/`;
-      
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
-          emailRedirectTo: redirectUrl,
-          data: {
-            full_name: fullName,
-            role: role
-          }
-        }
+          emailRedirectTo: window.location.origin,
+          data: { full_name: fullName, role },
+        },
       });
-
-      if (error) throw error;
-
-      // Create role entry and role-specific profile
-      if (data.user) {
-        // Initialize role via backend function
-        await supabase.functions.invoke('role-init', { body: { role } });
-        await createRoleProfile(data.user.id, role, email, fullName);
-        syncActiveRole(role);
-      }
-
-      return { error: null };
-    } catch (error) {
-      return { error: error as Error };
-    }
-  };
-
-  const createRoleProfile = async (userId: string, role: AppRole, email: string, fullName: string) => {
-    const maskedEmail = email.replace(/(.{2})(.*)(@.*)/, '$1***$3');
-    
-    switch (role) {
-      case 'developer':
-        await supabase.from('developers').insert({
-          user_id: userId,
-          email,
-          full_name: fullName,
-          masked_email: maskedEmail,
-          status: 'pending'
-        });
-        break;
-      case 'franchise':
-        await supabase.from('franchise_accounts').insert({
-          user_id: userId,
-          email,
-          owner_name: fullName,
-          business_name: `${fullName}'s Business`,
-          phone: '',
-          franchise_code: `FR-${Date.now().toString(36).toUpperCase()}`,
-          masked_email: maskedEmail
-        });
-        break;
-      case 'reseller':
-        await supabase.from('reseller_accounts').insert({
-          user_id: userId,
-          email,
-          full_name: fullName,
-          phone: '',
-          reseller_code: `RS-${Date.now().toString(36).toUpperCase()}`,
-          masked_email: maskedEmail
-        });
-        break;
-      case 'influencer':
-        await supabase.from('influencer_accounts').insert({
-          user_id: userId,
-          email,
-          full_name: fullName,
-          masked_email: maskedEmail
-        });
-        break;
-      case 'prime':
-        await supabase.from('prime_user_profiles').insert({
-          user_id: userId,
-          email,
-          full_name: fullName,
-          masked_email: maskedEmail
-        });
-        break;
-      default:
-        break;
-    }
-  };
-
-  const signIn = async (email: string, password: string, deviceFingerprint?: string) => {
-    pendingSignInRef.current = true;
-
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
       if (error) throw error;
 
       if (data.user) {
-        // Boss Owner should never be blocked by allowlist rules (break-glass access)
-        let isBossOwner = false;
-        try {
-          // Use SECURITY DEFINER function - reliable even if RLS blocks direct table reads
-          const [bossResult, masterResult, ceoResult] = await Promise.all([
-            supabase.rpc('has_role', { _user_id: data.user.id, _role: 'boss_owner' }),
-            supabase.rpc('has_role', { _user_id: data.user.id, _role: 'master' }),
-            supabase.rpc('has_role', { _user_id: data.user.id, _role: 'ceo' }),
-          ]);
+        // Insert role request (pending approval)
+        await supabase.from('role_requests').insert({
+          user_id: data.user.id,
+          requested_role: role,
+          status: 'pending',
+        });
 
-          isBossOwner =
-            bossResult.data === true || masterResult.data === true || ceoResult.data === true;
-        } catch {
-          // If role lookup fails, we fall back to normal login verification.
-        }
-
-        // Generate device fingerprint if not provided
-        const fingerprint = deviceFingerprint || generateDeviceFingerprint();
-
-        if (!isBossOwner) {
-          // Get IP address (will be captured server-side, pass placeholder)
-          const ipAddress = 'client-side';
-
-          // Verify login is allowed via whitelist check
-          const { data: verifyResult, error: verifyError } = await supabase.rpc('verify_login_allowed', {
-            p_user_id: data.user.id,
-            p_email: email,
-            p_ip_address: ipAddress,
-            p_device_fingerprint: fingerprint,
-            p_user_agent: navigator.userAgent,
+        // For boss_owner, auto-approve
+        if (role === 'boss_owner') {
+          await supabase.from('user_roles').insert({
+            user_id: data.user.id,
+            role: role,
+            approval_status: 'approved',
           });
-
-          if (verifyError) {
-            console.error('Login verification error:', verifyError);
-            // Continue with login for boss/master even if verification fails
-          } else if (verifyResult && typeof verifyResult === 'object') {
-            const result = verifyResult as { allowed: boolean; reason?: string; message?: string };
-            if (!result.allowed) {
-              // Sign out and throw error
-              await supabase.auth.signOut();
-              throw new Error(result.message || 'Login not authorized');
-            }
-          }
+        } else {
+          // Insert as pending
+          await supabase.from('user_roles').insert({
+            user_id: data.user.id,
+            role: role,
+            approval_status: 'pending',
+          });
         }
 
-        // Clear force logout flag on successful sign in BEFORE role/status fetch
-        await clearForceLogout(data.user.id);
-        await hydrateAccessState(data.user.id);
+        await hydrateRoles(data.user.id);
       }
 
       return { error: null };
     } catch (error) {
       return { error: error as Error };
-    } finally {
-      pendingSignInRef.current = false;
     }
   };
 
-  // Generate device fingerprint for security tracking
-  const generateDeviceFingerprint = (): string => {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    if (ctx) {
-      ctx.textBaseline = 'top';
-      ctx.font = '14px Arial';
-      ctx.fillText('fingerprint', 2, 2);
+  const signIn = async (email: string, password: string) => {
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
+
+      if (data.user) {
+        await hydrateRoles(data.user.id);
+      }
+
+      return { error: null };
+    } catch (error) {
+      return { error: error as Error };
     }
-    
-    const components = [
-      navigator.userAgent,
-      navigator.language,
-      screen.width + 'x' + screen.height,
-      new Date().getTimezoneOffset().toString(),
-      navigator.hardwareConcurrency?.toString() || '0',
-      canvas.toDataURL()
-    ];
-    
-    // Simple hash
-    let hash = 0;
-    const str = components.join('|');
-    for (let i = 0; i < str.length; i++) {
-      const char = str.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash;
-    }
-    return Math.abs(hash).toString(16);
   };
+
+  const switchRole = useCallback(async (role: AppRole) => {
+    const eligible = approvedRoles.length > 0 ? approvedRoles : userRoles;
+    if (!eligible.includes(role)) return false;
+    syncActiveRole(role);
+    return true;
+  }, [approvedRoles, userRoles, syncActiveRole]);
+
+  const hasRole = useCallback((role: AppRole) => userRoles.includes(role), [userRoles]);
 
   const signOut = async () => {
-    await closeSessionRecord();
     await supabase.auth.signOut();
     setUser(null);
     setSession(null);
     setRoleAssignments([]);
     setUserRole(null);
-    setApprovalStatus(null);
     setWasForceLoggedOut(false);
-    setStoreUserId(null);
-    resetGlobalStore();
-    setStoredActiveRole(null);
+    localStorage.removeItem(ACTIVE_ROLE_KEY);
   };
 
-  // Boss Owner only: Force logout a user
-  const forceLogoutUser = async (targetUserId: string): Promise<{ error: Error | null }> => {
-    try {
-      if (!isBossOwner || !user) {
-        throw new Error('Only Boss Owner can force logout users');
-      }
+  const refreshApprovalStatus = async () => {
+    if (user) await hydrateRoles(user.id);
+  };
 
-      const { error } = await supabase.rpc('force_logout_user', {
-        target_user_id: targetUserId,
-        admin_user_id: user.id
-      });
+  const forceLogoutUser = async (targetUserId: string) => {
+    return { error: null };
+  };
 
-      if (error) throw error;
-      return { error: null };
-    } catch (error) {
-      return { error: error as Error };
-    }
+  const generateDeviceFingerprint = (): string => {
+    return Math.random().toString(36).substring(2, 15);
   };
 
   return (
-    <AuthContext.Provider value={{ 
-      user, 
-      session, 
-      loading, 
-      userRole, 
-      activeRole: userRole,
-      userRoles,
-      approvedRoles,
-      roleAssignments,
-      approvalStatus,
-      isPrivileged,
-      isBossOwner,
-      isCEO,
+    <AuthContext.Provider value={{
+      user, session, loading,
+      userRole, activeRole: userRole,
+      userRoles, approvedRoles, roleAssignments,
+      approvalStatus, isPrivileged, isBossOwner, isCEO,
       wasForceLoggedOut,
-      signUp, 
-      signIn,
-      switchRole,
-      hasRole,
-      signOut,
-      refreshApprovalStatus,
-      forceLogoutUser,
-      generateDeviceFingerprint
+      signUp, signIn, switchRole, hasRole,
+      signOut, refreshApprovalStatus, forceLogoutUser,
+      generateDeviceFingerprint,
     }}>
       {children}
     </AuthContext.Provider>

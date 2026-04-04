@@ -14,16 +14,152 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      role_requests: {
+        Row: {
+          created_at: string
+          id: string
+          requested_role: Database["public"]["Enums"]["app_role"]
+          reviewed_at: string | null
+          reviewed_by: string | null
+          status: Database["public"]["Enums"]["approval_status"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          requested_role: Database["public"]["Enums"]["app_role"]
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: Database["public"]["Enums"]["approval_status"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          requested_role?: Database["public"]["Enums"]["app_role"]
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          status?: Database["public"]["Enums"]["approval_status"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          approval_status: Database["public"]["Enums"]["approval_status"]
+          created_at: string
+          force_logged_out_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          approval_status?: Database["public"]["Enums"]["approval_status"]
+          created_at?: string
+          force_logged_out_at?: string | null
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          approval_status?: Database["public"]["Enums"]["approval_status"]
+          created_at?: string
+          force_logged_out_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      approve_role_request: {
+        Args: {
+          action: Database["public"]["Enums"]["approval_status"]
+          request_id: string
+        }
+        Returns: undefined
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role:
+        | "boss_owner"
+        | "ceo"
+        | "super_admin"
+        | "admin"
+        | "developer"
+        | "franchise_owner"
+        | "franchise_manager"
+        | "reseller"
+        | "reseller_manager"
+        | "influencer"
+        | "influencer_manager"
+        | "lead_manager"
+        | "marketing_manager"
+        | "seo_manager"
+        | "sales_support"
+        | "finance_manager"
+        | "legal_manager"
+        | "hr_manager"
+        | "pro_manager"
+        | "task_manager"
+        | "product_manager"
+        | "demo_manager"
+        | "server_manager"
+        | "api_ai_manager"
+        | "continent_admin"
+        | "country_admin"
+        | "security_manager"
+        | "marketplace_manager"
+        | "license_manager"
+        | "deployment_manager"
+        | "analytics_manager"
+        | "notification_manager"
+        | "integration_manager"
+        | "audit_manager"
+        | "prime_user"
+        | "user"
+      approval_status: "pending" | "approved" | "rejected"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +286,46 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: [
+        "boss_owner",
+        "ceo",
+        "super_admin",
+        "admin",
+        "developer",
+        "franchise_owner",
+        "franchise_manager",
+        "reseller",
+        "reseller_manager",
+        "influencer",
+        "influencer_manager",
+        "lead_manager",
+        "marketing_manager",
+        "seo_manager",
+        "sales_support",
+        "finance_manager",
+        "legal_manager",
+        "hr_manager",
+        "pro_manager",
+        "task_manager",
+        "product_manager",
+        "demo_manager",
+        "server_manager",
+        "api_ai_manager",
+        "continent_admin",
+        "country_admin",
+        "security_manager",
+        "marketplace_manager",
+        "license_manager",
+        "deployment_manager",
+        "analytics_manager",
+        "notification_manager",
+        "integration_manager",
+        "audit_manager",
+        "prime_user",
+        "user",
+      ],
+      approval_status: ["pending", "approved", "rejected"],
+    },
   },
 } as const

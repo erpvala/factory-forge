@@ -1,206 +1,86 @@
 // @ts-nocheck
+/**
+ * Role → Dashboard route mapping for all 34+ roles
+ */
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'sonner';
-import { callEdgeRoute } from '@/lib/api/edge-client';
-import { useAuth } from '@/hooks/useAuth';
-import { Database } from '@/integrations/supabase/types';
-
-type AppRole = Database['public']['Enums']['app_role'];
+import { useAuth, AppRole } from '@/hooks/useAuth';
 
 export const REDIRECT_AFTER_LOGIN_KEY = 'redirect_after_login';
 export const REDIRECT_AFTER_LOGIN_ROLE_KEY = 'redirect_after_login_role';
 
-type ProtectedActionKey = 'joinDeveloper' | 'becomeInfluencer' | 'applyForJob' | 'login' | 'bossPortal';
-
-type ProtectedActionConfig = {
-  route: string;
-  label: string;
-  requiresAuthOnClick?: boolean;
-  requiredRoles?: AppRole[];
-  upgradeRoute?: string;
-  deniedMessage: string;
-};
-
-const PROTECTED_ACTIONS: Record<ProtectedActionKey, ProtectedActionConfig> = {
-  joinDeveloper: {
-    route: '/marketplace/developer/register',
-    label: 'Join as Developer',
-    deniedMessage: 'Unable to open developer registration.',
-  },
-  becomeInfluencer: {
-    route: '/marketplace/influencer/register',
-    label: 'Become Influencer',
-    deniedMessage: 'Unable to open influencer registration.',
-  },
-  applyForJob: {
-    route: '/marketplace/jobs/apply',
-    label: 'Apply for Job',
-    deniedMessage: 'Unable to open the job application flow.',
-  },
-  login: {
-    route: '/login',
-    requiresAuthOnClick: true,
-    label: 'Login',
-    deniedMessage: 'Unable to open the user dashboard.',
-  },
-  bossPortal: {
-    route: '/dashboard/boss',
-    requiresAuthOnClick: true,
-    label: 'Boss Portal',
-    requiredRoles: ['boss_owner', 'master', 'super_admin', 'ceo', 'admin'],
-    deniedMessage: 'Boss access is restricted to approved authority roles.',
-  },
-};
-
 export const setRedirectAfterLogin = (route: string, role?: AppRole | null) => {
-  window.localStorage.setItem(REDIRECT_AFTER_LOGIN_KEY, route);
-
-  if (role) {
-    window.localStorage.setItem(REDIRECT_AFTER_LOGIN_ROLE_KEY, role);
-    return;
-  }
-
-  window.localStorage.removeItem(REDIRECT_AFTER_LOGIN_ROLE_KEY);
+  localStorage.setItem(REDIRECT_AFTER_LOGIN_KEY, route);
+  if (role) localStorage.setItem(REDIRECT_AFTER_LOGIN_ROLE_KEY, role);
+  else localStorage.removeItem(REDIRECT_AFTER_LOGIN_ROLE_KEY);
 };
 
-export const getRedirectAfterLogin = () => window.localStorage.getItem(REDIRECT_AFTER_LOGIN_KEY);
-
-export const getRedirectRoleAfterLogin = (): AppRole | null => {
-  const role = window.localStorage.getItem(REDIRECT_AFTER_LOGIN_ROLE_KEY);
-  return (role as AppRole | null) || null;
-};
+export const getRedirectAfterLogin = () => localStorage.getItem(REDIRECT_AFTER_LOGIN_KEY);
+export const getRedirectRoleAfterLogin = (): AppRole | null =>
+  (localStorage.getItem(REDIRECT_AFTER_LOGIN_ROLE_KEY) as AppRole | null) || null;
 
 export const clearRedirectAfterLogin = () => {
-  window.localStorage.removeItem(REDIRECT_AFTER_LOGIN_KEY);
-  window.localStorage.removeItem(REDIRECT_AFTER_LOGIN_ROLE_KEY);
+  localStorage.removeItem(REDIRECT_AFTER_LOGIN_KEY);
+  localStorage.removeItem(REDIRECT_AFTER_LOGIN_ROLE_KEY);
 };
 
-export const getDefaultDashboardRoute = (role?: AppRole | null) => {
-  if (!role) {
-    return '/dashboard/user';
-  }
-
-  if (role === 'developer') {
-    return '/dashboard/developer';
-  }
-
-  if (role === 'influencer') {
-    return '/dashboard/influencer';
-  }
-
-  if (role === 'admin' || role === 'super_admin') {
-    return '/dashboard/admin';
-  }
-
-  if (['boss_owner', 'master', 'ceo'].includes(role)) {
-    return '/dashboard/boss';
-  }
-
-  return '/dashboard/user';
-};
-
-const resolveRoleForAction = (
-  requiredRoles: AppRole[] | undefined,
-  activeRole: AppRole | null,
-  approvedRoles: AppRole[],
-  userRoles: AppRole[],
-) => {
-  if (!requiredRoles || requiredRoles.length === 0) {
-    return null;
-  }
-
-  if (activeRole && requiredRoles.includes(activeRole)) {
-    return activeRole;
-  }
-
-  return requiredRoles.find((role) => approvedRoles.includes(role))
-    || requiredRoles.find((role) => userRoles.includes(role))
-    || null;
+/** Maps each role to its primary dashboard route */
+export const getDefaultDashboardRoute = (role?: AppRole | null): string => {
+  const map: Record<string, string> = {
+    boss_owner: '/boss-panel',
+    ceo: '/ai-ceo',
+    super_admin: '/super-admin',
+    admin: '/super-admin-system',
+    developer: '/developer',
+    franchise_owner: '/franchise',
+    franchise_manager: '/franchise-manager',
+    reseller: '/reseller',
+    reseller_manager: '/reseller-manager',
+    influencer: '/influencer',
+    influencer_manager: '/influencer-manager',
+    lead_manager: '/lead-manager',
+    marketing_manager: '/marketing-manager',
+    seo_manager: '/seo-manager',
+    sales_support: '/sales-support',
+    finance_manager: '/finance',
+    legal_manager: '/legal-manager',
+    hr_manager: '/hr-manager',
+    pro_manager: '/pro-manager',
+    task_manager: '/task-manager',
+    product_manager: '/product-manager',
+    demo_manager: '/demo-manager',
+    server_manager: '/server-manager',
+    api_ai_manager: '/api-ai-manager',
+    continent_admin: '/continent-super-admin',
+    country_admin: '/country-dashboard',
+    security_manager: '/security-command',
+    marketplace_manager: '/marketplace-manager',
+    license_manager: '/boss-panel',
+    deployment_manager: '/server-manager',
+    analytics_manager: '/boss-panel',
+    notification_manager: '/boss-panel',
+    integration_manager: '/boss-panel',
+    audit_manager: '/boss-panel',
+    prime_user: '/prime',
+    user: '/user/dashboard',
+  };
+  return map[role || ''] || '/user/dashboard';
 };
 
 export const useProtectedActionHandler = () => {
   const navigate = useNavigate();
-  const { user, userRole, approvedRoles, userRoles, switchRole } = useAuth();
+  const { user, userRole } = useAuth();
 
-  const handleAction = useCallback(async (actionKey: ProtectedActionKey) => {
-    const config = PROTECTED_ACTIONS[actionKey];
-
-    if (!config.requiresAuthOnClick) {
-      try {
-        await callEdgeRoute('api-notifications', 'create', {
-          method: 'POST',
-          body: {
-            type: 'info',
-            message: `User clicked ${config.label}`,
-            event_type: 'click_action',
-            action_label: config.label,
-            action_url: config.route,
-          },
-        });
-      } catch (error) {
-        console.error('Failed to create action notification:', error);
-      }
-
-      navigate(config.route);
-      return;
-    }
-
+  const handleAction = useCallback((actionKey: string) => {
     if (!user) {
-      if (actionKey === 'login') {
-        navigate('/login');
-        return;
-      }
-
-      setRedirectAfterLogin(config.route);
       navigate('/login');
       return;
     }
+    const route = getDefaultDashboardRoute(userRole);
+    navigate(route);
+  }, [user, userRole, navigate]);
 
-    if (actionKey === 'login') {
-      navigate(getDefaultDashboardRoute(userRole));
-      return;
-    }
-
-    const resolvedRole = resolveRoleForAction(config.requiredRoles, userRole, approvedRoles, userRoles);
-    if (config.requiredRoles && !resolvedRole) {
-      toast.error(config.deniedMessage);
-      if (config.upgradeRoute) {
-        navigate(config.upgradeRoute);
-      }
-      return;
-    }
-
-    if (resolvedRole && userRole !== resolvedRole) {
-      const switched = await switchRole(resolvedRole);
-      if (!switched) {
-        toast.error(config.deniedMessage);
-        if (config.upgradeRoute) {
-          navigate(config.upgradeRoute);
-        }
-        return;
-      }
-    }
-
-    try {
-      await callEdgeRoute('api-notifications', 'create', {
-        method: 'POST',
-        body: {
-          type: 'info',
-          message: `User clicked ${config.label}`,
-          event_type: 'click_action',
-          action_label: config.label,
-          action_url: config.route,
-        },
-      });
-    } catch (error) {
-      console.error('Failed to create action notification:', error);
-    }
-
-    navigate(config.route);
-  }, [approvedRoles, navigate, switchRole, user, userRole, userRoles]);
-
-  return {
-    handleAction,
-  };
+  return { handleAction };
 };
+
+export default useProtectedActionHandler;
