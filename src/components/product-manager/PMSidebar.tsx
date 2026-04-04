@@ -230,7 +230,7 @@ const menuItems: MenuItem[] = [
   {
     id: 'github-integration',
     label: 'GitHub Integration',
-    icon: Github,
+    icon: GitBranch,
     badge: 'AUTO',
   },
   
