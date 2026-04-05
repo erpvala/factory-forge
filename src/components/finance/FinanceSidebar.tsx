@@ -238,7 +238,7 @@ const FinanceSidebar = ({ activeView, onViewChange, onBack }: FinanceSidebarProp
   
   const handleLogout = async () => {
     await signOut();
-    navigate('/auth');
+    navigate('/login');
   };
 
   return (

@@ -273,7 +273,7 @@ const CategoryOnboarding = () => {
               <Building2 className="w-4 h-4" />
               Want territory? → Apply Franchise
             </Link>
-            <Link to="/auth" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium
+            <Link to="/login" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium
                          bg-gradient-to-r from-amber-500 to-yellow-500 text-black
                          hover:opacity-90 transition-opacity">
               <Crown className="w-4 h-4" />

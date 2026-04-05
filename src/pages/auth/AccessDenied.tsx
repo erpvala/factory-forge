@@ -172,7 +172,7 @@ const AccessDenied = () => {
                 Go to My Dashboard
               </Button>
             ) : (
-              <Button onClick={() => navigate('/auth')} className="w-full gap-2">
+              <Button onClick={() => navigate('/login')} className="w-full gap-2">
                 <LogIn className="w-4 h-4" />
                 Sign In
               </Button>

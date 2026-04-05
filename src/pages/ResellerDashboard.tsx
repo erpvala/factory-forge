@@ -30,7 +30,7 @@ const ResellerDashboard = () => {
   const handleLogout = async () => {
     await signOut();
     toast.success('Logged out successfully');
-    navigate('/auth');
+    navigate('/login');
   };
 
   const renderContent = () => {

@@ -159,7 +159,7 @@ export function MMMarketplaceScreen() {
       const user = authData?.user;
       if (!user) {
         toast.info('Please sign in to purchase');
-        navigate('/auth');
+        navigate('/login');
         return;
       }
 

@@ -143,7 +143,7 @@ const ServerManagerDashboard = () => {
     });
     await supabase.auth.signOut();
     toast.success('Logged out');
-    navigate('/auth');
+    navigate('/login');
   };
 
   const renderView = () => {

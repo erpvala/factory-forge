@@ -79,7 +79,7 @@ const LegalManagerDashboard = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate("/auth");
+    navigate("/login");
   };
 
   const renderScreen = () => {

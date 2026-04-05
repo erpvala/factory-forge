@@ -73,7 +73,7 @@ const SecurityCommandCenter: React.FC = () => {
     // Clear all session data
     sessionStorage.clear();
     localStorage.removeItem('sb-feqdqyadkijpohyllfdq-auth-token');
-    navigate('/auth');
+    navigate('/login');
   };
 
   const renderScreen = () => {

@@ -144,7 +144,7 @@ export default function SecureDeveloperDashboard() {
     await logAction('LOGOUT', {});
     await supabase.auth.signOut();
     toast.success('Logged out successfully');
-    navigate('/auth');
+    navigate('/login');
   };
 
   useEffect(() => {

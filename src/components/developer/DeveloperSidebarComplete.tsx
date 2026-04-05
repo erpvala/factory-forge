@@ -36,7 +36,7 @@ const DeveloperSidebarComplete = ({ activeSection, onSectionChange }: DeveloperS
   const handleLogout = async () => {
     await signOut();
     toast.success('Session ended - All timers stopped');
-    navigate('/auth');
+    navigate('/login');
   };
 
   return (

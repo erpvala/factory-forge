@@ -46,7 +46,7 @@ export const SecureSalesSupportManagerDashboard: React.FC = () => {
       setSessionTime(prev => {
         if (prev <= 1000) {
           toast.error('Session expired - logging out');
-          navigate('/auth');
+          navigate('/login');
           return 0;
         }
         return prev - 1000;
@@ -69,7 +69,7 @@ export const SecureSalesSupportManagerDashboard: React.FC = () => {
 
   const handleLogout = () => {
     toast.success('Session cleared securely');
-    navigate('/auth');
+    navigate('/login');
   };
 
   const formatTime = (ms: number) => {

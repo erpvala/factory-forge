@@ -36,7 +36,7 @@ const ResellerSettings = () => {
   const handleLogoutAllSessions = async () => {
     await signOut();
     toast.success('Logged out from all sessions');
-    navigate('/auth');
+    navigate('/login');
   };
 
   const tabs = [

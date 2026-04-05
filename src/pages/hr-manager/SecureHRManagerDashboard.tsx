@@ -51,7 +51,7 @@ export default function SecureHRManagerDashboard() {
   const handleLogout = async () => {
     console.log(`[AUDIT] HR Manager logout at ${new Date().toISOString()}`);
     await signOut();
-    navigate('/auth');
+    navigate('/login');
   };
 
   const formatSessionTime = (seconds: number) => {

@@ -42,7 +42,7 @@ const HRSidebar = ({ activeSection, setActiveSection }: HRSidebarProps) => {
   
   const handleLogout = async () => {
     await signOut();
-    navigate('/auth');
+    navigate('/login');
   };
 
   return (

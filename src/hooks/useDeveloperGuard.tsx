@@ -97,7 +97,7 @@ export function useDeveloperGuard() {
         // Check user authentication
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) {
-          navigate('/auth', { replace: true });
+          navigate('/login', { replace: true });
           return;
         }
 
@@ -111,7 +111,7 @@ export function useDeveloperGuard() {
 
         if (!roleData || roleData.approval_status !== 'approved') {
           toast.error('Developer access not approved');
-          navigate('/auth', { replace: true });
+          navigate('/login', { replace: true });
           return;
         }
 

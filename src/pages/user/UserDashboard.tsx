@@ -58,7 +58,7 @@ const UserDashboard = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate('/auth', { replace: true });
+    navigate('/login', { replace: true });
   };
 
   const displayName = profile?.full_name || user?.email?.split('@')[0] || 'User';

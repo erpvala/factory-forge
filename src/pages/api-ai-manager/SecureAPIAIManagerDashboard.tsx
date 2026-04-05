@@ -60,7 +60,7 @@ export default function SecureAPIAIManagerDashboard() {
       title: "Session Ended",
       description: "You have been logged out. Session cleared.",
     });
-    navigate('/auth');
+    navigate('/login');
   };
 
   const formatTime = (ms: number) => {

@@ -39,7 +39,7 @@ const PendingApproval = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate('/auth', { replace: true });
+      navigate('/login', { replace: true });
     }
     if (approvalStatus === 'approved') {
       navigate('/dashboard', { replace: true });
@@ -64,7 +64,7 @@ const PendingApproval = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate('/auth', { replace: true });
+    navigate('/login', { replace: true });
   };
 
   if (approvalStatus === 'approved') {

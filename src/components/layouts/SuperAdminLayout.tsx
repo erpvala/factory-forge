@@ -55,7 +55,7 @@ const SuperAdminLayout = ({ children }: SuperAdminLayoutProps) => {
     try {
       await supabase.auth.signOut();
       toast.success('Logged out successfully');
-      navigate('/auth');
+      navigate('/login');
     } catch (error) {
       toast.error('Failed to logout');
     }

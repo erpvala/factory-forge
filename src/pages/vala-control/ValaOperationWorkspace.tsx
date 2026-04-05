@@ -38,7 +38,7 @@ export default function ValaOperationWorkspace() {
   }, [user?.id]);
 
   const handleSessionExpire = () => {
-    navigate('/auth');
+    navigate('/login');
   };
 
   if (!valaId) {

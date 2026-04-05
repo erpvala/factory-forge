@@ -52,7 +52,7 @@ export default function SecureDevManagerDashboard() {
   const handleLogout = async () => {
     console.log(`[AUDIT] Dev Manager logout at ${new Date().toISOString()}`);
     await signOut();
-    navigate('/auth');
+    navigate('/login');
   };
 
   const formatSessionTime = (seconds: number) => {

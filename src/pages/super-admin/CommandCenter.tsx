@@ -739,7 +739,7 @@ const SuperAdminCommandCenter = () => {
     try {
       await supabase.auth.signOut();
       toast.success("Logged out successfully");
-      navigate("/auth");
+      navigate("/login");
     } catch {
       toast.error("Logout failed");
     }

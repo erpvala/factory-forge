@@ -21,7 +21,7 @@ const PrimeUserSidebar = ({ activeSection, setActiveSection }: PrimeUserSidebarP
   const handleLogout = async () => {
     await signOut();
     toast.success('Logged out successfully');
-    navigate('/auth');
+    navigate('/login');
   };
   const menuItems = [
     { id: "overview", label: "Dashboard", icon: LayoutDashboard },

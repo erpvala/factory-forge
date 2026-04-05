@@ -64,7 +64,7 @@ const SecureMarketingManagerDashboard = () => {
       title: "Session Ended",
       description: "You have been logged out. Session cleared.",
     });
-    navigate("/auth");
+    navigate("/login");
   };
 
   const handleRefresh = () => {

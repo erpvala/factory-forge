@@ -119,7 +119,7 @@ export default function MasterAdminWorkspace() {
     toast.success('Master Session Terminated', {
       description: 'All data secured'
     });
-    navigate('/auth');
+    navigate('/login');
   };
 
   const handleOverride = (itemId: string, reason: string) => {

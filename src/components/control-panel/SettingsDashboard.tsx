@@ -85,7 +85,7 @@ export default function SettingsDashboard() {
   const handleLogout = async () => {
     try {
       await supabase.auth.signOut();
-      navigate('/auth');
+      navigate('/login');
     } catch (err) {
       toast.info("Signing out...");
     }

@@ -37,7 +37,7 @@ const DeveloperSidebar = ({ activeSection, onSectionChange }: DeveloperSidebarPr
   const handleLogout = async () => {
     await signOut();
     toast.success('Logged out successfully');
-    navigate('/auth');
+    navigate('/login');
   };
 
   return (

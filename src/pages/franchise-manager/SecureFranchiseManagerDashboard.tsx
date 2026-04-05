@@ -37,7 +37,7 @@ export default function SecureFranchiseManagerDashboard() {
     toast.success('Session Ended', {
       description: 'Franchise Manager logged out securely'
     });
-    navigate('/auth');
+    navigate('/login');
   };
 
   const formatSessionTime = () => {

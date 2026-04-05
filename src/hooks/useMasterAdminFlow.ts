@@ -167,7 +167,7 @@ export function useLoginFlow() {
     try {
       await blackbox.logout();
       await supabase.auth.signOut();
-      navigate('/auth');
+      navigate('/login');
     } catch (error) {
       console.error('Logout failed:', error);
     }
@@ -398,7 +398,7 @@ export function useSessionLifecycle(timeoutMinutes = 30) {
           toast.error('System has been locked. You will be logged out.');
           await blackbox.logout();
           await supabase.auth.signOut();
-          navigate('/auth');
+          navigate('/login');
         }
       } else {
         setState(prev => ({ ...prev, systemLocked: false, lockReason: undefined }));
@@ -429,7 +429,7 @@ export function useSessionLifecycle(timeoutMinutes = 30) {
         toast.warning('Session expired due to inactivity');
         await blackbox.logout();
         await supabase.auth.signOut();
-        navigate('/auth');
+        navigate('/login');
       }, timeoutMinutes * 60 * 1000);
     };
 

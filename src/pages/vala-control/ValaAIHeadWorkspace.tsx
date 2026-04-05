@@ -69,7 +69,7 @@ export default function ValaAIHeadWorkspace() {
   }, [user?.id]);
 
   const handleSessionExpire = () => {
-    navigate('/auth');
+    navigate('/login');
   };
 
   const handleSubmitReport = async () => {

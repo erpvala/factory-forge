@@ -74,7 +74,7 @@ const MarketingSidebar = ({ activeSection, setActiveSection }: MarketingSidebarP
   
   const handleLogout = async () => {
     await signOut();
-    navigate('/auth');
+    navigate('/login');
   };
 
   const toggleMenu = (menuId: string) => {
