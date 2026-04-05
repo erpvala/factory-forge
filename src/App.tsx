@@ -341,10 +341,10 @@ const App = () => (
               <Route path="/access-denied" element={<AccessDenied />} />
               <Route path="/session-expired" element={<SessionExpiredPage />} />
 
-              {/* Boss Fortress Auth - Ultra Secure */}
-              <Route path="/boss-fortress" element={<BossFortressAuth />} />
-              <Route path="/boss-register" element={<BossRegister />} />
-              <Route path="/boss/login" element={<SuperAdminLogin />} />
+              {/* Boss Auth - redirects to unified login */}
+              <Route path="/boss-fortress" element={<Navigate to="/login" replace />} />
+              <Route path="/boss-register" element={<Navigate to="/login" replace />} />
+              <Route path="/boss/login" element={<Navigate to="/login" replace />} />
 
               {/* Boss Panel */}
               <Route path="/boss-panel" element={<BossPanel />} />
