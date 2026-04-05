@@ -310,7 +310,7 @@ const App = () => (
 
               {/* Sales CRM Demo */}
               <Route path="/sales-crm" element={<SalesCRMDemo />} />
-              <Route path="/sales-crm/auth" element={<SalesCRMAuthPage />} />
+              <Route path="/sales-crm/auth" element={<Navigate to="/login" replace />} />
               <Route path="/retail-pos" element={<RetailPOSDemo />} />
               {/* Dynamic Demo Routes - MUST come AFTER specific routes */}
               <Route path="/demo-directory" element={<DemoDirectory />} />
