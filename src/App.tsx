@@ -326,7 +326,7 @@ const App = () => (
               <Route path="/get-started" element={<ClientPortal />} />
 
               {/* Global Auth Routes */}
-              <Route path="/login" element={<RoleBasedLogin />} />
+              <Route path="/login" element={<Auth />} />
               <Route path="/role-login" element={<RoleBasedLogin />} />
               <Route path="/register" element={<Navigate to="/auth" replace />} />
               <Route path="/easy-login" element={<EasyAuth />} />
