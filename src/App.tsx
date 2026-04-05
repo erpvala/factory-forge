@@ -252,7 +252,7 @@ const App = () => (
               <Route path="/demos/public" element={<PublicDemos />} />
               <Route path="/showcase" element={<PremiumDemoShowcaseNew />} />
               <Route path="/server-portal" element={<RequireAuth><ServerManagementPortal /></RequireAuth>} />
-              <Route path="/auth" element={<Auth />} />
+              <Route path="/auth" element={<Navigate to="/login" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               {/* Basic profile route to satisfy header navigation */}
               <Route path="/profile" element={<RequireAuth><SettingsPage /></RequireAuth>} />
