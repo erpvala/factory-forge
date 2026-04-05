@@ -3,88 +3,93 @@ import { Database } from '@/integrations/supabase/types';
 
 type AppRole = Database['public']['Enums']['app_role'];
 
-export const ROLE_DASHBOARD_MAP: Partial<Record<AppRole, string>> = {
-  boss_owner: '/app/control-center',
-  master: '/app/control-center',
-  super_admin: '/app/control-center',
-  admin: '/app/control-center',
-  ceo: '/app/control-center',
-  country_head: '/super-admin-system/role-switch?role=country_head',
-  area_manager: '/super-admin-system/role-switch?role=country_head',
-  continent_super_admin: '/super-admin-system/role-switch?role=continent_super_admin',
-  franchise: '/app/franchise',
-  reseller: '/app/reseller',
-  reseller_manager: '/app/reseller',
-  influencer: '/app/influencer',
-  developer: '/app/developer',
-  server_manager: '/app/server',
-  api_security: '/app/integrations',
-  ai_manager: '/app/ai',
-  r_and_d: '/rnd-dashboard',
-  rnd_manager: '/rnd-dashboard',
-  lead_manager: '/app/leads',
-  marketing_manager: '/app/marketing',
-  seo_manager: '/app/seo',
-  client_success: '/app/support',
-  performance_manager: '/app/analytics',
-  support: '/app/support',
-  safe_assist: '/safe-assist',
-  assist_manager: '/assist-manager',
-  promise_tracker: '/promise-tracker',
-  promise_management: '/promise-management',
+export const ROLE_DASHBOARD_MAP: Record<AppRole, string> = {
+  boss_owner: '/boss-panel',
+  ceo: '/ai-ceo',
+  super_admin: '/super-admin',
+  admin: '/super-admin-system',
+  developer: '/developer',
+  franchise_owner: '/franchise',
+  franchise_manager: '/franchise-manager',
+  reseller: '/reseller',
+  reseller_manager: '/reseller-manager',
+  influencer: '/influencer',
+  influencer_manager: '/influencer-manager',
+  lead_manager: '/lead-manager',
+  marketing_manager: '/marketing-manager',
+  seo_manager: '/seo-manager',
+  sales_support: '/sales-support',
+  finance_manager: '/finance',
+  legal_manager: '/legal-manager',
+  hr_manager: '/hr-manager',
+  pro_manager: '/pro-manager',
+  task_manager: '/task-manager',
+  product_manager: '/product-manager',
   demo_manager: '/demo-manager',
-  product_demo_manager: '/product-demo-manager',
-  task_manager: '/app/tasks',
-  finance_manager: '/app/finance',
-  hr_manager: '/hr',
-  legal_compliance: '/app/legal',
-  prime: '/prime',
-  user: '/app/user',
-  client: '/app/user',
+  server_manager: '/server-manager',
+  api_ai_manager: '/api-ai-manager',
+  continent_admin: '/continent-super-admin',
+  country_admin: '/country-dashboard',
+  security_manager: '/security-command',
+  marketplace_manager: '/marketplace-manager',
+  license_manager: '/boss-panel',
+  deployment_manager: '/server-manager',
+  analytics_manager: '/boss-panel',
+  notification_manager: '/boss-panel',
+  integration_manager: '/boss-panel',
+  audit_manager: '/boss-panel',
+  prime_user: '/prime',
+  user: '/user/dashboard',
 };
 
 const ROLE_PRIORITY: AppRole[] = [
   'boss_owner',
-  'master',
-  'super_admin',
   'ceo',
+  'super_admin',
   'admin',
-  'continent_super_admin',
-  'country_head',
-  'area_manager',
+  'developer',
+  'continent_admin',
+  'country_admin',
+  'security_manager',
   'server_manager',
-  'ai_manager',
+  'api_ai_manager',
   'finance_manager',
   'lead_manager',
   'marketing_manager',
-  'support',
-  'franchise',
+  'seo_manager',
+  'sales_support',
+  'legal_manager',
+  'hr_manager',
+  'pro_manager',
+  'task_manager',
+  'product_manager',
+  'demo_manager',
+  'franchise_owner',
+  'franchise_manager',
   'reseller',
-  'developer',
-  'prime',
+  'reseller_manager',
   'influencer',
+  'influencer_manager',
+  'marketplace_manager',
+  'license_manager',
+  'deployment_manager',
+  'analytics_manager',
+  'notification_manager',
+  'integration_manager',
+  'audit_manager',
+  'prime_user',
   'user',
-  'client',
 ];
 
 export const selectBestRole = (roles: AppRole[]): AppRole | null => {
-  if (roles.length === 0) {
-    return null;
-  }
-
+  if (roles.length === 0) return null;
   for (const role of ROLE_PRIORITY) {
-    if (roles.includes(role)) {
-      return role;
-    }
+    if (roles.includes(role)) return role;
   }
-
   return roles[0];
 };
 
 export const getDashboardRouteForRole = (role: AppRole | null) => {
-  if (!role) {
-    return '/app/user';
-  }
-
-  return ROLE_DASHBOARD_MAP[role] || '/app/user';
+  if (!role) return '/user/dashboard';
+  return ROLE_DASHBOARD_MAP[role] || '/user/dashboard';
 };
