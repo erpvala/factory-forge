@@ -327,10 +327,10 @@ const App = () => (
 
               {/* Global Auth Routes */}
               <Route path="/login" element={<Auth />} />
-              <Route path="/role-login" element={<RoleBasedLogin />} />
-              <Route path="/register" element={<Navigate to="/auth" replace />} />
-              <Route path="/easy-login" element={<EasyAuth />} />
-              <Route path="/quick-signup" element={<EasyAuth />} />
+              <Route path="/role-login" element={<Navigate to="/login" replace />} />
+              <Route path="/register" element={<Navigate to="/login" replace />} />
+              <Route path="/easy-login" element={<Navigate to="/login" replace />} />
+              <Route path="/quick-signup" element={<Navigate to="/login" replace />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/otp-verify" element={<OTPVerify />} />
               <Route path="/device-verify" element={<DeviceVerify />} />
