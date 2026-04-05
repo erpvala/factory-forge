@@ -69,7 +69,7 @@ const InfluencerDashboard = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate('/auth');
+    navigate('/login');
   };
 
   // Show loader while checking account

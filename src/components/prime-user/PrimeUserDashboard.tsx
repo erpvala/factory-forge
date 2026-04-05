@@ -104,7 +104,7 @@ export function PrimeUserDashboard() {
     }
     
     await supabase.auth.signOut();
-    navigate('/auth', { replace: true });
+    navigate('/login', { replace: true });
   };
 
   if (profileLoading) {

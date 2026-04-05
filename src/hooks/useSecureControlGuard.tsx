@@ -131,7 +131,7 @@ export function useSecureControlGuard() {
           description: 'Your session has timed out. Redirecting...'
         });
         logSecurityEvent('session_timeout', 'session_expired');
-        setTimeout(() => navigate('/auth'), 2000);
+        setTimeout(() => navigate('/login'), 2000);
       }
     }, 30000); // Check every 30 seconds
 

@@ -59,7 +59,7 @@ export const useSuperAdminGuard = () => {
     const interval = setInterval(() => {
       if (Date.now() > securityState.sessionExpiry) {
         toast.error('Session expired. Please re-authenticate.');
-        navigate('/auth');
+        navigate('/login');
       }
     }, 30000);
 

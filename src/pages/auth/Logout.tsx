@@ -29,7 +29,7 @@ const Logout = () => {
       toast.success('Logged out successfully');
       
       // Block back button by replacing history
-      navigate('/auth', { replace: true });
+      navigate('/login', { replace: true });
     };
     performLogout();
   }, [signOut, navigate, user?.id]);

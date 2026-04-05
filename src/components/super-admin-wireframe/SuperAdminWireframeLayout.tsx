@@ -64,7 +64,7 @@ const SuperAdminWireframeLayout = ({
     // Boss panel is protected; if user isn't Boss Owner/CEO, the route will redirect.
     if (!user) {
       toast.error("Please login first to open Supreme Control");
-      navigate("/auth");
+      navigate("/login");
       return;
     }
 

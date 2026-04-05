@@ -49,7 +49,7 @@ const ResellerPortal = () => {
   const handleLogout = async () => {
     await signOut();
     toast.success('Logged out successfully');
-    navigate('/auth');
+    navigate('/login');
   };
 
   // Mock data - in production, fetch from Supabase with reseller_id filter

@@ -125,7 +125,7 @@ const ContinentSuperAdminDashboard = ({ continentId, continentName, onBack }: Co
     });
     await supabase.auth.signOut();
     toast.success('Logged out');
-    navigate('/auth');
+    navigate('/login');
   };
 
   const renderView = () => {

@@ -36,7 +36,7 @@ const IncidentCrisisSidebar = ({ activeSection, onSectionChange }: IncidentCrisi
   const handleLogout = async () => {
     await signOut();
     toast.success('Logged out successfully');
-    navigate('/auth');
+    navigate('/login');
   };
 
   const userName = user?.email?.split('@')[0] || 'Crisis Manager';

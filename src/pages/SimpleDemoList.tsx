@@ -178,7 +178,7 @@ const SimpleDemoList = () => {
               
               {!isTestMode && (
                 <Link 
-                  to="/auth" 
+                  to="/login" 
                   className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 rounded-lg text-sm font-semibold transition-all shadow-lg shadow-cyan-500/25"
                 >
                   Login

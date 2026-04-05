@@ -105,7 +105,7 @@ export default function SecureControlWorkspace() {
     toast.success('Session Terminated', {
       description: 'All data cleared'
     });
-    navigate('/auth');
+    navigate('/login');
   };
 
   const handleProcess = (actionId: string, step: ActionStep) => {

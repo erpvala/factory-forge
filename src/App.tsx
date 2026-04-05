@@ -31,9 +31,7 @@ import AutoDevEngine from "@/pages/auto-dev/AutoDevEngine";
 import AutomotiveDemo from "@/pages/demos/AutomotiveDemo";
 import BlockingClassCleanup from "@/components/shared/BlockingClassCleanup";
 import BootstrapAdmins from "@/pages/admin/BootstrapAdmins";
-import BossFortressAuth from "@/pages/auth/BossFortressAuth";
 import BossPanel from "@/pages/BossPanel";
-import BossRegister from "@/pages/auth/BossRegister";
 import BulkActionsReference from "@/pages/admin/BulkActionsReference";
 import BulkUserCreation from "@/pages/admin/BulkUserCreation";
 import ButtonAuditOverlay from "@/components/shared/ButtonAuditOverlay";
@@ -56,7 +54,6 @@ import { DemoTestModeProvider } from "@/contexts/DemoTestModeContext";
 import DevCommandCenter from "@/pages/DevCommandCenter";
 import DeveloperRegistration from "@/pages/developer/DeveloperRegistration";
 import DeviceVerify from "@/pages/auth/DeviceVerify";
-import EasyAuth from "@/pages/auth/EasyAuth";
 import EcommerceStoreDemo from "@/pages/demos/EcommerceStoreDemo";
 import EducationDemoHub from "@/pages/demos/education/EducationDemoHub";
 import EnterpriseControlHub from "@/pages/enterprise-control/EnterpriseControlHub";
@@ -148,14 +145,12 @@ import RestaurantPOSDemo from "@/pages/demos/RestaurantPOSDemo";
 import RestaurantSmallDemo from "@/pages/demos/restaurant/RestaurantSmallDemo";
 import RetailPOSDemo from "@/pages/retail-pos/RetailPOSDemo";
 import RnDDashboard from "@/pages/RnDDashboard";
-import RoleBasedLogin from "@/pages/auth/RoleBasedLogin";
 import RoleManager from "@/pages/super-admin/RoleManager";
 import RoleManagerPage from "@/pages/admin/RoleManagerPage";
 import RoleSwitchDashboard from "@/pages/super-admin-system/RoleSwitch/RoleSwitchDashboard";
 import SEODashboard from "@/pages/SEODashboard";
 import SEOManagerDashboard from "@/pages/dashboards/SEOManagerDashboard";
 import SafeAssistDashboard from "@/pages/safe-assist/SafeAssistDashboard";
-import SalesCRMAuthPage from "@/pages/sales-crm/SalesCRMAuthPage";
 import SalesCRMDemo from "@/pages/sales-crm/SalesCRMDemo";
 import SalesSupportDashboard from "@/pages/SalesSupportDashboard";
 import SalonDemo from "@/pages/demos/SalonDemo";
@@ -193,7 +188,6 @@ import SuperAdminAdmins from "@/pages/super-admin-system/Admins";
 import SuperAdminApprovals from "@/pages/super-admin-system/Approvals";
 import SuperAdminAudit from "@/pages/super-admin-system/Audit";
 import SuperAdminGeography from "@/pages/super-admin-system/Geography";
-import SuperAdminLogin from "@/pages/super-admin-system/Login";
 import SuperAdminModules from "@/pages/super-admin-system/Modules";
 import SuperAdminRentals from "@/pages/super-admin-system/Rentals";
 import SuperAdminRoles from "@/pages/super-admin-system/Roles";
@@ -252,7 +246,7 @@ const App = () => (
               <Route path="/demos/public" element={<PublicDemos />} />
               <Route path="/showcase" element={<PremiumDemoShowcaseNew />} />
               <Route path="/server-portal" element={<RequireAuth><ServerManagementPortal /></RequireAuth>} />
-              <Route path="/auth" element={<Auth />} />
+              <Route path="/auth" element={<Navigate to="/login" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               {/* Basic profile route to satisfy header navigation */}
               <Route path="/profile" element={<RequireAuth><SettingsPage /></RequireAuth>} />
@@ -310,7 +304,7 @@ const App = () => (
 
               {/* Sales CRM Demo */}
               <Route path="/sales-crm" element={<SalesCRMDemo />} />
-              <Route path="/sales-crm/auth" element={<SalesCRMAuthPage />} />
+              <Route path="/sales-crm/auth" element={<Navigate to="/login" replace />} />
               <Route path="/retail-pos" element={<RetailPOSDemo />} />
               {/* Dynamic Demo Routes - MUST come AFTER specific routes */}
               <Route path="/demo-directory" element={<DemoDirectory />} />
@@ -327,10 +321,10 @@ const App = () => (
 
               {/* Global Auth Routes */}
               <Route path="/login" element={<Auth />} />
-              <Route path="/role-login" element={<RoleBasedLogin />} />
-              <Route path="/register" element={<Navigate to="/auth" replace />} />
-              <Route path="/easy-login" element={<EasyAuth />} />
-              <Route path="/quick-signup" element={<EasyAuth />} />
+              <Route path="/role-login" element={<Navigate to="/login" replace />} />
+              <Route path="/register" element={<Navigate to="/login" replace />} />
+              <Route path="/easy-login" element={<Navigate to="/login" replace />} />
+              <Route path="/quick-signup" element={<Navigate to="/login" replace />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/otp-verify" element={<OTPVerify />} />
               <Route path="/device-verify" element={<DeviceVerify />} />
@@ -341,10 +335,10 @@ const App = () => (
               <Route path="/access-denied" element={<AccessDenied />} />
               <Route path="/session-expired" element={<SessionExpiredPage />} />
 
-              {/* Boss Fortress Auth - Ultra Secure */}
-              <Route path="/boss-fortress" element={<BossFortressAuth />} />
-              <Route path="/boss-register" element={<BossRegister />} />
-              <Route path="/boss/login" element={<SuperAdminLogin />} />
+              {/* Boss Auth - redirects to unified login */}
+              <Route path="/boss-fortress" element={<Navigate to="/login" replace />} />
+              <Route path="/boss-register" element={<Navigate to="/login" replace />} />
+              <Route path="/boss/login" element={<Navigate to="/login" replace />} />
 
               {/* Boss Panel */}
               <Route path="/boss-panel" element={<BossPanel />} />
@@ -610,7 +604,7 @@ const App = () => (
               <Route path="/super-admin-system/rc" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
               <Route path="/super-admin-system/role-center" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
 
-              <Route path="/super-admin-system/login" element={<SuperAdminLogin />} />
+              <Route path="/super-admin-system/login" element={<Navigate to="/login" replace />} />
               {/* Role switcher - Protected for privileged roles */}
               <Route path="/super-admin-system/role-switch" element={<RequireRole allowed={['boss_owner', 'ceo', 'admin', 'super_admin', 'master', 'continent_super_admin', 'country_head']}><RoleSwitchDashboard /></RequireRole>} />
               <Route path="/super-admin-system/role-switch/*" element={<RequireRole allowed={['boss_owner', 'ceo', 'admin', 'super_admin', 'master', 'continent_super_admin', 'country_head']}><RoleSwitchDashboard /></RequireRole>} />

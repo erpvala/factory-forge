@@ -64,7 +64,7 @@ const DeveloperTopBarComplete = ({
   const handleLogout = async () => {
     await signOut();
     toast.success('Session ended successfully');
-    navigate('/auth');
+    navigate('/login');
   };
 
   const getSprintStatusColor = () => {

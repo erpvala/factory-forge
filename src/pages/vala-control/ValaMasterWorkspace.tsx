@@ -65,7 +65,7 @@ export default function ValaMasterWorkspace() {
   }, [user?.id]);
 
   const handleSessionExpire = () => {
-    navigate('/auth');
+    navigate('/login');
   };
 
   const handleUnlock = async (itemId: string) => {

@@ -87,7 +87,7 @@ const GlobalControlCenter = () => {
   const handleLogout = async () => {
     await signOut();
     toast.success('Logged out successfully');
-    navigate('/auth');
+    navigate('/login');
   };
 
   const pendingApprovals = approvals.filter(a => a.status === 'pending').length;

@@ -186,7 +186,7 @@ const MasterAdminDashboard = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate('/auth', { replace: true });
+    navigate('/login', { replace: true });
   };
 
   const pendingUsers = users.filter(u => u.approval_status === 'pending');

@@ -36,7 +36,7 @@ export default function ValaRegionalWorkspace() {
   }, [user?.id]);
 
   const handleSessionExpire = () => {
-    navigate('/auth');
+    navigate('/login');
   };
 
   if (!valaId) {

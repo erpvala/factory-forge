@@ -29,7 +29,7 @@ export function useForceLogoutCheck() {
             duration: 5000
           });
           
-          navigate('/auth');
+          navigate('/login');
           return true;
         }
       }

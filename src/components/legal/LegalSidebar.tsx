@@ -43,7 +43,7 @@ const LegalSidebar = ({ activeSection, setActiveSection }: LegalSidebarProps) =>
     try {
       await signOut();
       toast.success("Logged out successfully");
-      navigate("/auth");
+      navigate("/login");
     } catch (error) {
       toast.error("Failed to logout");
     }

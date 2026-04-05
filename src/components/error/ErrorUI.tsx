@@ -198,7 +198,7 @@ export const ErrorUI = ({
                 </Button>
               )}
               {showLoginButton && (
-                <Button onClick={() => navigate("/auth")} className="flex-1 gap-2">
+                <Button onClick={() => navigate("/login")} className="flex-1 gap-2">
                   <LogIn className="w-4 h-4" />
                   Login Again
                 </Button>

@@ -108,7 +108,7 @@ export function BossPanelHeader({ streamingOn, onStreamingToggle }: BossPanelHea
       });
       await signOut();
       toast.success('Securely logged out');
-      navigate('/auth');
+      navigate('/login');
     } catch { toast.error('Logout failed'); }
     finally { setIsLoggingOut(false); }
   };

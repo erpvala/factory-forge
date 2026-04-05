@@ -76,11 +76,11 @@ const PublicDemos = () => {
               </Button>
             ) : (
               <>
-                <Button variant="ghost" onClick={() => navigate('/auth')}>
+                <Button variant="ghost" onClick={() => navigate('/login')}>
                   <LogIn className="w-4 h-4 mr-2" />
                   Sign In
                 </Button>
-                <Button onClick={() => navigate('/auth')}>
+                <Button onClick={() => navigate('/login')}>
                   Get Started
                 </Button>
               </>
@@ -213,7 +213,7 @@ const PublicDemos = () => {
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
               Create an account to access more features and request your own demo access.
             </p>
-            <Button size="lg" onClick={() => navigate('/auth')}>
+            <Button size="lg" onClick={() => navigate('/login')}>
               Create Account
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>

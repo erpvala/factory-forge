@@ -33,7 +33,7 @@ const DevNewSidebar = ({ activeSection, onSectionChange }: DevNewSidebarProps) =
   const handleLogout = async () => {
     await signOut();
     toast.success('Session ended');
-    navigate('/auth');
+    navigate('/login');
   };
 
   return (

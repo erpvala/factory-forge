@@ -173,7 +173,7 @@ const PremiumDemoShowcase = () => {
               </Button>
               <Button 
                 className="bg-gradient-to-r from-cyan-500 to-violet-500 hover:from-cyan-600 hover:to-violet-600 text-white shadow-lg shadow-cyan-500/25"
-                onClick={() => navigate('/auth')}
+                onClick={() => navigate('/login')}
               >
                 Get Started
               </Button>
