@@ -5,7 +5,6 @@ import { BossPanelSidebar } from './BossPanelSidebar';
 import { BossPanelContent } from './BossPanelContent';
 
 export type BossPanelSection = 
-  | 'dashboard'
   | 'full-auto'
   | 'live-activity'
   | 'hierarchy'
@@ -27,7 +26,7 @@ interface BossPanelLayoutProps {
 
 // LOCKED: Background #0B0F1A, text #FFFFFF
 export function BossPanelLayout({ children }: BossPanelLayoutProps) {
-  const [activeSection, setActiveSection] = useState<BossPanelSection>('dashboard');
+  const [activeSection, setActiveSection] = useState<BossPanelSection>('full-auto');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [streamingOn, setStreamingOn] = useState(true);
 

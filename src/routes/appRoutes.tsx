@@ -5,9 +5,9 @@ import AppShell from '@/components/app/AppShell';
 import ModuleGuard from '@/components/app/ModuleGuard';
 import AppIndex from '@/pages/app/AppIndex';
 import AppAccessDenied from '@/pages/app/AppAccessDenied';
+import { ROUTES } from '@/routes/routes';
 
 // ─── Static imports (already in App.tsx bundle) ───────────────────────────────
-import UnifiedControlDashboard from '@/pages/unified-control/UnifiedControlDashboard';
 import FinanceManager from '@/pages/FinanceManager';
 import SecureLeadManagerDashboard from '@/pages/lead-manager/SecureLeadManagerDashboard';
 import SalesSupportDashboard from '@/pages/SalesSupportDashboard';
@@ -92,7 +92,7 @@ export function AppRoutes() {
           path="control-center/*"
           element={
             <ModuleGuard moduleId="control-center">
-              <UnifiedControlDashboard />
+              <Navigate to={ROUTES.bossPanel} replace />
             </ModuleGuard>
           }
         />

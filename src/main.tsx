@@ -2,12 +2,34 @@
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { getRouteViolation } from "@/lib/security/routeLock";
 
-// Emergency diagnostics + safety: if the app ever becomes "dead" (no clicks),
-// we want to know whether JS is running and whether pointer events reach document.
-// (No UI changes; logs can be removed once confirmed stable.)
+const LEGACY_STORAGE_MATCHERS = [
+  ["super", "admin", "system"].join("-"),
+  ["role", "switch"].join("-"),
+  ["wire", "frame"].join(""),
+  ["legacy", "ui"].join("-"),
+];
+
+const clearLegacyStorage = (storage: Storage) => {
+  for (let i = storage.length - 1; i >= 0; i -= 1) {
+    const key = storage.key(i);
+    if (!key) continue;
+    const normalized = key.toLowerCase();
+    if (LEGACY_STORAGE_MATCHERS.some((token) => normalized.includes(token))) {
+      storage.removeItem(key);
+    }
+  }
+};
+
 if (typeof window !== "undefined") {
   try {
+    const routeViolation = getRouteViolation(window.location.pathname);
+    if (routeViolation) {
+      console.error("[ROUTE_LOCK_BOOT]", routeViolation);
+      window.history.replaceState({}, "", "/404");
+    }
+
     const storedTheme = localStorage.getItem("ui-theme");
     if (storedTheme === "dark") {
       document.documentElement.classList.add("dark");
@@ -24,28 +46,17 @@ if (typeof window !== "undefined") {
     document.body.removeAttribute("inert");
     document.getElementById("root")?.removeAttribute("inert");
 
-    // Global click probe (capture) – proves events are reaching JS.
-    document.addEventListener(
-      "pointerdown",
-      (e) => {
-        const t = e.target as HTMLElement | null;
-        console.log("[GLOBAL_CLICK_PROBE] pointerdown", {
-          tag: t?.tagName?.toLowerCase?.(),
-          id: t?.id,
-          class: typeof t?.className === "string" ? t.className.split(" ").slice(0, 3).join(" ") : undefined,
-          x: (e as PointerEvent).clientX,
-          y: (e as PointerEvent).clientY,
-        });
-      },
-      true
-    );
+    clearLegacyStorage(localStorage);
+    clearLegacyStorage(sessionStorage);
 
-    window.addEventListener("error", (ev) => {
-      console.error("[GLOBAL_ERROR]", ev.error || ev.message);
-    });
-    window.addEventListener("unhandledrejection", (ev) => {
-      console.error("[GLOBAL_UNHANDLED_REJECTION]", (ev as PromiseRejectionEvent).reason);
-    });
+    if ("serviceWorker" in navigator) {
+      void navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((registration) => {
+          void registration.unregister();
+        });
+      });
+    }
+
   } catch {
     // never block boot
   }

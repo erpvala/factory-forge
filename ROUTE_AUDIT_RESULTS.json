@@ -1,2474 +1,1435 @@
 {
-  "baseUrl": "http://127.0.0.1:4173",
+  "baseUrl": "http://localhost:8080",
   "totals": {
-    "extracted": 350,
-    "concrete": 304,
-    "dynamicOrWildcard": 46,
-    "valid": 287,
-    "guarded": 3,
-    "dead": 14
+    "extracted": 314,
+    "concrete": 267,
+    "dynamicOrWildcard": 47,
+    "valid": 58,
+    "guarded": 20,
+    "dead": 189
   },
   "dead": [
     {
-      "path": "live-monitor",
-      "line": 497,
-      "module": "live-monitor",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173live-monitor\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "decision-engine",
-      "line": 498,
-      "module": "decision-engine",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173decision-engine\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "approvals",
-      "line": 499,
-      "module": "approvals",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173approvals\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "risk",
-      "line": 500,
-      "module": "risk",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173risk\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "performance",
-      "line": 501,
-      "module": "performance",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173performance\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "predictions",
-      "line": 502,
-      "module": "predictions",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173predictions\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "reports",
-      "line": 503,
-      "module": "reports",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173reports\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "learning",
-      "line": 504,
-      "module": "learning",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173learning\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "settings",
-      "line": 505,
-      "module": "settings",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173settings\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "/super-admin-system/users",
-      "line": 727,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: net::ERR_INSUFFICIENT_RESOURCES at http://127.0.0.1:4173/super-admin-system/users\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/super-admin-system/users\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "/super-admin-system/admins",
-      "line": 728,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: net::ERR_INSUFFICIENT_RESOURCES at http://127.0.0.1:4173/super-admin-system/admins\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/super-admin-system/admins\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "/super-admin-system/roles",
-      "line": 729,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "Error: page.goto: net::ERR_INSUFFICIENT_RESOURCES at http://127.0.0.1:4173/super-admin-system/roles\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/super-admin-system/roles\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "/super-admin-system/geography",
-      "line": 730,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "TimeoutError: page.goto: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/super-admin-system/geography\", waiting until \"domcontentloaded\"\u001b[22m\n"
-    },
-    {
-      "path": "/404",
-      "line": 752,
-      "module": "404",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "dead",
-      "finalUrl": "http://127.0.0.1:4173/404"
-    }
-  ],
-  "guarded": [
-    {
-      "path": "/login",
-      "line": 426,
-      "module": "login",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "guarded",
-      "finalUrl": "http://127.0.0.1:4173/login"
-    },
-    {
-      "path": "/access-denied",
-      "line": 438,
-      "module": "access-denied",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "guarded",
-      "finalUrl": "http://127.0.0.1:4173/access-denied"
-    },
-    {
-      "path": "/session-expired",
-      "line": 439,
-      "module": "session-expired",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "guarded",
-      "finalUrl": "http://127.0.0.1:4173/session-expired"
-    }
-  ],
-  "valid": [
-    {
-      "path": "/",
-      "line": 330,
-      "module": "home",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/"
-    },
-    {
-      "path": "/demos",
-      "line": 331,
-      "module": "demos",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demos"
-    },
-    {
-      "path": "/explore",
-      "line": 332,
-      "module": "explore",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/explore"
-    },
-    {
-      "path": "/products",
-      "line": 333,
-      "module": "products",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/products"
-    },
-    {
-      "path": "/pricing",
-      "line": 334,
-      "module": "pricing",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/pricing"
-    },
-    {
-      "path": "/demos/public",
-      "line": 335,
-      "module": "demos",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demos/public"
-    },
-    {
-      "path": "/showcase",
-      "line": 336,
-      "module": "showcase",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/showcase"
-    },
-    {
-      "path": "/server-portal",
-      "line": 337,
-      "module": "server-portal",
-      "access": "auth",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/server-portal"
-    },
-    {
-      "path": "/auth",
-      "line": 338,
-      "module": "auth",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/auth"
-    },
-    {
-      "path": "/dashboard",
-      "line": 339,
-      "module": "dashboard",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/dashboard"
-    },
-    {
-      "path": "/profile",
-      "line": 341,
-      "module": "profile",
-      "access": "auth",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/profile"
-    },
-    {
-      "path": "/pending-approval",
-      "line": 342,
-      "module": "pending-approval",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/pending-approval"
-    },
-    {
-      "path": "/settings",
-      "line": 343,
-      "module": "settings",
-      "access": "auth",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/settings"
-    },
-    {
-      "path": "/change-password",
-      "line": 344,
-      "module": "change-password",
-      "access": "auth",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/change-password"
-    },
-    {
-      "path": "/onboard",
-      "line": 345,
-      "module": "onboard",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/onboard"
-    },
-    {
-      "path": "/apply",
-      "line": 347,
-      "module": "apply",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/apply"
-    },
-    {
-      "path": "/careers",
-      "line": 348,
-      "module": "careers",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/careers"
-    },
-    {
-      "path": "/join-developer",
-      "line": 349,
-      "module": "join-developer",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/join-developer"
-    },
-    {
-      "path": "/join-influencer",
-      "line": 350,
-      "module": "join-influencer",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/join-influencer"
-    },
-    {
-      "path": "/jobs",
-      "line": 351,
-      "module": "jobs",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/jobs"
-    },
-    {
-      "path": "/bootstrap-admins",
-      "line": 353,
-      "module": "bootstrap-admins",
-      "access": "role:\"master\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/bootstrap-admins"
-    },
-    {
       "path": "/sectors",
-      "line": 354,
+      "line": 385,
       "module": "sectors",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/sectors"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_INSUFFICIENT_RESOURCES at http://localhost:8080/sectors\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/sectors\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/auto-dev",
-      "line": 358,
+      "line": 389,
       "module": "auto-dev",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/auto-dev"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/auto-dev\" is interrupted by another navigation to \"chrome-error://chromewebdata/\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/auto-dev\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/demo/restaurant-pos",
-      "line": 361,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/restaurant-pos"
-    },
-    {
-      "path": "/demo/restaurant-small",
-      "line": 362,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/restaurant-small"
-    },
-    {
-      "path": "/demo/restaurant-medium",
-      "line": 363,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/restaurant-medium"
-    },
-    {
-      "path": "/demo/restaurant-large",
-      "line": 364,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/restaurant-large"
-    },
-    {
-      "path": "/demo/school-erp",
-      "line": 365,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/school-erp"
-    },
-    {
-      "path": "/demo/school-small",
-      "line": 366,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/school-small"
-    },
-    {
-      "path": "/demo/school-medium",
-      "line": 367,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/school-medium"
-    },
-    {
-      "path": "/demo/school-large",
-      "line": 368,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/school-large"
-    },
-    {
-      "path": "/demo/education",
-      "line": 369,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/education"
-    },
-    {
-      "path": "/demos/education",
-      "line": 370,
-      "module": "demos",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demos/education"
-    },
-    {
-      "path": "/school-software",
-      "line": 373,
-      "module": "school-software",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/school-software"
-    },
-    {
-      "path": "/school-software/dashboard",
-      "line": 374,
-      "module": "school-software",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/school-software/dashboard"
-    },
-    {
-      "path": "/demo/hospital-hms",
-      "line": 375,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/hospital-hms"
-    },
-    {
-      "path": "/demo/ecommerce-store",
-      "line": 376,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/ecommerce-store"
-    },
-    {
-      "path": "/demo/hotel-booking",
-      "line": 377,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/hotel-booking"
-    },
-    {
-      "path": "/demo/real-estate",
-      "line": 378,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/real-estate"
-    },
-    {
-      "path": "/demo/automotive",
-      "line": 379,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/automotive"
-    },
-    {
-      "path": "/demo/travel",
-      "line": 380,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/travel"
-    },
-    {
-      "path": "/demo/finance",
-      "line": 381,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/finance"
-    },
-    {
-      "path": "/demo/manufacturing",
-      "line": 382,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/manufacturing"
-    },
-    {
-      "path": "/demo/gym",
-      "line": 383,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/gym"
-    },
-    {
-      "path": "/demo/salon",
-      "line": 384,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/salon"
-    },
-    {
-      "path": "/demo/legal",
-      "line": 385,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/legal"
-    },
-    {
-      "path": "/demo/security",
-      "line": 386,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/security"
-    },
-    {
-      "path": "/demo/telecom",
-      "line": 387,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/telecom"
-    },
-    {
-      "path": "/demo/childcare",
-      "line": 388,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/childcare"
-    },
-    {
-      "path": "/demo/petcare",
-      "line": 389,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/petcare"
-    },
-    {
-      "path": "/demo/event",
-      "line": 390,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/event"
-    },
-    {
-      "path": "/demo/crm",
-      "line": 391,
-      "module": "demo",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/crm"
-    },
-    {
-      "path": "/demo/logistics",
       "line": 392,
       "module": "demo",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/logistics"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/demo/restaurant-pos\" is interrupted by another navigation to \"http://localhost:8080/auto-dev\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo/restaurant-pos\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
-      "path": "/sales-crm",
+      "path": "/demo/restaurant-small",
+      "line": 393,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/demo/restaurant-small\" is interrupted by another navigation to \"http://localhost:8080/demo/restaurant-pos\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo/restaurant-small\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/demo/restaurant-medium",
+      "line": 394,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/demo/restaurant-medium\" is interrupted by another navigation to \"http://localhost:8080/demo/restaurant-small\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo/restaurant-medium\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/demo/restaurant-large",
       "line": 395,
-      "module": "sales-crm",
+      "module": "demo",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/sales-crm"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/demo/restaurant-large\" is interrupted by another navigation to \"http://localhost:8080/demo/restaurant-medium\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo/restaurant-large\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
-      "path": "/sales-crm/auth",
+      "path": "/demo/school-erp",
       "line": 396,
-      "module": "sales-crm",
+      "module": "demo",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/sales-crm/auth"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/demo/school-erp\" is interrupted by another navigation to \"http://localhost:8080/demo/restaurant-large\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo/school-erp\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
-      "path": "/retail-pos",
+      "path": "/demo/school-small",
       "line": 397,
-      "module": "retail-pos",
+      "module": "demo",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/retail-pos"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/demo/school-small\" is interrupted by another navigation to \"http://localhost:8080/demo/school-erp\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo/school-small\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
-      "path": "/demo-directory",
+      "path": "/demo/school-medium",
+      "line": 398,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/demo/school-medium\" is interrupted by another navigation to \"http://localhost:8080/demo/school-small\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo/school-medium\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/demo/school-large",
       "line": 399,
-      "module": "demo-directory",
+      "module": "demo",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo-directory"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/demo/school-large\" is interrupted by another navigation to \"http://localhost:8080/demo/school-medium\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo/school-large\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
-      "path": "/user-dashboard",
-      "line": 402,
-      "module": "user-dashboard",
+      "path": "/demo/education",
+      "line": 400,
+      "module": "demo",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/user-dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/demo/education\" is interrupted by another navigation to \"http://localhost:8080/demo/school-large\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo/education\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
-      "path": "/user/dashboard",
-      "line": 403,
-      "module": "user",
-      "access": "auth",
+      "path": "/demos/education",
+      "line": 401,
+      "module": "demos",
+      "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/user/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/demos/education\" is interrupted by another navigation to \"http://localhost:8080/demo/education\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demos/education\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
-      "path": "/demo-login",
+      "path": "/school-software",
       "line": 404,
-      "module": "demo-login",
+      "module": "school-software",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo-login"
-    },
-    {
-      "path": "/premium-demos",
-      "line": 405,
-      "module": "premium-demos",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/premium-demos"
-    },
-    {
-      "path": "/client-portal",
-      "line": 408,
-      "module": "client-portal",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/client-portal"
-    },
-    {
-      "path": "/get-started",
-      "line": 409,
-      "module": "get-started",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/get-started"
-    },
-    {
-      "path": "/contact",
-      "line": 410,
-      "module": "contact",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/contact"
-    },
-    {
-      "path": "/privacy",
-      "line": 411,
-      "module": "privacy",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/privacy"
-    },
-    {
-      "path": "/terms",
-      "line": 412,
-      "module": "terms",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/terms"
-    },
-    {
-      "path": "/marketplace",
-      "line": 413,
-      "module": "marketplace",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/marketplace"
-    },
-    {
-      "path": "/marketplace/offers",
-      "line": 414,
-      "module": "marketplace",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/marketplace/offers"
-    },
-    {
-      "path": "/cart",
-      "line": 417,
-      "module": "cart",
-      "access": "auth",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/cart"
-    },
-    {
-      "path": "/checkout",
-      "line": 418,
-      "module": "checkout",
-      "access": "auth",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/checkout"
-    },
-    {
-      "path": "/marketplace-manager",
-      "line": 419,
-      "module": "marketplace-manager",
-      "access": "role:\"marketplace_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/marketplace-manager"
-    },
-    {
-      "path": "/marketplace-manager/dashboard",
-      "line": 420,
-      "module": "marketplace-manager",
-      "access": "role:\"marketplace_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/marketplace-manager/dashboard"
-    },
-    {
-      "path": "/payment-success",
-      "line": 422,
-      "module": "payment-success",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/payment-success"
-    },
-    {
-      "path": "/order-success",
-      "line": 423,
-      "module": "order-success",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/order-success"
-    },
-    {
-      "path": "/role-login",
-      "line": 427,
-      "module": "role-login",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/role-login"
-    },
-    {
-      "path": "/register",
-      "line": 428,
-      "module": "register",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/register"
-    },
-    {
-      "path": "/easy-login",
-      "line": 429,
-      "module": "easy-login",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/easy-login"
-    },
-    {
-      "path": "/quick-signup",
-      "line": 430,
-      "module": "quick-signup",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/quick-signup"
-    },
-    {
-      "path": "/logout",
-      "line": 431,
-      "module": "logout",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/logout"
-    },
-    {
-      "path": "/otp-verify",
-      "line": 432,
-      "module": "otp-verify",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/otp-verify"
-    },
-    {
-      "path": "/device-verify",
-      "line": 433,
-      "module": "device-verify",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/device-verify"
-    },
-    {
-      "path": "/ip-verify",
-      "line": 434,
-      "module": "ip-verify",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/ip-verify"
-    },
-    {
-      "path": "/forgot-password",
-      "line": 435,
-      "module": "forgot-password",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/forgot-password"
-    },
-    {
-      "path": "/reset-password",
-      "line": 436,
-      "module": "reset-password",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reset-password"
-    },
-    {
-      "path": "/account-suspension",
-      "line": 437,
-      "module": "account-suspension",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/account-suspension"
-    },
-    {
-      "path": "/boss-fortress",
-      "line": 442,
-      "module": "boss-fortress",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/boss-fortress"
-    },
-    {
-      "path": "/boss-register",
-      "line": 443,
-      "module": "boss-register",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/boss-register"
-    },
-    {
-      "path": "/boss/login",
-      "line": 444,
-      "module": "boss",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/boss/login"
-    },
-    {
-      "path": "/boss-panel",
-      "line": 447,
-      "module": "boss-panel",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/boss-panel"
-    },
-    {
-      "path": "/owner",
-      "line": 451,
-      "module": "owner",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/owner"
-    },
-    {
-      "path": "/softwarewala",
-      "line": 453,
-      "module": "softwarewala",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/softwarewala"
-    },
-    {
-      "path": "/master-admin",
-      "line": 456,
-      "module": "master-admin",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/master-admin"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Navigation to \"http://localhost:8080/school-software\" is interrupted by another navigation to \"http://localhost:8080/demos/education\"\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/school-software\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/master-admin-supreme",
-      "line": 458,
+      "line": 492,
       "module": "master-admin-supreme",
-      "access": "role:\"boss_owner\"",
+      "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/master-admin-supreme"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/master-admin-supreme\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/master-admin-supreme\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/master-control-vault-x9k2m",
+      "line": 493,
+      "module": "master-control-vault-x9k2m",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/master-control-vault-x9k2m\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/master-control-vault-x9k2m\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/admin/bulk-users",
-      "line": 461,
+      "line": 496,
       "module": "admin",
-      "access": "role:\"boss_owner\"",
+      "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/admin/bulk-users"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/admin/bulk-users\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/admin/bulk-users\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/admin/role-manager",
-      "line": 462,
+      "line": 497,
       "module": "admin",
-      "access": "role:\"boss_owner\"",
+      "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/admin/role-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/admin/role-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/admin/role-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/area-manager",
-      "line": 466,
+      "line": 501,
       "module": "area-manager",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/area-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/area-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/area-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/server-manager",
-      "line": 470,
+      "line": 505,
       "module": "server-manager",
       "access": "role:\"boss_owner\",\"server_manager\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/server-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/server-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/server-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/security-command",
-      "line": 474,
+      "line": 509,
       "module": "security-command",
       "access": "role:\"boss_owner\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/security-command"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/security-command\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/security-command\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/api-manager",
-      "line": 478,
+      "line": 513,
       "module": "api-manager",
       "access": "role:\"boss_owner\",\"ai_manager\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/api-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/api-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/api-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/marketing-manager",
-      "line": 482,
+      "line": 517,
       "module": "marketing-manager",
       "access": "role:\"boss_owner\",\"marketing_manager\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/marketing-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/marketing-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/marketing-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/seo-manager",
-      "line": 487,
+      "line": 522,
       "module": "seo-manager",
       "access": "role:\"boss_owner\",\"seo_manager\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/seo-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/seo-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/seo-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/legal-manager",
-      "line": 491,
+      "line": 526,
       "module": "legal-manager",
       "access": "role:\"boss_owner\",\"legal_compliance\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/legal-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/legal-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/legal-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/ai-ceo",
-      "line": 495,
+      "line": 530,
       "module": "ai-ceo",
       "access": "role:\"boss_owner\",\"ceo\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/ai-ceo"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/ai-ceo\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/ai-ceo\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "live-monitor",
+      "line": 532,
+      "module": "live-monitor",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080live-monitor\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "decision-engine",
+      "line": 533,
+      "module": "decision-engine",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080decision-engine\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "approvals",
+      "line": 534,
+      "module": "approvals",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080approvals\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "risk",
+      "line": 535,
+      "module": "risk",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080risk\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "performance",
+      "line": 536,
+      "module": "performance",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080performance\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "predictions",
+      "line": 537,
+      "module": "predictions",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080predictions\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "reports",
+      "line": 538,
+      "module": "reports",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080reports\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "learning",
+      "line": 539,
+      "module": "learning",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080learning\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "settings",
+      "line": 540,
+      "module": "settings",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080settings\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/continent-super-admin",
-      "line": 509,
+      "line": 544,
       "module": "continent-super-admin",
-      "access": "role:\"boss_owner\"",
+      "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/continent-super-admin"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/continent-super-admin\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/continent-super-admin\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/admin",
-      "line": 514,
+      "line": 549,
       "module": "admin",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/admin"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/admin\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/admin\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/super-admin",
-      "line": 515,
+      "line": 550,
       "module": "super-admin",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/super-admin\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/super-admin\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
-      "path": "/super-admin/dashboard",
-      "line": 516,
-      "module": "super-admin",
+      "path": "/security-dashboard",
+      "line": 552,
+      "module": "security-dashboard",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/security-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/security-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
-      "path": "/super-admin/command-center",
-      "line": 517,
-      "module": "super-admin",
+      "path": "/audit-logs",
+      "line": 553,
+      "module": "audit-logs",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/command-center"
-    },
-    {
-      "path": "/super-admin/live-tracking",
-      "line": 518,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/live-tracking"
-    },
-    {
-      "path": "/super-admin/role-manager",
-      "line": 519,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/role-manager"
-    },
-    {
-      "path": "/super-admin/user-manager",
-      "line": 520,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/user-manager"
-    },
-    {
-      "path": "/super-admin/permission-matrix",
-      "line": 521,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/permission-matrix"
-    },
-    {
-      "path": "/super-admin/security-center",
-      "line": 522,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/security-center"
-    },
-    {
-      "path": "/super-admin/demo-manager",
-      "line": 523,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/demo-manager"
-    },
-    {
-      "path": "/super-admin/product-manager",
-      "line": 524,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/product-manager"
-    },
-    {
-      "path": "/super-admin/system-settings",
-      "line": 525,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/system-settings"
-    },
-    {
-      "path": "/super-admin/system-audit",
-      "line": 526,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/system-audit"
-    },
-    {
-      "path": "/super-admin/prime-manager",
-      "line": 527,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/prime-manager"
-    },
-    {
-      "path": "/super-admin/influencer-manager",
-      "line": 528,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/influencer-manager"
-    },
-    {
-      "path": "/super-admin/finance-center",
-      "line": 529,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/finance-center"
-    },
-    {
-      "path": "/super-admin/support-center",
-      "line": 530,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/support-center"
-    },
-    {
-      "path": "/super-admin/ai-billing",
-      "line": 531,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/ai-billing"
-    },
-    {
-      "path": "/super-admin/franchise-manager",
-      "line": 532,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/franchise-manager"
-    },
-    {
-      "path": "/super-admin/compliance-center",
-      "line": 533,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/compliance-center"
-    },
-    {
-      "path": "/super-admin/performance",
-      "line": 534,
-      "module": "super-admin",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin/performance"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/audit-logs\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/audit-logs\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise",
-      "line": 537,
+      "line": 556,
       "module": "franchise",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise"
-    },
-    {
-      "path": "/franchise/dashboard",
-      "line": 538,
-      "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/profile",
-      "line": 539,
+      "line": 558,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/profile"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/profile\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/profile\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/wallet",
-      "line": 540,
+      "line": 559,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/wallet"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/wallet\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/wallet\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/lead-board",
-      "line": 541,
+      "line": 560,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/lead-board"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/lead-board\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/lead-board\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/assign-lead",
-      "line": 542,
+      "line": 561,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/assign-lead"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/assign-lead\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/assign-lead\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/demo-request",
-      "line": 543,
+      "line": 562,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/demo-request"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/demo-request\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/demo-request\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/demo-library",
-      "line": 544,
+      "line": 563,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/demo-library"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/demo-library\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/demo-library\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/sales-center",
-      "line": 545,
+      "line": 564,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/sales-center"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/sales-center\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/sales-center\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/performance",
-      "line": 546,
+      "line": 565,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/performance"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/performance\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/performance\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/support-ticket",
-      "line": 547,
+      "line": 566,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/support-ticket"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/support-ticket\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/support-ticket\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/internal-chat",
-      "line": 548,
+      "line": 567,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/internal-chat"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/internal-chat\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/internal-chat\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/training-center",
-      "line": 549,
+      "line": 568,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/training-center"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/training-center\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/training-center\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/security-panel",
-      "line": 550,
+      "line": 569,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/security-panel"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/security-panel\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/security-panel\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/seo-services",
-      "line": 551,
+      "line": 570,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/seo-services"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/seo-services\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/seo-services\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/team-management",
-      "line": 552,
+      "line": 571,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/team-management"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/team-management\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/team-management\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/crm",
-      "line": 553,
+      "line": 572,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/crm"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/crm\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/crm\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/hrm",
-      "line": 554,
+      "line": 573,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/hrm"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/hrm\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/hrm\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise/lead-activity",
-      "line": 555,
+      "line": 574,
       "module": "franchise",
-      "access": "role:\"franchise\",\"super_admin\"",
+      "access": "role:\"franchise\",\"franchise_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise/lead-activity"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise/lead-activity\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise/lead-activity\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise-program",
-      "line": 556,
+      "line": 575,
       "module": "franchise-program",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise-program"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise-program\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise-program\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise-landing",
-      "line": 557,
+      "line": 576,
       "module": "franchise-landing",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise-landing"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise-landing\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise-landing\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/franchise-dashboard",
-      "line": 558,
+      "line": 577,
       "module": "franchise-dashboard",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/franchise-dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller",
-      "line": 561,
+      "line": 580,
       "module": "reseller",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller/portal",
-      "line": 563,
+      "line": 582,
       "module": "reseller",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller/portal"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller/portal\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller/portal\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-portal",
-      "line": 564,
+      "line": 583,
       "module": "reseller-portal",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-portal"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-portal\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-portal\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-program",
-      "line": 565,
+      "line": 584,
       "module": "reseller-program",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-program"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-program\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-program\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-landing",
-      "line": 566,
+      "line": 585,
       "module": "reseller-landing",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-landing"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-landing\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-landing\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-dashboard",
-      "line": 567,
+      "line": 586,
       "module": "reseller-dashboard",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/register",
-      "line": 570,
+      "line": 589,
       "module": "developer",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/register"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/register\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/register\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/registration",
-      "line": 571,
+      "line": 590,
       "module": "developer",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/registration"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/registration\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/registration\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer",
-      "line": 572,
+      "line": 591,
       "module": "developer",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
-      "path": "/developer/dashboard",
-      "line": 573,
+      "path": "/developer/secure-dashboard",
+      "line": 593,
       "module": "developer",
       "access": "role:\"developer\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/secure-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/secure-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer-dashboard",
-      "line": 574,
+      "line": 594,
       "module": "developer-dashboard",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer-dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/dev-command-center",
-      "line": 575,
+      "line": 595,
       "module": "dev-command-center",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/dev-command-center"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/dev-command-center\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/dev-command-center\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/influencer",
-      "line": 578,
+      "line": 598,
       "module": "influencer",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/influencer"
-    },
-    {
-      "path": "/influencer/dashboard",
-      "line": 579,
-      "module": "influencer",
-      "access": "role:\"influencer\",\"super_admin\"",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/influencer/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/influencer\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/influencer\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/influencer/command-center",
-      "line": 580,
+      "line": 600,
       "module": "influencer",
       "access": "role:\"influencer\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/influencer/command-center"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/influencer/command-center\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/influencer/command-center\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/influencer-command-center",
-      "line": 581,
+      "line": 601,
       "module": "influencer-command-center",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/influencer-command-center"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/influencer-command-center\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/influencer-command-center\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/influencer-dashboard",
-      "line": 582,
+      "line": 602,
       "module": "influencer-dashboard",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/influencer-dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/influencer-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/influencer-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/influencer-manager",
-      "line": 583,
+      "line": 603,
       "module": "influencer-manager",
       "access": "role:\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/influencer-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/influencer-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/influencer-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/influencer-manager-secure",
-      "line": 584,
+      "line": 604,
       "module": "influencer-manager-secure",
       "access": "role:\"boss_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/influencer-manager-secure"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/influencer-manager-secure\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/influencer-manager-secure\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/product-demo-manager",
-      "line": 587,
+      "line": 607,
       "module": "product-demo-manager",
       "access": "role:\"product_demo_manager\",\"demo_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/product-demo-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/product-demo-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/product-demo-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager",
-      "line": 591,
+      "line": 611,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager-secure",
-      "line": 592,
+      "line": 612,
       "module": "reseller-manager-secure",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager-secure"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager-secure\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager-secure\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/dashboard",
-      "line": 593,
+      "line": 613,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/resellers",
-      "line": 594,
+      "line": 614,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/resellers"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/resellers\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/resellers\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/onboarding",
-      "line": 595,
+      "line": 615,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/onboarding"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/onboarding\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/onboarding\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/products",
-      "line": 596,
+      "line": 616,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/products"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/products\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/products\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/licenses",
-      "line": 597,
+      "line": 617,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/licenses"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/licenses\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/licenses\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/sales",
-      "line": 598,
+      "line": 618,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/sales"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/sales\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/sales\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/commission",
-      "line": 599,
+      "line": 619,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/commission"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/commission\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/commission\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/payout",
-      "line": 600,
+      "line": 620,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/payout"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/payout\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/payout\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/invoices",
-      "line": 601,
+      "line": 621,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/invoices"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/invoices\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/invoices\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/settings",
-      "line": 602,
+      "line": 622,
       "module": "reseller-manager",
       "access": "role:\"reseller_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/settings"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/settings\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/settings\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/franchise-manager",
+      "line": 625,
+      "module": "franchise-manager",
+      "access": "role:\"franchise_manager\",\"boss_owner\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/franchise-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/franchise-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/sales-support-manager",
-      "line": 605,
+      "line": 629,
       "module": "sales-support-manager",
       "access": "role:\"client_success\",\"support\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/sales-support-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/sales-support-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/sales-support-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/sales-support-manager-secure",
-      "line": 606,
+      "line": 630,
       "module": "sales-support-manager-secure",
       "access": "role:\"client_success\",\"support\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/sales-support-manager-secure"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/sales-support-manager-secure\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/sales-support-manager-secure\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/demo/influencer-command-center",
-      "line": 608,
+      "line": 632,
       "module": "demo",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo/influencer-command-center"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/demo/influencer-command-center\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo/influencer-command-center\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/prime",
-      "line": 610,
+      "line": 634,
       "module": "prime",
       "access": "role:\"prime\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/prime"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/prime\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/prime\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/prime/dashboard",
-      "line": 611,
+      "line": 635,
       "module": "prime",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/prime/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/prime/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/prime/dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/prime-user",
-      "line": 612,
+      "line": 636,
       "module": "prime-user",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/prime-user"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/prime-user\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/prime-user\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/lead-manager",
-      "line": 615,
+      "line": 639,
       "module": "lead-manager",
       "access": "role:\"lead_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/lead-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/lead-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/lead-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/lead-manager-secure",
+      "line": 640,
+      "module": "lead-manager-secure",
+      "access": "role:\"lead_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/lead-manager-secure\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/lead-manager-secure\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/task-manager",
-      "line": 617,
+      "line": 642,
       "module": "task-manager",
       "access": "role:\"task_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/task-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/task-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/task-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/demo-manager",
-      "line": 619,
+      "line": 644,
       "module": "demo-manager",
       "access": "role:\"demo_manager\",\"super_admin\",\"master\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/demo-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/demo",
-      "line": 621,
+      "line": 646,
       "module": "demo",
       "access": "role:\"demo_manager\",\"franchise\",\"reseller\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/demo\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/finance",
-      "line": 623,
+      "line": 648,
       "module": "finance",
       "access": "role:\"finance_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/finance"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/finance\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/finance\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/legal",
-      "line": 625,
+      "line": 650,
       "module": "legal",
       "access": "role:\"legal_compliance\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/legal"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/legal\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/legal\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/marketing",
-      "line": 626,
+      "line": 651,
       "module": "marketing",
       "access": "role:\"marketing_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/marketing"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/marketing\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/marketing\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/enterprise/marketing",
-      "line": 628,
+      "line": 653,
       "module": "enterprise",
       "access": "role:\"marketing_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/enterprise/marketing"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/enterprise/marketing\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/enterprise/marketing\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/performance",
-      "line": 630,
+      "line": 655,
       "module": "performance",
       "access": "role:\"performance_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/performance"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/performance\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/performance\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/rnd-dashboard",
-      "line": 632,
+      "line": 657,
       "module": "rnd-dashboard",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/rnd-dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/rnd-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/rnd-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/hr",
-      "line": 634,
+      "line": 659,
       "module": "hr",
       "access": "role:\"hr_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/hr"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/hr\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/hr\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/task-manager-secure",
-      "line": 638,
+      "line": 663,
       "module": "task-manager-secure",
       "access": "role:\"task_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/task-manager-secure"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/task-manager-secure\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/task-manager-secure\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/legal-manager-secure",
-      "line": 641,
+      "line": 666,
       "module": "legal-manager-secure",
       "access": "role:\"legal_compliance\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/legal-manager-secure"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/legal-manager-secure\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/legal-manager-secure\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/seo",
-      "line": 642,
+      "line": 667,
       "module": "seo",
       "access": "role:\"seo_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/seo"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/seo\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/seo\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/seo-dashboard",
-      "line": 644,
+      "line": 669,
       "module": "seo-dashboard",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/seo-dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/seo-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/seo-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/support",
-      "line": 645,
+      "line": 670,
       "module": "support",
       "access": "role:\"support\",\"client_success\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/support"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/support\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/support\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/support-dashboard",
-      "line": 647,
+      "line": 672,
       "module": "support-dashboard",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/support-dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/support-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/support-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/sales-support",
-      "line": 648,
+      "line": 673,
       "module": "sales-support",
       "access": "role:\"support\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/sales-support"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/sales-support\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/sales-support\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/sales",
-      "line": 649,
+      "line": 674,
       "module": "sales",
       "access": "role:\"support\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/sales"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/sales\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/sales\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/client-success",
-      "line": 651,
+      "line": 676,
       "module": "client-success",
       "access": "role:\"client_success\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/client-success"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/client-success\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/client-success\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/incident-crisis",
-      "line": 654,
+      "line": 679,
       "module": "incident-crisis",
       "access": "role:\"boss_owner\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/incident-crisis"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/incident-crisis\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/incident-crisis\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/hr-dashboard",
-      "line": 656,
+      "line": 681,
       "module": "hr-dashboard",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/hr-dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/hr-dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/hr-dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/safe-assist",
-      "line": 660,
+      "line": 685,
       "module": "safe-assist",
       "access": "role:\"safe_assist\",\"super_admin\",\"master\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/safe-assist"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/safe-assist\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/safe-assist\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/assist-manager",
-      "line": 662,
+      "line": 687,
       "module": "assist-manager",
       "access": "role:\"assist_manager\",\"super_admin\",\"master\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/assist-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/assist-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/assist-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/promise-tracker",
-      "line": 664,
+      "line": 689,
       "module": "promise-tracker",
       "access": "role:\"promise_tracker\",\"super_admin\",\"master\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/promise-tracker"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/promise-tracker\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/promise-tracker\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/promise-management",
-      "line": 666,
+      "line": 691,
       "module": "promise-management",
       "access": "role:\"promise_management\",\"super_admin\",\"master\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/promise-management"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/promise-management\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/promise-management\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/system-settings",
-      "line": 670,
+      "line": 695,
       "module": "system-settings",
       "access": "role:\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/system-settings"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/system-settings\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/system-settings\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/buzzer-console",
-      "line": 671,
+      "line": 696,
       "module": "buzzer-console",
       "access": "role:\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/buzzer-console"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/buzzer-console\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/buzzer-console\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/api-integrations",
-      "line": 672,
+      "line": 697,
       "module": "api-integrations",
       "access": "role:\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/api-integrations"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/api-integrations\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/api-integrations\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/internal-chat",
-      "line": 673,
+      "line": 698,
       "module": "internal-chat",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/internal-chat"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/internal-chat\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/internal-chat\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/personal-chat",
-      "line": 674,
+      "line": 699,
       "module": "personal-chat",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/personal-chat"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/personal-chat\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/personal-chat\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/ai-console",
-      "line": 675,
+      "line": 700,
       "module": "ai-console",
       "access": "role:\"ai_manager\",\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/ai-console"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/ai-console\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/ai-console\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/demo-credentials",
-      "line": 676,
+      "line": 701,
       "module": "demo-credentials",
       "access": "role:\"super_admin\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo-credentials"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/demo-credentials\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo-credentials\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/demo-order-system",
-      "line": 677,
+      "line": 702,
       "module": "demo-order-system",
       "access": "role:\"master\",\"super_admin\",\"demo_manager\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/demo-order-system"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/demo-order-system\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/demo-order-system\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala-ai",
-      "line": 680,
+      "line": 705,
       "module": "vala-ai",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala-ai"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala-ai\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala-ai\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala-ai/factory",
-      "line": 681,
+      "line": 706,
       "module": "vala-ai",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala-ai/factory"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala-ai/factory\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala-ai/factory\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala-control",
-      "line": 684,
+      "line": 709,
       "module": "vala-control",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala-control"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala-control\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala-control\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala-control/operations",
-      "line": 685,
+      "line": 710,
       "module": "vala-control",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala-control/operations"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala-control/operations\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala-control/operations\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala-control/regional",
-      "line": 686,
+      "line": 711,
       "module": "vala-control",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala-control/regional"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala-control/regional\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala-control/regional\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala-control/ai-head",
-      "line": 687,
+      "line": 712,
       "module": "vala-control",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala-control/ai-head"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala-control/ai-head\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala-control/ai-head\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala-control/master",
-      "line": 688,
+      "line": 713,
       "module": "vala-control",
       "access": "role:\"master\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala-control/master"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala-control/master\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala-control/master\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/enterprise-control",
-      "line": 691,
+      "line": 716,
       "module": "enterprise-control",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/enterprise-control"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/enterprise-control\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/enterprise-control\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala",
-      "line": 694,
+      "line": 719,
       "module": "vala",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala/operation",
-      "line": 695,
+      "line": 720,
       "module": "vala",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala/operation"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala/operation\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala/operation\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala/regional",
-      "line": 696,
+      "line": 721,
       "module": "vala",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala/regional"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala/regional\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala/regional\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala/ai-head",
-      "line": 697,
+      "line": 722,
       "module": "vala",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala/ai-head"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala/ai-head\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala/ai-head\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/vala/master",
-      "line": 698,
+      "line": 723,
       "module": "vala",
       "access": "role:\"master\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/vala/master"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/vala/master\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/vala/master\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/dev-manager",
-      "line": 701,
+      "line": 726,
       "module": "dev-manager",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/dev-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/dev-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/dev-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/hr-manager",
-      "line": 704,
+      "line": 729,
       "module": "hr-manager",
       "access": "auth",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/hr-manager"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/hr-manager\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/hr-manager\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/boss/dashboard",
-      "line": 711,
+      "line": 732,
       "module": "boss",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/boss/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/boss/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/boss/dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/ceo/dashboard",
-      "line": 712,
+      "line": 733,
       "module": "ceo",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/ceo/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/ceo/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/ceo/dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/admin/dashboard",
-      "line": 713,
+      "line": 734,
       "module": "admin",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/admin/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/admin/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/admin/dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/continent/dashboard",
-      "line": 714,
+      "line": 735,
       "module": "continent",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/continent/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/continent/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/continent/dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/country/dashboard",
-      "line": 715,
+      "line": 736,
       "module": "country",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/country/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/country/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/country/dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/admin-secure",
+      "line": 737,
+      "module": "admin-secure",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/admin-secure\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/admin-secure\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/super-admin-system",
-      "line": 717,
+      "line": 740,
       "module": "super-admin-system",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system"
-    },
-    {
-      "path": "/super-admin-system/rc",
-      "line": 719,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/rc"
-    },
-    {
-      "path": "/super-admin-system/role-center",
-      "line": 720,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/role-center"
-    },
-    {
-      "path": "/super-admin-system/login",
-      "line": 722,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/login"
-    },
-    {
-      "path": "/super-admin-system/role-switch",
-      "line": 724,
-      "module": "super-admin-system",
-      "access": "role:'boss_owner','ceo','admin','super_admin','master','continent_super_admin','country_head'",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/role-switch"
-    },
-    {
-      "path": "/super-admin-system/dashboard",
-      "line": 726,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/dashboard"
-    },
-    {
-      "path": "/super-admin-system/modules",
-      "line": 731,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/modules"
-    },
-    {
-      "path": "/super-admin-system/rentals",
-      "line": 732,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/rentals"
-    },
-    {
-      "path": "/super-admin-system/rules",
-      "line": 733,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/rules"
-    },
-    {
-      "path": "/super-admin-system/approvals",
-      "line": 734,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/approvals"
-    },
-    {
-      "path": "/super-admin-system/security",
-      "line": 735,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/security"
-    },
-    {
-      "path": "/super-admin-system/locks",
-      "line": 736,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/locks"
-    },
-    {
-      "path": "/super-admin-system/activity-log",
-      "line": 737,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/activity-log"
-    },
-    {
-      "path": "/super-admin-system/audit",
-      "line": 738,
-      "module": "super-admin-system",
-      "access": "public",
-      "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/super-admin-system/audit"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/super-admin-system\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/super-admin-system\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/leader-security",
-      "line": 741,
+      "line": 744,
       "module": "leader-security",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/leader-security"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/leader-security\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/leader-security\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/bulk-actions",
-      "line": 744,
+      "line": 747,
       "module": "bulk-actions",
       "access": "public",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/bulk-actions"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/bulk-actions\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/bulk-actions\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/system-flow",
-      "line": 747,
+      "line": 750,
       "module": "system-flow",
       "access": "role:\"boss_owner\",\"ceo\",\"super_admin\",\"master\"",
       "source": "src/App.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/system-flow"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/system-flow\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/system-flow\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/app/access-denied",
@@ -2476,8 +1437,8 @@
       "module": "app",
       "access": "public",
       "source": "src/routes/appRoutes.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/app/access-denied"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/app/access-denied\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/app/access-denied\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/app",
@@ -2485,8 +1446,8 @@
       "module": "app",
       "access": "auth",
       "source": "src/routes/appRoutes.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/app"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/app\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/app\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/repositories",
@@ -2494,8 +1455,8 @@
       "module": "developer",
       "access": "role:developer,super_admin",
       "source": "src/app/developer/repositories/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/repositories"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/repositories\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/repositories\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/projects",
@@ -2503,8 +1464,8 @@
       "module": "developer",
       "access": "role:developer,super_admin",
       "source": "src/app/developer/projects/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/projects"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/projects\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/projects\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/pipelines",
@@ -2512,8 +1473,8 @@
       "module": "developer",
       "access": "role:developer,super_admin",
       "source": "src/app/developer/pipelines/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/pipelines"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/pipelines\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/pipelines\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/dev-settings",
@@ -2521,8 +1482,8 @@
       "module": "developer",
       "access": "role:developer,super_admin",
       "source": "src/app/developer/dev-settings/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/dev-settings"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/dev-settings\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/dev-settings\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/dev-logs",
@@ -2530,8 +1491,8 @@
       "module": "developer",
       "access": "role:developer,super_admin",
       "source": "src/app/developer/dev-logs/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/dev-logs"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/dev-logs\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/dev-logs\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/dev-errors",
@@ -2539,8 +1500,8 @@
       "module": "developer",
       "access": "role:developer,super_admin",
       "source": "src/app/developer/dev-errors/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/dev-errors"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/dev-errors\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/dev-errors\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/dev-api",
@@ -2548,8 +1509,8 @@
       "module": "developer",
       "access": "role:developer,super_admin",
       "source": "src/app/developer/dev-api/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/dev-api"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/dev-api\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/dev-api\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/deployments",
@@ -2557,8 +1518,8 @@
       "module": "developer",
       "access": "role:developer,super_admin",
       "source": "src/app/developer/deployments/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/deployments"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/deployments\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/deployments\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/dashboard",
@@ -2566,8 +1527,8 @@
       "module": "developer",
       "access": "role:developer,super_admin",
       "source": "src/app/developer/dashboard/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/developer/commits",
@@ -2575,8 +1536,8 @@
       "module": "developer",
       "access": "role:developer,super_admin",
       "source": "src/app/developer/commits/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/developer/commits"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/developer/commits\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/developer/commits\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller/support",
@@ -2584,8 +1545,8 @@
       "module": "reseller",
       "access": "role:reseller,super_admin",
       "source": "src/app/reseller/support/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller/support"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller/support\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller/support\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller/settings",
@@ -2593,8 +1554,8 @@
       "module": "reseller",
       "access": "role:reseller,super_admin",
       "source": "src/app/reseller/settings/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller/settings"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller/settings\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller/settings\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller/sales",
@@ -2602,8 +1563,8 @@
       "module": "reseller",
       "access": "role:reseller,super_admin",
       "source": "src/app/reseller/sales/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller/sales"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller/sales\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller/sales\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller/products",
@@ -2611,8 +1572,8 @@
       "module": "reseller",
       "access": "role:reseller,super_admin",
       "source": "src/app/reseller/products/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller/products"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller/products\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller/products\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller/licenses",
@@ -2620,8 +1581,8 @@
       "module": "reseller",
       "access": "role:reseller,super_admin",
       "source": "src/app/reseller/licenses/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller/licenses"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller/licenses\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller/licenses\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller/invoices",
@@ -2629,8 +1590,8 @@
       "module": "reseller",
       "access": "role:reseller,super_admin",
       "source": "src/app/reseller/invoices/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller/invoices"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller/invoices\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller/invoices\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller/earnings",
@@ -2638,8 +1599,8 @@
       "module": "reseller",
       "access": "role:reseller,super_admin",
       "source": "src/app/reseller/earnings/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller/earnings"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller/earnings\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller/earnings\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller/dashboard",
@@ -2647,8 +1608,8 @@
       "module": "reseller",
       "access": "role:reseller,super_admin",
       "source": "src/app/reseller/dashboard/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller/dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller/customers",
@@ -2656,8 +1617,8 @@
       "module": "reseller",
       "access": "role:reseller,super_admin",
       "source": "src/app/reseller/customers/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller/customers"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller/customers\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller/customers\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/settings",
@@ -2665,8 +1626,8 @@
       "module": "reseller-manager",
       "access": "role:reseller_manager,super_admin",
       "source": "src/app/reseller-manager/settings/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/settings"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/settings\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/settings\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/sales",
@@ -2674,8 +1635,8 @@
       "module": "reseller-manager",
       "access": "role:reseller_manager,super_admin",
       "source": "src/app/reseller-manager/sales/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/sales"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/sales\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/sales\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/resellers",
@@ -2683,8 +1644,8 @@
       "module": "reseller-manager",
       "access": "role:reseller_manager,super_admin",
       "source": "src/app/reseller-manager/resellers/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/resellers"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/resellers\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/resellers\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/products",
@@ -2692,8 +1653,8 @@
       "module": "reseller-manager",
       "access": "role:reseller_manager,super_admin",
       "source": "src/app/reseller-manager/products/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/products"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/products\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/products\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/payout",
@@ -2701,8 +1662,8 @@
       "module": "reseller-manager",
       "access": "role:reseller_manager,super_admin",
       "source": "src/app/reseller-manager/payout/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/payout"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/payout\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/payout\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/onboarding",
@@ -2710,8 +1671,8 @@
       "module": "reseller-manager",
       "access": "role:reseller_manager,super_admin",
       "source": "src/app/reseller-manager/onboarding/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/onboarding"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/onboarding\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/onboarding\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/licenses",
@@ -2719,8 +1680,8 @@
       "module": "reseller-manager",
       "access": "role:reseller_manager,super_admin",
       "source": "src/app/reseller-manager/licenses/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/licenses"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/licenses\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/licenses\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/invoices",
@@ -2728,8 +1689,8 @@
       "module": "reseller-manager",
       "access": "role:reseller_manager,super_admin",
       "source": "src/app/reseller-manager/invoices/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/invoices"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/invoices\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/invoices\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/dashboard",
@@ -2737,8 +1698,8 @@
       "module": "reseller-manager",
       "access": "role:reseller_manager,super_admin",
       "source": "src/app/reseller-manager/dashboard/page.tsx",
-      "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/dashboard"
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/dashboard\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/dashboard\", waiting until \"domcontentloaded\"\u001b[22m\n"
     },
     {
       "path": "/reseller-manager/commission",
@@ -2746,322 +1707,1035 @@
       "module": "reseller-manager",
       "access": "role:reseller_manager,super_admin",
       "source": "src/app/reseller-manager/commission/page.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8080/reseller-manager/commission\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8080/reseller-manager/commission\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    }
+  ],
+  "guarded": [
+    {
+      "path": "/server-portal",
+      "line": 361,
+      "module": "server-portal",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login?reason=expired&redirect=%2Fserver-portal"
+    },
+    {
+      "path": "/dashboard",
+      "line": 363,
+      "module": "dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login?reason=expired&redirect=%2Fapp"
+    },
+    {
+      "path": "/dashboard/notifications",
+      "line": 364,
+      "module": "dashboard",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login?reason=expired&redirect=%2Fdashboard%2Fnotifications"
+    },
+    {
+      "path": "/profile",
+      "line": 366,
+      "module": "profile",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login?reason=expired&redirect=%2Fprofile"
+    },
+    {
+      "path": "/settings",
+      "line": 370,
+      "module": "settings",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login?reason=expired&redirect=%2Fsettings"
+    },
+    {
+      "path": "/change-password",
+      "line": 371,
+      "module": "change-password",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login?reason=expired&redirect=%2Fchange-password"
+    },
+    {
+      "path": "/sales-crm/auth",
+      "line": 427,
+      "module": "sales-crm",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login"
+    },
+    {
+      "path": "/user-dashboard",
+      "line": 433,
+      "module": "user-dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login?reason=expired&redirect=%2Fuser%2Fdashboard"
+    },
+    {
+      "path": "/user/dashboard",
+      "line": 434,
+      "module": "user",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login?reason=expired&redirect=%2Fuser%2Fdashboard"
+    },
+    {
+      "path": "/cart",
+      "line": 449,
+      "module": "cart",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login?reason=expired&redirect=%2Fcart"
+    },
+    {
+      "path": "/checkout",
+      "line": 450,
+      "module": "checkout",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login?reason=expired&redirect=%2Fcheckout"
+    },
+    {
+      "path": "/marketplace-manager",
+      "line": 451,
+      "module": "marketplace-manager",
+      "access": "role:\"marketplace_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login"
+    },
+    {
+      "path": "/marketplace-manager/dashboard",
+      "line": 452,
+      "module": "marketplace-manager",
+      "access": "role:\"marketplace_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login"
+    },
+    {
+      "path": "/role-login",
+      "line": 459,
+      "module": "role-login",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login"
+    },
+    {
+      "path": "/easy-login",
+      "line": 461,
+      "module": "easy-login",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login"
+    },
+    {
+      "path": "/quick-signup",
+      "line": 462,
+      "module": "quick-signup",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login"
+    },
+    {
+      "path": "/logout",
+      "line": 463,
+      "module": "logout",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login"
+    },
+    {
+      "path": "/session-expired",
+      "line": 473,
+      "module": "session-expired",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/session-expired"
+    },
+    {
+      "path": "/boss-fortress",
+      "line": 476,
+      "module": "boss-fortress",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login"
+    },
+    {
+      "path": "/boss-register",
+      "line": 477,
+      "module": "boss-register",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://localhost:8080/login"
+    }
+  ],
+  "valid": [
+    {
+      "path": "/",
+      "line": 354,
+      "module": "home",
+      "access": "public",
+      "source": "src/App.tsx",
       "state": "valid",
-      "finalUrl": "http://127.0.0.1:4173/reseller-manager/commission"
+      "finalUrl": "http://localhost:8080/"
+    },
+    {
+      "path": "/demos",
+      "line": 355,
+      "module": "demos",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demos"
+    },
+    {
+      "path": "/explore",
+      "line": 356,
+      "module": "explore",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demos"
+    },
+    {
+      "path": "/products",
+      "line": 357,
+      "module": "products",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/products"
+    },
+    {
+      "path": "/pricing",
+      "line": 358,
+      "module": "pricing",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/pricing"
+    },
+    {
+      "path": "/demos/public",
+      "line": 359,
+      "module": "demos",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demos/public"
+    },
+    {
+      "path": "/showcase",
+      "line": 360,
+      "module": "showcase",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/showcase"
+    },
+    {
+      "path": "/onboard",
+      "line": 372,
+      "module": "onboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/onboard"
+    },
+    {
+      "path": "/careers",
+      "line": 377,
+      "module": "careers",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/careers"
+    },
+    {
+      "path": "/join-developer",
+      "line": 378,
+      "module": "join-developer",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/apply/developer"
+    },
+    {
+      "path": "/join-influencer",
+      "line": 379,
+      "module": "join-influencer",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/apply/influencer"
+    },
+    {
+      "path": "/jobs",
+      "line": 380,
+      "module": "jobs",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/apply/job"
+    },
+    {
+      "path": "/bootstrap-admins",
+      "line": 384,
+      "module": "bootstrap-admins",
+      "access": "role:\"master\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/bootstrap-admins"
+    },
+    {
+      "path": "/school-software/dashboard",
+      "line": 405,
+      "module": "school-software",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/school-software/dashboard"
+    },
+    {
+      "path": "/demo/hospital-hms",
+      "line": 406,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/hospital-hms"
+    },
+    {
+      "path": "/demo/ecommerce-store",
+      "line": 407,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/ecommerce-store"
+    },
+    {
+      "path": "/demo/hotel-booking",
+      "line": 408,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/hotel-booking"
+    },
+    {
+      "path": "/demo/real-estate",
+      "line": 409,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/real-estate"
+    },
+    {
+      "path": "/demo/automotive",
+      "line": 410,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/automotive"
+    },
+    {
+      "path": "/demo/travel",
+      "line": 411,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/travel"
+    },
+    {
+      "path": "/demo/finance",
+      "line": 412,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/finance"
+    },
+    {
+      "path": "/demo/manufacturing",
+      "line": 413,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/manufacturing"
+    },
+    {
+      "path": "/demo/gym",
+      "line": 414,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/gym"
+    },
+    {
+      "path": "/demo/salon",
+      "line": 415,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/salon"
+    },
+    {
+      "path": "/demo/legal",
+      "line": 416,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/legal"
+    },
+    {
+      "path": "/demo/security",
+      "line": 417,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/security"
+    },
+    {
+      "path": "/demo/telecom",
+      "line": 418,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/telecom"
+    },
+    {
+      "path": "/demo/childcare",
+      "line": 419,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/childcare"
+    },
+    {
+      "path": "/demo/petcare",
+      "line": 420,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/petcare"
+    },
+    {
+      "path": "/demo/event",
+      "line": 421,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/event"
+    },
+    {
+      "path": "/demo/crm",
+      "line": 422,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/crm"
+    },
+    {
+      "path": "/demo/logistics",
+      "line": 423,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo/logistics"
+    },
+    {
+      "path": "/sales-crm",
+      "line": 426,
+      "module": "sales-crm",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/sales-crm"
+    },
+    {
+      "path": "/retail-pos",
+      "line": 428,
+      "module": "retail-pos",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/retail-pos"
+    },
+    {
+      "path": "/demo-directory",
+      "line": 430,
+      "module": "demo-directory",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo-directory"
+    },
+    {
+      "path": "/demo-login",
+      "line": 435,
+      "module": "demo-login",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/demo-login"
+    },
+    {
+      "path": "/premium-demos",
+      "line": 436,
+      "module": "premium-demos",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/premium-demos"
+    },
+    {
+      "path": "/client-portal",
+      "line": 439,
+      "module": "client-portal",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/client-portal"
+    },
+    {
+      "path": "/get-started",
+      "line": 440,
+      "module": "get-started",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/get-started"
+    },
+    {
+      "path": "/contact",
+      "line": 441,
+      "module": "contact",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/client-portal"
+    },
+    {
+      "path": "/privacy",
+      "line": 442,
+      "module": "privacy",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/privacy"
+    },
+    {
+      "path": "/terms",
+      "line": 443,
+      "module": "terms",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/terms"
+    },
+    {
+      "path": "/marketplace",
+      "line": 444,
+      "module": "marketplace",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/marketplace"
+    },
+    {
+      "path": "/marketplace/offers",
+      "line": 445,
+      "module": "marketplace",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/marketplace/offers"
+    },
+    {
+      "path": "/payment-success",
+      "line": 454,
+      "module": "payment-success",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/payment-success"
+    },
+    {
+      "path": "/order-success",
+      "line": 455,
+      "module": "order-success",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/order-success"
+    },
+    {
+      "path": "/otp-verify",
+      "line": 464,
+      "module": "otp-verify",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/otp-verify"
+    },
+    {
+      "path": "/device-verify",
+      "line": 465,
+      "module": "device-verify",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/device-verify"
+    },
+    {
+      "path": "/ip-verify",
+      "line": 466,
+      "module": "ip-verify",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/ip-verify"
+    },
+    {
+      "path": "/forgot-password",
+      "line": 467,
+      "module": "forgot-password",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/forgot-password"
+    },
+    {
+      "path": "/reset-password",
+      "line": 468,
+      "module": "reset-password",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/forgot-password"
+    },
+    {
+      "path": "/account-suspension",
+      "line": 469,
+      "module": "account-suspension",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/account-suspension"
+    },
+    {
+      "path": "/403",
+      "line": 471,
+      "module": "403",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/403"
+    },
+    {
+      "path": "/500",
+      "line": 472,
+      "module": "500",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/500"
+    },
+    {
+      "path": "/boss/login",
+      "line": 478,
+      "module": "boss",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/boss/login"
+    },
+    {
+      "path": "/owner",
+      "line": 485,
+      "module": "owner",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/owner"
+    },
+    {
+      "path": "/softwarewala",
+      "line": 487,
+      "module": "softwarewala",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/softwarewala"
+    },
+    {
+      "path": "/master-admin",
+      "line": 490,
+      "module": "master-admin",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://localhost:8080/master-admin"
     }
   ],
   "skipped": [
     {
       "path": "/onboard/:category",
-      "line": 346,
+      "line": 373,
       "module": "onboard",
       "access": "public",
       "source": "src/App.tsx"
     },
     {
       "path": "/sectors/:sectorId/:subCategoryId",
-      "line": 355,
+      "line": 386,
       "module": "sectors",
       "access": "public",
       "source": "src/App.tsx"
     },
     {
       "path": "/demo/:demoId",
-      "line": 400,
+      "line": 431,
       "module": "demo",
       "access": "public",
       "source": "src/App.tsx"
     },
     {
       "path": "/checkout/:demoId",
-      "line": 401,
+      "line": 432,
       "module": "checkout",
       "access": "public",
       "source": "src/App.tsx"
     },
     {
       "path": "/marketplace/product/:productId",
-      "line": 415,
+      "line": 446,
       "module": "marketplace",
       "access": "public",
       "source": "src/App.tsx"
     },
     {
       "path": "/product/:productId",
-      "line": 416,
+      "line": 447,
+      "module": "product",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/product/:id",
+      "line": 448,
       "module": "product",
       "access": "public",
       "source": "src/App.tsx"
     },
     {
       "path": "/marketplace-manager/*",
-      "line": 421,
+      "line": 453,
       "module": "marketplace-manager",
       "access": "role:\"marketplace_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
       "source": "src/App.tsx"
     },
     {
-      "path": "/boss-panel/*",
-      "line": 448,
-      "module": "boss-panel",
+      "path": "/owner/*",
+      "line": 486,
+      "module": "owner",
       "access": "public",
       "source": "src/App.tsx"
     },
     {
-      "path": "/owner/*",
-      "line": 452,
-      "module": "owner",
-      "access": "role:\"boss_owner\"",
-      "source": "src/App.tsx"
-    },
-    {
       "path": "/master-admin/*",
-      "line": 457,
+      "line": 491,
       "module": "master-admin",
-      "access": "role:\"boss_owner\"",
+      "access": "public",
       "source": "src/App.tsx"
     },
     {
       "path": "/area-manager/*",
-      "line": 467,
+      "line": 502,
       "module": "area-manager",
       "access": "public",
       "source": "src/App.tsx"
     },
     {
       "path": "/server-manager/*",
-      "line": 471,
+      "line": 506,
       "module": "server-manager",
       "access": "role:\"boss_owner\",\"server_manager\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/security-command/*",
-      "line": 475,
+      "line": 510,
       "module": "security-command",
       "access": "role:\"boss_owner\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/api-manager/*",
-      "line": 479,
+      "line": 514,
       "module": "api-manager",
       "access": "role:\"boss_owner\",\"ai_manager\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/marketing-manager/*",
-      "line": 483,
+      "line": 518,
       "module": "marketing-manager",
       "access": "role:\"boss_owner\",\"marketing_manager\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/seo-manager/*",
-      "line": 488,
+      "line": 523,
       "module": "seo-manager",
       "access": "role:\"boss_owner\",\"seo_manager\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/legal-manager/*",
-      "line": 492,
+      "line": 527,
       "module": "legal-manager",
       "access": "role:\"boss_owner\",\"legal_compliance\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/continent-super-admin/*",
-      "line": 510,
+      "line": 545,
       "module": "continent-super-admin",
-      "access": "role:\"boss_owner\"",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/super-admin/*",
+      "line": 551,
+      "module": "super-admin",
+      "access": "public",
       "source": "src/App.tsx"
     },
     {
       "path": "/reseller/*",
-      "line": 562,
+      "line": 581,
       "module": "reseller",
       "access": "role:\"reseller\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/product-demo-manager/*",
-      "line": 588,
+      "line": 608,
       "module": "product-demo-manager",
       "access": "role:\"product_demo_manager\",\"demo_manager\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
+      "path": "/franchise-manager/*",
+      "line": 626,
+      "module": "franchise-manager",
+      "access": "role:\"franchise_manager\",\"boss_owner\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
       "path": "/leads/*",
-      "line": 616,
+      "line": 641,
       "module": "leads",
       "access": "role:\"lead_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/tasks/*",
-      "line": 618,
+      "line": 643,
       "module": "tasks",
       "access": "role:\"task_manager\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/demo-manager/*",
-      "line": 620,
+      "line": 645,
       "module": "demo-manager",
       "access": "role:\"demo_manager\",\"super_admin\",\"master\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/demos/*",
-      "line": 622,
+      "line": 647,
       "module": "demos",
       "access": "role:\"demo_manager\",\"franchise\",\"reseller\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/finance/*",
-      "line": 624,
+      "line": 649,
       "module": "finance",
       "access": "role:\"finance_manager\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/marketing/*",
-      "line": 627,
+      "line": 652,
       "module": "marketing",
       "access": "role:\"marketing_manager\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/enterprise/marketing/*",
-      "line": 629,
+      "line": 654,
       "module": "enterprise",
       "access": "role:\"marketing_manager\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/performance/*",
-      "line": 631,
+      "line": 656,
       "module": "performance",
       "access": "role:\"performance_manager\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/rnd/*",
-      "line": 633,
+      "line": 658,
       "module": "rnd",
       "access": "role:\"rnd_manager\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/hr/*",
-      "line": 635,
+      "line": 660,
       "module": "hr",
       "access": "role:\"hr_manager\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/seo/*",
-      "line": 643,
+      "line": 668,
       "module": "seo",
       "access": "role:\"seo_manager\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/support/*",
-      "line": 646,
+      "line": 671,
       "module": "support",
       "access": "role:\"support\",\"client_success\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/sales/*",
-      "line": 650,
+      "line": 675,
       "module": "sales",
       "access": "role:\"support\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/clients/*",
-      "line": 652,
+      "line": 677,
       "module": "clients",
       "access": "role:\"client_success\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/crisis/*",
-      "line": 655,
+      "line": 680,
       "module": "crisis",
       "access": "role:\"boss_owner\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/ai/*",
-      "line": 657,
+      "line": 682,
       "module": "ai",
       "access": "role:\"ai_manager\",\"super_admin\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/safe-assist/*",
-      "line": 661,
+      "line": 686,
       "module": "safe-assist",
       "access": "role:\"safe_assist\",\"super_admin\",\"master\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/assist-manager/*",
-      "line": 663,
+      "line": 688,
       "module": "assist-manager",
       "access": "role:\"assist_manager\",\"super_admin\",\"master\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/promise-tracker/*",
-      "line": 665,
+      "line": 690,
       "module": "promise-tracker",
       "access": "role:\"promise_tracker\",\"super_admin\",\"master\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/promise-management/*",
-      "line": 667,
+      "line": 692,
       "module": "promise-management",
       "access": "role:\"promise_management\",\"super_admin\",\"master\"",
       "source": "src/App.tsx"
     },
     {
-      "path": "/wireframe/*",
-      "line": 707,
-      "module": "wireframe",
+      "path": "/super-admin-system/*",
+      "line": 741,
+      "module": "super-admin-system",
       "access": "public",
       "source": "src/App.tsx"
     },
     {
-      "path": "/super-admin-system/role-switch/*",
-      "line": 725,
-      "module": "super-admin-system",
-      "access": "role:'boss_owner','ceo','admin','super_admin','master','continent_super_admin','country_head'",
-      "source": "src/App.tsx"
-    },
-    {
       "path": "/system-flow/*",
-      "line": 748,
+      "line": 751,
       "module": "system-flow",
       "access": "role:\"boss_owner\",\"ceo\",\"super_admin\",\"master\"",
       "source": "src/App.tsx"
     },
     {
       "path": "/app/*",
-      "line": 751,
+      "line": 754,
       "module": "app",
       "access": "public",
       "source": "src/App.tsx"
     },
     {
       "path": "*",
-      "line": 755,
+      "line": 758,
       "module": "*",
       "access": "public",
       "source": "src/App.tsx"

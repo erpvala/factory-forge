@@ -1,12 +1,12 @@
 // @ts-nocheck
 import React from 'react';
 import DashboardLayout from '@/components/layouts/DashboardLayout';
-import { PromiseTrackerScreen } from '@/components/wireframe/screens/PromiseTrackerScreen';
+import PTFullLayout from '@/components/promise-tracker/PTFullLayout';
 
 const PromiseTrackerDashboard = () => {
   return (
     <DashboardLayout>
-      <PromiseTrackerScreen />
+      <PTFullLayout />
     </DashboardLayout>
   );
 };

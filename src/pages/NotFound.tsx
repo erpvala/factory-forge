@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -7,33 +7,33 @@ import { Home, ArrowLeft, Search, Coffee, Sparkles, MapPin } from "lucide-react"
 
 const funMessages = [
   {
-    title: "Oops! This page went on vacation 🏖️",
+    title: "Oops! This page went on vacation",
     subtitle: "It forgot to leave a forwarding address",
-    tip: "Don't worry, our best pages are still here!"
+    tip: "Do not worry, our best pages are still here!"
   },
   {
-    title: "Houston, we have a problem 🚀",
+    title: "Houston, we have a problem",
     subtitle: "This page has left Earth's orbit",
     tip: "Let's get you back to mission control!"
   },
   {
-    title: "Page not found... but YOU are! 🎯",
-    subtitle: "That's what matters most",
-    tip: "You're still our favorite user!"
+    title: "Page not found... but YOU are!",
+    subtitle: "That is what matters most",
+    tip: "You are still our favorite user!"
   },
   {
-    title: "This page is playing hide & seek 🙈",
-    subtitle: "And it's really good at it",
+    title: "This page is playing hide and seek",
+    subtitle: "And it is really good at it",
     tip: "But we have better pages to show you!"
   },
   {
-    title: "404: Page took a coffee break ☕",
-    subtitle: "It'll be back... eventually",
+    title: "404: Page took a coffee break",
+    subtitle: "It will be back... eventually",
     tip: "In the meantime, explore something amazing!"
   },
   {
-    title: "Wandered into the digital wilderness 🌲",
-    subtitle: "This trail doesn't exist... yet",
+    title: "Wandered into the digital wilderness",
+    subtitle: "This trail does not exist... yet",
     tip: "Let's find you a better path!"
   }
 ];
@@ -44,32 +44,12 @@ const NotFound = () => {
   const [message] = useState(() => funMessages[Math.floor(Math.random() * funMessages.length)]);
   const [countdown, setCountdown] = useState(15);
 
-  const isSuperAdminLikePath = location.pathname.startsWith('/super-admin-system');
-  const hasEncodedQueryInPath = location.pathname.includes('%3F');
-
-  // Admin routes must never get stuck on a 404 screen.
-  // If a broken link encodes the query string into the pathname ("%3F"), decode and retry.
-  // Otherwise, always send the user to the role switch entry (which will handle auth).
-  useEffect(() => {
-    if (!isSuperAdminLikePath) return;
-
-    if (hasEncodedQueryInPath) {
-      const decodedPath = decodeURIComponent(location.pathname);
-      navigate(decodedPath, { replace: true });
-      return;
-    }
-
-    navigate('/super-admin-system/role-switch?role=boss_owner', { replace: true });
-  }, [isSuperAdminLikePath, hasEncodedQueryInPath, location.pathname, navigate]);
-
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
     document.title = "Oops! Page Not Found | Software Vala";
   }, [location.pathname]);
 
   useEffect(() => {
-    if (isSuperAdminLikePath) return; // handled by the admin redirect effect above
-
     const timer = setInterval(() => {
       setCountdown(prev => {
         if (prev <= 1) {
@@ -81,19 +61,10 @@ const NotFound = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [navigate, isSuperAdminLikePath]);
-
-  if (isSuperAdminLikePath) {
-    return (
-      <main className="min-h-screen bg-background flex items-center justify-center p-6">
-        <div className="text-sm text-muted-foreground">Redirecting…</div>
-      </main>
-    );
-  }
+  }, [navigate]);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex items-center justify-center p-4 overflow-hidden">
-      {/* Background Effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{
@@ -113,7 +84,6 @@ const NotFound = () => {
         />
       </div>
 
-      {/* Floating Elements */}
       {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
@@ -145,7 +115,6 @@ const NotFound = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 text-center max-w-2xl px-4"
       >
-        {/* 404 Number */}
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -172,7 +141,6 @@ const NotFound = () => {
           </motion.div>
         </motion.div>
 
-        {/* Fun Message */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -186,11 +154,10 @@ const NotFound = () => {
             {message.subtitle}
           </p>
           <p className="text-sm text-primary/80">
-            💡 {message.tip}
+            Tip: {message.tip}
           </p>
         </motion.div>
 
-        {/* Queue Message - Friendly Alternative */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -209,7 +176,6 @@ const NotFound = () => {
           </div>
         </motion.div>
 
-        {/* Action Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -234,14 +200,13 @@ const NotFound = () => {
           </Button>
         </motion.div>
 
-        {/* Helpful Note */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
           className="mt-8 text-xs text-muted-foreground/60"
         >
-          Looking for something specific? Contact support and we'll help you find it! 💬
+          Looking for something specific? Contact support and we will help you find it.
         </motion.p>
       </motion.section>
     </main>

@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import { useResellerDashboardAuth } from '@/hooks/useResellerDashboardAuth';
 import { useResellerRoleAuth } from '@/hooks/useResellerRoleAuth';
-import { ResellerRouteGuard } from '@/components/reseller/ResellerRouteGuard';
+import ResellerRouteGuard from '@/components/reseller/ResellerRouteGuard';
 import { ResellerAuthProvider } from '@/hooks/useResellerDashboardAuth';
 import { ResellerStateProvider } from '@/hooks/useResellerDashboardState';
 import { ResellerRoleAuthProvider } from '@/hooks/useResellerRoleAuth';

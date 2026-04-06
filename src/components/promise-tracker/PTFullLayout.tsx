@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -23,7 +23,7 @@ export default function PTFullLayout() {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate('/super-admin-system/role-switch?role=boss_owner');
+    navigate('/boss-panel');
   };
 
   const renderContent = () => {
@@ -113,3 +113,4 @@ export default function PTFullLayout() {
     </TooltipProvider>
   );
 }
+

@@ -32,7 +32,7 @@ const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 minutes
 
 export default function SecureLeadManagerDashboard() {
   const navigate = useNavigate();
-  const { isGuarded } = useLeadManagerGuard();
+  useLeadManagerGuard();
   const [sessionTime, setSessionTime] = useState(SESSION_TIMEOUT);
   const [leadManagerId] = useState('LM-' + Math.random().toString(36).substr(2, 6).toUpperCase());
 
@@ -54,7 +54,6 @@ export default function SecureLeadManagerDashboard() {
     toast.info('Session terminated', {
       description: 'All session data cleared securely'
     });
-    console.log('[LEAD-MANAGER] Session logout:', leadManagerId);
     navigate('/');
   };
 

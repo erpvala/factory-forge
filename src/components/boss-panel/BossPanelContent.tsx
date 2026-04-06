@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React from 'react';
 import type { BossPanelSection } from './BossPanelLayout';
-import { BossDashboard } from './sections/BossDashboard';
 import { FullAutoSystem } from './sections/FullAutoSystem';
 import { LiveActivityStream } from './sections/LiveActivityStream';
 import { HierarchyControl } from './sections/HierarchyControl';
@@ -25,8 +24,6 @@ interface BossPanelContentProps {
 export function BossPanelContent({ activeSection, streamingOn }: BossPanelContentProps) {
   const renderSection = () => {
     switch (activeSection) {
-      case 'dashboard':
-        return <BossDashboard />;
       case 'full-auto':
         return <FullAutoSystem />;
       case 'live-activity':
@@ -56,7 +53,7 @@ export function BossPanelContent({ activeSection, streamingOn }: BossPanelConten
       case 'settings':
         return <BossSettings />;
       default:
-        return <BossDashboard />;
+        return <FullAutoSystem />;
     }
   };
 

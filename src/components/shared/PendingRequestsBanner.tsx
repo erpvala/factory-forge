@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -81,7 +81,7 @@ export function PendingRequestsBanner() {
             subtitle: app.email || 'New application',
             priority: 'high',
             createdAt: new Date(app.created_at),
-            actionUrl: '/super-admin-system/role-switch?role=reseller_manager'
+            actionUrl: '/reseller-manager/dashboard'
           });
         });
       }
@@ -321,7 +321,7 @@ export function PendingRequestsBanner() {
               
               <div className="mt-4 pt-4 border-t border-zinc-700/50 flex justify-between items-center">
                 <p className="text-sm text-zinc-400">
-                  Showing {pendingRequests.length} pending requests • Auto-refreshes every 30s
+                  Showing {pendingRequests.length} pending requests - Auto-refreshes every 30s
                 </p>
                 <Button
                   onClick={() => navigate('/master-admin')}
@@ -338,3 +338,4 @@ export function PendingRequestsBanner() {
     </div>
   );
 }
+

@@ -7,6 +7,7 @@ export default defineConfig(({ mode }) => {
   // Load env so we can read VITE_SUPABASE_URL for the dev proxy
   const env = loadEnv(mode, process.cwd(), '');
   const supabaseUrl = env.VITE_SUPABASE_URL ?? '';
+  const buildStamp = new Date().toISOString().replace(/[-:.TZ]/g, '');
 
   return {
   server: {
@@ -105,9 +106,9 @@ export default defineConfig(({ mode }) => {
           }
         },
         // Content-hash filenames for long-term caching
-        chunkFileNames: "assets/js/[name]-[hash].js",
-        entryFileNames: "assets/js/[name]-[hash].js",
-        assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
+        chunkFileNames: `assets/js/[name]-${buildStamp}-[hash].js`,
+        entryFileNames: `assets/js/[name]-${buildStamp}-[hash].js`,
+        assetFileNames: `assets/[ext]/[name]-${buildStamp}-[hash].[ext]`,
       },
     },
     // Warn if any single chunk exceeds 1MB

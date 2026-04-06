@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Rocket, Brain, Zap, ArrowLeft } from 'lucide-react';
@@ -44,7 +44,7 @@ export default function AutoDevEngine() {
       toast.success('Project approved and pushed into VALA AI factory', {
         description: 'The live build is now available inside VALA AI.'
       });
-      navigate('/super-admin-system/role-switch?role=boss_owner&nav=vala-ai');
+      navigate('/vala-ai');
     } catch (error) {
       console.error('Failed to approve project into VALA factory', error);
       toast.error(error instanceof Error ? error.message : 'Failed to approve project');
@@ -159,3 +159,4 @@ export default function AutoDevEngine() {
     </div>
   );
 }
+

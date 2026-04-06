@@ -24,7 +24,7 @@ export const APP_MODULES: AppModule[] = [
     id: 'control-center',
     path: '/app/control-center',
     label: 'Control Center',
-    allowedRoles: ['boss_owner', 'master', 'super_admin', 'ceo', 'admin', 'continent_admin', 'country_admin'],
+    allowedRoles: ['boss_owner', 'master'],
     priority: 1,
   },
   {

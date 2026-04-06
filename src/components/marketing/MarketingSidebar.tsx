@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 import { useState } from "react";
 import softwareValaLogo from '@/assets/software-vala-logo-transparent.png';
 import { motion, AnimatePresence } from "framer-motion";
@@ -372,7 +372,7 @@ const MarketingSidebar = ({ activeSection, setActiveSection }: MarketingSidebarP
             variant="ghost"
             size="sm"
             className="flex-1 h-6 text-[9px] text-slate-400 hover:text-teal-300 hover:bg-teal-500/10 px-1"
-            onClick={() => navigate('/super-admin-system/role-switch?role=boss_owner')}
+            onClick={() => navigate('/boss-panel')}
           >
             <ArrowLeft className="w-2.5 h-2.5 mr-0.5" />
             Back
@@ -401,3 +401,4 @@ const MarketingSidebar = ({ activeSection, setActiveSection }: MarketingSidebarP
 };
 
 export default MarketingSidebar;
+

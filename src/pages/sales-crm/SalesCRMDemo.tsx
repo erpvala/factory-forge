@@ -3,14 +3,63 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { CRMAuthProvider, useCRMAuth } from "@/hooks/useCRMAuth";
 import SalesCRMLayout from "@/components/sales-crm/SalesCRMLayout";
-import SalesCRMDashboard from "./SalesCRMDashboard";
-import LeadManagement from "./LeadManagement";
-import CustomerManagement from "./CustomerManagement";
-import DealTracking from "./DealTracking";
-import TasksFollowups from "./TasksFollowups";
-import SalesCRMReports from "./SalesCRMReports";
-import SalesCRMSettings from "./SalesCRMSettings";
 import { Loader2 } from "lucide-react";
+
+const SectionPanel = ({ title, description }: { title: string; description: string }) => (
+  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <h2 className="text-xl font-semibold text-slate-900">{title}</h2>
+    <p className="mt-2 text-sm text-slate-600">{description}</p>
+  </div>
+);
+
+const SalesCRMDashboard = () => (
+  <SectionPanel
+    title="Sales CRM Dashboard"
+    description="Track team performance, pipeline health, and priority actions from one place."
+  />
+);
+
+const LeadManagement = () => (
+  <SectionPanel
+    title="Lead Management"
+    description="Review and qualify incoming leads, then assign follow-ups based on urgency."
+  />
+);
+
+const CustomerManagement = () => (
+  <SectionPanel
+    title="Customer Management"
+    description="Keep customer details organized and monitor account status across teams."
+  />
+);
+
+const DealTracking = () => (
+  <SectionPanel
+    title="Deal Tracking"
+    description="Monitor open deals, next steps, and conversion progress through each stage."
+  />
+);
+
+const TasksFollowups = () => (
+  <SectionPanel
+    title="Tasks & Follow-Ups"
+    description="Manage sales tasks and follow-up actions to maintain pipeline momentum."
+  />
+);
+
+const SalesCRMReports = () => (
+  <SectionPanel
+    title="Sales Reports"
+    description="Analyze trends, team output, and campaign outcomes with consolidated metrics."
+  />
+);
+
+const SalesCRMSettings = () => (
+  <SectionPanel
+    title="CRM Settings"
+    description="Adjust notification preferences, workflow defaults, and dashboard behavior."
+  />
+);
 
 const SalesCRMContent = () => {
   const [activeSection, setActiveSection] = useState("dashboard");

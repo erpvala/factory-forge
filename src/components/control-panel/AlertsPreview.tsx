@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 /**
  * ALERTS PREVIEW
  * Mini alert stack showing latest 3 alerts
@@ -65,7 +65,7 @@ export const AlertsPreview: React.FC = memo(() => {
   const navigate = useNavigate();
 
   const handleViewAll = useCallback(() => {
-    navigate('/super-admin-system/role-switch?role=boss_owner');
+    navigate('/boss-panel');
   }, [navigate]);
 
   return (
@@ -86,3 +86,4 @@ export const AlertsPreview: React.FC = memo(() => {
 });
 
 AlertsPreview.displayName = 'AlertsPreview';
+

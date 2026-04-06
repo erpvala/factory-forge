@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 // ==============================================
 // RBAC (Role-Based Access Control) Core Module
 // ==============================================
@@ -61,8 +61,8 @@ export const MASKED_ID_CONFIG: Record<string, {
   icon: string;
   displayName: string;
 }> = {
-  boss_owner: { prefix: '👑 BOSS', digits: 1, icon: 'Crown', displayName: 'Boss Owner' },
-  ceo: { prefix: '🔱 CEO', digits: 2, icon: 'Crown', displayName: 'CEO' },
+  boss_owner: { prefix: 'BOSS', digits: 1, icon: 'Crown', displayName: 'Boss Owner' },
+  ceo: { prefix: 'CEO', digits: 2, icon: 'Crown', displayName: 'CEO' },
   server_manager: { prefix: 'SRV', digits: 2, icon: 'Server', displayName: 'Server Manager' },
   area_manager: { prefix: 'CTH', digits: 2, icon: 'MapPin', displayName: 'Country Head' }, // Merged
   task_manager: { prefix: 'EMP', digits: 3, icon: 'ListTodo', displayName: 'Task Manager' },
@@ -91,7 +91,7 @@ export const MASKED_ID_CONFIG: Record<string, {
   general: { prefix: 'GEN', digits: 6, icon: 'Users', displayName: 'General' },
   guest: { prefix: 'GEN', digits: 6, icon: 'Users', displayName: 'Guest' },
   client: { prefix: 'GEN', digits: 6, icon: 'User', displayName: 'Client' },
-  prime: { prefix: '⭐ PRM', digits: 7, icon: 'Star', displayName: 'Prime' },
+  prime: { prefix: 'PRM', digits: 7, icon: 'Star', displayName: 'Prime' },
   common: { prefix: 'USR', digits: 8, icon: 'User', displayName: 'User' },
 };
 
@@ -101,7 +101,7 @@ export const ROLE_ROUTES: Partial<Record<AppRole, string[]>> = {
   boss_owner: ['*'], // Boss Owner has full access to everything
   ceo: ['*'], // CEO has full access
   server_manager: ['/server-manager', '/server-manager/*'], // Infrastructure only - no business data
-  area_manager: ['/super-admin-system/role-switch', '/country-head/*'], // Redirects to Country Head
+  area_manager: ['/boss-panel', '/country-head/*'], // Redirects to Country Head
   developer: ['/developer', '/tasks', '/settings'],
   franchise: ['/franchise', '/leads', '/resellers', '/settings'],
   reseller: ['/reseller', '/leads', '/settings'],
@@ -180,9 +180,7 @@ export function generateMaskedId(role: AppRole | string, seed: string): { masked
   const config = MASKED_ID_CONFIG[role as keyof typeof MASKED_ID_CONFIG] || MASKED_ID_CONFIG.common;
   
   const numericId = String(hash % Math.pow(10, config.digits)).padStart(config.digits, '0');
-  const maskedId = config.prefix.includes('👑') || config.prefix.includes('⭐') 
-    ? `${config.prefix}-${numericId}`
-    : `${config.prefix}-${numericId}`;
+  const maskedId = `${config.prefix}-${numericId}`;
   
   return { maskedId, config };
 }
@@ -196,10 +194,10 @@ export function isValidRole(role: string): role is AppRole {
 // NOTE: master and super_admin merged into boss_owner
 export function getDashboardRoute(role: AppRole): string {
   const routeMap: Partial<Record<AppRole, string>> = {
-    boss_owner: '/super-admin', // Boss Owner uses super-admin dashboard
-    master: '/super-admin', // Master is merged with boss_owner
-    ceo: '/super-admin', // CEO uses super-admin dashboard
-    area_manager: '/super-admin-system/role-switch?role=country_head', // Redirects to Country Head
+    boss_owner: '/boss-panel',
+    master: '/boss-panel',
+    ceo: '/ai-ceo',
+    area_manager: '/country-dashboard', // Redirects to Country Head
     developer: '/developer',
     franchise: '/franchise',
     reseller: '/reseller',
@@ -230,3 +228,4 @@ export function getDashboardRoute(role: AppRole): string {
   
   return routeMap[role] || '/settings';
 }
+

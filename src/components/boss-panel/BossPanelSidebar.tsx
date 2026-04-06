@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  LayoutDashboard, 
   Activity, 
   Bot,
   Network, 
@@ -32,7 +31,6 @@ interface BossPanelSidebarProps {
 
 // LOCKED: Menu items with fixed icons (20px)
 const menuItems: { id: BossPanelSection; label: string; icon: React.ElementType }[] = [
-  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { id: 'full-auto', label: 'Full Auto System', icon: Bot },
   { id: 'live-activity', label: 'Live Activity Stream', icon: Activity },
   { id: 'hierarchy', label: 'Hierarchy Control', icon: Network },

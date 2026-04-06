@@ -43,8 +43,8 @@ export const APPLY_ROUTE_BY_ROLE = {
 export const ROLE_DASHBOARD_ROUTE: Record<string, string> = {
   boss_owner: ROUTES.bossPanel,
   ceo: '/ai-ceo',
-  super_admin: '/super-admin-system',
-  admin: '/super-admin-system',
+  super_admin: ROUTES.bossPanel,
+  admin: ROUTES.bossPanel,
   developer: ROUTES.developerDashboard,
   franchise_owner: ROUTES.franchiseDashboard,
   franchise: ROUTES.franchiseDashboard,

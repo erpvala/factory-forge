@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 /**
  * SMOOTH-01 & SMOOTH-02: Unified Navigation State Manager
  * Single global app state controller with route stability
@@ -104,7 +104,7 @@ export function useStableNavigation() {
   }, [navigate]);
 
   // Go back using history stack
-  const goBack = useCallback((fallbackPath = '/super-admin-system/control-panel'): boolean => {
+  const goBack = useCallback((fallbackPath = '/boss-panel'): boolean => {
     // Pop current entry
     historyStackRef.current.pop();
     
@@ -125,7 +125,7 @@ export function useStableNavigation() {
     exitToGlobal();
     showGlobalSidebar();
     
-    return navigateTo('/super-admin-system/control-panel', { replace: true });
+    return navigateTo('/boss-panel', { replace: true });
   }, [navigateTo, exitToGlobal, showGlobalSidebar]);
 
   // Check if can go back
@@ -158,3 +158,4 @@ export function useStableNavigation() {
     sidebarContext: activeContext
   };
 }
+

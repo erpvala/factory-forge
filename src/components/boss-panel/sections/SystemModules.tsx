@@ -10,10 +10,35 @@ import {
   Brain,
   Server,
   Shield,
-  Power,
   Wrench,
   Activity,
-  AlertTriangle
+  AlertTriangle,
+  DollarSign,
+  UserPlus,
+  TrendingUp,
+  Headphones,
+  ShoppingCart,
+  Key,
+  BarChart2,
+  Bell,
+  Plug,
+  FileSearch,
+  Megaphone,
+  Search,
+  Scale,
+  CheckSquare,
+  Building2,
+  Store,
+  Star,
+  Code2,
+  User,
+  Users2,
+  Bot,
+  Terminal,
+  UserCheck,
+  Building,
+  LifeBuoy,
+  ThumbsUp,
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -21,6 +46,7 @@ import { Badge } from '@/components/ui/badge';
 import { Switch } from '@/components/ui/switch';
 import { toast } from 'sonner';
 import { useSystemModules } from '@/hooks/useSystemModules';
+import { APP_MODULES } from '@/config/rbac';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -42,15 +68,50 @@ interface SystemModule {
   dependencies: string[];
 }
 
-const modules: SystemModule[] = [
-  { id: 'leads', name: 'Leads', icon: Users, status: 'active', health: 98, lastUpdated: '2 min ago', dependencies: [] },
-  { id: 'products', name: 'Products', icon: Package, status: 'active', health: 100, lastUpdated: '5 min ago', dependencies: [] },
-  { id: 'demos', name: 'Demos', icon: Presentation, status: 'active', health: 95, lastUpdated: '10 min ago', dependencies: ['products'] },
-  { id: 'billing', name: 'Billing', icon: CreditCard, status: 'active', health: 100, lastUpdated: '1 min ago', dependencies: [] },
-  { id: 'ai-engine', name: 'AI Engine', icon: Brain, status: 'active', health: 87, lastUpdated: '30 sec ago', dependencies: [] },
-  { id: 'servers', name: 'Servers', icon: Server, status: 'maintenance', health: 75, lastUpdated: '1 hour ago', dependencies: [] },
-  { id: 'compliance', name: 'Compliance', icon: Shield, status: 'active', health: 100, lastUpdated: '15 min ago', dependencies: [] },
-];
+const MODULE_ICONS: Record<string, React.ElementType> = {
+  'control-center':     Shield,
+  'finance':            DollarSign,
+  'leads':              UserPlus,
+  'sales':              TrendingUp,
+  'support':            Headphones,
+  'marketplace':        ShoppingCart,
+  'licenses':           Key,
+  'analytics':          BarChart2,
+  'notifications':      Bell,
+  'integrations':       Plug,
+  'audit':              FileSearch,
+  'server':             Server,
+  'ai':                 Brain,
+  'marketing':          Megaphone,
+  'seo':                Search,
+  'legal':              Scale,
+  'tasks':              CheckSquare,
+  'franchise':          Building2,
+  'reseller':           Store,
+  'influencer':         Star,
+  'developer':          Code2,
+  'user':               User,
+  'hr':                 Users2,
+  'ai-api':             Bot,
+  'billing':            CreditCard,
+  'dev-manager':        Terminal,
+  'influencer-manager': UserCheck,
+  'reseller-manager':   Users,
+  'franchise-manager':  Building,
+  'assist':             LifeBuoy,
+  'demo-manager':       Presentation,
+  'client-success':     ThumbsUp,
+};
+
+const modules: SystemModule[] = APP_MODULES.map((m) => ({
+  id:          m.id,
+  name:        m.label,
+  icon:        MODULE_ICONS[m.id] ?? Boxes,
+  status:      'active' as const,
+  health:      100,
+  lastUpdated: 'live',
+  dependencies: [],
+}));
 
 const statusColors = {
   active: 'bg-green-500/20 text-green-400 border-green-500/30',

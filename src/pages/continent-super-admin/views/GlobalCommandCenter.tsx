@@ -2,7 +2,7 @@
 // ============================================
 // SOFTWARE VALA — GLOBAL COMMAND CENTER
 // 7D World Map Dashboard — No Internal Sidebar
-// Fits within parent RoleSwitchDashboard layout
+// Fits within parent dashboard shell layout
 // ============================================
 import { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';

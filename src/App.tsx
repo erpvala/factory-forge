@@ -28,6 +28,8 @@ import RequireAuth from "@/components/auth/RequireAuth";
 import RequireRole from "@/components/auth/RequireRole";
 import { SecurityProvider } from "@/contexts/SecurityContext";
 import SourceCodeProtection from "@/components/security/SourceCodeProtection";
+import LegacyRouteMonitor from "@/components/security/LegacyRouteMonitor";
+import LegacyRuntimeGuard from "@/components/security/LegacyRuntimeGuard";
 import SystemNotificationsInitializer from "@/components/notifications/SystemNotificationsInitializer";
 import { TranslationProvider } from "@/contexts/TranslationContext";
 import { AppRoutes } from "@/routes/appRoutes";
@@ -75,7 +77,6 @@ const PaymentSuccess      = lazy(() => import("@/pages/PaymentSuccess"));
 const ResellerAppRouter   = lazy(() => import("@/app/reseller/router"));
 const ResellerLanding     = lazy(() => import("@/pages/ResellerLanding"));
 const FranchiseLanding    = lazy(() => import("@/pages/FranchiseLanding"));
-const FranchiseManagement = lazy(() => import("@/pages/FranchiseManagement"));
 const SettingsPage        = lazy(() => import("@/pages/Settings"));
 const PrivacyPage         = lazy(() => import("@/pages/PrivacyPage"));
 const TermsPage           = lazy(() => import("@/pages/TermsPage"));
@@ -92,12 +93,7 @@ const MarketplaceManagerDashboard = lazy(() => import("@/pages/MarketplaceManage
 
 // Boss / Admin dashboards
 const BossPanel             = lazy(() => import("@/pages/BossPanel"));
-const MasterControlCenter   = lazy(() => import("@/pages/master-control/MasterControlCenter"));
-const MasterAdminSupreme    = lazy(() => import("@/pages/master-admin-supreme/MasterAdminSupreme"));
-const SoftwareWalaOwnerDashboard = lazy(() => import("@/pages/owner/SoftwareWalaOwnerDashboard"));
 const BootstrapAdmins       = lazy(() => import("@/pages/admin/BootstrapAdmins"));
-const BulkUserCreation      = lazy(() => import("@/pages/admin/BulkUserCreation"));
-const RoleManagerPage       = lazy(() => import("@/pages/admin/RoleManagerPage"));
 const SecurityCommandCenter = lazy(() => import("@/pages/security-command/SecurityCommandCenter"));
 const CentralIntegrationHub = lazy(() => import("@/pages/api-manager/CentralIntegrationHub"));
 const ServerManagementPortal = lazy(() => import("@/pages/server/ServerManagementPortal"));
@@ -119,42 +115,16 @@ const AICEOReports          = lazy(() => import("@/pages/ai-ceo/sections/AICEORe
 const AICEOLearning         = lazy(() => import("@/pages/ai-ceo/sections/AICEOLearning"));
 const AICEOSettings         = lazy(() => import("@/pages/ai-ceo/sections/AICEOSettings"));
 
-// Continent / Super Admin
-const ContinentSuperAdminDashboard = lazy(() => import("@/components/continent-dashboard/ContinentSuperAdminDashboard"));
-const SuperAdminSystemDashboard = lazy(() => import("@/pages/super-admin-system/Dashboard"));
-const SuperAdminUsers        = lazy(() => import("@/pages/super-admin-system/Users"));
-const SuperAdminAdmins       = lazy(() => import("@/pages/super-admin-system/Admins"));
-const SuperAdminRoles        = lazy(() => import("@/pages/super-admin-system/Roles"));
-const SuperAdminGeography    = lazy(() => import("@/pages/super-admin-system/Geography"));
-const SuperAdminModules      = lazy(() => import("@/pages/super-admin-system/Modules"));
-const SuperAdminRentals      = lazy(() => import("@/pages/super-admin-system/Rentals"));
-const SuperAdminRules        = lazy(() => import("@/pages/super-admin-system/Rules"));
-const SuperAdminApprovals    = lazy(() => import("@/pages/super-admin-system/Approvals"));
-const SuperAdminSecurity     = lazy(() => import("@/pages/super-admin-system/Security"));
-const SuperAdminSystemLock   = lazy(() => import("@/pages/super-admin-system/SystemLock"));
-const SuperAdminActivityLog  = lazy(() => import("@/pages/super-admin-system/ActivityLog"));
-const SuperAdminAudit        = lazy(() => import("@/pages/super-admin-system/Audit"));
-const RoleSwitchDashboard    = lazy(() => import("@/pages/super-admin-system/RoleSwitch/RoleSwitchDashboard"));
-const RoleManager            = lazy(() => import("@/pages/super-admin/RoleManager"));
-const UserManager            = lazy(() => import("@/pages/super-admin/UserManager"));
-const PermissionMatrix       = lazy(() => import("@/pages/super-admin/PermissionMatrix"));
-const SystemAudit            = lazy(() => import("@/pages/super-admin/SystemAudit"));
-const LiveTracking           = lazy(() => import("@/pages/super-admin/LiveTracking"));
-const PrimeManager           = lazy(() => import("@/pages/super-admin/PrimeManager"));
-const ProductManagerPage     = lazy(() => import("@/pages/super-admin/ProductManagerPage"));
-const ComplianceCenter       = lazy(() => import("@/pages/super-admin/ComplianceCenter"));
 
 // Manager dashboards
 const FinanceManager         = lazy(() => import("@/pages/FinanceManager"));
-const LeadManager            = lazy(() => import("@/pages/LeadManager"));
-const TaskManager            = lazy(() => import("@/pages/TaskManager"));
 const MarketingManager       = lazy(() => import("@/pages/MarketingManager"));
 const MarketingManagerDashboard = lazy(() => import("@/pages/marketing-manager/MarketingManagerDashboard"));
 const SEODashboard           = lazy(() => import("@/pages/SEODashboard"));
-const SEOManagerDashboard    = lazy(() => import("@/pages/dashboards/SEOManagerDashboard"));
 const LegalComplianceManager = lazy(() => import("@/pages/LegalComplianceManager"));
-const LegalManagerDashboard  = lazy(() => import("@/pages/legal-manager/LegalManagerDashboard"));
 const SecureLegalManagerDashboard = lazy(() => import("@/pages/legal-manager/SecureLegalManagerDashboard"));
+const SecureLeadManagerDashboard = lazy(() => import("@/pages/lead-manager/SecureLeadManagerDashboard"));
+const SecureSEOManagerDashboard = lazy(() => import("@/pages/seo-manager/SecureSEOManagerDashboard"));
 const SecureTaskManagerDashboard = lazy(() => import("@/pages/task-manager/SecureTaskManagerDashboard"));
 const SecureSalesSupportManagerDashboard = lazy(() => import("@/pages/sales-support-manager/SecureSalesSupportManagerDashboard"));
 const SecureResellerManagerDashboard = lazy(() => import("@/pages/reseller-manager/SecureResellerManagerDashboard"));
@@ -194,7 +164,6 @@ const ResellerDashboard      = lazy(() => import("@/pages/ResellerDashboard"));
 const ResellerPortal         = lazy(() => import("@/pages/ResellerPortal"));
 const PrimeUserDashboard     = lazy(() => import("@/components/prime-user/PrimeUserDashboard"));
 const UserDashboard          = lazy(() => import("@/pages/user/UserDashboard"));
-const SecurityCenter         = lazy(() => import("@/components/admin/SecurityCenter"));
 
 // Reseller Manager sub-pages
 const ResellerManagerLayout        = lazy(() => import("@/app/reseller-manager/layout").then(m => ({ default: m.default })));
@@ -274,7 +243,6 @@ const RetailPOSDemo       = lazy(() => import("@/pages/retail-pos/RetailPOSDemo"
 // Misc pages
 const AutoDevEngine         = lazy(() => import("@/pages/auto-dev/AutoDevEngine"));
 const DemoOrderSystem       = lazy(() => import("@/pages/demo-system/DemoOrderSystem"));
-const WireframeRoutes_page  = lazy(() => import("@/components/wireframe/WireframeRoutes").then(m => ({ default: m.WireframeRoutes })));
 
 // ─── Page-load spinner ───────────────────────────────────────────────────────
 const PageLoader = () => (
@@ -371,10 +339,12 @@ const App = () => (
                 <Sonner />
                 <BrowserRouter>
                   <RouteRuntimeEnhancer />
+                  <LegacyRouteMonitor />
                   <SecurityProvider>
                     <NotificationProvider>
                       <TranslationProvider>
                         <GlobalRealtimeProvider>
+                          <LegacyRuntimeGuard />
                           <InteractivityGuard />
                           <BlockingClassCleanup />
                           <SystemNotificationsInitializer />
@@ -515,25 +485,25 @@ const App = () => (
               <Route path={ROUTES.bossPanel} element={<BossPanel />} />
               <Route path={`${ROUTES.bossPanel}/*`} element={<BossPanel />} />
 
-              {/* Owner Dashboard - SoftwareWala Business Control */}
-              <Route path="/owner" element={<RequireRole allowed={["boss_owner"]}><SoftwareWalaOwnerDashboard /></RequireRole>} />
-              <Route path="/owner/*" element={<RequireRole allowed={["boss_owner"]}><SoftwareWalaOwnerDashboard /></RequireRole>} />
-              <Route path="/softwarewala" element={<RequireRole allowed={["boss_owner"]}><SoftwareWalaOwnerDashboard /></RequireRole>} />
+              {/* Owner / SoftwareWala → Control Panel = Boss Panel */}
+              <Route path="/owner" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/owner/*" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/softwarewala" element={<Navigate to={ROUTES.bossPanel} replace />} />
 
-              {/* Boss Admin Routes - BOSS_OWNER ONLY */}
-              <Route path="/master-admin" element={<RequireRole allowed={["boss_owner"]}><MasterControlCenter /></RequireRole>} />
-              <Route path="/master-admin/*" element={<RequireRole allowed={["boss_owner"]}><MasterControlCenter /></RequireRole>} />
-              <Route path="/master-admin-supreme" element={<RequireRole allowed={["boss_owner"]}><MasterAdminSupreme /></RequireRole>} />
-              <Route path="/master-control-vault-x9k2m" element={<RequireRole allowed={["boss_owner"]}><MasterControlCenter /></RequireRole>} />
+              {/* Boss admin aliases → Control Panel = Boss Panel */}
+              <Route path="/master-admin" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/master-admin/*" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/master-admin-supreme" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/master-control-vault-x9k2m" element={<Navigate to={ROUTES.bossPanel} replace />} />
 
-              {/* Admin Utilities - Boss Owner */}
-              <Route path="/admin/bulk-users" element={<RequireRole allowed={["boss_owner"]}><BulkUserCreation /></RequireRole>} />
-              <Route path="/admin/role-manager" element={<RequireRole allowed={["boss_owner"]}><RoleManagerPage /></RequireRole>} />
+              {/* Admin utility aliases → Control Panel = Boss Panel */}
+              <Route path="/admin/bulk-users" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/admin/role-manager" element={<Navigate to={ROUTES.bossPanel} replace />} />
 
 
-              {/* Area Manager now redirects to Country Head - merged roles */}
-              <Route path="/area-manager" element={<Navigate to="/super-admin-system/role-switch?role=country_head" replace />} />
-              <Route path="/area-manager/*" element={<Navigate to="/super-admin-system/role-switch?role=country_head" replace />} />
+              {/* Area Manager → Boss Panel */}
+              <Route path="/area-manager" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/area-manager/*" element={<Navigate to={ROUTES.bossPanel} replace />} />
 
               {/* Server Manager Routes */}
               <Route path="/server-manager" element={<RequireRole allowed={["boss_owner", "server_manager"]}><ServerManagerDashboard /></RequireRole>} />
@@ -553,12 +523,12 @@ const App = () => (
 
 
               {/* SEO Manager Routes */}
-              <Route path="/seo-manager" element={<RequireRole allowed={["boss_owner", "seo_manager"]}><SEOManagerDashboard /></RequireRole>} />
-              <Route path="/seo-manager/*" element={<RequireRole allowed={["boss_owner", "seo_manager"]}><SEOManagerDashboard /></RequireRole>} />
+              <Route path="/seo-manager" element={<RequireRole allowed={["boss_owner", "seo_manager"]}><SecureSEOManagerDashboard /></RequireRole>} />
+              <Route path="/seo-manager/*" element={<RequireRole allowed={["boss_owner", "seo_manager"]}><SecureSEOManagerDashboard /></RequireRole>} />
 
               {/* Legal Manager Routes (enum role: legal_compliance) */}
-              <Route path="/legal-manager" element={<RequireRole allowed={["boss_owner", "legal_compliance"]}><LegalManagerDashboard /></RequireRole>} />
-              <Route path="/legal-manager/*" element={<RequireRole allowed={["boss_owner", "legal_compliance"]}><LegalManagerDashboard /></RequireRole>} />
+              <Route path="/legal-manager" element={<RequireRole allowed={["boss_owner", "legal_compliance"]}><SecureLegalManagerDashboard /></RequireRole>} />
+              <Route path="/legal-manager/*" element={<RequireRole allowed={["boss_owner", "legal_compliance"]}><SecureLegalManagerDashboard /></RequireRole>} />
 
               {/* AI CEO Routes - Autonomous Intelligence Observer */}
               <Route path="/ai-ceo" element={<RequireRole allowed={["boss_owner", "ceo"]}><AICEODashboard /></RequireRole>}>
@@ -574,36 +544,17 @@ const App = () => (
                 <Route path="settings" element={<AICEOSettings />} />
               </Route>
 
-              {/* Continent Super Admin Routes */}
-              <Route path="/continent-super-admin" element={<RequireRole allowed={["boss_owner"]}><ContinentSuperAdminDashboard config={{} as any} /></RequireRole>} />
-              <Route path="/continent-super-admin/*" element={<RequireRole allowed={["boss_owner"]}><ContinentSuperAdminDashboard config={{} as any} /></RequireRole>} />
+              {/* Continent Super Admin → Control Panel = Boss Panel */}
+              <Route path="/continent-super-admin" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/continent-super-admin/*" element={<Navigate to={ROUTES.bossPanel} replace />} />
 
 
-              {/* Super Admin Routes - Redirect to unified RoleSwitchDashboard to prevent duplicate layouts */}
-              <Route path="/admin" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
-              <Route path="/super-admin" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
-              <Route path="/super-admin/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
-              <Route path="/super-admin/command-center" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
-              <Route path="/super-admin/live-tracking" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><LiveTracking /></RequireRole>} />
-              <Route path="/super-admin/role-manager" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><RoleManager /></RequireRole>} />
-              <Route path="/super-admin/user-manager" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><UserManager /></RequireRole>} />
-              <Route path="/super-admin/user-management" element={<Navigate to="/super-admin/user-manager" replace />} />
-              <Route path="/super-admin/permission-matrix" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><PermissionMatrix /></RequireRole>} />
-              <Route path="/super-admin/security-center" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><SecurityCenter /></RequireRole>} />
-              <Route path="/security-dashboard" element={<Navigate to="/super-admin/security-center" replace />} />
-              <Route path="/super-admin/demo-manager" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><ProductDemoManager /></RequireRole>} />
-              <Route path="/super-admin/product-manager" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><ProductManagerPage /></RequireRole>} />
-              <Route path="/super-admin/system-settings" element={<RequireRole allowed={["boss_owner", "master", "ceo"]}><SystemSettings /></RequireRole>} />
-              <Route path="/super-admin/system-audit" element={<RequireRole allowed={["boss_owner"]}><SystemAudit /></RequireRole>} />
-              <Route path="/audit-logs" element={<Navigate to="/super-admin/system-audit" replace />} />
-              <Route path="/super-admin/prime-manager" element={<RequireRole allowed={["boss_owner"]}><PrimeManager /></RequireRole>} />
-              <Route path="/super-admin/influencer-manager" element={<RequireRole allowed={["boss_owner"]}><InfluencerManager /></RequireRole>} />
-              <Route path="/super-admin/finance-center" element={<RequireRole allowed={["boss_owner"]}><FinanceManager /></RequireRole>} />
-              <Route path="/super-admin/support-center" element={<RequireRole allowed={["boss_owner"]}><SupportDashboardPage activeView="overview" /></RequireRole>} />
-              <Route path="/super-admin/ai-billing" element={<RequireRole allowed={["boss_owner"]}><AIBillingDashboard /></RequireRole>} />
-              <Route path="/super-admin/franchise-manager" element={<RequireRole allowed={["boss_owner"]}><FranchiseManagement /></RequireRole>} />
-              <Route path="/super-admin/compliance-center" element={<RequireRole allowed={["boss_owner"]}><ComplianceCenter /></RequireRole>} />
-              <Route path="/super-admin/performance" element={<RequireRole allowed={["boss_owner"]}><PerformanceManager /></RequireRole>} />
+              {/* Super Admin / admin → Control Panel = Boss Panel */}
+              <Route path="/admin" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/super-admin" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/super-admin/*" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/security-dashboard" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/audit-logs" element={<Navigate to={ROUTES.bossPanel} replace />} />
 
               {/* Franchise Routes */}
               <Route path="/franchise" element={<Navigate to={ROUTES.franchiseDashboard} replace />} />
@@ -689,10 +640,11 @@ const App = () => (
               <Route path="/prime-user" element={<Navigate to="/prime" replace />} />
 
               {/* Manager Routes - PROTECTED BY ROLE */}
-              <Route path="/lead-manager" element={<RequireRole allowed={["lead_manager", "super_admin", "boss_owner", "master", "ceo"]}><LeadManager /></RequireRole>} />
-              <Route path="/leads/*" element={<RequireRole allowed={["lead_manager", "super_admin", "boss_owner", "master", "ceo"]}><LeadManager /></RequireRole>} />
-              <Route path="/task-manager" element={<RequireRole allowed={["task_manager", "super_admin"]}><TaskManager /></RequireRole>} />
-              <Route path="/tasks/*" element={<RequireRole allowed={["task_manager", "super_admin"]}><TaskManager /></RequireRole>} />
+              <Route path="/lead-manager" element={<RequireRole allowed={["lead_manager", "super_admin", "boss_owner", "master", "ceo"]}><SecureLeadManagerDashboard /></RequireRole>} />
+              <Route path="/lead-manager-secure" element={<RequireRole allowed={["lead_manager", "super_admin", "boss_owner", "master", "ceo"]}><SecureLeadManagerDashboard /></RequireRole>} />
+              <Route path="/leads/*" element={<RequireRole allowed={["lead_manager", "super_admin", "boss_owner", "master", "ceo"]}><SecureLeadManagerDashboard /></RequireRole>} />
+              <Route path="/task-manager" element={<RequireRole allowed={["task_manager", "super_admin"]}><SecureTaskManagerDashboard /></RequireRole>} />
+              <Route path="/tasks/*" element={<RequireRole allowed={["task_manager", "super_admin"]}><SecureTaskManagerDashboard /></RequireRole>} />
               <Route path="/demo-manager" element={<RequireRole allowed={["demo_manager", "super_admin", "master"]}><DemoManagerDashboard /></RequireRole>} />
               <Route path="/demo-manager/*" element={<RequireRole allowed={["demo_manager", "super_admin", "master"]}><DemoManagerDashboard /></RequireRole>} />
               <Route path="/demo" element={<RequireRole allowed={["demo_manager", "franchise", "reseller", "super_admin"]}><ProductDemoManager /></RequireRole>} />
@@ -716,8 +668,8 @@ const App = () => (
 
               {/* Secure Legal Manager Dashboard */}
               <Route path="/legal-manager-secure" element={<RequireRole allowed={["legal_compliance", "super_admin"]}><SecureLegalManagerDashboard /></RequireRole>} />
-              <Route path="/seo" element={<RequireRole allowed={["seo_manager", "super_admin"]}><SEODashboard /></RequireRole>} />
-              <Route path="/seo/*" element={<RequireRole allowed={["seo_manager", "super_admin"]}><SEODashboard /></RequireRole>} />
+              <Route path="/seo" element={<RequireRole allowed={["seo_manager", "super_admin"]}><SecureSEOManagerDashboard /></RequireRole>} />
+              <Route path="/seo/*" element={<RequireRole allowed={["seo_manager", "super_admin"]}><SecureSEOManagerDashboard /></RequireRole>} />
               <Route path="/seo-dashboard" element={<Navigate to="/seo" replace />} />
               <Route path="/support" element={<RequireRole allowed={["support", "client_success", "super_admin"]}><SupportDashboardPage /></RequireRole>} />
               <Route path="/support/*" element={<RequireRole allowed={["support", "client_success", "super_admin"]}><SupportDashboardPage /></RequireRole>} />
@@ -780,40 +732,13 @@ const App = () => (
               {/* HR Manager Dashboard */}
               <Route path="/hr-manager" element={<RequireAuth><SecureHRManagerDashboard /></RequireAuth>} />
 
-              {/* Wireframe Routes - Design Sandbox */}
-              <Route path="/wireframe/*" element={<WireframeRoutes_page />} />
-
-              {/* Super Admin System Routes */}
-              {/* Explicit dashboard aliases (never allow route-not-found -> blank screen) */}
-              <Route path="/boss/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
-              <Route path="/ceo/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=ceo" replace />} />
-              <Route path="/admin/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=admin" replace />} />
-              <Route path="/continent/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=continent_super_admin" replace />} />
-              <Route path="/country/dashboard" element={<Navigate to="/super-admin-system/role-switch?role=country_head" replace />} />
-
-              <Route path="/super-admin-system" element={<Navigate to="/super-admin-system/dashboard" replace />} />
-              {/* Short aliases (avoid 404 when users type abbreviated links) */}
-              <Route path="/super-admin-system/rc" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
-              <Route path="/super-admin-system/role-center" element={<Navigate to="/super-admin-system/role-switch?role=boss_owner" replace />} />
-
-              <Route path="/super-admin-system/login" element={<Navigate to="/login" replace />} />
-              <Route path="/admin-secure" element={<Navigate to="/super-admin-system/role-switch?role=admin" replace />} />
-              {/* Role switcher - Protected for privileged roles */}
-              <Route path="/super-admin-system/role-switch" element={<RequireRole allowed={['boss_owner', 'ceo', 'admin', 'super_admin', 'master', 'continent_super_admin', 'country_head']}><RoleSwitchDashboard /></RequireRole>} />
-              <Route path="/super-admin-system/role-switch/*" element={<RequireRole allowed={['boss_owner', 'ceo', 'admin', 'super_admin', 'master', 'continent_super_admin', 'country_head']}><RoleSwitchDashboard /></RequireRole>} />
-              <Route path="/super-admin-system/dashboard" element={<SuperAdminSystemDashboard />} />
-              <Route path="/super-admin-system/users" element={<SuperAdminUsers />} />
-              <Route path="/super-admin-system/admins" element={<SuperAdminAdmins />} />
-              <Route path="/super-admin-system/roles" element={<SuperAdminRoles />} />
-              <Route path="/super-admin-system/geography" element={<SuperAdminGeography />} />
-              <Route path="/super-admin-system/modules" element={<SuperAdminModules />} />
-              <Route path="/super-admin-system/rentals" element={<SuperAdminRentals />} />
-              <Route path="/super-admin-system/rules" element={<SuperAdminRules />} />
-              <Route path="/super-admin-system/approvals" element={<SuperAdminApprovals />} />
-              <Route path="/super-admin-system/security" element={<SuperAdminSecurity />} />
-              <Route path="/super-admin-system/locks" element={<SuperAdminSystemLock />} />
-              <Route path="/super-admin-system/activity-log" element={<SuperAdminActivityLog />} />
-              <Route path="/super-admin-system/audit" element={<SuperAdminAudit />} />
+              {/* Dashboard shortcuts → Boss Panel (Control Panel) */}
+              <Route path="/boss/dashboard" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/ceo/dashboard" element={<Navigate to="/ai-ceo" replace />} />
+              <Route path="/admin/dashboard" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/continent/dashboard" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/country/dashboard" element={<Navigate to={ROUTES.bossPanel} replace />} />
+              <Route path="/admin-secure" element={<Navigate to={ROUTES.bossPanel} replace />} />
 
               {/* Leader Security Assessment */}
               <Route path="/leader-security" element={<LeaderSecurityAssessment />} />

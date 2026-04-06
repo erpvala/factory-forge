@@ -77,23 +77,23 @@ export const useResellerApiService = (): ResellerApiService => {
     earnings,
     invoices,
     addCustomer,
-    updateCustomer,
-    deleteCustomer,
+    updateCustomer: storeUpdateCustomer,
+    deleteCustomer: storeDeleteCustomer,
     addProduct,
-    updateProduct,
-    deleteProduct,
+    updateProduct: storeUpdateProduct,
+    deleteProduct: storeDeleteProduct,
     addLicense,
-    updateLicense,
-    deleteLicense,
+    updateLicense: storeUpdateLicense,
+    deleteLicense: storeDeleteLicense,
     addSale,
-    updateSale,
-    deleteSale,
+    updateSale: storeUpdateSale,
+    deleteSale: storeDeleteSale,
     addEarning,
-    updateEarning,
-    deleteEarning,
+    updateEarning: storeUpdateEarning,
+    deleteEarning: storeDeleteEarning,
     addInvoice,
-    updateInvoice,
-    deleteInvoice
+    updateInvoice: storeUpdateInvoice,
+    deleteInvoice: storeDeleteInvoice
   } = useResellerDashboardStore();
 
   // Simulate API delay and random errors
@@ -122,7 +122,7 @@ export const useResellerApiService = (): ResellerApiService => {
   };
 
   // Simulate pagination
-  const paginateResults = <T>(data: T[], page: number = 1, limit: number = 10) => {
+  const paginateResults = <T,>(data: T[], page: number = 1, limit: number = 10) => {
     const startIndex = (page - 1) * limit;
     const endIndex = startIndex + limit;
     const paginatedData = data.slice(startIndex, endIndex);
@@ -172,7 +172,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const updateCustomer = async (customerId: string, updates: any) => {
     try {
-      await updateCustomer(customerId, updates);
+      await storeUpdateCustomer(customerId, updates);
       const updatedCustomer = customers.find(c => c.id === customerId);
       return await simulateApiCall(true, updatedCustomer);
     } catch (error) {
@@ -182,7 +182,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const deleteCustomer = async (customerId: string) => {
     try {
-      await deleteCustomer(customerId);
+      await storeDeleteCustomer(customerId);
       return await simulateApiCall(true, { id: customerId });
     } catch (error) {
       return await simulateApiCall(false, undefined, 'Failed to delete customer');
@@ -219,7 +219,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const updateProduct = async (productId: string, updates: any) => {
     try {
-      await updateProduct(productId, updates);
+      await storeUpdateProduct(productId, updates);
       const updatedProduct = products.find(p => p.id === productId);
       return await simulateApiCall(true, updatedProduct);
     } catch (error) {
@@ -229,7 +229,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const deleteProduct = async (productId: string) => {
     try {
-      await deleteProduct(productId);
+      await storeDeleteProduct(productId);
       return await simulateApiCall(true, { id: productId });
     } catch (error) {
       return await simulateApiCall(false, undefined, 'Failed to delete product');
@@ -268,7 +268,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const updateLicense = async (licenseId: string, updates: any) => {
     try {
-      await updateLicense(licenseId, updates);
+      await storeUpdateLicense(licenseId, updates);
       const updatedLicense = licenses.find(l => l.id === licenseId);
       return await simulateApiCall(true, updatedLicense);
     } catch (error) {
@@ -278,7 +278,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const deleteLicense = async (licenseId: string) => {
     try {
-      await deleteLicense(licenseId);
+      await storeDeleteLicense(licenseId);
       return await simulateApiCall(true, { id: licenseId });
     } catch (error) {
       return await simulateApiCall(false, undefined, 'Failed to delete license');
@@ -288,7 +288,7 @@ export const useResellerApiService = (): ResellerApiService => {
   const renewLicense = async (licenseId: string) => {
     try {
       const newExpiryDate = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString();
-      await updateLicense(licenseId, { 
+      await storeUpdateLicense(licenseId, { 
         status: 'active', 
         expiryDate: newExpiryDate 
       });
@@ -301,7 +301,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const revokeLicense = async (licenseId: string) => {
     try {
-      await updateLicense(licenseId, { status: 'suspended' });
+      await storeUpdateLicense(licenseId, { status: 'suspended' });
       const updatedLicense = licenses.find(l => l.id === licenseId);
       return await simulateApiCall(true, updatedLicense);
     } catch (error) {
@@ -341,7 +341,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const updateSale = async (saleId: string, updates: any) => {
     try {
-      await updateSale(saleId, updates);
+      await storeUpdateSale(saleId, updates);
       const updatedSale = sales.find(s => s.id === saleId);
       return await simulateApiCall(true, updatedSale);
     } catch (error) {
@@ -351,7 +351,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const deleteSale = async (saleId: string) => {
     try {
-      await deleteSale(saleId);
+      await storeDeleteSale(saleId);
       return await simulateApiCall(true, { id: saleId });
     } catch (error) {
       return await simulateApiCall(false, undefined, 'Failed to delete sale');
@@ -389,7 +389,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const updateEarning = async (earningId: string, updates: any) => {
     try {
-      await updateEarning(earningId, updates);
+      await storeUpdateEarning(earningId, updates);
       const updatedEarning = earnings.find(e => e.id === earningId);
       return await simulateApiCall(true, updatedEarning);
     } catch (error) {
@@ -399,7 +399,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const deleteEarning = async (earningId: string) => {
     try {
-      await deleteEarning(earningId);
+      await storeDeleteEarning(earningId);
       return await simulateApiCall(true, { id: earningId });
     } catch (error) {
       return await simulateApiCall(false, undefined, 'Failed to delete earning');
@@ -410,7 +410,7 @@ export const useResellerApiService = (): ResellerApiService => {
     try {
       // Mark earnings as paid
       for (const earningId of earningIds) {
-        await updateEarning(earningId, { status: 'paid' });
+        await storeUpdateEarning(earningId, { status: 'paid' });
       }
       return await simulateApiCall(true, { 
         payoutId: `payout-${Date.now()}`,
@@ -454,7 +454,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const updateInvoice = async (invoiceId: string, updates: any) => {
     try {
-      await updateInvoice(invoiceId, updates);
+      await storeUpdateInvoice(invoiceId, updates);
       const updatedInvoice = invoices.find(i => i.id === invoiceId);
       return await simulateApiCall(true, updatedInvoice);
     } catch (error) {
@@ -464,7 +464,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const deleteInvoice = async (invoiceId: string) => {
     try {
-      await deleteInvoice(invoiceId);
+      await storeDeleteInvoice(invoiceId);
       return await simulateApiCall(true, { id: invoiceId });
     } catch (error) {
       return await simulateApiCall(false, undefined, 'Failed to delete invoice');
@@ -473,7 +473,7 @@ export const useResellerApiService = (): ResellerApiService => {
 
   const sendInvoice = async (invoiceId: string) => {
     try {
-      await updateInvoice(invoiceId, { status: 'sent' });
+      await storeUpdateInvoice(invoiceId, { status: 'sent' });
       const updatedInvoice = invoices.find(i => i.id === invoiceId);
       return await simulateApiCall(true, { 
         ...updatedInvoice,

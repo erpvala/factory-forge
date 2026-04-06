@@ -1,7 +1,7 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 /**
  * GLOBAL NAVIGATION HOOK
- * Centralized button → route mapping
+ * Centralized button -> route mapping
  * Enforces: 0 dead clicks, 0 duplicate screens, 100% navigable UI
  */
 
@@ -27,45 +27,45 @@ export interface RouteDefinition {
   tooltip?: string;
 }
 
-// Global button → route mapping
+// Global button -> route mapping
 const BUTTON_ROUTE_MAP: Record<string, RouteDefinition> = {
   // Header Actions
   'btn_internal_chat': { path: '/internal-chat', state: { sidebar: 'collapsed', context: 'global' } },
-  'btn_tasks': { path: '/super-admin-system/role-switch?role=task_management', state: { sidebar: 'expanded', context: 'module' } },
-  'btn_alerts': { path: '/super-admin-system/role-switch?role=boss_owner&nav=alerts', modal: false },
+  'btn_tasks': { path: '/task-manager', state: { sidebar: 'expanded', context: 'module' } },
+  'btn_alerts': { path: '/boss-panel', modal: false },
   'btn_profile': { path: '/settings', state: { context: 'global' } },
   'btn_settings': { path: '/settings', state: { context: 'global' } },
   'btn_logout': { path: '/auth/logout', state: { sidebar: 'hidden' } },
   
   // Dashboard Navigation
-  'btn_dashboard_main': { path: '/super-admin-system/role-switch?role=boss_owner', state: { sidebar: 'expanded', context: 'global' } },
-  'btn_boss_dashboard': { path: '/super-admin-system/role-switch?role=boss_owner', state: { sidebar: 'expanded', context: 'global' } },
-  'btn_ceo_dashboard': { path: '/super-admin-system/role-switch?role=ceo', state: { sidebar: 'expanded', context: 'global' } },
+  'btn_dashboard_main': { path: '/boss-panel', state: { sidebar: 'expanded', context: 'global' } },
+  'btn_boss_dashboard': { path: '/boss-panel', state: { sidebar: 'expanded', context: 'global' } },
+  'btn_ceo_dashboard': { path: '/ai-ceo', state: { sidebar: 'expanded', context: 'global' } },
   
   // Module Navigation
-  'btn_server_control': { path: '/super-admin-system/role-switch?role=boss_owner&nav=server-control', state: { sidebar: 'hidden', context: 'module', parentSidebar: 'hidden' } },
-  'btn_vala_ai': { path: '/super-admin-system/role-switch?role=vala_ai_management', state: { sidebar: 'hidden', context: 'module', parentSidebar: 'hidden' } },
-  'btn_product_demo': { path: '/super-admin-system/role-switch?role=product_manager', state: { sidebar: 'hidden', context: 'module', parentSidebar: 'hidden' } },
-  'btn_leads': { path: '/super-admin-system/role-switch?role=lead_manager', state: { sidebar: 'hidden', context: 'module', parentSidebar: 'hidden' } },
-  'btn_marketing': { path: '/super-admin-system/role-switch?role=marketing_management', state: { sidebar: 'hidden', context: 'module', parentSidebar: 'hidden' } },
-  'btn_finance': { path: '/super-admin-system/role-switch?role=finance_manager', state: { sidebar: 'expanded', context: 'module' } },
-  'btn_franchise': { path: '/super-admin-system/role-switch?role=franchise_manager', state: { sidebar: 'expanded', context: 'module' } },
-  'btn_reseller': { path: '/super-admin-system/role-switch?role=reseller_manager', state: { sidebar: 'expanded', context: 'module' } },
-  'btn_support': { path: '/super-admin-system/role-switch?role=customer_support_management', state: { sidebar: 'expanded', context: 'module' } },
-  'btn_legal': { path: '/super-admin-system/role-switch?role=legal_manager', state: { sidebar: 'expanded', context: 'module' } },
-  'btn_pro_manager': { path: '/super-admin-system/role-switch?role=pro_manager', state: { sidebar: 'expanded', context: 'module' } },
-  'btn_role_manager': { path: '/super-admin-system/role-switch?role=role_manager', state: { sidebar: 'expanded', context: 'module' } },
+  'btn_server_control': { path: '/server-manager', state: { sidebar: 'hidden', context: 'module', parentSidebar: 'hidden' } },
+  'btn_vala_ai': { path: '/vala-ai', state: { sidebar: 'hidden', context: 'module', parentSidebar: 'hidden' } },
+  'btn_product_demo': { path: '/product-demo-manager', state: { sidebar: 'hidden', context: 'module', parentSidebar: 'hidden' } },
+  'btn_leads': { path: '/lead-manager', state: { sidebar: 'hidden', context: 'module', parentSidebar: 'hidden' } },
+  'btn_marketing': { path: '/marketing', state: { sidebar: 'hidden', context: 'module', parentSidebar: 'hidden' } },
+  'btn_finance': { path: '/finance', state: { sidebar: 'expanded', context: 'module' } },
+  'btn_franchise': { path: '/franchise-manager', state: { sidebar: 'expanded', context: 'module' } },
+  'btn_reseller': { path: '/reseller-manager/dashboard', state: { sidebar: 'expanded', context: 'module' } },
+  'btn_support': { path: '/support', state: { sidebar: 'expanded', context: 'module' } },
+  'btn_legal': { path: '/legal', state: { sidebar: 'expanded', context: 'module' } },
+  'btn_pro_manager': { path: '/boss-panel', state: { sidebar: 'expanded', context: 'module' } },
+  'btn_role_manager': { path: '/boss-panel', state: { sidebar: 'expanded', context: 'module' } },
   
   // Table/Card Detail Views
-  'btn_task_detail': { path: '/super-admin-system/role-switch?role=task_management&nav=task-detail', modal: false },
-  'btn_lead_detail': { path: '/super-admin-system/role-switch?role=lead_manager&nav=lead-detail', modal: false },
-  'btn_franchise_detail': { path: '/super-admin-system/role-switch?role=franchise_manager&nav=franchise-detail', modal: false },
-  'btn_server_detail': { path: '/super-admin-system/role-switch?role=server_manager&nav=server-detail', modal: false },
+  'btn_task_detail': { path: '/task-manager', modal: false },
+  'btn_lead_detail': { path: '/lead-manager', modal: false },
+  'btn_franchise_detail': { path: '/franchise-manager', modal: false },
+  'btn_server_detail': { path: '/server-manager', modal: false },
   
   // Quick Actions
-  'btn_new_task': { path: '/super-admin-system/role-switch?role=task_management&nav=new-task', modal: true },
-  'btn_new_lead': { path: '/super-admin-system/role-switch?role=lead_manager&nav=new-lead', modal: true },
-  'btn_new_franchise': { path: '/super-admin-system/role-switch?role=franchise_manager&nav=new-franchise', modal: true },
+  'btn_new_task': { path: '/task-manager', modal: true },
+  'btn_new_lead': { path: '/lead-manager', modal: true },
+  'btn_new_franchise': { path: '/franchise-manager', modal: true },
   
   // External/Demo Routes  
   'btn_school_software': { path: '/school-software', state: { sidebar: 'hidden', context: 'global' } },
@@ -73,7 +73,7 @@ const BUTTON_ROUTE_MAP: Record<string, RouteDefinition> = {
   
   // Secure Pages
   'btn_security_center': { path: '/super-admin/security-center', state: { sidebar: 'expanded' } },
-  'btn_audit_logs': { path: '/super-admin-system/audit', state: { sidebar: 'expanded' } },
+  'btn_audit_logs': { path: '/boss-panel', state: { sidebar: 'expanded' } },
 };
 
 // User permissions (would come from auth context in real app)
@@ -130,19 +130,21 @@ export function useGlobalNavigation() {
 
     // Handle sidebar state
     if (route.state?.context === 'module' || route.state?.parentSidebar === 'hidden') {
-      // Extract category from path for module navigation
+      // Match category from path for module navigation.
       const categoryMap: Record<string, Parameters<typeof enterCategory>[0]> = {
-        'server-control': 'server-manager',
-        'vala_ai_management': 'vala-ai',
-        'product_manager': 'product-demo',
-        'lead_manager': 'lead-manager',
-        'marketing_management': 'marketing',
-        'finance_manager': 'finance',
+        '/server-manager': 'server-manager',
+        '/vala-ai': 'vala-ai',
+        '/product-demo-manager': 'product-demo',
+        '/lead-manager': 'lead-manager',
+        '/marketing': 'marketing',
+        '/finance': 'finance',
+        '/franchise-manager': 'franchise-manager',
+        '/reseller-manager/dashboard': 'reseller-manager',
       };
-      
-      const roleMatch = route.path.match(/role=([^&]+)/);
-      if (roleMatch && categoryMap[roleMatch[1]]) {
-        enterCategory(categoryMap[roleMatch[1]]);
+
+      const category = categoryMap[route.path];
+      if (category) {
+        enterCategory(category);
       }
     } else {
       showGlobalSidebar();
@@ -176,7 +178,7 @@ export function useGlobalNavigation() {
   // Go to home/dashboard
   const goHome = useCallback(() => {
     showGlobalSidebar();
-    navigate('/super-admin-system/role-switch?role=boss_owner');
+    navigate('/boss-panel');
     toast.success('Returned to Boss Dashboard');
   }, [navigate, showGlobalSidebar]);
 
@@ -221,3 +223,4 @@ export function useButtonHandler(buttonId: string, userRole?: string) {
 }
 
 export default useGlobalNavigation;
+

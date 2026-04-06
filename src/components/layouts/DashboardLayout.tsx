@@ -1,8 +1,8 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 /**
  * Dashboard Layout - Performance Optimized
  * Mobile-first, fast loading, responsive
- * Note: Legacy RoleSidebar removed - use /super-admin-system/role-switch for admin navigation
+ * Note: Use /boss-panel for admin navigation
  */
 
 import { ReactNode, memo } from 'react';
@@ -58,3 +58,4 @@ const DashboardLayout = memo(({
 DashboardLayout.displayName = 'DashboardLayout';
 
 export default DashboardLayout;
+

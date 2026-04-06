@@ -6,6 +6,7 @@
 
 import { lazy, Suspense, ComponentType } from 'react';
 import { Loader2 } from 'lucide-react';
+import { assertLazyComponentImportAllowed, inferImportPathFromFactory } from '@/lib/security/componentRegistry';
 
 // Minimal loading state - fast paint
 const RouteLoader = () => (
@@ -18,6 +19,9 @@ const RouteLoader = () => (
 function createLazyRoute<T extends ComponentType<any>>(
   importFn: () => Promise<{ default: T }>
 ) {
+  const importPath = inferImportPathFromFactory(importFn);
+  assertLazyComponentImportAllowed(importPath);
+
   const LazyComponent = lazy(importFn);
   
   return function LazyWrapper(props: any) {
@@ -187,25 +191,6 @@ export const LazyPersonalChat = createLazyRoute(() => import('@/pages/PersonalCh
 export const LazyCategoryOnboarding = createLazyRoute(() => import('@/pages/CategoryOnboarding'));
 export const LazySectorsBrowse = createLazyRoute(() => import('@/pages/SectorsBrowse'));
 export const LazySubCategoryDemos = createLazyRoute(() => import('@/pages/SubCategoryDemos'));
-
-// ============================================
-// SUPER ADMIN SYSTEM
-// ============================================
-export const LazyRoleSwitchDashboard = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.RoleSwitchDashboard })));
-export const LazySuperAdminLogin = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminLogin })));
-export const LazySuperAdminSystemDashboard = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminDashboard })));
-export const LazySuperAdminUsers = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminUsers })));
-export const LazySuperAdminAdmins = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminAdmins })));
-export const LazySuperAdminRoles = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminRoles })));
-export const LazySuperAdminGeography = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminGeography })));
-export const LazySuperAdminModules = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminModules })));
-export const LazySuperAdminRentals = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminRentals })));
-export const LazySuperAdminRules = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminRules })));
-export const LazySuperAdminApprovals = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminApprovals })));
-export const LazySuperAdminSecurity = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminSecurity })));
-export const LazySuperAdminSystemLock = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminSystemLock })));
-export const LazySuperAdminActivityLog = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminActivityLog })));
-export const LazySuperAdminAudit = createLazyRoute(() => import('@/pages/super-admin-system').then(m => ({ default: m.SuperAdminAudit })));
 
 // ============================================
 // ENTERPRISE & CONTROL

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 /**
  * GlobalHeaderActions - Header icon bar with role-based visibility
  * STEP 8: Icon order - Assist, Promise, Internal Chat, Tasks, Alerts, Language, Currency, Profile
@@ -62,20 +62,20 @@ interface GlobalHeaderActionsProps {
 
 // Languages with flags
 const languages = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'hi', name: 'Hindi', flag: '🇮🇳' },
-  { code: 'es', name: 'Spanish', flag: '🇪🇸' },
-  { code: 'zh', name: 'Chinese', flag: '🇨🇳' },
-  { code: 'ar', name: 'Arabic', flag: '🇸🇦' },
+  { code: 'en', name: 'English', flag: 'EN' },
+  { code: 'hi', name: 'Hindi', flag: 'HI' },
+  { code: 'es', name: 'Spanish', flag: 'ES' },
+  { code: 'zh', name: 'Chinese', flag: 'ZH' },
+  { code: 'ar', name: 'Arabic', flag: 'AR' },
 ];
 
 // Currencies
 const currencies = [
   { code: 'USD', symbol: '$', name: 'US Dollar' },
-  { code: 'EUR', symbol: '€', name: 'Euro' },
-  { code: 'INR', symbol: '₹', name: 'Indian Rupee' },
-  { code: 'GBP', symbol: '£', name: 'British Pound' },
-  { code: 'JPY', symbol: '¥', name: 'Japanese Yen' },
+  { code: 'EUR', symbol: 'EUR', name: 'Euro' },
+  { code: 'INR', symbol: 'INR', name: 'Indian Rupee' },
+  { code: 'GBP', symbol: 'GBP', name: 'British Pound' },
+  { code: 'JPY', symbol: 'JPY', name: 'Japanese Yen' },
 ];
 
 // Mock alerts data
@@ -126,7 +126,7 @@ export const GlobalHeaderActions = ({
     setActionLoading('promise');
     setTimeout(() => {
       // FIX: Navigate to promise tracker
-      navigate('/super-admin-system/role-switch?role=boss_owner&nav=promise-tracker');
+      navigate('/promise-tracker');
       setActionLoading(null);
     }, 300);
   }, [navigate]);
@@ -200,12 +200,12 @@ export const GlobalHeaderActions = ({
 
   return (
     <div className="flex items-center gap-3">
-      {/* 1️⃣ Assist (UltraViewer-style) - Hidden for clients */}
+      {/* 1. Assist (UltraViewer-style) - Hidden for clients */}
       {canSeeAssist && (
         <SafeAssistTrigger variant="compact" />
       )}
 
-      {/* 2️⃣ Promise - Hidden for clients and employees */}
+      {/* 2. Promise - Hidden for clients and employees */}
       {canSeePromise && (
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -241,7 +241,7 @@ export const GlobalHeaderActions = ({
         </motion.button>
       )}
 
-      {/* 3️⃣ Internal Chat - Hidden for clients */}
+      {/* 3. Internal Chat - Hidden for clients */}
       {canSeeInternalChat && (
         <HeaderIconButton
           icon={MessageSquare}
@@ -253,7 +253,7 @@ export const GlobalHeaderActions = ({
         />
       )}
 
-      {/* 4️⃣ Tasks */}
+      {/* 4. Tasks */}
       <HeaderIconButton
         icon={ClipboardList}
         onClick={handleTasksClick}
@@ -262,7 +262,7 @@ export const GlobalHeaderActions = ({
         badgeVariant="warning"
       />
 
-      {/* 5️⃣ Alerts / Bell */}
+      {/* 5. Alerts / Bell */}
       <div className="relative flex items-center">
         <HeaderIconButton
           icon={Bell}
@@ -288,7 +288,7 @@ export const GlobalHeaderActions = ({
         </motion.button>
       </div>
 
-      {/* 6️⃣ Language */}
+      {/* 6. Language */}
       <DropdownMenu open={langMenuOpen} onOpenChange={setLangMenuOpen}>
         <DropdownMenuTrigger asChild>
           <motion.button
@@ -323,7 +323,7 @@ export const GlobalHeaderActions = ({
         </DropdownMenuContent>
       </DropdownMenu>
 
-      {/* 7️⃣ Currency - Hidden for employees and clients */}
+      {/* 7. Currency - Hidden for employees and clients */}
       {canSeeCurrency && (
         <DropdownMenu open={currencyMenuOpen} onOpenChange={setCurrencyMenuOpen}>
           <DropdownMenuTrigger asChild>
@@ -359,7 +359,7 @@ export const GlobalHeaderActions = ({
       {/* Divider */}
       <div className="w-px h-8 bg-border/50" />
 
-      {/* 8️⃣ Profile */}
+      {/* 8. Profile */}
       <DropdownMenu open={profileMenuOpen} onOpenChange={setProfileMenuOpen}>
         <DropdownMenuTrigger asChild>
           <motion.button
@@ -422,7 +422,7 @@ export const GlobalHeaderActions = ({
                   className="p-3 rounded-lg bg-secondary/50 border border-border/50 hover:border-primary/30 cursor-pointer transition-all"
                   onClick={() => {
                     setTasksOpen(false);
-                    navigate(`/super-admin-system/role-switch?role=task_management&taskId=${task.id}`);
+                    navigate(`/task-manager?taskId=${task.id}`);
                   }}
                 >
                   <div className="flex items-center justify-between mb-1">
@@ -441,7 +441,7 @@ export const GlobalHeaderActions = ({
               className="w-full" 
               onClick={() => {
                 setTasksOpen(false);
-                navigate('/super-admin-system/role-switch?role=task_management');
+                navigate('/task-manager');
               }}
             >
               View All Tasks
@@ -497,7 +497,7 @@ export const GlobalHeaderActions = ({
               className="w-full" 
               onClick={() => {
                 setAlertsOpen(false);
-                navigate('/super-admin-system/role-switch?role=boss_owner&nav=alerts');
+                navigate('/boss-panel');
               }}
             >
               View All Alerts
@@ -510,3 +510,4 @@ export const GlobalHeaderActions = ({
 };
 
 export default GlobalHeaderActions;
+
