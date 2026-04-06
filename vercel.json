@@ -1,0 +1,58 @@
+{
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "@vercel/node@3"
+    }
+  },
+  "redirects": [
+    { "source": "/auth", "destination": "/login", "permanent": true },
+    { "source": "/dashboard", "destination": "/app", "permanent": true },
+    { "source": "/product/:id", "destination": "/marketplace/product/:id", "permanent": true },
+    { "source": "/reseller-dashboard", "destination": "/reseller/dashboard", "permanent": true },
+    { "source": "/franchise-dashboard", "destination": "/franchise/dashboard", "permanent": true },
+    { "source": "/developer-dashboard", "destination": "/developer/dashboard", "permanent": true },
+    { "source": "/influencer-dashboard", "destination": "/influencer/dashboard", "permanent": true }
+  ],
+  "routes": [
+    { "src": "/api/v1/auth/register", "dest": "/api/v1/auth/register" },
+    { "src": "/api/v1/auth/login",    "dest": "/api/v1/auth/login"    },
+    { "src": "/api/v1/auth/logout",   "dest": "/api/v1/auth/logout"   },
+    { "src": "/api/v1/auth/me",       "dest": "/api/v1/auth/me"       },
+    { "src": "/api/v1/auth/refresh",  "dest": "/api/v1/auth/refresh"  },
+    { "src": "/api/v1/auth/logout-all", "dest": "/api/v1/auth/logout-all" },
+    { "src": "/api/v1/apply", "dest": "/api/v1/apply" },
+    { "src": "/api/v1/applications", "dest": "/api/v1/applications" },
+    { "src": "/api/v1/applications/approve", "dest": "/api/v1/applications/approve" },
+    { "src": "/api/v1/applications/reject", "dest": "/api/v1/applications/reject" },
+    { "src": "/(.*)", "dest": "/" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(?:js|css|woff2|woff|ttf|otf)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(?:png|jpg|jpeg|gif|svg|webp|ico)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https://*.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'" }
+      ]
+    }
+  ]
+}
