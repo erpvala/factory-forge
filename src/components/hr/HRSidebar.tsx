@@ -147,7 +147,7 @@ const HRSidebar = ({ activeSection, setActiveSection }: HRSidebarProps) => {
               variant="ghost"
               size="sm"
               className="w-full text-slate-400 hover:text-violet-300 hover:bg-violet-500/10"
-              onClick={() => navigate('/dashboard')}
+              onClick={() => navigate('/hr')}
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Dashboard

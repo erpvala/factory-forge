@@ -6,6 +6,7 @@ import { useFortressProtection } from '@/hooks/useFortressProtection';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
+import { useNavigate } from 'react-router-dom';
 
 interface FortressGateProps {
   children: React.ReactNode;
@@ -18,6 +19,7 @@ const FortressGate: React.FC<FortressGateProps> = ({
   requiredTrust = 2,
   showStatus = true,
 }) => {
+  const navigate = useNavigate();
   const { fortress, isUnlocked, trustLevel, verifyAndTrust } = useFortressProtection();
   const [verifying, setVerifying] = useState(true);
 
@@ -86,7 +88,7 @@ const FortressGate: React.FC<FortressGateProps> = ({
             <Button
               variant="outline"
               className="border-red-500/50 text-red-400 hover:bg-red-500/10"
-              onClick={() => window.location.href = '/auth'}
+              onClick={() => navigate('/auth')}
             >
               Return to Login
             </Button>
@@ -181,7 +183,7 @@ const FortressGate: React.FC<FortressGateProps> = ({
             <Button
               variant="outline"
               className="flex-1 border-slate-700"
-              onClick={() => window.location.href = '/'}
+              onClick={() => navigate('/')}
             >
               Go Back
             </Button>

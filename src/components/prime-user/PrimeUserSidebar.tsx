@@ -109,7 +109,7 @@ const PrimeUserSidebar = ({ activeSection, setActiveSection }: PrimeUserSidebarP
         
         <div className="space-y-2">
           <motion.button
-            onClick={() => navigate('/dashboard')}
+            onClick={() => navigate('/prime')}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-stone-800/50 border border-amber-500/20 text-amber-300 text-sm"

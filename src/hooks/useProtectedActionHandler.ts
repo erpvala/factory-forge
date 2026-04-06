@@ -5,6 +5,7 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth, AppRole } from '@/hooks/useAuth';
+import { ROUTES, ROLE_DASHBOARD_ROUTE } from '@/routes/routes';
 
 export const REDIRECT_AFTER_LOGIN_KEY = 'redirect_after_login';
 export const REDIRECT_AFTER_LOGIN_ROLE_KEY = 'redirect_after_login_role';
@@ -26,45 +27,18 @@ export const clearRedirectAfterLogin = () => {
 
 /** Maps each role to its primary dashboard route */
 export const getDefaultDashboardRoute = (role?: AppRole | null): string => {
-  const map: Record<string, string> = {
-    boss_owner: '/boss-panel',
-    ceo: '/ai-ceo',
-    super_admin: '/super-admin',
-    admin: '/super-admin-system',
-    developer: '/developer',
-    franchise_owner: '/franchise',
-    franchise_manager: '/franchise-manager',
-    reseller: '/reseller',
-    reseller_manager: '/reseller-manager',
-    influencer: '/influencer',
-    influencer_manager: '/influencer-manager',
-    lead_manager: '/lead-manager',
-    marketing_manager: '/marketing-manager',
-    seo_manager: '/seo-manager',
-    sales_support: '/sales-support',
-    finance_manager: '/finance',
-    legal_manager: '/legal-manager',
-    hr_manager: '/hr-manager',
-    pro_manager: '/pro-manager',
-    task_manager: '/task-manager',
-    product_manager: '/product-manager',
-    demo_manager: '/demo-manager',
-    server_manager: '/server-manager',
-    api_ai_manager: '/api-ai-manager',
-    continent_admin: '/continent-super-admin',
-    country_admin: '/country-dashboard',
-    security_manager: '/security-command',
-    marketplace_manager: '/marketplace-manager',
-    license_manager: '/boss-panel',
-    deployment_manager: '/server-manager',
-    analytics_manager: '/boss-panel',
-    notification_manager: '/boss-panel',
-    integration_manager: '/boss-panel',
-    audit_manager: '/boss-panel',
-    prime_user: '/prime',
-    user: '/user/dashboard',
-  };
-  return map[role || ''] || '/user/dashboard';
+  return ROLE_DASHBOARD_ROUTE[role || ''] || ROUTES.userDashboard;
+};
+
+/** Maps action keys to their apply or nav routes */
+const ACTION_ROUTES: Record<string, string> = {
+  joinDeveloper:    ROUTES.applyDeveloper,
+  becomeInfluencer: ROUTES.applyInfluencer,
+  applyForJob:      ROUTES.applyJob,
+  applyReseller:    ROUTES.applyReseller,
+  applyFranchise:   ROUTES.applyFranchise,
+  login:            ROUTES.login,
+  bossPortal:       ROUTES.bossPanel,
 };
 
 export const useProtectedActionHandler = () => {
@@ -72,8 +46,23 @@ export const useProtectedActionHandler = () => {
   const { user, userRole } = useAuth();
 
   const handleAction = useCallback((actionKey: string) => {
+    // Apply routes are always public — no login required
+    const applyActions = ['joinDeveloper', 'becomeInfluencer', 'applyForJob', 'applyReseller', 'applyFranchise'];
+    if (applyActions.includes(actionKey)) {
+      navigate(ACTION_ROUTES[actionKey] || ROUTES.login);
+      return;
+    }
+    if (actionKey === 'login') {
+      navigate(ROUTES.login);
+      return;
+    }
+    if (actionKey === 'bossPortal') {
+      navigate(ROUTES.bossPanel);
+      return;
+    }
+    // Generic: if logged in navigate to their dashboard, else login
     if (!user) {
-      navigate('/login');
+      navigate(ROUTES.login);
       return;
     }
     const route = getDefaultDashboardRoute(userRole);

@@ -95,7 +95,7 @@ const LegalSidebar = ({ activeSection, setActiveSection }: LegalSidebarProps) =>
         <Button
           variant="outline"
           size="sm"
-          onClick={() => navigate("/dashboard")}
+          onClick={() => navigate('/legal')}
           className="w-full mb-2 bg-slate-800/50 border-slate-700/50 text-slate-300 hover:bg-slate-700/50 hover:text-white"
         >
           <ArrowLeft className="w-3.5 h-3.5 mr-1" />

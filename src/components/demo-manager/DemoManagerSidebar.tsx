@@ -316,7 +316,7 @@ const DemoManagerSidebar = ({ activeView, onViewChange }: DemoManagerSidebarProp
           <Button
             variant="outline"
             size="sm"
-            onClick={() => navigate('/dashboard')}
+            onClick={() => navigate('/demo-manager')}
             className="flex-1 text-[10px] gap-1 h-7 border-border/50"
           >
             <ArrowLeft className="w-3 h-3" />

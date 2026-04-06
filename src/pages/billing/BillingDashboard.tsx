@@ -66,7 +66,7 @@ const BillingDashboard = () => {
       <header className="h-14 bg-slate-900/95 backdrop-blur-xl flex items-center justify-between px-6 flex-shrink-0 border-b border-emerald-500/20">
         <div className="flex items-center gap-4">
           <button 
-            onClick={() => navigate('/dashboard')}
+            onClick={() => navigate('/app')}
             className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />

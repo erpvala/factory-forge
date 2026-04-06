@@ -158,7 +158,7 @@ export function canAccessRoute(
   isApproved: boolean
 ): boolean {
   // Public routes
-  const publicRoutes = ['/auth', '/login', '/register', '/demos/public', '/pending-approval'];
+  const publicRoutes = ['/auth', '/login', '/register', '/demos/public', '/dashboard/pending', '/pending-approval'];
   if (publicRoutes.some(r => pathname.startsWith(r))) {
     return true;
   }

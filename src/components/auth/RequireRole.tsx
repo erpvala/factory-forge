@@ -5,6 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";
 import { Database } from '@/integrations/supabase/types';
+import { ROUTES } from '@/routes/routes';
 
 type AppRole = Database['public']['Enums']['app_role'];
 
@@ -131,16 +132,16 @@ export default function RequireRole({ allowed, children, masterOnly = false }: R
 
   // If user was force logged out, redirect to auth
   if (wasForceLoggedOut) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to={ROUTES.login} replace />;
   }
 
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to={ROUTES.login} replace />;
 
-  if (!userRole) return <Navigate to="/pending-approval" replace />;
+  if (!userRole) return <Navigate to={ROUTES.dashboardPending} replace />;
 
   // Boss Owner-only routes
   if (masterOnly && !isBossOwner) {
-    return <Navigate to="/access-denied" replace />;
+    return <Navigate to={ROUTES.accessDenied} replace />;
   }
 
   // Boss Owner and CEO get direct access (bypass role check)
@@ -171,7 +172,7 @@ export default function RequireRole({ allowed, children, masterOnly = false }: R
 
   // Non-privileged roles must be approved
   if (approvalStatus !== 'approved') {
-    return <Navigate to="/pending-approval" replace />;
+    return <Navigate to={ROUTES.dashboardPending} replace />;
   }
 
   return <>{children}</>;

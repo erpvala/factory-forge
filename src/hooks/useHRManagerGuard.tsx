@@ -18,6 +18,7 @@ const BLOCKED_ROUTES = [
 // Allowed routes for HR Manager
 const ALLOWED_ROUTES = [
   '/hr-manager',
+  '/app/hr',
   '/logout',
   '/settings'
 ];

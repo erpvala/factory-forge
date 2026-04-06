@@ -2,20 +2,17 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { MMFullSidebar } from './MMFullSidebar';
-import { MMMarketplaceScreen } from './screens/MMMarketplaceScreen';
-import { MMOrdersScreen } from './screens/MMOrdersScreen';
-import { MMDevelopmentScreen } from './screens/MMDevelopmentScreen';
-import { MMWalletScreen } from './screens/MMWalletScreen';
-import { MMSupportScreen } from './screens/MMSupportScreen';
-import { MMSettingsScreen } from './screens/MMSettingsScreen';
+import { MMAdminDashboardScreen } from './screens/MMAdminDashboardScreen';
+import { MMProductControlScreen } from './screens/MMProductControlScreen';
+import { MMOpsControlScreen } from './screens/MMOpsControlScreen';
 
-const allowedScreens = new Set(['marketplace', 'my-orders', 'development', 'wallet', 'support', 'settings']);
+const allowedScreens = new Set(['dashboard', 'products', 'operations']);
 
 export function MMFullLayout() {
   const [searchParams, setSearchParams] = useSearchParams();
   const screenFromUrl = searchParams.get('screen');
   const [activeScreen, setActiveScreen] = useState(
-    screenFromUrl && allowedScreens.has(screenFromUrl) ? screenFromUrl : 'marketplace',
+    screenFromUrl && allowedScreens.has(screenFromUrl) ? screenFromUrl : 'dashboard',
   );
 
   useEffect(() => {
@@ -33,20 +30,14 @@ export function MMFullLayout() {
 
   const renderScreen = () => {
     switch (activeScreen) {
-      case 'marketplace':
-        return <MMMarketplaceScreen />;
-      case 'my-orders':
-        return <MMOrdersScreen />;
-      case 'development':
-        return <MMDevelopmentScreen />;
-      case 'wallet':
-        return <MMWalletScreen />;
-      case 'support':
-        return <MMSupportScreen />;
-      case 'settings':
-        return <MMSettingsScreen />;
+      case 'dashboard':
+        return <MMAdminDashboardScreen />;
+      case 'products':
+        return <MMProductControlScreen />;
+      case 'operations':
+        return <MMOpsControlScreen />;
       default:
-        return <MMMarketplaceScreen />;
+        return <MMAdminDashboardScreen />;
     }
   };
 

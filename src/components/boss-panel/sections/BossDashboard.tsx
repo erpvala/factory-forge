@@ -570,7 +570,7 @@ export function BossDashboard() {
               <Button 
                 variant="link" 
                 className="text-violet-500 text-xs p-0 h-auto"
-                onClick={() => navigate('/live-activity')}
+                onClick={() => navigate('/super-admin/live-tracking')}
               >
                 View All
               </Button>

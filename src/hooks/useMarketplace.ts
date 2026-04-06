@@ -3,6 +3,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import { callEdgeRoute } from '@/lib/api/edge-client';
 import { supabase } from '@/integrations/supabase/client';
+import { useActivityLogger } from '@/hooks/useActivityLogger';
+import { useMarketplaceEcosystemStore } from '@/stores/marketplaceEcosystemStore';
+import { queue_async_job, track_marketplace_event } from '@/marketplace/workflow';
 
 export interface MarketplaceProduct {
   product_id: string;
@@ -125,7 +128,16 @@ interface JoinInfluencerResponse {
   status: string;
 }
 
+interface JoinDeveloperResponse {
+  success: boolean;
+  message: string;
+  application_id: string;
+  redirect_to: string;
+}
+
 const PAGE_SIZE = 18;
+const CATALOG_CACHE_TTL_MS = 120_000;
+const catalogCache = new Map<string, { payload: CatalogResponse; timestamp: number }>();
 
 interface FavouriteItem {
   product_id: string;
@@ -141,6 +153,12 @@ interface FavouriteToggleResponse {
 }
 
 export function useMarketplace() {
+  const { log } = useActivityLogger();
+  const trackApplyClick = useMarketplaceEcosystemStore((state) => state.trackApplyClick);
+  const trackFavourite = useMarketplaceEcosystemStore((state) => state.trackFavourite);
+  const createPendingCheckout = useMarketplaceEcosystemStore((state) => state.createPendingCheckout);
+  const sendNotification = useMarketplaceEcosystemStore((state) => state.sendNotification);
+  const setCountryContext = useMarketplaceEcosystemStore((state) => state.setCountryContext);
   const [products, setProducts] = useState<MarketplaceProduct[]>([]);
   const [orders, setOrders] = useState<MarketplaceOrder[]>([]);
   const [categories, setCategories] = useState<MarketplaceCategory[]>([{ id: 'all', label: 'All Products', count: 0 }]);
@@ -165,6 +183,21 @@ export function useMarketplace() {
     }
 
     try {
+      const cacheKey = JSON.stringify({ page: nextPage, search, category });
+      const cached = catalogCache.get(cacheKey);
+      if (cached && Date.now() - cached.timestamp < CATALOG_CACHE_TTL_MS) {
+        const data = cached.payload;
+        setProducts((prev) => {
+          if (!append) return data.items;
+          const existing = new Set(prev.map((item) => item.product_id));
+          return [...prev, ...data.items.filter((item) => !existing.has(item.product_id))];
+        });
+        setCategories([{ id: 'all', label: 'All Products', count: data.total }, ...data.categories]);
+        setPage(data.page);
+        setHasMore(data.page < data.total_pages);
+        return;
+      }
+
       const response = await callEdgeRoute<CatalogResponse>('api-marketplace', 'catalog', {
         query: {
           page: nextPage,
@@ -191,6 +224,7 @@ export function useMarketplace() {
       setCategories([{ id: 'all', label: 'All Products', count: response.data.total }, ...response.data.categories]);
       setPage(response.data.page);
       setHasMore(response.data.page < response.data.total_pages);
+      catalogCache.set(cacheKey, { payload: response.data, timestamp: Date.now() });
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to load marketplace');
     } finally {
@@ -226,6 +260,10 @@ export function useMarketplace() {
   const createOrder = useCallback(async (input: CreateOrderInput) => {
     setIsSubmittingOrder(true);
     try {
+      if (!input.productId) {
+        throw new Error('product_id is required');
+      }
+
       const { data: authData, error: authError } = await supabase.auth.getUser();
       if (authError) {
         throw authError;
@@ -235,6 +273,35 @@ export function useMarketplace() {
       if (!user) {
         throw new Error('Please sign in before purchasing');
       }
+
+      const pendingOrderId = createPendingCheckout({
+        productId: input.productId,
+        userId: user.id,
+        amount: 0,
+        paymentMethod: input.paymentMethod,
+      });
+
+      track_marketplace_event({
+        event_type: 'click',
+        product_id: input.productId,
+        user_id: user.id,
+        metadata: {
+          payment_method: input.paymentMethod,
+          pending_order_id: pendingOrderId,
+        },
+      });
+
+      void log({
+        actionType: 'checkout_attempt',
+        entityType: 'marketplace_product',
+        entityId: input.productId,
+        severity: 'info',
+        metadata: {
+          payment_method: input.paymentMethod,
+          client_domain: input.clientDomain || null,
+          pending_order_id: pendingOrderId,
+        },
+      });
 
       const response = await callEdgeRoute<{
         payment_url: string;
@@ -251,6 +318,20 @@ export function useMarketplace() {
         throw new Error('Payment URL was not returned');
       }
 
+      sendNotification({
+        type: 'in_app',
+        subject: 'Checkout Started',
+        message: `Order ${response.data.order_id} is pending payment verification.`,
+        userId: user.id,
+      });
+
+      queue_async_job('email', {
+        user_id: user.id,
+        product_id: input.productId,
+        order_id: response.data.order_id,
+        template: 'checkout_started',
+      });
+
       window.location.assign(response.data.payment_url);
       return response.data;
     } catch (error) {
@@ -259,11 +340,19 @@ export function useMarketplace() {
     } finally {
       setIsSubmittingOrder(false);
     }
-  }, []);
+  }, [createPendingCheckout, log, sendNotification]);
 
   const joinFranchise = useCallback(async (input: JoinFranchiseInput) => {
     setIsJoiningFranchise(true);
     try {
+      const { data: authData } = await supabase.auth.getUser();
+      if (!authData.user) {
+        trackApplyClick('franchise', null);
+        window.history.pushState({}, '', '/login');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        return null;
+      }
+
       const response = await callEdgeRoute<JoinFranchiseResponse>('api-marketplace', 'join-franchise', {
         method: 'POST',
         body: {
@@ -274,6 +363,8 @@ export function useMarketplace() {
         },
       });
 
+      trackApplyClick('franchise', authData.user.id);
+      void log({ actionType: 'franchise_apply', entityType: 'application', severity: 'info', metadata: { city: input.city, plan: input.selectedPlan } });
       toast.success(response.data.message);
       return response.data;
     } catch (error) {
@@ -282,11 +373,19 @@ export function useMarketplace() {
     } finally {
       setIsJoiningFranchise(false);
     }
-  }, []);
+  }, [log, trackApplyClick]);
 
   const joinReseller = useCallback(async (input: JoinResellerInput) => {
     setIsJoiningReseller(true);
     try {
+      const { data: authData } = await supabase.auth.getUser();
+      if (!authData.user) {
+        trackApplyClick('reseller', null);
+        window.history.pushState({}, '', '/login');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        return null;
+      }
+
       const response = await callEdgeRoute<JoinResellerResponse>('api-marketplace', 'join-reseller', {
         method: 'POST',
         body: {
@@ -298,6 +397,8 @@ export function useMarketplace() {
         },
       });
 
+      trackApplyClick('reseller', authData.user.id);
+      void log({ actionType: 'reseller_inquiry', entityType: 'application', severity: 'info', metadata: { country: input.country, city: input.city || null } });
       toast.success(response.data.message);
       return response.data;
     } catch (error) {
@@ -306,11 +407,19 @@ export function useMarketplace() {
     } finally {
       setIsJoiningReseller(false);
     }
-  }, []);
+  }, [log, trackApplyClick]);
 
   const joinInfluencer = useCallback(async (input: JoinInfluencerInput) => {
     setIsJoiningInfluencer(true);
     try {
+      const { data: authData } = await supabase.auth.getUser();
+      if (!authData.user) {
+        trackApplyClick('influencer', null);
+        window.history.pushState({}, '', '/login');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        return null;
+      }
+
       const response = await callEdgeRoute<JoinInfluencerResponse>('api-marketplace', 'join-influencer', {
         method: 'POST',
         body: {
@@ -326,6 +435,8 @@ export function useMarketplace() {
         },
       });
 
+      trackApplyClick('influencer', authData.user.id);
+      void log({ actionType: 'influencer_join', entityType: 'application', severity: 'info', metadata: { platform: input.platform, niche: input.niche } });
       toast.success(response.data.message);
       return response.data;
     } catch (error) {
@@ -334,7 +445,64 @@ export function useMarketplace() {
     } finally {
       setIsJoiningInfluencer(false);
     }
-  }, []);
+  }, [log, trackApplyClick]);
+
+  const joinDeveloper = useCallback(async () => {
+    try {
+      const { data: authData, error: authError } = await supabase.auth.getUser();
+      if (authError) {
+        throw authError;
+      }
+
+      if (!authData.user) {
+        trackApplyClick('developer', null);
+        window.history.pushState({}, '', '/login');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+        return null;
+      }
+
+      const application = trackApplyClick('developer', authData.user.id);
+
+      await supabase.from('role_requests').insert({
+        user_id: authData.user.id,
+        requested_role: 'developer',
+        status: 'approved',
+      });
+
+      await supabase.from('user_roles').upsert({
+        user_id: authData.user.id,
+        role: 'developer',
+        approval_status: 'approved',
+      }, {
+        onConflict: 'user_id,role',
+      });
+
+      sendNotification({
+        type: 'email',
+        subject: 'Developer Access Approved',
+        message: 'Developer dashboard access is now active in demo mode.',
+        userId: authData.user.id,
+      });
+
+      void log({ actionType: 'job_apply', entityType: 'application', entityId: application.applicationId, severity: 'info', metadata: { role: 'developer' } });
+
+      const response: JoinDeveloperResponse = {
+        success: true,
+        message: 'Developer access approved in demo mode.',
+        application_id: application.applicationId,
+        redirect_to: application.redirectTo,
+      };
+      toast.success(response.message);
+      return response;
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : 'Failed to join developer program');
+      return null;
+    }
+  }, [log, sendNotification, trackApplyClick]);
+
+  useEffect(() => {
+    setCountryContext();
+  }, [setCountryContext]);
 
   useEffect(() => {
     void fetchCatalog(1, false);
@@ -378,6 +546,7 @@ export function useMarketplace() {
         body: { product_id: productId },
       });
       if (response.data.action === 'added') {
+        trackFavourite(productId, authData.user.id);
         toast.success('Added to favourites');
       } else {
         toast.success('Removed from favourites');
@@ -395,7 +564,7 @@ export function useMarketplace() {
       });
       toast.error(error instanceof Error ? error.message : 'Failed to update favourite');
     }
-  }, []);
+  }, [trackFavourite]);
 
   useEffect(() => {
     void fetchFavourites();
@@ -425,6 +594,7 @@ export function useMarketplace() {
     joinFranchise,
     joinReseller,
     joinInfluencer,
+    joinDeveloper,
     loadMoreProducts,
   };
 }

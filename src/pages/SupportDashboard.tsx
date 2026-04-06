@@ -224,7 +224,7 @@ const SupportDashboard = () => {
             
             {/* Account Actions */}
             <button
-              onClick={() => navigate('/dashboard')}
+              onClick={() => navigate('/support')}
               className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-slate-800/50 border border-teal-500/20 text-teal-300 text-sm hover:bg-slate-800 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />

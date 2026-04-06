@@ -41,7 +41,8 @@ class APIService {
   private handleAuthError(): void {
     toast.error("Session expired. Please log in again.");
     supabase.auth.signOut();
-    window.location.href = '/auth';
+    window.history.pushState({}, '', '/auth');
+    window.dispatchEvent(new PopStateEvent('popstate'));
   }
 
   private logAction(action: string, module: string, success: boolean, error?: string): void {

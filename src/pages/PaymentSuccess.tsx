@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { supabase } from '@/integrations/supabase/client';
 import { motion } from 'framer-motion';
+import { useMarketplaceEcosystemStore } from '@/stores/marketplaceEcosystemStore';
 
 const PaymentSuccess = () => {
   const [searchParams] = useSearchParams();
@@ -13,6 +14,7 @@ const PaymentSuccess = () => {
   const [orderDetails, setOrderDetails] = useState<any>(null);
   const [isVerifying, setIsVerifying] = useState(true);
   const [verificationError, setVerificationError] = useState<string | null>(null);
+  const markPaymentSuccess = useMarketplaceEcosystemStore((state) => state.markPaymentSuccess);
 
   const token = searchParams.get('token') || '';
   const orderId = searchParams.get('order_id') || '';
@@ -40,6 +42,23 @@ const PaymentSuccess = () => {
         setOrderDetails(payload);
 
         if (payload?.order_id) {
+          const { data: orderRow } = await supabase
+            .from('marketplace_orders')
+            .select('id, product_id, user_id, client_domain')
+            .eq('id', payload.order_id)
+            .maybeSingle();
+
+          if (orderRow?.product_id && orderRow?.user_id) {
+            markPaymentSuccess({
+              orderId: orderRow.id,
+              productId: orderRow.product_id,
+              userId: orderRow.user_id,
+              clientDomain: orderRow.client_domain || null,
+            });
+          }
+        }
+
+        if (payload?.order_id) {
           navigate(`/order-success?order_id=${encodeURIComponent(payload.order_id)}`, { replace: true });
         }
       } catch (err) {
@@ -51,7 +70,7 @@ const PaymentSuccess = () => {
     };
 
     void verifyPayment();
-  }, [navigate, orderId, token]);
+  }, [markPaymentSuccess, navigate, orderId, token]);
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">

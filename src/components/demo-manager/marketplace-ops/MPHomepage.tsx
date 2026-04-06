@@ -98,6 +98,19 @@ async function fetchProductsFromMarketplaceApplications(): Promise<UnifiedProduc
 
 export function MMMarketplaceScreen() {
   const navigate = useNavigate();
+  const navigateByUrl = (target: string) => {
+    try {
+      const url = new URL(target, window.location.origin);
+      if (url.origin === window.location.origin) {
+        navigate(`${url.pathname}${url.search}${url.hash}`);
+        return;
+      }
+    } catch {
+      navigate(target);
+      return;
+    }
+    window.location.href = target;
+  };
   const [query, setQuery] = useState('');
   const [buyingId, setBuyingId] = useState<string | null>(null);
 
@@ -208,7 +221,7 @@ export function MMMarketplaceScreen() {
           const orderId = body?.order_id || body?.id;
           toast.success('Order created', { description: orderId ? `Order: ${orderId}` : undefined });
           if (checkout) {
-            window.location.href = checkout;
+            navigateByUrl(checkout);
             return;
           }
           // If no checkout, navigate to library/orders page
@@ -330,7 +343,7 @@ export function MMMarketplaceScreen() {
                   <div className="flex items-center justify-between gap-3">
                     {/* View Details must navigate to ProductDetailPage which expects product_id param for products table.
                         We pass product.product_id when available; otherwise fallback to id. */}
-                    <Link to={`/marketplace/${p.product_id ?? p.id}`} className="no-underline">
+                    <Link to={`/marketplace/product/${p.product_id ?? p.id}`} className="no-underline">
                       <Button variant="ghost" className="gap-2">
                         <Eye className="w-4 h-4" />
                         View

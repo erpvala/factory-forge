@@ -52,7 +52,7 @@ const DEMO_CREDENTIALS: DemoCredential[] = [
   { role: 'developer', label: 'Developer', email: 'developer@softwarevala.demo', password: 'Developer@2024!', color: '#8b5cf6', icon: Code2, tier: 'user', dashboardPath: '/developer' },
   { role: 'prime', label: 'Prime User', email: 'prime@softwarevala.demo', password: 'PrimeUser@2024!', color: '#f59e0b', icon: Star, tier: 'user', dashboardPath: '/prime' },
   { role: 'support', label: 'Support Agent', email: 'support@softwarevala.demo', password: 'Support@2024!', color: '#38bdf8', icon: Headphones, tier: 'user', dashboardPath: '/support' },
-  { role: 'client', label: 'Client', email: 'client@softwarevala.demo', password: 'Client@2024!', color: '#94a3b8', icon: User, tier: 'user', dashboardPath: '/dashboard' },
+  { role: 'client', label: 'Client', email: 'client@softwarevala.demo', password: 'Client@2024!', color: '#94a3b8', icon: User, tier: 'user', dashboardPath: '/app' },
 ];
 
 const DemoCredentials = () => {

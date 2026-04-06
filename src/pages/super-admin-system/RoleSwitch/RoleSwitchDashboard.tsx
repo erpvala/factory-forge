@@ -744,7 +744,10 @@ const RoleSwitchDashboard = () => {
                     This dashboard failed to render. You can retry or switch roles.
                   </p>
                   <div className="flex items-center justify-center gap-3">
-                    <Button variant="outline" onClick={() => window.location.reload()}>
+                    <Button
+                      variant="outline"
+                      onClick={() => navigate(`${location.pathname}${location.search}`, { replace: true })}
+                    >
                       Reload dashboard
                     </Button>
                     <Button onClick={handleHome}>Back to Boss Dashboard</Button>

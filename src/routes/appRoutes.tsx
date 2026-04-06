@@ -25,10 +25,20 @@ import SecureLegalManagerDashboard from '@/pages/legal-manager/SecureLegalManage
 import SecureTaskManagerDashboard from '@/pages/task-manager/SecureTaskManagerDashboard';
 import FranchiseDashboardPage from '@/pages/franchise/Dashboard';
 import FranchiseLayout from '@/components/layouts/FranchiseLayout';
-import ResellerDashboard from '@/pages/ResellerDashboard';
 import InfluencerDashboard from '@/pages/InfluencerDashboard';
 import SecureDeveloperDashboard from '@/pages/developer/SecureDeveloperDashboard';
 import UserDashboard from '@/pages/user/UserDashboard';
+
+// ─── Additional role-specific dashboards ──────────────────────────────────────
+import SecureHRManagerDashboard from '@/pages/hr-manager/SecureHRManagerDashboard';
+import SecureAPIAIManagerDashboard from '@/pages/api-ai-manager/SecureAPIAIManagerDashboard';
+import BillingDashboard from '@/pages/billing/BillingDashboard';
+import SecureDevManagerDashboard from '@/pages/dev-manager/SecureDevManagerDashboard';
+import SecureInfluencerManagerDashboard from '@/pages/influencer-manager/SecureInfluencerManagerDashboard';
+import SecureFranchiseManagerDashboard from '@/pages/franchise-manager/SecureFranchiseManagerDashboard';
+import AssistManagerDashboard from '@/pages/assist-manager/AssistManagerDashboard';
+import DemoManagerDashboard from '@/pages/DemoManagerDashboard';
+import ClientSuccessDashboard from '@/pages/ClientSuccessDashboard';
 
 // ─── Franchise wrapper ────────────────────────────────────────────────────────
 const FranchiseModule: React.FC = () => (
@@ -265,7 +275,7 @@ export function AppRoutes() {
           path="reseller/*"
           element={
             <ModuleGuard moduleId="reseller">
-              <ResellerDashboard />
+              <Navigate to="/reseller/dashboard" replace />
             </ModuleGuard>
           }
         />
@@ -296,6 +306,106 @@ export function AppRoutes() {
           element={
             <ModuleGuard moduleId="user">
               <UserDashboard />
+            </ModuleGuard>
+          }
+        />
+
+        {/* HR Manager */}
+        <Route
+          path="hr/*"
+          element={
+            <ModuleGuard moduleId="hr">
+              <SecureHRManagerDashboard />
+            </ModuleGuard>
+          }
+        />
+
+        {/* AI / API Manager */}
+        <Route
+          path="ai-api/*"
+          element={
+            <ModuleGuard moduleId="ai-api">
+              <SecureAPIAIManagerDashboard />
+            </ModuleGuard>
+          }
+        />
+
+        {/* Billing */}
+        <Route
+          path="billing/*"
+          element={
+            <ModuleGuard moduleId="billing">
+              <BillingDashboard />
+            </ModuleGuard>
+          }
+        />
+
+        {/* Dev Manager */}
+        <Route
+          path="dev-manager/*"
+          element={
+            <ModuleGuard moduleId="dev-manager">
+              <SecureDevManagerDashboard />
+            </ModuleGuard>
+          }
+        />
+
+        {/* Influencer Manager */}
+        <Route
+          path="influencer-manager/*"
+          element={
+            <ModuleGuard moduleId="influencer-manager">
+              <SecureInfluencerManagerDashboard />
+            </ModuleGuard>
+          }
+        />
+
+        {/* Reseller Manager */}
+        <Route
+          path="reseller-manager/*"
+          element={
+            <ModuleGuard moduleId="reseller-manager">
+              <Navigate to="/reseller-manager/dashboard" replace />
+            </ModuleGuard>
+          }
+        />
+
+        {/* Franchise Manager */}
+        <Route
+          path="franchise-manager/*"
+          element={
+            <ModuleGuard moduleId="franchise-manager">
+              <SecureFranchiseManagerDashboard />
+            </ModuleGuard>
+          }
+        />
+
+        {/* Assist Manager */}
+        <Route
+          path="assist/*"
+          element={
+            <ModuleGuard moduleId="assist">
+              <AssistManagerDashboard />
+            </ModuleGuard>
+          }
+        />
+
+        {/* Demo Manager */}
+        <Route
+          path="demo-manager/*"
+          element={
+            <ModuleGuard moduleId="demo-manager">
+              <DemoManagerDashboard />
+            </ModuleGuard>
+          }
+        />
+
+        {/* Client Success */}
+        <Route
+          path="client-success/*"
+          element={
+            <ModuleGuard moduleId="client-success">
+              <ClientSuccessDashboard />
             </ModuleGuard>
           }
         />

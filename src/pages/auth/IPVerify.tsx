@@ -40,7 +40,7 @@ const IPVerify = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
     setIpInfo((prev) => ({ ...prev, verified: true }));
     toast.success('IP verified successfully! Redirecting...');
-    setTimeout(() => navigate('/dashboard'), 1000);
+    setTimeout(() => navigate('/app'), 1000);
     setLoading(false);
   };
 

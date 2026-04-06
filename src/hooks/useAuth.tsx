@@ -2,6 +2,21 @@
 import { createContext, useContext, useEffect, useState, ReactNode, useCallback, useMemo } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
+import {
+  apiLogin,
+  apiRegister,
+  apiLogout,
+  apiLogoutAll,
+  apiRefresh,
+  saveSession,
+  clearSession,
+  getStoredRefreshToken,
+  getRoleRedirectPath,
+} from '@/api/v1/auth';
+import { ROUTES } from '@/routes/routes';
+
+// Re-export so consuming components can use it directly
+export { getRoleRedirectPath } from '@/api/v1/auth';
 
 export type AppRole =
   | 'boss_owner' | 'ceo' | 'super_admin' | 'admin'
@@ -19,6 +34,7 @@ type ApprovalStatus = 'pending' | 'approved' | 'rejected' | null;
 
 const PRIVILEGED_ROLES: AppRole[] = ['boss_owner', 'ceo', 'super_admin'];
 const ACTIVE_ROLE_KEY = 'sv.active-role';
+const DEVICE_KEY = 'sv.device.id';
 
 const ROLE_PRIORITY: AppRole[] = [
   'boss_owner', 'ceo', 'super_admin', 'admin',
@@ -48,8 +64,9 @@ interface AuthContextType {
   isBossOwner: boolean;
   isCEO: boolean;
   wasForceLoggedOut: boolean;
-  signUp: (email: string, password: string, role: AppRole, fullName: string) => Promise<{ error: Error | null }>;
-  signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
+  signUp: (email: string, password: string, role: AppRole, fullName: string) => Promise<{ error: Error | null; redirect?: string }>;
+  signIn: (email: string, password: string) => Promise<{ error: Error | null; redirect?: string }>;
+  signInWithProvider: (provider: 'google' | 'github') => Promise<{ error: Error | null }>;
   switchRole: (role: AppRole) => Promise<boolean>;
   hasRole: (role: AppRole) => boolean;
   signOut: () => Promise<void>;
@@ -161,44 +178,32 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signUp = async (email: string, password: string, role: AppRole, fullName: string) => {
     try {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-        options: {
-          emailRedirectTo: window.location.origin,
-          data: { full_name: fullName, role },
-        },
-      });
-      if (error) throw error;
+      // Call the /api/v1/auth/register Edge Function
+      const result = await apiRegister(fullName, email, password, role);
 
-      if (data.user) {
-        // Insert role request (pending approval)
-        await supabase.from('role_requests').insert({
-          user_id: data.user.id,
-          requested_role: role,
-          status: 'pending',
-        });
-
-        // For boss_owner, auto-approve
-        if (role === 'boss_owner') {
-          await supabase.from('user_roles').insert({
-            user_id: data.user.id,
-            role: role,
-            approval_status: 'approved',
-          });
-        } else {
-          // Insert as pending
-          await supabase.from('user_roles').insert({
-            user_id: data.user.id,
-            role: role,
-            approval_status: 'pending',
-          });
-        }
-
-        await hydrateRoles(data.user.id);
+      if (!result.success) {
+        throw new Error(result.error ?? 'Registration failed');
       }
 
-      return { error: null };
+      const { session, user: apiUser } = result.data!;
+
+      // Persist session tokens
+      if (session) {
+        saveSession(session, apiUser);
+      }
+
+      // Hydrate Supabase auth state (sign in locally so Supabase client is aware)
+      if (session?.access_token) {
+        const { data: localSession } = await supabase.auth.setSession({
+          access_token:  session.access_token,
+          refresh_token: session.refresh_token,
+        });
+        if (localSession?.user) {
+          await hydrateRoles(localSession.user.id);
+        }
+      }
+
+      return { error: null, redirect: result.data?.redirect ?? ROUTES.dashboardPending };
     } catch (error) {
       return { error: error as Error };
     }
@@ -206,13 +211,47 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signIn = async (email: string, password: string) => {
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) throw error;
+      // Call the /api/v1/auth/login Edge Function (handles rate-limiting + session)
+      const result = await apiLogin(email, password);
 
-      if (data.user) {
-        await hydrateRoles(data.user.id);
+      if (!result.success) {
+        throw new Error(result.error ?? 'Invalid credentials');
       }
 
+      const { session, user: apiUser } = result.data!;
+
+      // Persist session tokens
+      if (session) {
+        saveSession(session, apiUser);
+      }
+
+      // Hydrate Supabase auth state so the rest of the app works
+      if (session?.access_token) {
+        const { data: localSession } = await supabase.auth.setSession({
+          access_token:  session.access_token,
+          refresh_token: session.refresh_token,
+        });
+        if (localSession?.user) {
+          await hydrateRoles(localSession.user.id);
+        }
+      }
+
+      const redirect = result.data?.redirect ?? getRoleRedirectPath(apiUser.role, apiUser.status);
+      return { error: null, redirect };
+    } catch (error) {
+      return { error: error as Error };
+    }
+  };
+
+  const signInWithProvider = async (provider: 'google' | 'github') => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: `${window.location.origin}/login`,
+        },
+      });
+      if (error) throw error;
       return { error: null };
     } catch (error) {
       return { error: error as Error };
@@ -229,6 +268,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const hasRole = useCallback((role: AppRole) => userRoles.includes(role), [userRoles]);
 
   const signOut = async () => {
+    // Invalidate the session on the server via Edge Function
+    const token = localStorage.getItem('sv.auth.token');
+    if (token) {
+      await apiLogout(token).catch(() => {});
+    }
+    clearSession();
     await supabase.auth.signOut();
     setUser(null);
     setSession(null);
@@ -243,12 +288,52 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const forceLogoutUser = async (targetUserId: string) => {
+    // Self-session hard kill (all devices) for immediate incident response.
+    await apiLogoutAll(localStorage.getItem('sv.auth.token') || '').catch(() => {});
     return { error: null };
   };
 
   const generateDeviceFingerprint = (): string => {
-    return Math.random().toString(36).substring(2, 15);
+    const existing = localStorage.getItem(DEVICE_KEY);
+    if (existing) return existing;
+    const fp = `${navigator.userAgent}|${screen.width}x${screen.height}|${Intl.DateTimeFormat().resolvedOptions().timeZone}|${Math.random().toString(36).slice(2, 12)}`;
+    localStorage.setItem(DEVICE_KEY, fp);
+    return fp;
   };
+
+  // Keep short-lived access token alive via refresh token.
+  useEffect(() => {
+    let alive = true;
+
+    const renew = async () => {
+      const refresh = getStoredRefreshToken();
+      if (!refresh) return;
+
+      const refreshed = await apiRefresh(refresh).catch(() => ({ success: false } as any));
+      if (!alive || !refreshed?.success || !refreshed?.data?.session) return;
+
+      const next = refreshed.data.session;
+      await supabase.auth.setSession({
+        access_token: next.access_token,
+        refresh_token: next.refresh_token,
+      }).catch(() => {});
+    };
+
+    // Renew every 10 minutes (JWT target is 15 min).
+    const timer = window.setInterval(() => {
+      void renew();
+    }, 10 * 60 * 1000);
+
+    // Also renew on tab focus to avoid stale token on resume.
+    const onFocus = () => { void renew(); };
+    window.addEventListener('focus', onFocus);
+
+    return () => {
+      alive = false;
+      window.clearInterval(timer);
+      window.removeEventListener('focus', onFocus);
+    };
+  }, []);
 
   return (
     <AuthContext.Provider value={{
@@ -257,7 +342,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       userRoles, approvedRoles, roleAssignments,
       approvalStatus, isPrivileged, isBossOwner, isCEO,
       wasForceLoggedOut,
-      signUp, signIn, switchRole, hasRole,
+      signUp, signIn, signInWithProvider, switchRole, hasRole,
       signOut, refreshApprovalStatus, forceLogoutUser,
       generateDeviceFingerprint,
     }}>

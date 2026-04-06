@@ -5,8 +5,10 @@ import { Clock, LogOut, Eye, CheckCircle, Sparkles, Coffee, Users, Rocket, Heart
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useAuth } from '@/hooks/useAuth';
+import { getRoleRedirectPath } from '@/api/v1/auth';
 import { useEffect, useState } from 'react';
 import { Badge } from '@/components/ui/badge';
+import { ROUTES } from '@/routes/routes';
 
 const waitingMessages = [
   {
@@ -39,12 +41,12 @@ const PendingApproval = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate('/login', { replace: true });
+      navigate(ROUTES.login, { replace: true });
     }
     if (approvalStatus === 'approved') {
-      navigate('/dashboard', { replace: true });
+      navigate(userRole ? getRoleRedirectPath(userRole, 'ACTIVE') : '/app', { replace: true });
     }
-  }, [user, approvalStatus, navigate]);
+  }, [user, approvalStatus, userRole, navigate]);
 
   // Animated dots
   useEffect(() => {
@@ -64,7 +66,7 @@ const PendingApproval = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate('/login', { replace: true });
+    navigate(ROUTES.login, { replace: true });
   };
 
   if (approvalStatus === 'approved') {
@@ -192,6 +194,21 @@ const PendingApproval = () => {
               </p>
             </motion.div>
 
+            {/* Submitted Details */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="bg-slate-900/50 rounded-xl p-4 border border-slate-700"
+            >
+              <p className="text-sm font-medium text-slate-200 mb-2">Submitted Details</p>
+              <div className="space-y-1 text-xs text-slate-400">
+                <p><span className="text-slate-500">Name:</span> {user?.user_metadata?.full_name || 'Not available'}</p>
+                <p><span className="text-slate-500">Email:</span> {user?.email || 'Not available'}</p>
+                <p><span className="text-slate-500">Requested Role:</span> {(userRole || 'pending').replace(/_/g, ' ')}</p>
+              </div>
+            </motion.div>
+
             {/* Fun Fact / Queue Info */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -215,6 +232,15 @@ const PendingApproval = () => {
               <Button variant="default" className="w-full gap-2" onClick={() => navigate('/demos/public')}>
                 <Eye className="w-4 h-4" />
                 Explore Public Demos
+              </Button>
+
+              <Button
+                variant="outline"
+                className="w-full gap-2"
+                onClick={() => window.location.assign('mailto:support@softwarevala.com?subject=Application%20Status%20Support')}
+              >
+                <Users className="w-4 h-4" />
+                Contact Support
               </Button>
 
               <Button variant="secondary" className="w-full gap-2" onClick={() => navigate('/demos')}>

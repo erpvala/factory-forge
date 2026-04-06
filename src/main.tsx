@@ -8,6 +8,13 @@ import "./index.css";
 // (No UI changes; logs can be removed once confirmed stable.)
 if (typeof window !== "undefined") {
   try {
+    const storedTheme = localStorage.getItem("ui-theme");
+    if (storedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else if (storedTheme === "light") {
+      document.documentElement.classList.remove("dark");
+    }
+
     // Ensure root containers can always receive pointer events.
     document.documentElement.style.pointerEvents = "auto";
     document.body.style.pointerEvents = "auto";

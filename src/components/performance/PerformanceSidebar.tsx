@@ -25,7 +25,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
 const menuItems = [
-  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/performance" },
   { id: "lead-manager", label: "Lead Manager", icon: Users, path: "/lead-manager" },
   { id: "task-manager", label: "Task Manager", icon: ListTodo, path: "/task-manager" },
   { id: "performance", label: "Performance Manager", icon: BarChart3, path: "/performance", active: true },
@@ -143,7 +143,7 @@ export const PerformanceSidebar = () => {
           variant="ghost"
           size="sm"
           className="w-full text-slate-400 hover:text-cyan-300 hover:bg-cyan-500/10"
-          onClick={() => navigate('/dashboard')}
+          onClick={() => navigate('/performance')}
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Dashboard

@@ -2,11 +2,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Database } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface EmptyStateProps {
   icon?: React.ReactNode;
   title?: string;
   description?: string;
+  actionLabel?: string;
+  onAction?: () => void;
   className?: string;
 }
 
@@ -14,6 +17,8 @@ export function EmptyState({
   icon, 
   title = 'No data yet', 
   description = 'Data will appear here once available',
+  actionLabel,
+  onAction,
   className = ''
 }: EmptyStateProps) {
   return (
@@ -27,6 +32,16 @@ export function EmptyState({
       </div>
       <p className="text-sm font-medium text-muted-foreground">{title}</p>
       <p className="text-xs text-muted-foreground/60 mt-1">{description}</p>
+      {actionLabel && onAction && (
+        <Button
+          type="button"
+          size="sm"
+          className="mt-4"
+          onClick={onAction}
+        >
+          {actionLabel}
+        </Button>
+      )}
     </motion.div>
   );
 }

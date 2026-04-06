@@ -71,7 +71,7 @@ const PublicDemos = () => {
           
           <div className="flex items-center gap-4">
             {user ? (
-              <Button onClick={() => navigate('/dashboard')}>
+              <Button onClick={() => navigate('/app')}>
                 Go to Dashboard
               </Button>
             ) : (

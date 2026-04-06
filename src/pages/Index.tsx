@@ -1,12 +1,13 @@
 // @ts-nocheck
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { toast } from "sonner";
 import { useGeoLocale, convertPrice, parseINRPrice } from "@/hooks/useGeoLocale";
 import { FIXED_OFFER_TEXT, useFestivalBanner } from "@/hooks/useFestivalBanner";
 import { useEnterpriseAudit } from "@/hooks/useEnterpriseAudit";
 import { useProtectedActionHandler } from "@/hooks/useProtectedActionHandler";
+import { ROUTES } from "@/routes/routes";
 import { allMarketplaceProducts, totalProductCount } from "@/data/marketplace";
 import {
   Play, Heart, ShoppingCart, Filter, Search, Bell, ChevronLeft, ChevronRight,
@@ -18,12 +19,13 @@ import {
   Clock, Calendar, Briefcase, UserCog, Fingerprint, ShoppingBag, Store, Globe,
   Headphones, MessageSquare, Scale, Shield, Lock, Server, Cpu, Database,
   Wifi, Camera, Key, AlertTriangle, HardDrive, Eye, Radio, PhoneCall,
-  Mic, MonitorPlay, FileCheck, Gavel, ScrollText, Vote, Building2, Lightbulb, Code2
+  Mic, MonitorPlay, FileCheck, Gavel, ScrollText, Vote, Building2, Lightbulb, Code2, Handshake
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { EmptyState } from "@/components/ui/empty-state";
 import softwareValaLogo from "@/assets/software-vala-logo.jpg";
 
 // Netflix poster thumbnails
@@ -3315,8 +3317,14 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [favorites, setFavorites] = useState<string[]>([]);
   const [heroIndex, setHeroIndex] = useState(0);
+  const [initialLoading, setInitialLoading] = useState(true);
   const geoLocale = useGeoLocale();
   const festivalBanner = useFestivalBanner(geoLocale.country, geoLocale.countryName);
+
+  useEffect(() => {
+    const t = window.setTimeout(() => setInitialLoading(false), 450);
+    return () => window.clearTimeout(t);
+  }, []);
 
   // Auto-rotate hero every 6s
   useEffect(() => {
@@ -3350,11 +3358,11 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a1628] via-[#0d1e36] to-[#0a1628]">
+    <div className="min-h-screen bg-gradient-to-br from-[#0b1424] via-[#10213d] to-[#0b1424] overflow-x-hidden">
       {/* Premium Header */}
-      <header className="bg-gradient-to-r from-orange-500 via-orange-600 to-red-500 py-4 px-4 shadow-2xl">
+      <header className="bg-gradient-to-r from-[#0e223f] to-[#102a4a] py-4 px-4 border-b border-white/10 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-4">
               <img src={softwareValaLogo} alt="Software Vala" className="h-14 w-14 rounded-full object-cover border-2 border-white shadow-lg" />
               <div>
@@ -3362,43 +3370,47 @@ const Index = () => {
                 <p className="text-white/90 text-sm">- The Name of Trust</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 flex-wrap justify-center">
+            <div className="flex items-center gap-2 flex-wrap justify-center">
               {/* Career Portal Buttons */}
-              <Button size="sm" className="bg-violet-600 hover:bg-violet-700 text-white gap-1 text-xs" onClick={() => void handleAction('joinDeveloper')}>
+              <Button size="sm" className="bg-[#2c6bed] hover:bg-[#255dce] text-white gap-1 text-xs h-9" onClick={() => void handleAction('joinDeveloper')}>
                   <Code2 className="h-3 w-3" />
                   Join as Developer
               </Button>
-              <Button size="sm" className="bg-pink-600 hover:bg-pink-700 text-white gap-1 text-xs" onClick={() => void handleAction('becomeInfluencer')}>
+              <Button size="sm" className="bg-[#1f7a8c] hover:bg-[#196675] text-white gap-1 text-xs h-9" onClick={() => void handleAction('becomeInfluencer')}>
                   <Megaphone className="h-3 w-3" />
                   Become Influencer
               </Button>
-              <Button size="sm" className="bg-cyan-600 hover:bg-cyan-700 text-white gap-1 text-xs" onClick={() => void handleAction('applyForJob')}>
+              <Button size="sm" className="bg-[#2c6bed] hover:bg-[#255dce] text-white gap-1 text-xs h-9" onClick={() => void handleAction('applyForJob')}>
                   <Briefcase className="h-3 w-3" />
                   Apply for Job
               </Button>
-              {/* Pricing Badge */}
-              <Badge className="bg-white text-green-600 font-bold text-sm px-3 py-1.5 animate-pulse">
+                <Button size="sm" className="bg-[#1f7a8c] hover:bg-[#196675] text-white gap-1 text-xs h-9" onClick={() => navigate(ROUTES.applyReseller)}>
+                  <Handshake className="h-3 w-3" />
+                  Apply as Reseller
+              </Button>
+                <Button size="sm" className="bg-[#1f7a8c] hover:bg-[#196675] text-white gap-1 text-xs h-9" onClick={() => navigate(ROUTES.applyFranchise)}>
+                  <Building2 className="h-3 w-3" />
+                  Apply as Franchise
+              </Button>
+              <Badge className="bg-white text-[#0f3b2f] font-bold text-sm px-3 py-1.5">
                 💰 $249 Lifetime • Source Code Included
-              </Badge>
-              <Badge className="bg-white/20 text-white border-0 text-xs px-3 py-1.5">
-                🎉 No Hidden Charges
               </Badge>
               {festivalBanner && (
                 <Badge
-                  className={`cursor-pointer bg-gradient-to-r ${festivalBanner.gradient} text-white border-0 text-xs px-3 py-1.5 font-bold animate-pulse`}
+                  className={`cursor-pointer bg-gradient-to-r ${festivalBanner.gradient} text-white border-0 text-xs px-3 py-1.5 font-bold`}
                   onClick={() => navigate('/marketplace/offers')}
                 >
                   {festivalBanner.compactText}
                 </Badge>
               )}
               {/* Login Button - For regular users */}
-              <Button className="bg-white text-orange-600 hover:bg-white/90 font-bold gap-2" onClick={() => void handleAction('login')}>
+              <Button className="bg-white text-[#102a4a] hover:bg-white/90 font-bold gap-2 h-9" onClick={() => void handleAction('login')}>
                   <Lock className="h-4 w-4" />
                   Login
               </Button>
-              {/* Temporary Boss Portal Access - Remove after 2-3 days */}
+              {/* Boss Portal */}
               <Button
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold gap-2 shadow-lg shadow-purple-500/30"
+                className="bg-[#f7b733] hover:bg-[#e1a62f] text-[#102a4a] font-bold gap-2 h-9"
                 onClick={() => void handleAction('bossPortal')}
               >
                   <Shield className="h-4 w-4" />
@@ -3409,14 +3421,14 @@ const Index = () => {
         </div>
       </header>
 
-      {/* ===== NETFLIX HERO — Featured Product with Cinematic Visual ===== */}
+      {/* Hero */}
       {(() => {
         const activeDemos = mergedDemos.filter(d => d.status === 'ACTIVE');
         const heroDemo = activeDemos[heroIndex % activeDemos.length];
         if (!heroDemo) return null;
         const HeroIcon = heroDemo.icon;
         return (
-          <section className="relative h-[70vh] min-h-[480px] max-h-[680px] overflow-hidden">
+          <section className="relative h-[62vh] min-h-[420px] max-h-[620px] overflow-hidden">
             {/* Cinematic gradient backdrop */}
             <div className={`absolute inset-0 bg-gradient-to-br ${heroDemo.color} opacity-40`} />
             <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/70 to-transparent" />
@@ -3424,7 +3436,7 @@ const Index = () => {
             <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0a1628] to-transparent z-10" />
 
             {/* Large icon visual */}
-            <div className="absolute right-[10%] top-1/2 -translate-y-1/2 opacity-[0.07]">
+            <div className="absolute right-[10%] top-1/2 -translate-y-1/2 opacity-[0.06]">
               <HeroIcon className="w-[400px] h-[400px]" />
             </div>
 
@@ -3434,7 +3446,7 @@ const Index = () => {
                 key={heroDemo.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.3 }}
                 className="max-w-2xl"
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -3444,14 +3456,15 @@ const Index = () => {
                   <Badge className="bg-white/10 text-white/70 border-white/20 text-xs">
                     {heroDemo.masterCategory}
                   </Badge>
-                  <Badge className="bg-red-500/80 text-white border-0 text-xs font-bold">
-                    40% OFF
-                  </Badge>
                 </div>
 
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-3 leading-[1.05]">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-3 leading-[1.05]">
                   {heroDemo.name}
                 </h2>
+
+                <p className="text-cyan-200 text-sm md:text-base mb-3 font-medium">
+                  One price. Full source. Ready to deploy.
+                </p>
 
                 <div className="flex items-center gap-3 mb-4">
                   <div className="flex items-center gap-1">
@@ -3473,21 +3486,10 @@ const Index = () => {
 
                 <div className="flex gap-3">
                   <Link to={heroDemo.url}>
-                    <Button size="lg" className="bg-white text-black hover:bg-white/90 font-bold text-base px-8 gap-2 rounded-sm">
-                      <Play className="h-5 w-5 fill-black" /> Try Demo
+                    <Button size="lg" className="bg-[#2c6bed] text-white hover:bg-[#255dce] font-bold text-base px-8 gap-2 rounded-md h-11">
+                      <Play className="h-5 w-5" /> Try Demo
                     </Button>
                   </Link>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-white/30 text-white hover:bg-white/10 font-medium text-base px-8 gap-2 rounded-sm"
-                    onClick={() => {
-                      toggleFavorite(heroDemo.id);
-                    }}
-                  >
-                    <Heart className={`h-5 w-5 ${favorites.includes(heroDemo.id) ? 'fill-red-500 text-red-500' : ''}`} /> 
-                    {favorites.includes(heroDemo.id) ? 'Saved' : 'My List'}
-                  </Button>
                 </div>
               </motion.div>
             </div>
@@ -3539,10 +3541,23 @@ const Index = () => {
         </section>
       )}
 
-      {/* ===== 50 NETFLIX HORIZONTAL ROWS ===== */}
+      {/* Demo Rows */}
       <section className="pb-12 px-4 md:px-12 space-y-10">
         <div className="max-w-[1400px] mx-auto space-y-10">
-          {NETFLIX_ROWS.map(row => {
+          {initialLoading ? (
+            <div className="space-y-6">
+              {Array.from({ length: 4 }).map((_, rowIdx) => (
+                <div key={rowIdx} className="space-y-3">
+                  <div className="h-5 w-48 bg-slate-700/50 rounded animate-pulse" />
+                  <div className="flex gap-3 overflow-hidden">
+                    {Array.from({ length: 6 }).map((__, cardIdx) => (
+                      <div key={cardIdx} className="w-[200px] md:w-[220px] h-[280px] rounded-lg bg-slate-800/70 animate-pulse" />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : NETFLIX_ROWS.map(row => {
             const rowDemos = mergedDemos.filter(row.filter);
             const displayDemos = row.type === 'special' ? rowDemos.slice(0, 20) : rowDemos;
             const isEmpty = displayDemos.length === 0;
@@ -3625,24 +3640,23 @@ const NetflixScrollRow = ({ row, demos, isEmpty, favorites, toggleFavorite, loca
       </div>
 
       {isEmpty ? (
-        /* Placeholder row for empty categories */
-        <div className="flex gap-3 overflow-hidden pb-3">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="flex-shrink-0 w-[200px] md:w-[220px]">
-              <div className="aspect-[3/4] rounded-lg bg-gradient-to-br from-slate-800/60 to-slate-900/60 border border-slate-700/30 flex flex-col items-center justify-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-slate-700/50 flex items-center justify-center">
-                  <Clock className="w-6 h-6 text-slate-500" />
-                </div>
-                <span className="text-slate-500 text-xs font-medium">Coming Soon</span>
-              </div>
-            </div>
-          ))}
+        <div className="state-empty pb-3">
+          <EmptyState
+            icon={<Clock className="h-5 w-5 text-slate-400" />}
+            title="No demos in this category yet"
+            description="New demos are added frequently. Explore active offers while this row is being prepared."
+            actionLabel="View Active Offers"
+            onAction={() => {
+              window.location.href = '/marketplace/offers';
+            }}
+          />
         </div>
       ) : (
         <div className="relative">
           {/* Left Arrow */}
           {canScrollLeft && (
             <button
+              aria-label={`Scroll ${row.title} left`}
               onClick={() => scroll('left')}
               className="absolute left-0 top-0 bottom-3 w-12 z-30 bg-gradient-to-r from-[#0a1628] via-[#0a1628]/90 to-transparent flex items-center justify-start pl-1 opacity-0 group-hover/row:opacity-100 transition-opacity duration-200"
             >
@@ -3674,6 +3688,7 @@ const NetflixScrollRow = ({ row, demos, isEmpty, favorites, toggleFavorite, loca
           {/* Right Arrow */}
           {canScrollRight && (
             <button
+              aria-label={`Scroll ${row.title} right`}
               onClick={() => scroll('right')}
               className="absolute right-0 top-0 bottom-3 w-12 z-30 bg-gradient-to-l from-[#0a1628] via-[#0a1628]/90 to-transparent flex items-center justify-end pr-1 opacity-0 group-hover/row:opacity-100 transition-opacity duration-200"
             >
@@ -3688,7 +3703,7 @@ const NetflixScrollRow = ({ row, demos, isEmpty, favorites, toggleFavorite, loca
   );
 };
 
-// ===== NETFLIX POSTER CARD — Image-focused, minimal text, hover reveal =====
+// Product card with fast interactions and clear hierarchy.
 const DemoCard = ({ demo, index, isFavorite, onToggleFavorite, localPrice }: { 
   demo: Demo; 
   index: number; 
@@ -3698,7 +3713,6 @@ const DemoCard = ({ demo, index, isFavorite, onToggleFavorite, localPrice }: {
 }) => {
   const Icon = demo.icon;
   const { logAction } = useEnterpriseAudit();
-  const [isHovered, setIsHovered] = useState(false);
   
   const displayPrice = localPrice ? localPrice(demo.discountPrice) : demo.discountPrice;
 
@@ -3707,154 +3721,126 @@ const DemoCard = ({ demo, index, isFavorite, onToggleFavorite, localPrice }: {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: Math.min(index * 0.04, 0.4) }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className="relative group cursor-pointer"
     >
-      {/* Poster Card */}
-      <div className={`relative rounded-lg overflow-hidden aspect-[3/4] transition-all duration-300 ${isHovered ? 'scale-105 z-30 shadow-2xl shadow-black/80' : 'scale-100 z-0'}`}>
-        {/* Poster Visual — AI Generated Thumbnail */}
+      <div className="relative rounded-lg overflow-hidden aspect-[3/4] transition-all duration-200 hover:shadow-xl hover:shadow-black/50 bg-slate-900/60 border border-white/10">
         <img 
           src={getThumbnail(demo)} 
           alt={demo.name}
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/35 to-black/20" />
 
-        {/* Status badge */}
-        <div className="absolute top-2 right-2 z-10">
+        <div className="absolute top-2 right-2 z-10 flex items-center gap-1">
           {demo.status === "ACTIVE" ? (
             <span className="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
-              <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" /> LIVE
+              <span className="w-1.5 h-1.5 bg-white rounded-full" /> LIVE
             </span>
           ) : (
             <span className="bg-yellow-500 text-black text-[10px] font-bold px-2 py-0.5 rounded">SOON</span>
           )}
+          <span className="bg-[#102a4a]/85 text-cyan-200 text-[10px] px-2 py-0.5 rounded font-semibold">4.9</span>
         </div>
 
-        {/* Favorite */}
         <button
           onClick={(e) => { e.stopPropagation(); onToggleFavorite(); }}
-          className="absolute top-2 left-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity"
+          className="absolute top-2 left-2 z-10 opacity-80 hover:opacity-100 transition-opacity"
         >
           <Heart className={`w-5 h-5 drop-shadow-lg ${isFavorite ? 'fill-red-500 text-red-500' : 'text-white/80 hover:text-white'}`} />
         </button>
 
-        {/* Bottom info — always visible */}
-        <div className="absolute bottom-0 left-0 right-0 p-3 z-10">
+        <div className="absolute bottom-0 left-0 right-0 p-3 z-10 bg-gradient-to-t from-black/95 via-black/85 to-transparent">
           <h4 className="text-white font-bold text-sm leading-tight line-clamp-2 mb-1">{demo.name}</h4>
-          <p className="text-emerald-400 font-bold text-sm">{displayPrice}</p>
-        </div>
+          <p className="text-slate-300 text-[11px] line-clamp-2 mb-2">{demo.description}</p>
 
-        {/* Hover overlay — actions + details */}
-        <AnimatePresence>
-          {isHovered && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm z-20 flex flex-col justify-end p-3"
-            >
-              <h4 className="text-white font-bold text-sm mb-1">{demo.name}</h4>
-              <p className="text-slate-400 text-[11px] line-clamp-2 mb-2">{demo.description}</p>
-              
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-white/40 line-through text-xs">{localPrice ? localPrice(demo.price) : demo.price}</span>
-                <span className="text-emerald-400 font-bold text-base">{displayPrice}</span>
-                <span className="text-red-400 text-[10px] font-bold">40% OFF</span>
-              </div>
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-white/40 line-through text-xs">{localPrice ? localPrice(demo.price) : demo.price}</span>
+            <span className="text-emerald-400 font-bold text-sm">{displayPrice}</span>
+            <span className="text-red-300 text-[10px] font-bold">40% OFF</span>
+          </div>
 
-              <div className="flex flex-wrap gap-1 mb-3">
-                {demo.features.slice(0, 3).map(f => (
-                  <span key={f} className="text-[9px] text-cyan-300 bg-cyan-500/15 px-1.5 py-0.5 rounded">{f}</span>
-                ))}
-              </div>
-
-              <div className="flex gap-2">
-                {demo.status === "ACTIVE" ? (
-                  <>
-                    <Link to={demo.url} className="flex-1" onClick={(e) => e.stopPropagation()}>
-                      <Button size="sm" className="w-full bg-white text-black hover:bg-white/90 font-bold text-xs h-8 rounded-sm">
-                        <Play className="h-3.5 w-3.5 mr-1 fill-black" /> Demo
-                      </Button>
-                    </Link>
-                    <Button 
-                      size="sm"
-                      className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs h-8 rounded-sm"
-                      onClick={async (e) => {
-                        e.stopPropagation();
-                        await logAction({
-                          action: 'public_buy_now_clicked',
-                          module: 'finance',
-                          severity: 'low',
-                          target_id: demo.id,
-                          target_type: 'product_demo',
-                          metadata: {
-                            system_request: {
-                              enabled: true,
-                              action_type: 'order',
-                              role_type: 'client',
-                              status: 'PENDING',
-                              source: 'frontend',
-                              payload_json: {
-                                intent: 'buy_now',
-                                demo_id: demo.id,
-                                demo_name: demo.name,
-                                price: demo.price,
-                                discount_price: demo.discountPrice,
-                                entry_point: 'index_buy_now',
-                                path: window.location.pathname,
-                              },
-                            },
-                          },
-                        });
-                        toast.success("🎉 Redirecting to purchase...", { description: demo.name });
-                      }}
-                    >
-                      <ShoppingCart className="h-3.5 w-3.5 mr-1" /> Buy
-                    </Button>
-                  </>
-                ) : (
-                  <Button 
-                    size="sm"
-                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-xs h-8 rounded-sm"
-                    onClick={async (e) => {
-                      e.stopPropagation();
-                      await logAction({
-                        action: 'public_notify_me_clicked',
-                        module: 'lead_manager',
-                        severity: 'low',
-                        target_id: demo.id,
-                        target_type: 'product_demo',
-                        metadata: {
-                          system_request: {
-                            enabled: true,
-                            action_type: 'request',
-                            role_type: 'client',
-                            status: 'PENDING',
-                            source: 'frontend',
-                            payload_json: {
-                              intent: 'notify_me',
-                              demo_id: demo.id,
-                              demo_name: demo.name,
-                              entry_point: 'index_notify_me',
-                              path: window.location.pathname,
-                            },
+          <div className="flex gap-2">
+            {demo.status === "ACTIVE" ? (
+              <>
+                <Link to={demo.url} className="flex-1" onClick={(e) => e.stopPropagation()}>
+                  <Button size="sm" className="w-full bg-[#2c6bed] text-white hover:bg-[#255dce] font-bold text-xs h-8 rounded-md">
+                    <Play className="h-3.5 w-3.5 mr-1" /> Demo
+                  </Button>
+                </Link>
+                <Button 
+                  size="sm"
+                  className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs h-8 rounded-md"
+                  onClick={async (e) => {
+                    e.stopPropagation();
+                    await logAction({
+                      action: 'public_buy_now_clicked',
+                      module: 'finance',
+                      severity: 'low',
+                      target_id: demo.id,
+                      target_type: 'product_demo',
+                      metadata: {
+                        system_request: {
+                          enabled: true,
+                          action_type: 'order',
+                          role_type: 'client',
+                          status: 'PENDING',
+                          source: 'frontend',
+                          payload_json: {
+                            intent: 'buy_now',
+                            demo_id: demo.id,
+                            demo_name: demo.name,
+                            price: demo.price,
+                            discount_price: demo.discountPrice,
+                            entry_point: 'index_buy_now',
+                            path: window.location.pathname,
                           },
                         },
-                      });
-                      toast.info("📧 We'll notify you!", { description: demo.name });
-                    }}
-                  >
-                    <Bell className="h-3.5 w-3.5 mr-1" /> Notify Me
-                  </Button>
-                )}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                      },
+                    });
+                    toast.success("Redirecting to purchase...", { description: demo.name });
+                  }}
+                >
+                  <ShoppingCart className="h-3.5 w-3.5 mr-1" /> Buy
+                </Button>
+              </>
+            ) : (
+              <Button 
+                size="sm"
+                className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-xs h-8 rounded-md"
+                onClick={async (e) => {
+                  e.stopPropagation();
+                  await logAction({
+                    action: 'public_notify_me_clicked',
+                    module: 'lead_manager',
+                    severity: 'low',
+                    target_id: demo.id,
+                    target_type: 'product_demo',
+                    metadata: {
+                      system_request: {
+                        enabled: true,
+                        action_type: 'request',
+                        role_type: 'client',
+                        status: 'PENDING',
+                        source: 'frontend',
+                        payload_json: {
+                          intent: 'notify_me',
+                          demo_id: demo.id,
+                          demo_name: demo.name,
+                          entry_point: 'index_notify_me',
+                          path: window.location.pathname,
+                        },
+                      },
+                    },
+                  });
+                  toast.info("We'll notify you!", { description: demo.name });
+                }}
+              >
+                <Bell className="h-3.5 w-3.5 mr-1" /> Notify Me
+              </Button>
+            )}
+          </div>
+        </div>
       </div>
     </motion.div>
   );

@@ -1,10 +1,12 @@
 // @ts-nocheck
 import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import FranchiseManagerSidebar, { FranchiseManagerSection } from "@/components/franchise/FranchiseManagerSidebar";
 import FranchiseManagerDashboardContent from "@/components/franchise/FranchiseManagerDashboardContent";
 
 const FranchiseManagerView = () => {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState<FranchiseManagerSection>("overview");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
@@ -18,8 +20,8 @@ const FranchiseManagerView = () => {
 
   const handleBackToCountryHead = useCallback(() => {
     // Navigate back to Country Head role
-    window.location.assign('/super-admin-system/role-switch?role=country_head');
-  }, []);
+    navigate('/super-admin-system/role-switch?role=country_head');
+  }, [navigate]);
 
   return (
     <TooltipProvider>

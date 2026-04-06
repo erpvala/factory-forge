@@ -31,6 +31,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { useProtectedActionHandler } from '@/hooks/useProtectedActionHandler';
 import { useNotifications } from '@/contexts/NotificationContext';
+import { ROUTES } from '@/routes/routes';
 
 interface HeaderProps {
   roleName: string;
@@ -64,30 +65,20 @@ const GlobalHeader2035 = ({ roleName, maskedId, lowDataMode, onChatToggle }: Hea
   // Navigation handlers for requested buttons
   const goTo = useCallback((path: string) => navigate(path), [navigate]);
 
-  const handleFranchise = useCallback(() => goTo('/franchise'), [goTo]);
-  const handleReseller = useCallback(() => goTo('/reseller'), [goTo]);
-  const handleInfluencer = useCallback(() => {
-    void handleAction('becomeInfluencer');
-  }, [handleAction]);
-  const handleJoinDeveloper = useCallback(() => {
-    void handleAction('joinDeveloper');
-  }, [handleAction]);
-  const handleApplyJob = useCallback(() => {
-    void handleAction('applyForJob');
-  }, [handleAction]);
-  const handleLogin = useCallback(() => {
-    void handleAction('login');
-  }, [handleAction]);
-  const handleBossPortal = useCallback(() => {
-    void handleAction('bossPortal');
-  }, [handleAction]);
+  const handleBecomeInfluencer = useCallback(() => goTo(ROUTES.applyInfluencer), [goTo]);
+  const handleApplyReseller = useCallback(() => goTo(ROUTES.applyReseller), [goTo]);
+  const handleApplyFranchise = useCallback(() => goTo(ROUTES.applyFranchise), [goTo]);
+  const handleJoinDeveloper = useCallback(() => goTo(ROUTES.applyDeveloper), [goTo]);
+  const handleApplyJob = useCallback(() => goTo(ROUTES.applyJob), [goTo]);
+  const handleLogin = useCallback(() => goTo(ROUTES.login), [goTo]);
+  const handleBossPortal = useCallback(() => goTo(ROUTES.bossPanel), [goTo]);
 
   const handleSignOut = useCallback(async () => {
     try {
       await signOut();
-      goTo('/auth');
+      goTo(ROUTES.auth);
     } catch {
-      goTo('/auth');
+      goTo(ROUTES.auth);
     }
   }, [signOut, goTo]);
 
@@ -184,27 +175,26 @@ const GlobalHeader2035 = ({ roleName, maskedId, lowDataMode, onChatToggle }: Hea
 
       {/* Right Section - Actions & Profile */}
       <div className="flex items-center gap-2">
-        {/* Business / Partner Buttons */}
-        <div className="hidden md:flex items-center gap-1">
-          <Button variant="ghost" size="sm" onClick={handleFranchise} className="text-sm">
-            Franchise
-          </Button>
-          <Button variant="ghost" size="sm" onClick={handleReseller} className="text-sm">
-            Reseller
-          </Button>
-          <Button variant="ghost" size="sm" onClick={handleInfluencer} className="text-sm">
-            Influencer
-          </Button>
-        </div>
-
-        {/* Join / Jobs / Login / Boss Portal */}
+        {/* Final Header Actions */}
         <div className="flex items-center gap-1">
           <Button variant="outline" size="sm" onClick={handleJoinDeveloper} className="text-sm">
             Join as Developer
           </Button>
 
+          <Button variant="subtle" size="sm" onClick={handleBecomeInfluencer} className="text-sm">
+            Become Influencer
+          </Button>
+
           <Button variant="subtle" size="sm" onClick={handleApplyJob} className="text-sm">
             Apply for Job
+          </Button>
+
+          <Button variant="ghost" size="sm" onClick={handleApplyReseller} className="text-sm">
+            Apply as Reseller
+          </Button>
+
+          <Button variant="ghost" size="sm" onClick={handleApplyFranchise} className="text-sm">
+            Apply as Franchise
           </Button>
 
           {!user ? (

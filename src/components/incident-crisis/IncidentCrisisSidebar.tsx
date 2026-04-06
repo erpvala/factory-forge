@@ -133,7 +133,7 @@ const IncidentCrisisSidebar = ({ activeSection, onSectionChange }: IncidentCrisi
       <div className="absolute bottom-4 left-4 right-4 space-y-2">
         <div className="flex gap-2">
           <button
-            onClick={() => navigate('/dashboard')}
+            onClick={() => navigate('/incident-crisis')}
             className="flex-1 flex items-center justify-center gap-1.5 px-2 py-2 rounded-lg bg-slate-800/50 border border-red-500/20 text-red-300 text-xs hover:bg-slate-800 transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />

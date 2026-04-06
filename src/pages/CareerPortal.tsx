@@ -127,9 +127,9 @@ const CareerPortal = () => {
   }, [resolvedType]);
 
   const getPostSubmitRoute = (type: PortalType) => {
-    if (type === 'developer') return '/dashboard/developer';
-    if (type === 'influencer') return '/dashboard/influencer';
-    return '/dashboard/jobs';
+    if (type === 'developer') return '/developer/dashboard';
+    if (type === 'influencer') return '/influencer/dashboard';
+    return '/careers';
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

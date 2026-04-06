@@ -1,0 +1,3077 @@
+{
+  "baseUrl": "http://127.0.0.1:4173",
+  "totals": {
+    "extracted": 350,
+    "concrete": 304,
+    "dynamicOrWildcard": 46,
+    "valid": 287,
+    "guarded": 3,
+    "dead": 14
+  },
+  "dead": [
+    {
+      "path": "live-monitor",
+      "line": 497,
+      "module": "live-monitor",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173live-monitor\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "decision-engine",
+      "line": 498,
+      "module": "decision-engine",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173decision-engine\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "approvals",
+      "line": 499,
+      "module": "approvals",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173approvals\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "risk",
+      "line": 500,
+      "module": "risk",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173risk\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "performance",
+      "line": 501,
+      "module": "performance",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173performance\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "predictions",
+      "line": 502,
+      "module": "predictions",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173predictions\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "reports",
+      "line": 503,
+      "module": "reports",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173reports\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "learning",
+      "line": 504,
+      "module": "learning",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173learning\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "settings",
+      "line": 505,
+      "module": "settings",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173settings\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/super-admin-system/users",
+      "line": 727,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_INSUFFICIENT_RESOURCES at http://127.0.0.1:4173/super-admin-system/users\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/super-admin-system/users\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/super-admin-system/admins",
+      "line": 728,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_INSUFFICIENT_RESOURCES at http://127.0.0.1:4173/super-admin-system/admins\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/super-admin-system/admins\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/super-admin-system/roles",
+      "line": 729,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "Error: page.goto: net::ERR_INSUFFICIENT_RESOURCES at http://127.0.0.1:4173/super-admin-system/roles\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/super-admin-system/roles\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/super-admin-system/geography",
+      "line": 730,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "TimeoutError: page.goto: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4173/super-admin-system/geography\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "path": "/404",
+      "line": 752,
+      "module": "404",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "dead",
+      "finalUrl": "http://127.0.0.1:4173/404"
+    }
+  ],
+  "guarded": [
+    {
+      "path": "/login",
+      "line": 426,
+      "module": "login",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://127.0.0.1:4173/login"
+    },
+    {
+      "path": "/access-denied",
+      "line": 438,
+      "module": "access-denied",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://127.0.0.1:4173/access-denied"
+    },
+    {
+      "path": "/session-expired",
+      "line": 439,
+      "module": "session-expired",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "guarded",
+      "finalUrl": "http://127.0.0.1:4173/session-expired"
+    }
+  ],
+  "valid": [
+    {
+      "path": "/",
+      "line": 330,
+      "module": "home",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/"
+    },
+    {
+      "path": "/demos",
+      "line": 331,
+      "module": "demos",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demos"
+    },
+    {
+      "path": "/explore",
+      "line": 332,
+      "module": "explore",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/explore"
+    },
+    {
+      "path": "/products",
+      "line": 333,
+      "module": "products",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/products"
+    },
+    {
+      "path": "/pricing",
+      "line": 334,
+      "module": "pricing",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/pricing"
+    },
+    {
+      "path": "/demos/public",
+      "line": 335,
+      "module": "demos",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demos/public"
+    },
+    {
+      "path": "/showcase",
+      "line": 336,
+      "module": "showcase",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/showcase"
+    },
+    {
+      "path": "/server-portal",
+      "line": 337,
+      "module": "server-portal",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/server-portal"
+    },
+    {
+      "path": "/auth",
+      "line": 338,
+      "module": "auth",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/auth"
+    },
+    {
+      "path": "/dashboard",
+      "line": 339,
+      "module": "dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/dashboard"
+    },
+    {
+      "path": "/profile",
+      "line": 341,
+      "module": "profile",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/profile"
+    },
+    {
+      "path": "/pending-approval",
+      "line": 342,
+      "module": "pending-approval",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/pending-approval"
+    },
+    {
+      "path": "/settings",
+      "line": 343,
+      "module": "settings",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/settings"
+    },
+    {
+      "path": "/change-password",
+      "line": 344,
+      "module": "change-password",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/change-password"
+    },
+    {
+      "path": "/onboard",
+      "line": 345,
+      "module": "onboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/onboard"
+    },
+    {
+      "path": "/apply",
+      "line": 347,
+      "module": "apply",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/apply"
+    },
+    {
+      "path": "/careers",
+      "line": 348,
+      "module": "careers",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/careers"
+    },
+    {
+      "path": "/join-developer",
+      "line": 349,
+      "module": "join-developer",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/join-developer"
+    },
+    {
+      "path": "/join-influencer",
+      "line": 350,
+      "module": "join-influencer",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/join-influencer"
+    },
+    {
+      "path": "/jobs",
+      "line": 351,
+      "module": "jobs",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/jobs"
+    },
+    {
+      "path": "/bootstrap-admins",
+      "line": 353,
+      "module": "bootstrap-admins",
+      "access": "role:\"master\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/bootstrap-admins"
+    },
+    {
+      "path": "/sectors",
+      "line": 354,
+      "module": "sectors",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/sectors"
+    },
+    {
+      "path": "/auto-dev",
+      "line": 358,
+      "module": "auto-dev",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/auto-dev"
+    },
+    {
+      "path": "/demo/restaurant-pos",
+      "line": 361,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/restaurant-pos"
+    },
+    {
+      "path": "/demo/restaurant-small",
+      "line": 362,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/restaurant-small"
+    },
+    {
+      "path": "/demo/restaurant-medium",
+      "line": 363,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/restaurant-medium"
+    },
+    {
+      "path": "/demo/restaurant-large",
+      "line": 364,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/restaurant-large"
+    },
+    {
+      "path": "/demo/school-erp",
+      "line": 365,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/school-erp"
+    },
+    {
+      "path": "/demo/school-small",
+      "line": 366,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/school-small"
+    },
+    {
+      "path": "/demo/school-medium",
+      "line": 367,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/school-medium"
+    },
+    {
+      "path": "/demo/school-large",
+      "line": 368,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/school-large"
+    },
+    {
+      "path": "/demo/education",
+      "line": 369,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/education"
+    },
+    {
+      "path": "/demos/education",
+      "line": 370,
+      "module": "demos",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demos/education"
+    },
+    {
+      "path": "/school-software",
+      "line": 373,
+      "module": "school-software",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/school-software"
+    },
+    {
+      "path": "/school-software/dashboard",
+      "line": 374,
+      "module": "school-software",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/school-software/dashboard"
+    },
+    {
+      "path": "/demo/hospital-hms",
+      "line": 375,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/hospital-hms"
+    },
+    {
+      "path": "/demo/ecommerce-store",
+      "line": 376,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/ecommerce-store"
+    },
+    {
+      "path": "/demo/hotel-booking",
+      "line": 377,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/hotel-booking"
+    },
+    {
+      "path": "/demo/real-estate",
+      "line": 378,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/real-estate"
+    },
+    {
+      "path": "/demo/automotive",
+      "line": 379,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/automotive"
+    },
+    {
+      "path": "/demo/travel",
+      "line": 380,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/travel"
+    },
+    {
+      "path": "/demo/finance",
+      "line": 381,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/finance"
+    },
+    {
+      "path": "/demo/manufacturing",
+      "line": 382,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/manufacturing"
+    },
+    {
+      "path": "/demo/gym",
+      "line": 383,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/gym"
+    },
+    {
+      "path": "/demo/salon",
+      "line": 384,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/salon"
+    },
+    {
+      "path": "/demo/legal",
+      "line": 385,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/legal"
+    },
+    {
+      "path": "/demo/security",
+      "line": 386,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/security"
+    },
+    {
+      "path": "/demo/telecom",
+      "line": 387,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/telecom"
+    },
+    {
+      "path": "/demo/childcare",
+      "line": 388,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/childcare"
+    },
+    {
+      "path": "/demo/petcare",
+      "line": 389,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/petcare"
+    },
+    {
+      "path": "/demo/event",
+      "line": 390,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/event"
+    },
+    {
+      "path": "/demo/crm",
+      "line": 391,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/crm"
+    },
+    {
+      "path": "/demo/logistics",
+      "line": 392,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/logistics"
+    },
+    {
+      "path": "/sales-crm",
+      "line": 395,
+      "module": "sales-crm",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/sales-crm"
+    },
+    {
+      "path": "/sales-crm/auth",
+      "line": 396,
+      "module": "sales-crm",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/sales-crm/auth"
+    },
+    {
+      "path": "/retail-pos",
+      "line": 397,
+      "module": "retail-pos",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/retail-pos"
+    },
+    {
+      "path": "/demo-directory",
+      "line": 399,
+      "module": "demo-directory",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo-directory"
+    },
+    {
+      "path": "/user-dashboard",
+      "line": 402,
+      "module": "user-dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/user-dashboard"
+    },
+    {
+      "path": "/user/dashboard",
+      "line": 403,
+      "module": "user",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/user/dashboard"
+    },
+    {
+      "path": "/demo-login",
+      "line": 404,
+      "module": "demo-login",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo-login"
+    },
+    {
+      "path": "/premium-demos",
+      "line": 405,
+      "module": "premium-demos",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/premium-demos"
+    },
+    {
+      "path": "/client-portal",
+      "line": 408,
+      "module": "client-portal",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/client-portal"
+    },
+    {
+      "path": "/get-started",
+      "line": 409,
+      "module": "get-started",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/get-started"
+    },
+    {
+      "path": "/contact",
+      "line": 410,
+      "module": "contact",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/contact"
+    },
+    {
+      "path": "/privacy",
+      "line": 411,
+      "module": "privacy",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/privacy"
+    },
+    {
+      "path": "/terms",
+      "line": 412,
+      "module": "terms",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/terms"
+    },
+    {
+      "path": "/marketplace",
+      "line": 413,
+      "module": "marketplace",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/marketplace"
+    },
+    {
+      "path": "/marketplace/offers",
+      "line": 414,
+      "module": "marketplace",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/marketplace/offers"
+    },
+    {
+      "path": "/cart",
+      "line": 417,
+      "module": "cart",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/cart"
+    },
+    {
+      "path": "/checkout",
+      "line": 418,
+      "module": "checkout",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/checkout"
+    },
+    {
+      "path": "/marketplace-manager",
+      "line": 419,
+      "module": "marketplace-manager",
+      "access": "role:\"marketplace_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/marketplace-manager"
+    },
+    {
+      "path": "/marketplace-manager/dashboard",
+      "line": 420,
+      "module": "marketplace-manager",
+      "access": "role:\"marketplace_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/marketplace-manager/dashboard"
+    },
+    {
+      "path": "/payment-success",
+      "line": 422,
+      "module": "payment-success",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/payment-success"
+    },
+    {
+      "path": "/order-success",
+      "line": 423,
+      "module": "order-success",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/order-success"
+    },
+    {
+      "path": "/role-login",
+      "line": 427,
+      "module": "role-login",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/role-login"
+    },
+    {
+      "path": "/register",
+      "line": 428,
+      "module": "register",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/register"
+    },
+    {
+      "path": "/easy-login",
+      "line": 429,
+      "module": "easy-login",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/easy-login"
+    },
+    {
+      "path": "/quick-signup",
+      "line": 430,
+      "module": "quick-signup",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/quick-signup"
+    },
+    {
+      "path": "/logout",
+      "line": 431,
+      "module": "logout",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/logout"
+    },
+    {
+      "path": "/otp-verify",
+      "line": 432,
+      "module": "otp-verify",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/otp-verify"
+    },
+    {
+      "path": "/device-verify",
+      "line": 433,
+      "module": "device-verify",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/device-verify"
+    },
+    {
+      "path": "/ip-verify",
+      "line": 434,
+      "module": "ip-verify",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/ip-verify"
+    },
+    {
+      "path": "/forgot-password",
+      "line": 435,
+      "module": "forgot-password",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/forgot-password"
+    },
+    {
+      "path": "/reset-password",
+      "line": 436,
+      "module": "reset-password",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reset-password"
+    },
+    {
+      "path": "/account-suspension",
+      "line": 437,
+      "module": "account-suspension",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/account-suspension"
+    },
+    {
+      "path": "/boss-fortress",
+      "line": 442,
+      "module": "boss-fortress",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/boss-fortress"
+    },
+    {
+      "path": "/boss-register",
+      "line": 443,
+      "module": "boss-register",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/boss-register"
+    },
+    {
+      "path": "/boss/login",
+      "line": 444,
+      "module": "boss",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/boss/login"
+    },
+    {
+      "path": "/boss-panel",
+      "line": 447,
+      "module": "boss-panel",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/boss-panel"
+    },
+    {
+      "path": "/owner",
+      "line": 451,
+      "module": "owner",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/owner"
+    },
+    {
+      "path": "/softwarewala",
+      "line": 453,
+      "module": "softwarewala",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/softwarewala"
+    },
+    {
+      "path": "/master-admin",
+      "line": 456,
+      "module": "master-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/master-admin"
+    },
+    {
+      "path": "/master-admin-supreme",
+      "line": 458,
+      "module": "master-admin-supreme",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/master-admin-supreme"
+    },
+    {
+      "path": "/admin/bulk-users",
+      "line": 461,
+      "module": "admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/admin/bulk-users"
+    },
+    {
+      "path": "/admin/role-manager",
+      "line": 462,
+      "module": "admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/admin/role-manager"
+    },
+    {
+      "path": "/area-manager",
+      "line": 466,
+      "module": "area-manager",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/area-manager"
+    },
+    {
+      "path": "/server-manager",
+      "line": 470,
+      "module": "server-manager",
+      "access": "role:\"boss_owner\",\"server_manager\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/server-manager"
+    },
+    {
+      "path": "/security-command",
+      "line": 474,
+      "module": "security-command",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/security-command"
+    },
+    {
+      "path": "/api-manager",
+      "line": 478,
+      "module": "api-manager",
+      "access": "role:\"boss_owner\",\"ai_manager\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/api-manager"
+    },
+    {
+      "path": "/marketing-manager",
+      "line": 482,
+      "module": "marketing-manager",
+      "access": "role:\"boss_owner\",\"marketing_manager\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/marketing-manager"
+    },
+    {
+      "path": "/seo-manager",
+      "line": 487,
+      "module": "seo-manager",
+      "access": "role:\"boss_owner\",\"seo_manager\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/seo-manager"
+    },
+    {
+      "path": "/legal-manager",
+      "line": 491,
+      "module": "legal-manager",
+      "access": "role:\"boss_owner\",\"legal_compliance\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/legal-manager"
+    },
+    {
+      "path": "/ai-ceo",
+      "line": 495,
+      "module": "ai-ceo",
+      "access": "role:\"boss_owner\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/ai-ceo"
+    },
+    {
+      "path": "/continent-super-admin",
+      "line": 509,
+      "module": "continent-super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/continent-super-admin"
+    },
+    {
+      "path": "/admin",
+      "line": 514,
+      "module": "admin",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/admin"
+    },
+    {
+      "path": "/super-admin",
+      "line": 515,
+      "module": "super-admin",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin"
+    },
+    {
+      "path": "/super-admin/dashboard",
+      "line": 516,
+      "module": "super-admin",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/dashboard"
+    },
+    {
+      "path": "/super-admin/command-center",
+      "line": 517,
+      "module": "super-admin",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/command-center"
+    },
+    {
+      "path": "/super-admin/live-tracking",
+      "line": 518,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/live-tracking"
+    },
+    {
+      "path": "/super-admin/role-manager",
+      "line": 519,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/role-manager"
+    },
+    {
+      "path": "/super-admin/user-manager",
+      "line": 520,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/user-manager"
+    },
+    {
+      "path": "/super-admin/permission-matrix",
+      "line": 521,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/permission-matrix"
+    },
+    {
+      "path": "/super-admin/security-center",
+      "line": 522,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/security-center"
+    },
+    {
+      "path": "/super-admin/demo-manager",
+      "line": 523,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/demo-manager"
+    },
+    {
+      "path": "/super-admin/product-manager",
+      "line": 524,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/product-manager"
+    },
+    {
+      "path": "/super-admin/system-settings",
+      "line": 525,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/system-settings"
+    },
+    {
+      "path": "/super-admin/system-audit",
+      "line": 526,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/system-audit"
+    },
+    {
+      "path": "/super-admin/prime-manager",
+      "line": 527,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/prime-manager"
+    },
+    {
+      "path": "/super-admin/influencer-manager",
+      "line": 528,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/influencer-manager"
+    },
+    {
+      "path": "/super-admin/finance-center",
+      "line": 529,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/finance-center"
+    },
+    {
+      "path": "/super-admin/support-center",
+      "line": 530,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/support-center"
+    },
+    {
+      "path": "/super-admin/ai-billing",
+      "line": 531,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/ai-billing"
+    },
+    {
+      "path": "/super-admin/franchise-manager",
+      "line": 532,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/franchise-manager"
+    },
+    {
+      "path": "/super-admin/compliance-center",
+      "line": 533,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/compliance-center"
+    },
+    {
+      "path": "/super-admin/performance",
+      "line": 534,
+      "module": "super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin/performance"
+    },
+    {
+      "path": "/franchise",
+      "line": 537,
+      "module": "franchise",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise"
+    },
+    {
+      "path": "/franchise/dashboard",
+      "line": 538,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/dashboard"
+    },
+    {
+      "path": "/franchise/profile",
+      "line": 539,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/profile"
+    },
+    {
+      "path": "/franchise/wallet",
+      "line": 540,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/wallet"
+    },
+    {
+      "path": "/franchise/lead-board",
+      "line": 541,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/lead-board"
+    },
+    {
+      "path": "/franchise/assign-lead",
+      "line": 542,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/assign-lead"
+    },
+    {
+      "path": "/franchise/demo-request",
+      "line": 543,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/demo-request"
+    },
+    {
+      "path": "/franchise/demo-library",
+      "line": 544,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/demo-library"
+    },
+    {
+      "path": "/franchise/sales-center",
+      "line": 545,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/sales-center"
+    },
+    {
+      "path": "/franchise/performance",
+      "line": 546,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/performance"
+    },
+    {
+      "path": "/franchise/support-ticket",
+      "line": 547,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/support-ticket"
+    },
+    {
+      "path": "/franchise/internal-chat",
+      "line": 548,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/internal-chat"
+    },
+    {
+      "path": "/franchise/training-center",
+      "line": 549,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/training-center"
+    },
+    {
+      "path": "/franchise/security-panel",
+      "line": 550,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/security-panel"
+    },
+    {
+      "path": "/franchise/seo-services",
+      "line": 551,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/seo-services"
+    },
+    {
+      "path": "/franchise/team-management",
+      "line": 552,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/team-management"
+    },
+    {
+      "path": "/franchise/crm",
+      "line": 553,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/crm"
+    },
+    {
+      "path": "/franchise/hrm",
+      "line": 554,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/hrm"
+    },
+    {
+      "path": "/franchise/lead-activity",
+      "line": 555,
+      "module": "franchise",
+      "access": "role:\"franchise\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise/lead-activity"
+    },
+    {
+      "path": "/franchise-program",
+      "line": 556,
+      "module": "franchise-program",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise-program"
+    },
+    {
+      "path": "/franchise-landing",
+      "line": 557,
+      "module": "franchise-landing",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise-landing"
+    },
+    {
+      "path": "/franchise-dashboard",
+      "line": 558,
+      "module": "franchise-dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/franchise-dashboard"
+    },
+    {
+      "path": "/reseller",
+      "line": 561,
+      "module": "reseller",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller"
+    },
+    {
+      "path": "/reseller/portal",
+      "line": 563,
+      "module": "reseller",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller/portal"
+    },
+    {
+      "path": "/reseller-portal",
+      "line": 564,
+      "module": "reseller-portal",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-portal"
+    },
+    {
+      "path": "/reseller-program",
+      "line": 565,
+      "module": "reseller-program",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-program"
+    },
+    {
+      "path": "/reseller-landing",
+      "line": 566,
+      "module": "reseller-landing",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-landing"
+    },
+    {
+      "path": "/reseller-dashboard",
+      "line": 567,
+      "module": "reseller-dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-dashboard"
+    },
+    {
+      "path": "/developer/register",
+      "line": 570,
+      "module": "developer",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/register"
+    },
+    {
+      "path": "/developer/registration",
+      "line": 571,
+      "module": "developer",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/registration"
+    },
+    {
+      "path": "/developer",
+      "line": 572,
+      "module": "developer",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer"
+    },
+    {
+      "path": "/developer/dashboard",
+      "line": 573,
+      "module": "developer",
+      "access": "role:\"developer\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/dashboard"
+    },
+    {
+      "path": "/developer-dashboard",
+      "line": 574,
+      "module": "developer-dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer-dashboard"
+    },
+    {
+      "path": "/dev-command-center",
+      "line": 575,
+      "module": "dev-command-center",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/dev-command-center"
+    },
+    {
+      "path": "/influencer",
+      "line": 578,
+      "module": "influencer",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/influencer"
+    },
+    {
+      "path": "/influencer/dashboard",
+      "line": 579,
+      "module": "influencer",
+      "access": "role:\"influencer\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/influencer/dashboard"
+    },
+    {
+      "path": "/influencer/command-center",
+      "line": 580,
+      "module": "influencer",
+      "access": "role:\"influencer\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/influencer/command-center"
+    },
+    {
+      "path": "/influencer-command-center",
+      "line": 581,
+      "module": "influencer-command-center",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/influencer-command-center"
+    },
+    {
+      "path": "/influencer-dashboard",
+      "line": 582,
+      "module": "influencer-dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/influencer-dashboard"
+    },
+    {
+      "path": "/influencer-manager",
+      "line": 583,
+      "module": "influencer-manager",
+      "access": "role:\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/influencer-manager"
+    },
+    {
+      "path": "/influencer-manager-secure",
+      "line": 584,
+      "module": "influencer-manager-secure",
+      "access": "role:\"boss_owner\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/influencer-manager-secure"
+    },
+    {
+      "path": "/product-demo-manager",
+      "line": 587,
+      "module": "product-demo-manager",
+      "access": "role:\"product_demo_manager\",\"demo_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/product-demo-manager"
+    },
+    {
+      "path": "/reseller-manager",
+      "line": 591,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager"
+    },
+    {
+      "path": "/reseller-manager-secure",
+      "line": 592,
+      "module": "reseller-manager-secure",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager-secure"
+    },
+    {
+      "path": "/reseller-manager/dashboard",
+      "line": 593,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/dashboard"
+    },
+    {
+      "path": "/reseller-manager/resellers",
+      "line": 594,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/resellers"
+    },
+    {
+      "path": "/reseller-manager/onboarding",
+      "line": 595,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/onboarding"
+    },
+    {
+      "path": "/reseller-manager/products",
+      "line": 596,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/products"
+    },
+    {
+      "path": "/reseller-manager/licenses",
+      "line": 597,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/licenses"
+    },
+    {
+      "path": "/reseller-manager/sales",
+      "line": 598,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/sales"
+    },
+    {
+      "path": "/reseller-manager/commission",
+      "line": 599,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/commission"
+    },
+    {
+      "path": "/reseller-manager/payout",
+      "line": 600,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/payout"
+    },
+    {
+      "path": "/reseller-manager/invoices",
+      "line": 601,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/invoices"
+    },
+    {
+      "path": "/reseller-manager/settings",
+      "line": 602,
+      "module": "reseller-manager",
+      "access": "role:\"reseller_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/settings"
+    },
+    {
+      "path": "/sales-support-manager",
+      "line": 605,
+      "module": "sales-support-manager",
+      "access": "role:\"client_success\",\"support\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/sales-support-manager"
+    },
+    {
+      "path": "/sales-support-manager-secure",
+      "line": 606,
+      "module": "sales-support-manager-secure",
+      "access": "role:\"client_success\",\"support\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/sales-support-manager-secure"
+    },
+    {
+      "path": "/demo/influencer-command-center",
+      "line": 608,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo/influencer-command-center"
+    },
+    {
+      "path": "/prime",
+      "line": 610,
+      "module": "prime",
+      "access": "role:\"prime\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/prime"
+    },
+    {
+      "path": "/prime/dashboard",
+      "line": 611,
+      "module": "prime",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/prime/dashboard"
+    },
+    {
+      "path": "/prime-user",
+      "line": 612,
+      "module": "prime-user",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/prime-user"
+    },
+    {
+      "path": "/lead-manager",
+      "line": 615,
+      "module": "lead-manager",
+      "access": "role:\"lead_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/lead-manager"
+    },
+    {
+      "path": "/task-manager",
+      "line": 617,
+      "module": "task-manager",
+      "access": "role:\"task_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/task-manager"
+    },
+    {
+      "path": "/demo-manager",
+      "line": 619,
+      "module": "demo-manager",
+      "access": "role:\"demo_manager\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo-manager"
+    },
+    {
+      "path": "/demo",
+      "line": 621,
+      "module": "demo",
+      "access": "role:\"demo_manager\",\"franchise\",\"reseller\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo"
+    },
+    {
+      "path": "/finance",
+      "line": 623,
+      "module": "finance",
+      "access": "role:\"finance_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/finance"
+    },
+    {
+      "path": "/legal",
+      "line": 625,
+      "module": "legal",
+      "access": "role:\"legal_compliance\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/legal"
+    },
+    {
+      "path": "/marketing",
+      "line": 626,
+      "module": "marketing",
+      "access": "role:\"marketing_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/marketing"
+    },
+    {
+      "path": "/enterprise/marketing",
+      "line": 628,
+      "module": "enterprise",
+      "access": "role:\"marketing_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/enterprise/marketing"
+    },
+    {
+      "path": "/performance",
+      "line": 630,
+      "module": "performance",
+      "access": "role:\"performance_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/performance"
+    },
+    {
+      "path": "/rnd-dashboard",
+      "line": 632,
+      "module": "rnd-dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/rnd-dashboard"
+    },
+    {
+      "path": "/hr",
+      "line": 634,
+      "module": "hr",
+      "access": "role:\"hr_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/hr"
+    },
+    {
+      "path": "/task-manager-secure",
+      "line": 638,
+      "module": "task-manager-secure",
+      "access": "role:\"task_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/task-manager-secure"
+    },
+    {
+      "path": "/legal-manager-secure",
+      "line": 641,
+      "module": "legal-manager-secure",
+      "access": "role:\"legal_compliance\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/legal-manager-secure"
+    },
+    {
+      "path": "/seo",
+      "line": 642,
+      "module": "seo",
+      "access": "role:\"seo_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/seo"
+    },
+    {
+      "path": "/seo-dashboard",
+      "line": 644,
+      "module": "seo-dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/seo-dashboard"
+    },
+    {
+      "path": "/support",
+      "line": 645,
+      "module": "support",
+      "access": "role:\"support\",\"client_success\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/support"
+    },
+    {
+      "path": "/support-dashboard",
+      "line": 647,
+      "module": "support-dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/support-dashboard"
+    },
+    {
+      "path": "/sales-support",
+      "line": 648,
+      "module": "sales-support",
+      "access": "role:\"support\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/sales-support"
+    },
+    {
+      "path": "/sales",
+      "line": 649,
+      "module": "sales",
+      "access": "role:\"support\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/sales"
+    },
+    {
+      "path": "/client-success",
+      "line": 651,
+      "module": "client-success",
+      "access": "role:\"client_success\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/client-success"
+    },
+    {
+      "path": "/incident-crisis",
+      "line": 654,
+      "module": "incident-crisis",
+      "access": "role:\"boss_owner\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/incident-crisis"
+    },
+    {
+      "path": "/hr-dashboard",
+      "line": 656,
+      "module": "hr-dashboard",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/hr-dashboard"
+    },
+    {
+      "path": "/safe-assist",
+      "line": 660,
+      "module": "safe-assist",
+      "access": "role:\"safe_assist\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/safe-assist"
+    },
+    {
+      "path": "/assist-manager",
+      "line": 662,
+      "module": "assist-manager",
+      "access": "role:\"assist_manager\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/assist-manager"
+    },
+    {
+      "path": "/promise-tracker",
+      "line": 664,
+      "module": "promise-tracker",
+      "access": "role:\"promise_tracker\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/promise-tracker"
+    },
+    {
+      "path": "/promise-management",
+      "line": 666,
+      "module": "promise-management",
+      "access": "role:\"promise_management\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/promise-management"
+    },
+    {
+      "path": "/system-settings",
+      "line": 670,
+      "module": "system-settings",
+      "access": "role:\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/system-settings"
+    },
+    {
+      "path": "/buzzer-console",
+      "line": 671,
+      "module": "buzzer-console",
+      "access": "role:\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/buzzer-console"
+    },
+    {
+      "path": "/api-integrations",
+      "line": 672,
+      "module": "api-integrations",
+      "access": "role:\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/api-integrations"
+    },
+    {
+      "path": "/internal-chat",
+      "line": 673,
+      "module": "internal-chat",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/internal-chat"
+    },
+    {
+      "path": "/personal-chat",
+      "line": 674,
+      "module": "personal-chat",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/personal-chat"
+    },
+    {
+      "path": "/ai-console",
+      "line": 675,
+      "module": "ai-console",
+      "access": "role:\"ai_manager\",\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/ai-console"
+    },
+    {
+      "path": "/demo-credentials",
+      "line": 676,
+      "module": "demo-credentials",
+      "access": "role:\"super_admin\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo-credentials"
+    },
+    {
+      "path": "/demo-order-system",
+      "line": 677,
+      "module": "demo-order-system",
+      "access": "role:\"master\",\"super_admin\",\"demo_manager\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/demo-order-system"
+    },
+    {
+      "path": "/vala-ai",
+      "line": 680,
+      "module": "vala-ai",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala-ai"
+    },
+    {
+      "path": "/vala-ai/factory",
+      "line": 681,
+      "module": "vala-ai",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala-ai/factory"
+    },
+    {
+      "path": "/vala-control",
+      "line": 684,
+      "module": "vala-control",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala-control"
+    },
+    {
+      "path": "/vala-control/operations",
+      "line": 685,
+      "module": "vala-control",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala-control/operations"
+    },
+    {
+      "path": "/vala-control/regional",
+      "line": 686,
+      "module": "vala-control",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala-control/regional"
+    },
+    {
+      "path": "/vala-control/ai-head",
+      "line": 687,
+      "module": "vala-control",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala-control/ai-head"
+    },
+    {
+      "path": "/vala-control/master",
+      "line": 688,
+      "module": "vala-control",
+      "access": "role:\"master\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala-control/master"
+    },
+    {
+      "path": "/enterprise-control",
+      "line": 691,
+      "module": "enterprise-control",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/enterprise-control"
+    },
+    {
+      "path": "/vala",
+      "line": 694,
+      "module": "vala",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala"
+    },
+    {
+      "path": "/vala/operation",
+      "line": 695,
+      "module": "vala",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala/operation"
+    },
+    {
+      "path": "/vala/regional",
+      "line": 696,
+      "module": "vala",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala/regional"
+    },
+    {
+      "path": "/vala/ai-head",
+      "line": 697,
+      "module": "vala",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala/ai-head"
+    },
+    {
+      "path": "/vala/master",
+      "line": 698,
+      "module": "vala",
+      "access": "role:\"master\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/vala/master"
+    },
+    {
+      "path": "/dev-manager",
+      "line": 701,
+      "module": "dev-manager",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/dev-manager"
+    },
+    {
+      "path": "/hr-manager",
+      "line": 704,
+      "module": "hr-manager",
+      "access": "auth",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/hr-manager"
+    },
+    {
+      "path": "/boss/dashboard",
+      "line": 711,
+      "module": "boss",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/boss/dashboard"
+    },
+    {
+      "path": "/ceo/dashboard",
+      "line": 712,
+      "module": "ceo",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/ceo/dashboard"
+    },
+    {
+      "path": "/admin/dashboard",
+      "line": 713,
+      "module": "admin",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/admin/dashboard"
+    },
+    {
+      "path": "/continent/dashboard",
+      "line": 714,
+      "module": "continent",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/continent/dashboard"
+    },
+    {
+      "path": "/country/dashboard",
+      "line": 715,
+      "module": "country",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/country/dashboard"
+    },
+    {
+      "path": "/super-admin-system",
+      "line": 717,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system"
+    },
+    {
+      "path": "/super-admin-system/rc",
+      "line": 719,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/rc"
+    },
+    {
+      "path": "/super-admin-system/role-center",
+      "line": 720,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/role-center"
+    },
+    {
+      "path": "/super-admin-system/login",
+      "line": 722,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/login"
+    },
+    {
+      "path": "/super-admin-system/role-switch",
+      "line": 724,
+      "module": "super-admin-system",
+      "access": "role:'boss_owner','ceo','admin','super_admin','master','continent_super_admin','country_head'",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/role-switch"
+    },
+    {
+      "path": "/super-admin-system/dashboard",
+      "line": 726,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/dashboard"
+    },
+    {
+      "path": "/super-admin-system/modules",
+      "line": 731,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/modules"
+    },
+    {
+      "path": "/super-admin-system/rentals",
+      "line": 732,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/rentals"
+    },
+    {
+      "path": "/super-admin-system/rules",
+      "line": 733,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/rules"
+    },
+    {
+      "path": "/super-admin-system/approvals",
+      "line": 734,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/approvals"
+    },
+    {
+      "path": "/super-admin-system/security",
+      "line": 735,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/security"
+    },
+    {
+      "path": "/super-admin-system/locks",
+      "line": 736,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/locks"
+    },
+    {
+      "path": "/super-admin-system/activity-log",
+      "line": 737,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/activity-log"
+    },
+    {
+      "path": "/super-admin-system/audit",
+      "line": 738,
+      "module": "super-admin-system",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/super-admin-system/audit"
+    },
+    {
+      "path": "/leader-security",
+      "line": 741,
+      "module": "leader-security",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/leader-security"
+    },
+    {
+      "path": "/bulk-actions",
+      "line": 744,
+      "module": "bulk-actions",
+      "access": "public",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/bulk-actions"
+    },
+    {
+      "path": "/system-flow",
+      "line": 747,
+      "module": "system-flow",
+      "access": "role:\"boss_owner\",\"ceo\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/system-flow"
+    },
+    {
+      "path": "/app/access-denied",
+      "line": 88,
+      "module": "app",
+      "access": "public",
+      "source": "src/routes/appRoutes.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/app/access-denied"
+    },
+    {
+      "path": "/app",
+      "line": 1,
+      "module": "app",
+      "access": "auth",
+      "source": "src/routes/appRoutes.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/app"
+    },
+    {
+      "path": "/developer/repositories",
+      "line": 1,
+      "module": "developer",
+      "access": "role:developer,super_admin",
+      "source": "src/app/developer/repositories/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/repositories"
+    },
+    {
+      "path": "/developer/projects",
+      "line": 1,
+      "module": "developer",
+      "access": "role:developer,super_admin",
+      "source": "src/app/developer/projects/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/projects"
+    },
+    {
+      "path": "/developer/pipelines",
+      "line": 1,
+      "module": "developer",
+      "access": "role:developer,super_admin",
+      "source": "src/app/developer/pipelines/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/pipelines"
+    },
+    {
+      "path": "/developer/dev-settings",
+      "line": 1,
+      "module": "developer",
+      "access": "role:developer,super_admin",
+      "source": "src/app/developer/dev-settings/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/dev-settings"
+    },
+    {
+      "path": "/developer/dev-logs",
+      "line": 1,
+      "module": "developer",
+      "access": "role:developer,super_admin",
+      "source": "src/app/developer/dev-logs/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/dev-logs"
+    },
+    {
+      "path": "/developer/dev-errors",
+      "line": 1,
+      "module": "developer",
+      "access": "role:developer,super_admin",
+      "source": "src/app/developer/dev-errors/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/dev-errors"
+    },
+    {
+      "path": "/developer/dev-api",
+      "line": 1,
+      "module": "developer",
+      "access": "role:developer,super_admin",
+      "source": "src/app/developer/dev-api/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/dev-api"
+    },
+    {
+      "path": "/developer/deployments",
+      "line": 1,
+      "module": "developer",
+      "access": "role:developer,super_admin",
+      "source": "src/app/developer/deployments/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/deployments"
+    },
+    {
+      "path": "/developer/dashboard",
+      "line": 1,
+      "module": "developer",
+      "access": "role:developer,super_admin",
+      "source": "src/app/developer/dashboard/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/dashboard"
+    },
+    {
+      "path": "/developer/commits",
+      "line": 1,
+      "module": "developer",
+      "access": "role:developer,super_admin",
+      "source": "src/app/developer/commits/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/developer/commits"
+    },
+    {
+      "path": "/reseller/support",
+      "line": 1,
+      "module": "reseller",
+      "access": "role:reseller,super_admin",
+      "source": "src/app/reseller/support/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller/support"
+    },
+    {
+      "path": "/reseller/settings",
+      "line": 1,
+      "module": "reseller",
+      "access": "role:reseller,super_admin",
+      "source": "src/app/reseller/settings/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller/settings"
+    },
+    {
+      "path": "/reseller/sales",
+      "line": 1,
+      "module": "reseller",
+      "access": "role:reseller,super_admin",
+      "source": "src/app/reseller/sales/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller/sales"
+    },
+    {
+      "path": "/reseller/products",
+      "line": 1,
+      "module": "reseller",
+      "access": "role:reseller,super_admin",
+      "source": "src/app/reseller/products/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller/products"
+    },
+    {
+      "path": "/reseller/licenses",
+      "line": 1,
+      "module": "reseller",
+      "access": "role:reseller,super_admin",
+      "source": "src/app/reseller/licenses/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller/licenses"
+    },
+    {
+      "path": "/reseller/invoices",
+      "line": 1,
+      "module": "reseller",
+      "access": "role:reseller,super_admin",
+      "source": "src/app/reseller/invoices/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller/invoices"
+    },
+    {
+      "path": "/reseller/earnings",
+      "line": 1,
+      "module": "reseller",
+      "access": "role:reseller,super_admin",
+      "source": "src/app/reseller/earnings/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller/earnings"
+    },
+    {
+      "path": "/reseller/dashboard",
+      "line": 1,
+      "module": "reseller",
+      "access": "role:reseller,super_admin",
+      "source": "src/app/reseller/dashboard/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller/dashboard"
+    },
+    {
+      "path": "/reseller/customers",
+      "line": 1,
+      "module": "reseller",
+      "access": "role:reseller,super_admin",
+      "source": "src/app/reseller/customers/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller/customers"
+    },
+    {
+      "path": "/reseller-manager/settings",
+      "line": 1,
+      "module": "reseller-manager",
+      "access": "role:reseller_manager,super_admin",
+      "source": "src/app/reseller-manager/settings/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/settings"
+    },
+    {
+      "path": "/reseller-manager/sales",
+      "line": 1,
+      "module": "reseller-manager",
+      "access": "role:reseller_manager,super_admin",
+      "source": "src/app/reseller-manager/sales/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/sales"
+    },
+    {
+      "path": "/reseller-manager/resellers",
+      "line": 1,
+      "module": "reseller-manager",
+      "access": "role:reseller_manager,super_admin",
+      "source": "src/app/reseller-manager/resellers/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/resellers"
+    },
+    {
+      "path": "/reseller-manager/products",
+      "line": 1,
+      "module": "reseller-manager",
+      "access": "role:reseller_manager,super_admin",
+      "source": "src/app/reseller-manager/products/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/products"
+    },
+    {
+      "path": "/reseller-manager/payout",
+      "line": 1,
+      "module": "reseller-manager",
+      "access": "role:reseller_manager,super_admin",
+      "source": "src/app/reseller-manager/payout/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/payout"
+    },
+    {
+      "path": "/reseller-manager/onboarding",
+      "line": 1,
+      "module": "reseller-manager",
+      "access": "role:reseller_manager,super_admin",
+      "source": "src/app/reseller-manager/onboarding/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/onboarding"
+    },
+    {
+      "path": "/reseller-manager/licenses",
+      "line": 1,
+      "module": "reseller-manager",
+      "access": "role:reseller_manager,super_admin",
+      "source": "src/app/reseller-manager/licenses/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/licenses"
+    },
+    {
+      "path": "/reseller-manager/invoices",
+      "line": 1,
+      "module": "reseller-manager",
+      "access": "role:reseller_manager,super_admin",
+      "source": "src/app/reseller-manager/invoices/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/invoices"
+    },
+    {
+      "path": "/reseller-manager/dashboard",
+      "line": 1,
+      "module": "reseller-manager",
+      "access": "role:reseller_manager,super_admin",
+      "source": "src/app/reseller-manager/dashboard/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/dashboard"
+    },
+    {
+      "path": "/reseller-manager/commission",
+      "line": 1,
+      "module": "reseller-manager",
+      "access": "role:reseller_manager,super_admin",
+      "source": "src/app/reseller-manager/commission/page.tsx",
+      "state": "valid",
+      "finalUrl": "http://127.0.0.1:4173/reseller-manager/commission"
+    }
+  ],
+  "skipped": [
+    {
+      "path": "/onboard/:category",
+      "line": 346,
+      "module": "onboard",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/sectors/:sectorId/:subCategoryId",
+      "line": 355,
+      "module": "sectors",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/demo/:demoId",
+      "line": 400,
+      "module": "demo",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/checkout/:demoId",
+      "line": 401,
+      "module": "checkout",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/marketplace/product/:productId",
+      "line": 415,
+      "module": "marketplace",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/product/:productId",
+      "line": 416,
+      "module": "product",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/marketplace-manager/*",
+      "line": 421,
+      "module": "marketplace-manager",
+      "access": "role:\"marketplace_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/boss-panel/*",
+      "line": 448,
+      "module": "boss-panel",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/owner/*",
+      "line": 452,
+      "module": "owner",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/master-admin/*",
+      "line": 457,
+      "module": "master-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/area-manager/*",
+      "line": 467,
+      "module": "area-manager",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/server-manager/*",
+      "line": 471,
+      "module": "server-manager",
+      "access": "role:\"boss_owner\",\"server_manager\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/security-command/*",
+      "line": 475,
+      "module": "security-command",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/api-manager/*",
+      "line": 479,
+      "module": "api-manager",
+      "access": "role:\"boss_owner\",\"ai_manager\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/marketing-manager/*",
+      "line": 483,
+      "module": "marketing-manager",
+      "access": "role:\"boss_owner\",\"marketing_manager\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/seo-manager/*",
+      "line": 488,
+      "module": "seo-manager",
+      "access": "role:\"boss_owner\",\"seo_manager\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/legal-manager/*",
+      "line": 492,
+      "module": "legal-manager",
+      "access": "role:\"boss_owner\",\"legal_compliance\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/continent-super-admin/*",
+      "line": 510,
+      "module": "continent-super-admin",
+      "access": "role:\"boss_owner\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/reseller/*",
+      "line": 562,
+      "module": "reseller",
+      "access": "role:\"reseller\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/product-demo-manager/*",
+      "line": 588,
+      "module": "product-demo-manager",
+      "access": "role:\"product_demo_manager\",\"demo_manager\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/leads/*",
+      "line": 616,
+      "module": "leads",
+      "access": "role:\"lead_manager\",\"super_admin\",\"boss_owner\",\"master\",\"ceo\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/tasks/*",
+      "line": 618,
+      "module": "tasks",
+      "access": "role:\"task_manager\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/demo-manager/*",
+      "line": 620,
+      "module": "demo-manager",
+      "access": "role:\"demo_manager\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/demos/*",
+      "line": 622,
+      "module": "demos",
+      "access": "role:\"demo_manager\",\"franchise\",\"reseller\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/finance/*",
+      "line": 624,
+      "module": "finance",
+      "access": "role:\"finance_manager\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/marketing/*",
+      "line": 627,
+      "module": "marketing",
+      "access": "role:\"marketing_manager\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/enterprise/marketing/*",
+      "line": 629,
+      "module": "enterprise",
+      "access": "role:\"marketing_manager\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/performance/*",
+      "line": 631,
+      "module": "performance",
+      "access": "role:\"performance_manager\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/rnd/*",
+      "line": 633,
+      "module": "rnd",
+      "access": "role:\"rnd_manager\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/hr/*",
+      "line": 635,
+      "module": "hr",
+      "access": "role:\"hr_manager\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/seo/*",
+      "line": 643,
+      "module": "seo",
+      "access": "role:\"seo_manager\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/support/*",
+      "line": 646,
+      "module": "support",
+      "access": "role:\"support\",\"client_success\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/sales/*",
+      "line": 650,
+      "module": "sales",
+      "access": "role:\"support\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/clients/*",
+      "line": 652,
+      "module": "clients",
+      "access": "role:\"client_success\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/crisis/*",
+      "line": 655,
+      "module": "crisis",
+      "access": "role:\"boss_owner\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/ai/*",
+      "line": 657,
+      "module": "ai",
+      "access": "role:\"ai_manager\",\"super_admin\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/safe-assist/*",
+      "line": 661,
+      "module": "safe-assist",
+      "access": "role:\"safe_assist\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/assist-manager/*",
+      "line": 663,
+      "module": "assist-manager",
+      "access": "role:\"assist_manager\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/promise-tracker/*",
+      "line": 665,
+      "module": "promise-tracker",
+      "access": "role:\"promise_tracker\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/promise-management/*",
+      "line": 667,
+      "module": "promise-management",
+      "access": "role:\"promise_management\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/wireframe/*",
+      "line": 707,
+      "module": "wireframe",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/super-admin-system/role-switch/*",
+      "line": 725,
+      "module": "super-admin-system",
+      "access": "role:'boss_owner','ceo','admin','super_admin','master','continent_super_admin','country_head'",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/system-flow/*",
+      "line": 748,
+      "module": "system-flow",
+      "access": "role:\"boss_owner\",\"ceo\",\"super_admin\",\"master\"",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/app/*",
+      "line": 751,
+      "module": "app",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "*",
+      "line": 755,
+      "module": "*",
+      "access": "public",
+      "source": "src/App.tsx"
+    },
+    {
+      "path": "/app/*",
+      "line": 414,
+      "module": "app",
+      "access": "public",
+      "source": "src/routes/appRoutes.tsx"
+    }
+  ]
+}

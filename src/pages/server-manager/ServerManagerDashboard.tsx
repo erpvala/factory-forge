@@ -180,7 +180,7 @@ const ServerManagerDashboard = () => {
       <header className="h-12 bg-[#000] flex items-center justify-between px-4 flex-shrink-0 border-b border-[#333]">
         <div className="flex items-center gap-3">
           <button 
-            onClick={() => navigate('/dashboard')}
+            onClick={() => navigate('/server-manager')}
             className="flex items-center gap-2 text-[#888] hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />

@@ -1,0 +1,43 @@
+// Vercel serverless proxy: GET /api/v1/auth/me
+// Forwards to Supabase Edge Function auth-v1/me
+
+import type { VercelRequest, VercelResponse } from '@vercel/node';
+
+export const config = { api: { bodyParser: false } };
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, apikey');
+    return res.status(204).end();
+  }
+
+  if (req.method !== 'GET') {
+    return res.status(405).json({ success: false, error: 'Method not allowed' });
+  }
+
+  const supabaseUrl  = process.env.VITE_SUPABASE_URL!;
+  const anonKey      = process.env.VITE_SUPABASE_ANON_KEY!;
+  const targetUrl    = `${supabaseUrl}/functions/v1/auth-v1/me`;
+  const authHeader   = (req.headers['authorization'] as string) ?? `Bearer ${anonKey}`;
+
+  try {
+    const upstream = await fetch(targetUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey':        anonKey,
+        'Authorization': authHeader,
+      },
+    });
+
+    const data = await upstream.json();
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    return res.status(upstream.status).json(data);
+  } catch {
+    return res.status(503).json({ success: false, error: 'Auth service unavailable. Please try again.' });
+  }
+}

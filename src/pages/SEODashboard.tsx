@@ -188,7 +188,7 @@ const SEODashboard = () => {
               <Bot className="w-4 h-4" />
               Open AI Assistant
             </motion.button>
-            <motion.button onClick={() => navigate('/dashboard')} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-2 px-3 bg-slate-800/50 border border-cyan-500/30 rounded-lg text-xs font-medium text-cyan-300 flex items-center justify-center gap-1">
+            <motion.button onClick={() => navigate('/seo')} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="w-full py-2 px-3 bg-slate-800/50 border border-cyan-500/30 rounded-lg text-xs font-medium text-cyan-300 flex items-center justify-center gap-1">
               <ArrowLeft className="w-3.5 h-3.5" />
               Back to Dashboard
             </motion.button>

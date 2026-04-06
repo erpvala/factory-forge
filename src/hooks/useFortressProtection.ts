@@ -274,7 +274,8 @@ export function useFortressProtection() {
     });
 
     // Redirect to auth
-    window.location.href = '/auth';
+    window.history.pushState({}, '', '/auth');
+    window.dispatchEvent(new PopStateEvent('popstate'));
   }, [logSecurityEvent]);
 
   // Request access approval

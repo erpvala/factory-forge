@@ -82,7 +82,7 @@ const MPOffers = () => {
       return;
     }
     if (oid !== undefined && oid !== null) {
-      window.open(`/marketplace/offer/${encodeURIComponent(String(oid))}`, "_blank", "noopener,noreferrer");
+      window.open(`/marketplace/offers?offer=${encodeURIComponent(String(oid))}`, "_blank", "noopener,noreferrer");
       return;
     }
     if (pid !== undefined && pid !== null) {

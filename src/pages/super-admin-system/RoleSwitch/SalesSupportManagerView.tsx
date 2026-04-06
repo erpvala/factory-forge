@@ -1,10 +1,12 @@
 // @ts-nocheck
 import { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import SalesSupportSidebar, { SalesSupportSection } from "@/components/sales-support/SalesSupportSidebar";
 import SalesSupportDashboardContent from "@/components/sales-support/SalesSupportDashboardContent";
 
 const SalesSupportManagerView = () => {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState<SalesSupportSection>("overview");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
@@ -18,8 +20,8 @@ const SalesSupportManagerView = () => {
 
   const handleBack = useCallback(() => {
     // Navigate back to Control Panel
-    window.location.assign("/super-admin-system/role-switch?role=boss_owner");
-  }, []);
+    navigate("/super-admin-system/role-switch?role=boss_owner");
+  }, [navigate]);
 
   return (
     <TooltipProvider>

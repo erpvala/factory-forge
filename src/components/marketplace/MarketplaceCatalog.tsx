@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, CheckCircle, Eye, Globe, Heart, Package, Play, Search, ShoppingCart, Sparkles, Star } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle, Eye, Globe, Heart, Package, Play, Search, ShoppingCart, Sparkles, Star, Ticket, Wrench, Code2, BellRing, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -14,6 +14,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { useMarketplace, type MarketplaceProduct } from '@/hooks/useMarketplace';
 import { useUnifiedWallet } from '@/hooks/useUnifiedWallet';
 import { callEdgeRoute } from '@/lib/api/edge-client';
+import { useMarketplaceEcosystemStore } from '@/stores/marketplaceEcosystemStore';
+import { useAuth } from '@/hooks/useAuth';
 
 interface MarketplaceCatalogProps {
   title: string;
@@ -45,6 +47,20 @@ function formatPrice(product: MarketplaceProduct, discountPercent: number) {
 
 export function MarketplaceCatalog({ title, subtitle, audienceLabel }: MarketplaceCatalogProps) {
   const navigate = useNavigate();
+  const navigateByUrl = (target: string) => {
+    try {
+      const url = new URL(target, window.location.origin);
+      if (url.origin === window.location.origin) {
+        navigate(`${url.pathname}${url.search}${url.hash}`);
+        return;
+      }
+    } catch {
+      navigate(target);
+      return;
+    }
+    window.location.assign(target);
+  };
+  const { user } = useAuth();
   const {
     products,
     categories,
@@ -65,9 +81,21 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
     joinFranchise,
     joinReseller,
     joinInfluencer,
+    joinDeveloper,
     loadMoreProducts,
   } = useMarketplace();
   const { wallet, formatCurrency, refetch } = useUnifiedWallet();
+  const banners = useMarketplaceEcosystemStore((state) => state.banners);
+  const countryOffer = useMarketplaceEcosystemStore((state) => state.countryOffer);
+  const detectedCountry = useMarketplaceEcosystemStore((state) => state.detectedCountry);
+  const cart = useMarketplaceEcosystemStore((state) => state.cart);
+  const notifications = useMarketplaceEcosystemStore((state) => state.notifications);
+  const aiPulses = useMarketplaceEcosystemStore((state) => state.aiPulses);
+  const trackBannerClick = useMarketplaceEcosystemStore((state) => state.trackBannerClick);
+  const trackProductView = useMarketplaceEcosystemStore((state) => state.trackProductView);
+  const addToCart = useMarketplaceEcosystemStore((state) => state.addToCart);
+  const removeFromCart = useMarketplaceEcosystemStore((state) => state.removeFromCart);
+  const createSupportTicket = useMarketplaceEcosystemStore((state) => state.createSupportTicket);
   const [searchInput, setSearchInput] = useState(search);
   const deferredSearch = useDeferredValue(searchInput);
   const [selectedProduct, setSelectedProduct] = useState<MarketplaceProduct | null>(null);
@@ -139,6 +167,9 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
   const discountPercent = audienceLabel === 'Franchise' ? 30 : audienceLabel === 'Reseller' ? 15 : 0;
 
   const walletBalance = Number(wallet?.available_balance || 0);
+  const cartTotal = useMemo(() => cart.reduce((sum, item) => sum + item.price * item.quantity, 0), [cart]);
+  const recentNotifications = notifications.slice(0, 2);
+  const recentAIPulse = aiPulses[0] || null;
 
   const resetOrderForm = () => {
     setRequirements('');
@@ -191,6 +222,11 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
     navigate(`/demo/${product.demo_id}`);
   };
 
+  const handleOpenProduct = (product: MarketplaceProduct) => {
+    trackProductView({ productId: product.product_id, category: product.category }, user?.id || null);
+    navigate(`/product/${product.product_id}`);
+  };
+
   const handleOrder = async () => {
     if (!selectedProduct) {
       return;
@@ -225,7 +261,7 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
 
     setIsJoinOpen(false);
     resetJoinForm();
-    window.location.assign(result.redirect_to || '/franchise-dashboard');
+    navigateByUrl(result.redirect_to || '/franchise-dashboard');
   };
 
   const handleJoinReseller = async () => {
@@ -241,7 +277,7 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
 
     setIsJoinResellerOpen(false);
     resetJoinResellerForm();
-    window.location.assign(result.redirect_to || '/reseller-dashboard');
+    navigateByUrl(result.redirect_to || '/reseller-dashboard');
   };
 
   const handleJoinInfluencer = async () => {
@@ -261,7 +297,26 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
 
     setIsJoinInfluencerOpen(false);
     resetJoinInfluencerForm();
-    window.location.assign(result.redirect_to || '/influencer-dashboard');
+    navigateByUrl(result.redirect_to || '/influencer-dashboard');
+  };
+
+  const handleJoinDeveloper = async () => {
+    const result = await joinDeveloper();
+    if (!result) {
+      return;
+    }
+    navigateByUrl(result.redirect_to || '/developer/dashboard');
+  };
+
+  const handleCreateSupportTicket = () => {
+    if (!selectedProduct) {
+      return;
+    }
+    createSupportTicket({
+      productId: selectedProduct.product_id,
+      userId: user?.id || null,
+      issue: requirements.trim() || `Issue reported from marketplace for ${selectedProduct.product_name}`,
+    });
   };
 
   const scrollCategories = (direction: 'left' | 'right') => {
@@ -270,6 +325,22 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
 
   return (
     <div className="space-y-6">
+      <section className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
+        <div>
+          <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Header Apply System</p>
+          <p className="mt-1 text-sm text-slate-300">One-click application flow with demo auto-approval and dashboard routing.</p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Button type="button" variant="outline" className="border-emerald-500/30 bg-emerald-500/10 text-emerald-200" onClick={() => setIsJoinResellerOpen(true)}>Reseller Apply</Button>
+          <Button type="button" variant="outline" className="border-cyan-500/30 bg-cyan-500/10 text-cyan-200" onClick={() => setIsJoinOpen(true)}>Franchise Apply</Button>
+          <Button type="button" variant="outline" className="border-amber-500/30 bg-amber-500/10 text-amber-200" onClick={() => setIsJoinInfluencerOpen(true)}>Influencer Apply</Button>
+          <Button type="button" variant="outline" className="border-violet-500/30 bg-violet-500/10 text-violet-200" onClick={() => void handleJoinDeveloper()}>
+            <Code2 className="mr-2 h-4 w-4" />
+            Developer Apply
+          </Button>
+        </div>
+      </section>
+
       <section className={`relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br ${activeGradient} p-6 shadow-2xl`}>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(34,211,238,0.18),transparent_28%)]" />
         <div className="relative grid gap-6 lg:grid-cols-[1.3fr_0.9fr]">
@@ -339,6 +410,58 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
         </div>
       </section>
 
+      <section className="grid gap-4 lg:grid-cols-[1fr_1fr]">
+        <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Banner System</p>
+              <p className="mt-1 text-sm text-slate-300">Campaign and featured-product banners with click tracking.</p>
+            </div>
+            <Badge className="border-slate-700 bg-slate-900/80 text-slate-300">{banners.length} live</Badge>
+          </div>
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {banners.map((banner) => (
+              <button
+                key={banner.id}
+                type="button"
+                onClick={() => {
+                  trackBannerClick(banner, user?.id || null);
+                  navigate(banner.target);
+                }}
+                className={`rounded-2xl border border-white/10 bg-gradient-to-br ${banner.accent} p-4 text-left transition-transform hover:-translate-y-0.5`}
+              >
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-300">{banner.type === 'campaign' ? 'Campaign' : 'Featured product'}</p>
+                <p className="mt-2 text-lg font-semibold text-white">{banner.title}</p>
+                <p className="mt-1 text-sm text-slate-300/90">{banner.subtitle}</p>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
+          <div className="flex items-center justify-between gap-3">
+            <div>
+              <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Country Offer Slider</p>
+              <p className="mt-1 text-sm text-slate-300">Detected country: {detectedCountry} · UI-only discount stays cosmetic.</p>
+            </div>
+            <Badge className="border-emerald-500/30 bg-emerald-500/10 text-emerald-200">{countryOffer.discountPercent}% UI discount</Badge>
+          </div>
+          <div className="mt-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-4">
+            <p className="text-sm font-semibold text-white">{countryOffer.festival}</p>
+            <p className="mt-1 text-sm text-emerald-100/80">Highlighted categories for {countryOffer.country}: {countryOffer.highlightedCategories.join(' • ')}</p>
+          </div>
+          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {countryOffer.highlightedCategories.map((entry) => (
+              <div key={entry} className="min-w-[180px] rounded-xl border border-slate-800 bg-slate-900/80 p-3">
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-500">Country spotlight</p>
+                <p className="mt-2 text-sm font-semibold text-white">{entry}</p>
+                <p className="text-xs text-slate-400">Festival-led merchandising for faster clicks and lead capture.</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="grid gap-4 xl:grid-cols-[1.3fr_0.7fr]">
         <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-4">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
@@ -382,6 +505,43 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
                 <p className="mt-1 text-xs text-slate-400">{mode === 'wallet' ? 'Verified instantly with license generation.' : 'Creates a pending-verification order with no fake success state.'}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-4 rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+            <div className="flex items-center justify-between gap-2">
+              <div>
+                <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Cart System</p>
+                <p className="mt-1 text-sm text-white">{cart.length} items · {formatCurrency(cartTotal)}</p>
+              </div>
+              {cart.length > 0 ? <Badge className="border-cyan-500/30 bg-cyan-500/10 text-cyan-200">Checkout ready</Badge> : null}
+            </div>
+            <div className="mt-3 space-y-2">
+              {cart.length === 0 ? (
+                <p className="text-sm text-slate-400">Cart is empty. Add products and continue to checkout.</p>
+              ) : (
+                cart.slice(0, 3).map((item) => (
+                  <div key={item.productId} className="flex items-center justify-between gap-3 rounded-xl border border-slate-800 bg-slate-950/80 p-3">
+                    <div>
+                      <p className="text-sm font-medium text-white">{item.productName}</p>
+                      <p className="text-xs text-slate-500">Qty {item.quantity}</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-slate-300">{formatCurrency(item.price * item.quantity)}</span>
+                      <Button type="button" size="icon" variant="outline" className="h-8 w-8 border-slate-800 bg-slate-900/80" onClick={() => removeFromCart(item.productId)}>
+                        <Trash2 className="h-3.5 w-3.5" />
+                      </Button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+            <div className="mt-3 flex gap-2">
+              <Button type="button" variant="outline" className="flex-1 border-slate-800 bg-slate-900/80" onClick={() => navigate('/cart')}>
+                Open cart
+              </Button>
+              <Button type="button" className="flex-1 bg-cyan-500 text-slate-950 hover:bg-cyan-400" onClick={() => navigate('/checkout')} disabled={cart.length === 0}>
+                Checkout
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -443,7 +603,7 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
                       </div>
                     </div>
                     <div className="flex gap-2">
-                      <Button type="button" variant="outline" className="flex-1 border-slate-800 bg-slate-900/80 hover:bg-slate-800" onClick={() => navigate(`/product/${product.product_id}`)}>
+                      <Button type="button" variant="outline" className="flex-1 border-slate-800 bg-slate-900/80 hover:bg-slate-800" onClick={() => handleOpenProduct(product)}>
                         <Eye className="mr-2 h-4 w-4" />
                         View
                       </Button>
@@ -455,6 +615,20 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
                         title={favourites.has(product.product_id) ? 'Remove from favourites' : 'Add to favourites'}
                       >
                         <Heart className={`h-4 w-4 ${favourites.has(product.product_id) ? 'fill-current' : ''}`} />
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="border-slate-800 bg-slate-900/80 hover:bg-slate-800"
+                        onClick={() => addToCart({
+                          productId: product.product_id,
+                          productName: product.product_name,
+                          price: discountedPrice,
+                          category: product.category,
+                          licenseRequired: true,
+                        })}
+                      >
+                        <ShoppingCart className="h-4 w-4" />
                       </Button>
                       <Button
                         type="button"
@@ -581,6 +755,48 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
                 <div className="space-y-2">
                   <Label>Requirements</Label>
                   <Textarea value={requirements} onChange={(event) => setRequirements(event.target.value)} placeholder="Deployment notes, branding, business logic, region requirements" className="min-h-28 border-slate-800 bg-slate-900/80" />
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+                    <p className="text-xs uppercase tracking-[0.24em] text-slate-500">Notifications</p>
+                    <div className="mt-2 space-y-2">
+                      {recentNotifications.length === 0 ? (
+                        <p className="text-sm text-slate-400">Order success, apply submission, and license issue notifications appear here.</p>
+                      ) : recentNotifications.map((note) => (
+                        <div key={note.id} className="rounded-xl border border-slate-800 bg-slate-950/80 p-2">
+                          <p className="text-sm font-medium text-white">{note.subject}</p>
+                          <p className="text-xs text-slate-400">{note.message}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-4">
+                    <p className="text-xs uppercase tracking-[0.24em] text-slate-500">AI CEO Loop</p>
+                    {recentAIPulse ? (
+                      <div className="mt-2 rounded-xl border border-violet-500/20 bg-violet-500/10 p-3">
+                        <p className="text-sm font-medium text-violet-200">{recentAIPulse.action.replace('_', ' ')}</p>
+                        <p className="text-xs text-slate-300">{recentAIPulse.reason}</p>
+                      </div>
+                    ) : (
+                      <p className="mt-2 text-sm text-slate-400">Views, sales, and drops trigger AI boosts, discount suggestions, and banners.</p>
+                    )}
+                  </div>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <Button type="button" variant="outline" className="border-slate-800 bg-slate-900/80" onClick={handleCreateSupportTicket}>
+                    <Ticket className="mr-2 h-4 w-4" />
+                    Create Support Ticket
+                  </Button>
+                  <Button type="button" variant="outline" className="border-slate-800 bg-slate-900/80" onClick={() => addToCart({
+                    productId: selectedProduct.product_id,
+                    productName: selectedProduct.product_name,
+                    price: formatPrice(selectedProduct, discountPercent).discountedPrice,
+                    category: selectedProduct.category,
+                    licenseRequired: true,
+                  })}>
+                    <BellRing className="mr-2 h-4 w-4" />
+                    Save To Cart
+                  </Button>
                 </div>
                 <Button className="w-full bg-cyan-500 text-slate-950 hover:bg-cyan-400" disabled={isSubmittingOrder || (paymentMethod === 'wallet' && walletBalance < formatPrice(selectedProduct, discountPercent).discountedPrice)} onClick={() => void handleOrder()}>
                   {isSubmittingOrder ? 'Processing order...' : 'Create real order'}

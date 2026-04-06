@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { supabase } from '@/integrations/supabase/client';
 import { cn } from '@/lib/utils';
+import { useNavigate } from 'react-router-dom';
 
 interface IntrusionBlockerProps {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ interface ThreatIndicator {
 }
 
 const IntrusionBlocker: React.FC<IntrusionBlockerProps> = ({ children, onBlock }) => {
+  const navigate = useNavigate();
   const [blocked, setBlocked] = useState(false);
   const [blockReason, setBlockReason] = useState('');
   const [threatLevel, setThreatLevel] = useState(0);
@@ -295,7 +297,7 @@ const IntrusionBlocker: React.FC<IntrusionBlockerProps> = ({ children, onBlock }
             <Button
               variant="outline"
               className="border-red-500/50 text-red-400 hover:bg-red-500/10"
-              onClick={() => window.location.href = '/'}
+              onClick={() => navigate('/')}
             >
               Return to Home
             </Button>

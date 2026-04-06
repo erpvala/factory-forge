@@ -27,7 +27,7 @@ interface ClientSuccessSidebarProps {
 }
 
 const menuItems = [
-  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/client-success" },
   { id: "lead-manager", label: "Lead Manager", icon: Users, path: "/lead-manager" },
   { id: "task-manager", label: "Task Manager", icon: ListTodo, path: "/task-manager" },
   { id: "client-success", label: "Client Success", icon: Heart, path: "/client-success", active: true },
@@ -131,7 +131,7 @@ export const ClientSuccessSidebar = ({ userName = "Manager" }: ClientSuccessSide
 
         {/* Action Buttons */}
         <button
-          onClick={() => navigate('/dashboard')}
+          onClick={() => navigate('/client-success')}
           className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 text-sm hover:bg-slate-200 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />

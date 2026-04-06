@@ -761,6 +761,110 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ========================================
+   CONSISTENCY SYSTEM
+   ======================================== */
+
+:root {
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+
+  --text-h1: clamp(2rem, 1.5rem + 1.5vw, 3rem);
+  --text-h2: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+}
+
+body {
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+h1,
+.ui-h1 {
+  font-size: var(--text-h1);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h2,
+.ui-h2 {
+  font-size: var(--text-h2);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+p,
+.ui-body {
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+.ui-body-sm {
+  font-size: var(--text-body-sm);
+  line-height: 1.5;
+}
+
+.ui-card {
+  border-color: hsl(var(--border));
+  background: hsl(var(--card));
+  box-shadow: var(--shadow-card);
+}
+
+.ui-stack-8 > * + * {
+  margin-top: var(--space-1);
+}
+
+.ui-stack-16 > * + * {
+  margin-top: var(--space-2);
+}
+
+.ui-section {
+  padding: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .ui-section {
+    padding: var(--space-3);
+  }
+}
+
+svg.lucide {
+  stroke-width: 1.85;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ui-hover {
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+
+.ui-hover:hover {
+  transform: translateY(-1px);
+}
+
+.ui-press:active {
+  transform: scale(0.98);
+}
+
+.state-empty,
+.state-error {
+  border-radius: 12px;
+  padding: var(--space-2);
+}
+
+.state-empty {
+  border: 1px dashed hsl(var(--border));
+  background: hsl(var(--muted) / 0.35);
+}
+
+.state-error {
+  border: 1px solid hsl(var(--destructive) / 0.35);
+  background: hsl(var(--destructive) / 0.08);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -779,11 +883,10 @@ html {
 }
 
 /* ========================================
-   BUTTON CLICK FIX - CRITICAL
-   Ensures all buttons are clickable above any security overlays
+   INTERACTIVITY SAFETY
+   Keep click behavior predictable without forcing stacking contexts.
    ======================================== */
 
-/* All buttons must have pointer-events enabled and proper z-index */
 button,
 [role="button"],
 a,
@@ -792,71 +895,24 @@ textarea,
 select,
 [type="button"],
 [type="submit"],
-[type="reset"],
-.btn-premium,
-.cursor-pointer {
-  pointer-events: auto !important;
-  position: relative;
-  z-index: 1;
-  cursor: pointer;
+[type="reset"] {
+  pointer-events: auto;
 }
 
-/* Disabled buttons still have not-allowed cursor */
 button:disabled,
 [role="button"][disabled],
 .cursor-not-allowed {
-  cursor: not-allowed !important;
-  pointer-events: auto !important;
+  cursor: not-allowed;
 }
 
-/* Security overlays must NOT block clicks */
 .security-overlay,
 .protection-overlay {
   pointer-events: none !important;
 }
 
-/* Header and navigation must be above overlays */
-header,
-nav,
-.fixed-header,
-[role="navigation"],
-.sidebar,
-.header-actions {
-  position: relative;
-  z-index: 40;
-  pointer-events: auto !important;
-}
-
-/* Dialog and Modal must be clickable */
-[role="dialog"],
-[role="alertdialog"],
-.dialog-content,
-[data-radix-dialog-content],
-[data-radix-alert-dialog-content] {
-  pointer-events: auto !important;
-  z-index: 50;
-}
-
-/* Fix for any invisible overlay blocking clicks */
-body::before,
-body::after {
-  pointer-events: none !important;
-  display: none !important;
-}
-
-/* CRITICAL: Images must not block clicks on underlying UI */
 img {
-  pointer-events: none !important;
-  user-select: none !important;
-  -webkit-user-drag: none !important;
-}
-
-/* Re-enable pointer events for clickable images */
-a img,
-button img,
-[role="button"] img,
-.clickable-image {
-  pointer-events: auto !important;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* EMERGENCY: Guarantee auth/forms stay clickable even if some wrapper breaks */

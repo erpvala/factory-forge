@@ -196,7 +196,7 @@ export function SafeAssistSecurityProvider({ children }: Props) {
         violation_count: violationCount + 1
       });
       
-      navigate('/dashboard', { replace: true });
+      navigate('/safe-assist', { replace: true });
       
       // Auto-terminate after 3 violations
       if (violationCount >= 2) {

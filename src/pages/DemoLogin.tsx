@@ -153,7 +153,7 @@ const DEMO_ACCOUNTS: DemoAccount[] = [
     icon: Eye,
     color: 'from-gray-500 to-gray-700',
     description: 'Read-Only Access • Monitoring',
-    redirectPath: '/dashboard',
+    redirectPath: '/app',
     tier: 'staff',
   },
 ];

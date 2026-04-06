@@ -19,7 +19,7 @@ interface VoiceCommand {
 }
 
 const voiceCommands: VoiceCommand[] = [
-  { command: 'go to dashboard', aliases: ['open dashboard', 'show dashboard'], action: '/dashboard', description: 'Navigate to main dashboard', icon: Home },
+  { command: 'go to dashboard', aliases: ['open dashboard', 'show dashboard'], action: '/app', description: 'Navigate to main dashboard', icon: Home },
   { command: 'show leads', aliases: ['open leads', 'lead manager'], action: '/leads', description: 'Open lead management', icon: Users },
   { command: 'open wallet', aliases: ['show wallet', 'my wallet'], action: '/wallet', description: 'View wallet balance', icon: Wallet },
   { command: 'check notifications', aliases: ['show notifications', 'alerts'], action: '/notifications', description: 'View notifications', icon: Bell },

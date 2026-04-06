@@ -103,7 +103,7 @@ export const ErrorUI = ({
   showLoginButton = false,
   showSupportButton = false,
   onRetry,
-  dashboardPath = "/dashboard",
+  dashboardPath = '/app',
 }: ErrorUIProps) => {
   const navigate = useNavigate();
   const config = errorConfigs[type];
@@ -121,7 +121,7 @@ export const ErrorUI = ({
         if (onRetry) {
           onRetry();
         } else {
-          window.location.reload();
+          navigate(`${window.location.pathname}${window.location.search}${window.location.hash}`, { replace: true });
         }
       }, 3000); // Silent retry after 3 seconds
     }
@@ -137,7 +137,7 @@ export const ErrorUI = ({
     if (onRetry) {
       onRetry();
     } else {
-      window.location.reload();
+      navigate(`${window.location.pathname}${window.location.search}${window.location.hash}`, { replace: true });
     }
   };
 

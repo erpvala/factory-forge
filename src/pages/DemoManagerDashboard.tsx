@@ -198,7 +198,7 @@ const DemoManagerDashboard = () => {
           {/* Footer Actions */}
           <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-cyan-500/20 bg-slate-900/90 backdrop-blur-xl space-y-2">
             <button 
-              onClick={() => navigate('/dashboard')}
+              onClick={() => navigate('/demo-manager')}
               className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-slate-400 hover:text-cyan-400 hover:bg-slate-800/50 transition-all"
             >
               <ArrowLeft className="w-4 h-4" />

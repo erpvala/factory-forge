@@ -22,10 +22,10 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 const menuItems = [
-  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
+  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard, path: "/rnd" },
   { id: "lead-manager", label: "Lead Manager", icon: Users, path: "/lead-manager" },
   { id: "task-manager", label: "Task Manager", icon: ListTodo, path: "/task-manager" },
-  { id: "rnd", label: "R&D Department", icon: Lightbulb, path: "/rnd-dashboard", active: true },
+  { id: "rnd", label: "R&D Department", icon: Lightbulb, path: "/rnd", active: true },
   { id: "wallet", label: "Wallet", icon: Wallet, path: "/wallet" },
   { id: "demo", label: "Demo Manager", icon: PlayCircle, path: "/demo-manager" },
   { id: "notifications", label: "Notifications", icon: Bell, path: "/notifications", badge: 5 },
@@ -125,7 +125,7 @@ export const RnDSidebar = () => {
           variant="ghost"
           size="sm"
           className="w-full text-slate-400 hover:text-violet-300 hover:bg-violet-500/10"
-          onClick={() => navigate('/dashboard')}
+          onClick={() => navigate('/rnd')}
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Dashboard

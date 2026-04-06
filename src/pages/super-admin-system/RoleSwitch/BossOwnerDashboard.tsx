@@ -402,6 +402,11 @@ const BossOwnerDashboard = ({ activeNav }: Props) => {
 
   const totalPendingApprovals = approvals.resellers.length + approvals.franchises.length + approvals.influencers.length + approvals.jobApplications.length;
 
+  const softRefreshCurrentRoute = () => {
+    window.history.replaceState({}, '', `${window.location.pathname}${window.location.search}`);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+  };
+
   // If module is selected, show module container with back button
   if (activeNav && activeNav in modules) {
     switch (modules[activeNav]) {
@@ -411,7 +416,8 @@ const BossOwnerDashboard = ({ activeNav }: Props) => {
         // CRITICAL NAV RULE:
         // VALA AI must be its own isolated module with a full UI reload and its OWN sidebar.
         // So when Boss selects VALA AI from the Boss dashboard, we hard-navigate to the VALA AI role route.
-        window.location.assign('/super-admin-system/role-switch?role=vala_ai_management');
+        window.history.pushState({}, '', '/super-admin-system/role-switch?role=vala_ai_management');
+        window.dispatchEvent(new PopStateEvent('popstate'));
         return null;
       case 'product-demo':
         return <ProductDemoModuleContainer onBack={goBack} />;
@@ -517,7 +523,7 @@ const BossOwnerDashboard = ({ activeNav }: Props) => {
                 size="sm" 
                 variant="outline" 
                 className="h-8 text-xs border-white/50 text-white hover:bg-white/10"
-                onClick={() => window.location.reload()}
+                onClick={softRefreshCurrentRoute}
               >
                 <RefreshCw size={12} className="mr-1" /> Refresh
               </Button>
@@ -681,7 +687,7 @@ const BossOwnerDashboard = ({ activeNav }: Props) => {
             <Badge className={totalPendingApprovals > 0 ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/50' : STATUS_COLORS['active']}>
               ⏰ {totalPendingApprovals} Waiting
             </Badge>
-            <Button size="sm" variant="outline" className="h-7 text-xs border-emerald-500/30 hover:bg-emerald-500/10" onClick={() => window.location.reload()}>
+            <Button size="sm" variant="outline" className="h-7 text-xs border-emerald-500/30 hover:bg-emerald-500/10" onClick={softRefreshCurrentRoute}>
               <RefreshCw size={12} className="mr-1" /> Refresh
             </Button>
           </div>

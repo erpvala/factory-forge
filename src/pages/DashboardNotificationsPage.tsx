@@ -102,7 +102,7 @@ const DashboardNotificationsPage = () => {
                             size="sm"
                             onClick={() => {
                               void markAsRead(notification.id);
-                              navigate(notification.actionUrl!);
+                              navigate(notification.actionUrl);
                             }}
                             className="bg-cyan-600 hover:bg-cyan-500"
                           >

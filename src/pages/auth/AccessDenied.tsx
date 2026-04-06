@@ -167,7 +167,7 @@ const AccessDenied = () => {
 
           <CardFooter className="flex flex-col gap-3">
             {user ? (
-              <Button onClick={() => navigate('/dashboard')} className="w-full gap-2">
+              <Button onClick={() => navigate('/app')} className="w-full gap-2">
                 <Home className="w-4 h-4" />
                 Go to My Dashboard
               </Button>

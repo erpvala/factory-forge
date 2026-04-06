@@ -65,7 +65,7 @@ export const AlertsPreview: React.FC = memo(() => {
   const navigate = useNavigate();
 
   const handleViewAll = useCallback(() => {
-    navigate('/super-admin?role=boss_owner');
+    navigate('/super-admin-system/role-switch?role=boss_owner');
   }, [navigate]);
 
   return (

@@ -139,7 +139,7 @@ export const useButtonAction = () => {
           break;
 
         case 'refresh':
-          window.location.reload();
+          navigate(`${window.location.pathname}${window.location.search}${window.location.hash}`, { replace: true });
           break;
 
         case 'download':

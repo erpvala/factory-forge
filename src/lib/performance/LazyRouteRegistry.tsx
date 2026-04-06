@@ -35,7 +35,6 @@ function createLazyRoute<T extends ComponentType<any>>(
 export const LazyIndex = createLazyRoute(() => import('@/pages/Index'));
 export const LazyHomepage = createLazyRoute(() => import('@/pages/Homepage'));
 export const LazyAuth = createLazyRoute(() => import('@/pages/Auth'));
-export const LazyDashboard = createLazyRoute(() => import('@/pages/Dashboard'));
 export const LazyNotFound = createLazyRoute(() => import('@/pages/NotFound'));
 
 // ============================================
@@ -51,10 +50,7 @@ export const LazyChangePassword = createLazyRoute(() => import('@/pages/auth/Cha
 export const LazyAccountSuspension = createLazyRoute(() => import('@/pages/auth/AccountSuspension'));
 export const LazyAccessDenied = createLazyRoute(() => import('@/pages/auth/AccessDenied'));
 export const LazyPendingApproval = createLazyRoute(() => import('@/pages/auth/PendingApproval'));
-export const LazyBossFortressAuth = createLazyRoute(() => import('@/pages/auth/BossFortressAuth'));
-export const LazyBossRegister = createLazyRoute(() => import('@/pages/auth/BossRegister'));
-export const LazyEasyAuth = createLazyRoute(() => import('@/pages/auth/EasyAuth'));
-export const LazyRoleBasedLogin = createLazyRoute(() => import('@/pages/auth/RoleBasedLogin'));
+
 export const LazySessionExpired = createLazyRoute(() => import('@/pages/error/SessionExpiredPage'));
 
 // ============================================
@@ -64,16 +60,13 @@ export const LazyPublicDemos = createLazyRoute(() => import('@/pages/demos/Publi
 export const LazySimpleDemoList = createLazyRoute(() => import('@/pages/SimpleDemoList'));
 export const LazySimpleDemoView = createLazyRoute(() => import('@/pages/SimpleDemoView'));
 export const LazySimpleCheckout = createLazyRoute(() => import('@/pages/SimpleCheckout'));
-export const LazyDemoAccess = createLazyRoute(() => import('@/pages/DemoAccess'));
 export const LazyDemoDirectory = createLazyRoute(() => import('@/pages/DemoDirectory'));
 export const LazyDemoLogin = createLazyRoute(() => import('@/pages/DemoLogin'));
-export const LazyDemoShowcase = createLazyRoute(() => import('@/pages/DemoShowcase'));
 export const LazyPremiumDemoShowcase = createLazyRoute(() => import('@/pages/PremiumDemoShowcase'));
 export const LazyDemoCredentials = createLazyRoute(() => import('@/pages/DemoCredentials'));
 
 // Demo Products
 export const LazyRestaurantPOSDemo = createLazyRoute(() => import('@/pages/demos/RestaurantPOSDemo'));
-export const LazySaaSPOSDemo = createLazyRoute(() => import('@/pages/saas-pos/SaaSPOSDemo'));
 export const LazySchoolERPDemo = createLazyRoute(() => import('@/pages/demos/SchoolERPDemo'));
 export const LazyHospitalHMSDemo = createLazyRoute(() => import('@/pages/demos/HospitalHMSDemo'));
 export const LazyEcommerceDemo = createLazyRoute(() => import('@/pages/demos/EcommerceStoreDemo'));
@@ -81,21 +74,16 @@ export const LazyHotelDemo = createLazyRoute(() => import('@/pages/demos/HotelBo
 export const LazyRealEstateDemo = createLazyRoute(() => import('@/pages/demos/RealEstateDemo'));
 export const LazySalesCRMDemo = createLazyRoute(() => import('@/pages/sales-crm/SalesCRMDemo'));
 export const LazySimpleHRMDemo = createLazyRoute(() => import('@/pages/simple-hrm/SimpleHRMDemo'));
-export const LazyCorporateHRMDemo = createLazyRoute(() => import('@/pages/corporate-hrm/CorporateHRMDemo'));
-export const LazySaasHRMDemo = createLazyRoute(() => import('@/pages/saas-hrm/SaasHRMDemo'));
 export const LazyRetailPOSDemo = createLazyRoute(() => import('@/pages/retail-pos/RetailPOSDemo'));
-export const LazyAccountingDemo = createLazyRoute(() => import('@/pages/accounting/AccountingDemo'));
-export const LazyProAccountingDemo = createLazyRoute(() => import('@/pages/pro-accounting/ProAccountingDemo'));
+
 
 // ============================================
 // SUPER ADMIN & MANAGEMENT ROUTES
 // ============================================
-export const LazySuperAdminCommandCenter = createLazyRoute(() => import('@/pages/super-admin/CommandCenter'));
 export const LazyLiveTracking = createLazyRoute(() => import('@/pages/super-admin/LiveTracking'));
 export const LazyRoleManager = createLazyRoute(() => import('@/pages/super-admin/RoleManager'));
 export const LazyUserManager = createLazyRoute(() => import('@/pages/super-admin/UserManager'));
 export const LazyPermissionMatrix = createLazyRoute(() => import('@/pages/super-admin/PermissionMatrix'));
-export const LazySecurityCenter = createLazyRoute(() => import('@/pages/super-admin/SecurityCenter'));
 export const LazyProductManagerPage = createLazyRoute(() => import('@/pages/super-admin/ProductManagerPage'));
 export const LazySystemAudit = createLazyRoute(() => import('@/pages/super-admin/SystemAudit'));
 export const LazyComplianceCenter = createLazyRoute(() => import('@/pages/super-admin/ComplianceCenter'));
@@ -106,9 +94,7 @@ export const LazyPrimeManager = createLazyRoute(() => import('@/pages/super-admi
 // ============================================
 export const LazyServerManagerDashboard = createLazyRoute(() => import('@/pages/server-manager/ServerManagerDashboard'));
 export const LazySecurityCommandCenter = createLazyRoute(() => import('@/pages/security-command/SecurityCommandCenter'));
-export const LazyAPIManagerDashboard = createLazyRoute(() => import('@/pages/api-manager/APIManagerDashboard'));
 export const LazyMarketingManagerDashboard = createLazyRoute(() => import('@/pages/marketing-manager/MarketingManagerDashboard'));
-export const LazySEOManagerDashboard = createLazyRoute(() => import('@/pages/seo-manager/SEOManagerDashboard'));
 export const LazyLegalManagerDashboard = createLazyRoute(() => import('@/pages/legal-manager/LegalManagerDashboard'));
 
 // Secure Manager Dashboards
@@ -116,7 +102,6 @@ export const LazySecureDevManagerDashboard = createLazyRoute(() => import('@/pag
 export const LazySecureHRManagerDashboard = createLazyRoute(() => import('@/pages/hr-manager/SecureHRManagerDashboard'));
 export const LazySecureTaskManagerDashboard = createLazyRoute(() => import('@/pages/task-manager/SecureTaskManagerDashboard'));
 export const LazySecureLegalManagerDashboard = createLazyRoute(() => import('@/pages/legal-manager/SecureLegalManagerDashboard'));
-export const LazySecureProManagerDashboard = createLazyRoute(() => import('@/pages/pro-manager/SecureProManagerDashboard'));
 export const LazySecureLeadManagerDashboard = createLazyRoute(() => import('@/pages/lead-manager/SecureLeadManagerDashboard'));
 export const LazySecureMarketingManagerDashboard = createLazyRoute(() => import('@/pages/marketing-manager/SecureMarketingManagerDashboard'));
 export const LazySecureInfluencerManagerDashboard = createLazyRoute(() => import('@/pages/influencer-manager/SecureInfluencerManagerDashboard'));
@@ -128,7 +113,6 @@ export const LazySecureSalesSupportManagerDashboard = createLazyRoute(() => impo
 // ============================================
 // MASTER ADMIN & CONTROL
 // ============================================
-export const LazyMasterAdminDashboard = createLazyRoute(() => import('@/pages/master-admin/MasterAdminDashboard'));
 export const LazyMasterControlCenter = createLazyRoute(() => import('@/pages/master-control/MasterControlCenter'));
 export const LazyMasterAdminSupreme = createLazyRoute(() => import('@/pages/master-admin-supreme/MasterAdminSupreme'));
 export const LazySoftwareWalaOwnerDashboard = createLazyRoute(() => import('@/pages/owner/SoftwareWalaOwnerDashboard'));
@@ -154,7 +138,6 @@ export const LazyFranchiseProfile = createLazyRoute(() => import('@/pages/franch
 export const LazyFranchiseWalletPage = createLazyRoute(() => import('@/pages/franchise/Wallet'));
 export const LazyFranchiseManagement = createLazyRoute(() => import('@/pages/FranchiseManagement'));
 export const LazyFranchiseLanding = createLazyRoute(() => import('@/pages/FranchiseLanding'));
-export const LazyFranchiseDashboard = createLazyRoute(() => import('@/pages/FranchiseDashboard'));
 
 // ============================================
 // ROLE DASHBOARDS
@@ -162,7 +145,6 @@ export const LazyFranchiseDashboard = createLazyRoute(() => import('@/pages/Fran
 export const LazyResellerLanding = createLazyRoute(() => import('@/pages/ResellerLanding'));
 export const LazyResellerDashboard = createLazyRoute(() => import('@/pages/ResellerDashboard'));
 export const LazyResellerPortal = createLazyRoute(() => import('@/pages/ResellerPortal'));
-export const LazyDeveloperDashboard = createLazyRoute(() => import('@/pages/DeveloperDashboard'));
 export const LazyDevCommandCenter = createLazyRoute(() => import('@/pages/DevCommandCenter'));
 export const LazyInfluencerDashboard = createLazyRoute(() => import('@/pages/InfluencerDashboard'));
 export const LazyInfluencerManager = createLazyRoute(() => import('@/pages/InfluencerManager'));
@@ -178,14 +160,11 @@ export const LazyPerformanceManager = createLazyRoute(() => import('@/pages/Perf
 export const LazyFinanceManager = createLazyRoute(() => import('@/pages/FinanceManager'));
 export const LazyProductDemoManager = createLazyRoute(() => import('@/pages/ProductDemoManager'));
 export const LazyDemoManagerDashboard = createLazyRoute(() => import('@/pages/DemoManagerDashboard'));
-export const LazyPrimeUserDashboard = createLazyRoute(() => import('@/pages/PrimeUserDashboard'));
 export const LazyLegalComplianceManager = createLazyRoute(() => import('@/pages/LegalComplianceManager'));
 export const LazyMarketingManager = createLazyRoute(() => import('@/pages/MarketingManager'));
 export const LazySalesSupportDashboard = createLazyRoute(() => import('@/pages/SalesSupportDashboard'));
-export const LazyHRDashboard = createLazyRoute(() => import('@/pages/HRDashboard'));
 export const LazyClientPortal = createLazyRoute(() => import('@/pages/ClientPortal'));
 export const LazyUserDashboard = createLazyRoute(() => import('@/pages/user/UserDashboard'));
-export const LazySimpleUserDashboard = createLazyRoute(() => import('@/pages/SimpleUserDashboard'));
 
 // ============================================
 // AI & SYSTEM
@@ -202,7 +181,6 @@ export const LazySettings = createLazyRoute(() => import('@/pages/Settings'));
 export const LazySystemSettings = createLazyRoute(() => import('@/pages/SystemSettings'));
 export const LazyNotificationBuzzerConsole = createLazyRoute(() => import('@/pages/NotificationBuzzerConsole'));
 export const LazyAPIIntegrationDashboard = createLazyRoute(() => import('@/pages/APIIntegrationDashboard'));
-export const LazyApplyPortal = createLazyRoute(() => import('@/pages/ApplyPortal'));
 export const LazyCareerPortal = createLazyRoute(() => import('@/pages/CareerPortal'));
 export const LazyInternalChat = createLazyRoute(() => import('@/pages/InternalChat'));
 export const LazyPersonalChat = createLazyRoute(() => import('@/pages/PersonalChat'));
@@ -232,8 +210,6 @@ export const LazySuperAdminAudit = createLazyRoute(() => import('@/pages/super-a
 // ============================================
 // ENTERPRISE & CONTROL
 // ============================================
-export const LazySecureControlSystem = createLazyRoute(() => import('@/pages/control-system/SecureControlSystem'));
-export const LazyMasterAdminControl = createLazyRoute(() => import('@/pages/control-system/MasterAdminControl'));
 export const LazyEnterpriseControlHub = createLazyRoute(() => import('@/pages/enterprise-control/EnterpriseControlHub'));
 export const LazyBulkUserCreation = createLazyRoute(() => import('@/pages/admin/BulkUserCreation'));
 export const LazyBulkActionsReference = createLazyRoute(() => import('@/pages/admin/BulkActionsReference'));

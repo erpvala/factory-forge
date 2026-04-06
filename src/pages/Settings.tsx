@@ -78,7 +78,7 @@ export default function SettingsPage() {
                 <p className="text-sm text-muted-foreground">Account and security</p>
               </div>
             </div>
-            <Button variant="outline" onClick={() => navigate("/dashboard")} className="gap-2">
+            <Button variant="outline" onClick={() => navigate('/app')} className="gap-2">
               <ArrowLeft className="h-4 w-4" />
               Back
             </Button>
