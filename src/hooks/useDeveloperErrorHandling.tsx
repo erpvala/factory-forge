@@ -312,7 +312,7 @@ const useDeveloperErrorHandling = (config: Partial<ErrorHandlingConfig> = {}) =>
   }, [logError, finalConfig.enableUserNotifications]);
 
   // Safe async function wrapper
-  const safeAsync = useCallback(async <T>(
+  const safeAsync = useCallback(async <T,>(
     asyncFn: () => Promise<T>,
     context?: string,
     retryKey?: string
