@@ -211,32 +211,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signIn = async (email: string, password: string) => {
     try {
-      // Call the /api/v1/auth/login Edge Function (handles rate-limiting + session)
-      const result = await apiLogin(email, password);
+      // Use Supabase auth directly
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
-      if (!result.success) {
-        throw new Error(result.error ?? 'Invalid credentials');
+      if (error) {
+        throw new Error(error.message);
       }
 
-      const { session, user: apiUser } = result.data!;
-
-      // Persist session tokens
-      if (session) {
-        saveSession(session, apiUser);
+      if (data?.user) {
+        await hydrateRoles(data.user.id);
       }
 
-      // Hydrate Supabase auth state so the rest of the app works
-      if (session?.access_token) {
-        const { data: localSession } = await supabase.auth.setSession({
-          access_token:  session.access_token,
-          refresh_token: session.refresh_token,
-        });
-        if (localSession?.user) {
-          await hydrateRoles(localSession.user.id);
-        }
-      }
-
-      const redirect = result.data?.redirect ?? getRoleRedirectPath(apiUser.role, apiUser.status);
+      // Determine redirect based on role
+      const redirect = getRoleDashboardRoute(userRole);
       return { error: null, redirect };
     } catch (error) {
       return { error: error as Error };
