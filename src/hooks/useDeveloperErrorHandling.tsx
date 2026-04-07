@@ -365,7 +365,7 @@ const useDeveloperErrorHandling = (config: Partial<ErrorHandlingConfig> = {}) =>
   }, [handleError]);
 
   // Handle null/undefined data safely
-  const safeData = useCallback(<T>(
+  const safeData = useCallback(<T,>(
     data: T | null | undefined,
     fallback: T,
     context?: string
