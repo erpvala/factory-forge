@@ -482,9 +482,12 @@ const App = () => (
               <Route path="/boss-register" element={<Navigate to={ROUTES.login} replace />} />
               <Route path="/boss/login" element={<Navigate to={ROUTES.login} replace />} />
 
-              {/* Boss Panel */}
-              <Route path={ROUTES.bossPanel} element={<BossPanel />} />
-              <Route path={`${ROUTES.bossPanel}/*`} element={<BossPanel />} />
+              {/* CONTROL PANEL — Single Source of Truth */}
+              <Route path="/control-panel" element={<RequireAuth><ControlPanelPage /></RequireAuth>} />
+
+              {/* Boss Panel legacy → Control Panel */}
+              <Route path="/boss-panel" element={<Navigate to="/control-panel?module=boss-dashboard" replace />} />
+              <Route path="/boss-panel/*" element={<Navigate to="/control-panel?module=boss-dashboard" replace />} />
 
               {/* Owner / SoftwareWala → Control Panel = Boss Panel */}
               <Route path="/owner" element={<Navigate to={ROUTES.bossPanel} replace />} />
