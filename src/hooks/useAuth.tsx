@@ -203,19 +203,30 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signIn = async (email: string, password: string) => {
     try {
-      // Use Supabase auth directly
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
       if (error) {
         throw new Error(error.message);
       }
 
+      let redirect = '/control-panel?module=user-dashboard';
+
       if (data?.user) {
         await hydrateRoles(data.user.id);
+
+        // Query role directly to compute redirect (state not yet updated)
+        const { data: roles } = await supabase
+          .from('user_roles')
+          .select('role, approval_status')
+          .eq('user_id', data.user.id)
+          .eq('approval_status', 'approved');
+
+        if (roles && roles.length > 0) {
+          const bestRole = selectBestRole(roles.map(r => r.role as AppRole));
+          redirect = getRoleDashboardRoute(bestRole);
+        }
       }
 
-      // Determine redirect based on role
-      const redirect = getRoleDashboardRoute(userRole);
       return { error: null, redirect };
     } catch (error) {
       return { error: error as Error };
