@@ -13,7 +13,7 @@ import {
   getStoredRefreshToken,
   getRoleRedirectPath,
 } from '@/api/v1/auth';
-import { ROUTES } from '@/routes/routes';
+import { ROUTES, getRoleDashboardRoute } from '@/routes/routes';
 
 // Re-export so consuming components can use it directly
 export { getRoleRedirectPath } from '@/api/v1/auth';
