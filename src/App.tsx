@@ -509,30 +509,19 @@ const App = () => (
               <Route path="/area-manager" element={<Navigate to={ROUTES.bossPanel} replace />} />
               <Route path="/area-manager/*" element={<Navigate to={ROUTES.bossPanel} replace />} />
 
-              {/* Server Manager Routes */}
-              <Route path="/server-manager" element={<RequireRole allowed={["boss_owner", "server_manager"]}><ServerManagerDashboard /></RequireRole>} />
-              <Route path="/server-manager/*" element={<RequireRole allowed={["boss_owner", "server_manager"]}><ServerManagerDashboard /></RequireRole>} />
-
-              {/* Security Command Center Routes */}
-              <Route path="/security-command" element={<RequireRole allowed={["boss_owner"]}><SecurityCommandCenter /></RequireRole>} />
-              <Route path="/security-command/*" element={<RequireRole allowed={["boss_owner"]}><SecurityCommandCenter /></RequireRole>} />
-
-              {/* API / AI Manager Routes */}
-              <Route path="/api-manager" element={<RequireRole allowed={["boss_owner", "ai_manager"]}><CentralIntegrationHub /></RequireRole>} />
-              <Route path="/api-manager/*" element={<RequireRole allowed={["boss_owner", "ai_manager"]}><CentralIntegrationHub /></RequireRole>} />
-
-              {/* Marketing Manager Routes */}
-              <Route path="/marketing-manager" element={<RequireRole allowed={["boss_owner", "marketing_manager"]}><MarketingManagerDashboard /></RequireRole>} />
-              <Route path="/marketing-manager/*" element={<RequireRole allowed={["boss_owner", "marketing_manager"]}><MarketingManagerDashboard /></RequireRole>} />
-
-
-              {/* SEO Manager Routes */}
-              <Route path="/seo-manager" element={<RequireRole allowed={["boss_owner", "seo_manager"]}><SecureSEOManagerDashboard /></RequireRole>} />
-              <Route path="/seo-manager/*" element={<RequireRole allowed={["boss_owner", "seo_manager"]}><SecureSEOManagerDashboard /></RequireRole>} />
-
-              {/* Legal Manager Routes (enum role: legal_compliance) */}
-              <Route path="/legal-manager" element={<RequireRole allowed={["boss_owner", "legal_compliance"]}><SecureLegalManagerDashboard /></RequireRole>} />
-              <Route path="/legal-manager/*" element={<RequireRole allowed={["boss_owner", "legal_compliance"]}><SecureLegalManagerDashboard /></RequireRole>} />
+              {/* Old standalone manager routes → Control Panel */}
+              <Route path="/server-manager" element={<Navigate to="/control-panel?module=server-manager" replace />} />
+              <Route path="/server-manager/*" element={<Navigate to="/control-panel?module=server-manager" replace />} />
+              <Route path="/security-command" element={<Navigate to="/control-panel?module=security-manager" replace />} />
+              <Route path="/security-command/*" element={<Navigate to="/control-panel?module=security-manager" replace />} />
+              <Route path="/api-manager" element={<Navigate to="/control-panel?module=ai-api-manager" replace />} />
+              <Route path="/api-manager/*" element={<Navigate to="/control-panel?module=ai-api-manager" replace />} />
+              <Route path="/marketing-manager" element={<Navigate to="/control-panel?module=marketing-manager" replace />} />
+              <Route path="/marketing-manager/*" element={<Navigate to="/control-panel?module=marketing-manager" replace />} />
+              <Route path="/seo-manager" element={<Navigate to="/control-panel?module=seo-manager" replace />} />
+              <Route path="/seo-manager/*" element={<Navigate to="/control-panel?module=seo-manager" replace />} />
+              <Route path="/legal-manager" element={<Navigate to="/control-panel?module=legal-manager" replace />} />
+              <Route path="/legal-manager/*" element={<Navigate to="/control-panel?module=legal-manager" replace />} />
 
               {/* AI CEO Routes - Autonomous Intelligence Observer */}
               <Route path="/ai-ceo" element={<RequireRole allowed={["boss_owner", "ceo"]}><AICEODashboard /></RequireRole>}>
