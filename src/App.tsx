@@ -91,7 +91,8 @@ const MarketplaceCartPage    = lazy(() => import("@/pages/MarketplaceCartPage"))
 const MarketplaceCheckoutPage = lazy(() => import("@/pages/MarketplaceCheckoutPage"));
 const MarketplaceManagerDashboard = lazy(() => import("@/pages/MarketplaceManagerDashboard"));
 
-// Boss / Admin dashboards
+// Boss / Admin dashboards — Control Panel is the single source of truth
+const ControlPanelPage      = lazy(() => import("@/pages/control-panel/ControlPanelPage"));
 const BossPanel             = lazy(() => import("@/pages/BossPanel"));
 const BootstrapAdmins       = lazy(() => import("@/pages/admin/BootstrapAdmins"));
 const SecurityCommandCenter = lazy(() => import("@/pages/security-command/SecurityCommandCenter"));
