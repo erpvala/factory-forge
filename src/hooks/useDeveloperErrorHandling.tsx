@@ -312,7 +312,7 @@ const useDeveloperErrorHandling = (config: Partial<ErrorHandlingConfig> = {}) =>
   }, [logError, finalConfig.enableUserNotifications]);
 
   // Safe async function wrapper
-  const safeAsync = useCallback(async <T>(
+  const safeAsync = useCallback(async <T,>(
     asyncFn: () => Promise<T>,
     context?: string,
     retryKey?: string
@@ -351,7 +351,7 @@ const useDeveloperErrorHandling = (config: Partial<ErrorHandlingConfig> = {}) =>
   }, [handleError, finalConfig.enableAutoRetry, finalConfig.maxRetries, finalConfig.retryDelay, retryCount]);
 
   // Safe function wrapper for synchronous operations
-  const safeSync = useCallback(<T>(
+  const safeSync = useCallback(<T,>(
     fn: () => T,
     context?: string
   ): { success: boolean; data?: T; error?: AppError } => {
@@ -365,7 +365,7 @@ const useDeveloperErrorHandling = (config: Partial<ErrorHandlingConfig> = {}) =>
   }, [handleError]);
 
   // Handle null/undefined data safely
-  const safeData = useCallback(<T>(
+  const safeData = useCallback(<T,>(
     data: T | null | undefined,
     fallback: T,
     context?: string
