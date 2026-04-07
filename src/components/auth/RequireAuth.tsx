@@ -10,7 +10,7 @@ type RequireAuthProps = {
 
 const RequireAuth = forwardRef<HTMLDivElement, RequireAuthProps>(
   ({ children }, ref) => {
-    const { user, session, loading, approvalStatus } = useAuth();
+    const { user, session, loading, approvalStatus, userRole } = useAuth();
     const location = useLocation();
 
     if (loading) {
@@ -26,8 +26,16 @@ const RequireAuth = forwardRef<HTMLDivElement, RequireAuthProps>(
       return <Navigate to={`/login?reason=expired&redirect=${encodeURIComponent(redirect)}`} replace />;
     }
 
-    // Hard gate: pending/rejected users cannot access protected app routes.
-    if (approvalStatus === 'pending' || approvalStatus === null) {
+    // Wait for role hydration before gating
+    if (approvalStatus === null && !userRole) {
+      return (
+        <div ref={ref} className="min-h-screen bg-background flex items-center justify-center">
+          <Loader2 className="w-10 h-10 animate-spin text-primary" />
+        </div>
+      );
+    }
+
+    if (approvalStatus === 'pending') {
       return <Navigate to="/dashboard/pending" replace />;
     }
 
