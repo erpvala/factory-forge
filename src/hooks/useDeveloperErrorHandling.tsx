@@ -351,7 +351,7 @@ const useDeveloperErrorHandling = (config: Partial<ErrorHandlingConfig> = {}) =>
   }, [handleError, finalConfig.enableAutoRetry, finalConfig.maxRetries, finalConfig.retryDelay, retryCount]);
 
   // Safe function wrapper for synchronous operations
-  const safeSync = useCallback(<T>(
+  const safeSync = useCallback(<T,>(
     fn: () => T,
     context?: string
   ): { success: boolean; data?: T; error?: AppError } => {
