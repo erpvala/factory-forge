@@ -120,6 +120,19 @@ export type DevOrder = {
   notes?: string;
 };
 
+export type UserLicense = {
+  id: string;
+  license_key?: string | null;
+  product_id?: string | null;
+  license_type?: string | null;
+  status?: string | null;
+  expires_at?: string | null;
+  max_installations?: number | null;
+  current_installations?: number | null;
+  access_url?: string | null;
+  product_url?: string | null;
+};
+
 export type Wallet = {
   balance_cents: number;
   currency?: string;
@@ -154,6 +167,21 @@ const SAMPLE_DEVORDERS: DevOrder[] = [
   },
 ];
 
+const SAMPLE_LICENSES: UserLicense[] = [
+  {
+    id: 'LIC-2024-001',
+    license_key: 'SVALA-XXXX-XXXX-XXXX',
+    product_id: 'crm-pro-suite',
+    license_type: 'lifetime',
+    status: 'active',
+    expires_at: null,
+    max_installations: 3,
+    current_installations: 1,
+    access_url: null,
+    product_url: null,
+  },
+];
+
 const SAMPLE_WALLET: Wallet = {
   balance_cents: 4523000,
   currency: 'INR',
@@ -177,6 +205,26 @@ const SAMPLE_TRANSACTIONS: Transaction[] = [
 /* ---- Service methods ---- */
 
 export const marketplaceEnterpriseService = {
+  /**
+   * Fetch licenses for the authenticated user.
+   * user_id is intentionally omitted from the API call – the server derives it from the auth session.
+   */
+  async getUserLicenses(_userId?: string): Promise<UserLicense[] | { data: UserLicense[]; error?: unknown }> {
+    try {
+      const res = await apiFetch<UserLicense[]>(`/api/marketplace/licenses`, {
+        method: 'GET',
+        retries: 2,
+      });
+      return res;
+    } catch (err) {
+      if (MOCKS_ENABLED) {
+        warnMockMode('getUserLicenses');
+        return SAMPLE_LICENSES.map((l) => ({ ...l, isMock: true } as any));
+      }
+      rejectWithBackendError('getUserLicenses', err);
+    }
+  },
+
   /**
    * Fetch development orders for the authenticated user.
    * user_id is intentionally omitted – the server derives it from the auth session.
