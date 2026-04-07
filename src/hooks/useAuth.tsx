@@ -178,32 +178,24 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signUp = async (email: string, password: string, role: AppRole, fullName: string) => {
     try {
-      // Call the /api/v1/auth/register Edge Function
-      const result = await apiRegister(fullName, email, password, role);
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: { full_name: fullName, requested_role: role } },
+      });
 
-      if (!result.success) {
-        throw new Error(result.error ?? 'Registration failed');
-      }
+      if (error) throw new Error(error.message);
 
-      const { session, user: apiUser } = result.data!;
-
-      // Persist session tokens
-      if (session) {
-        saveSession(session, apiUser);
-      }
-
-      // Hydrate Supabase auth state (sign in locally so Supabase client is aware)
-      if (session?.access_token) {
-        const { data: localSession } = await supabase.auth.setSession({
-          access_token:  session.access_token,
-          refresh_token: session.refresh_token,
+      if (data?.user) {
+        // Create role request for approval
+        await supabase.from('role_requests').insert({
+          user_id: data.user.id,
+          requested_role: role,
+          status: 'pending',
         });
-        if (localSession?.user) {
-          await hydrateRoles(localSession.user.id);
-        }
       }
 
-      return { error: null, redirect: result.data?.redirect ?? ROUTES.dashboardPending };
+      return { error: null, redirect: ROUTES.dashboardPending };
     } catch (error) {
       return { error: error as Error };
     }
