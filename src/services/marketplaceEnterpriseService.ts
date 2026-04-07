@@ -131,6 +131,8 @@ export type UserLicense = {
   current_installations?: number | null;
   access_url?: string | null;
   product_url?: string | null;
+  /** Set to true only in mock/dev mode – never present in real API responses. */
+  isMock?: boolean;
 };
 
 export type Wallet = {
@@ -209,7 +211,7 @@ export const marketplaceEnterpriseService = {
    * Fetch licenses for the authenticated user.
    * user_id is intentionally omitted from the API call – the server derives it from the auth session.
    */
-  async getUserLicenses(_userId?: string): Promise<UserLicense[] | { data: UserLicense[]; error?: unknown }> {
+  async getUserLicenses(_userId?: string): Promise<UserLicense[]> {
     try {
       const res = await apiFetch<UserLicense[]>(`/api/marketplace/licenses`, {
         method: 'GET',
@@ -219,7 +221,7 @@ export const marketplaceEnterpriseService = {
     } catch (err) {
       if (MOCKS_ENABLED) {
         warnMockMode('getUserLicenses');
-        return SAMPLE_LICENSES.map((l) => ({ ...l, isMock: true } as any));
+        return SAMPLE_LICENSES.map((l) => ({ ...l, isMock: true }));
       }
       rejectWithBackendError('getUserLicenses', err);
     }
