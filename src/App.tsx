@@ -482,6 +482,7 @@ const App = () => (
               <Route path="/boss/login" element={<Navigate to={ROUTES.login} replace />} />
 
               {/* Boss Panel */}
+              <Route path="/control-panel" element={<Navigate to={ROUTES.bossPanel} replace />} />
               <Route path={ROUTES.bossPanel} element={<BossPanel />} />
               <Route path={`${ROUTES.bossPanel}/*`} element={<BossPanel />} />
 

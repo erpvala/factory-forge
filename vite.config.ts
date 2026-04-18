@@ -1,4 +1,4 @@
-import { defineConfig, splitVendorChunkPlugin, loadEnv } from "vite";
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
@@ -35,8 +35,6 @@ export default defineConfig(({ mode }) => {
 
   plugins: [
     react(),
-    // Automatically splits vendor chunk from app chunk
-    splitVendorChunkPlugin(),
   ],
 
   resolve: {
@@ -58,53 +56,6 @@ export default defineConfig(({ mode }) => {
     minify: "esbuild",
     rollupOptions: {
       output: {
-        // Manual chunk splitting — keeps bundles small & cacheable
-        manualChunks(id) {
-          // Core React runtime — always cached
-          if (id.includes("node_modules/react") || id.includes("node_modules/react-dom")) {
-            return "react-core";
-          }
-          // Router
-          if (id.includes("node_modules/react-router")) {
-            return "router";
-          }
-          // Radix UI component library
-          if (id.includes("node_modules/@radix-ui")) {
-            return "radix";
-          }
-          // Supabase client
-          if (id.includes("node_modules/@supabase")) {
-            return "supabase";
-          }
-          // TanStack Query
-          if (id.includes("node_modules/@tanstack")) {
-            return "tanstack";
-          }
-          // Framer Motion
-          if (id.includes("node_modules/framer-motion")) {
-            return "framer";
-          }
-          // Tailwind CSS / clsx utils
-          if (id.includes("node_modules/tailwind") || id.includes("node_modules/clsx") || id.includes("node_modules/class-variance")) {
-            return "css-utils";
-          }
-          // Lucide icons — large bundle, split separately
-          if (id.includes("node_modules/lucide-react")) {
-            return "icons";
-          }
-          // Zustand state management
-          if (id.includes("node_modules/zustand")) {
-            return "state";
-          }
-          // Recharts / charting
-          if (id.includes("node_modules/recharts") || id.includes("node_modules/d3")) {
-            return "charts";
-          }
-          // All remaining node_modules grouped as vendor
-          if (id.includes("node_modules")) {
-            return "vendor";
-          }
-        },
         // Content-hash filenames for long-term caching
         chunkFileNames: `assets/js/[name]-${buildStamp}-[hash].js`,
         entryFileNames: `assets/js/[name]-${buildStamp}-[hash].js`,

@@ -30,6 +30,8 @@ export const APPROVED_ROUTE_PREFIXES = [
   '/otp-verify',
   '/logout',
   '/access-denied',
+  '/control-panel',
+  '/boss-panel',
   '/dashboard',
   '/settings',
   '/profile',
