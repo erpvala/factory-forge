@@ -44,6 +44,8 @@ export const APPROVED_ROUTE_PREFIXES = [
   '/products',
   '/pricing',
   '/showcase',
+  '/boss-panel',
+  '/control-panel',
   '/server-portal',
   '/boss',
   '/ceo',

@@ -13,7 +13,7 @@ import {
   getStoredRefreshToken,
   getRoleRedirectPath,
 } from '@/api/v1/auth';
-import { ROUTES } from '@/routes/routes';
+import { ROUTES, getRoleDashboardRoute } from '@/routes/routes';
 
 // Re-export so consuming components can use it directly
 export { getRoleRedirectPath } from '@/api/v1/auth';
@@ -178,32 +178,24 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signUp = async (email: string, password: string, role: AppRole, fullName: string) => {
     try {
-      // Call the /api/v1/auth/register Edge Function
-      const result = await apiRegister(fullName, email, password, role);
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: { full_name: fullName, requested_role: role } },
+      });
 
-      if (!result.success) {
-        throw new Error(result.error ?? 'Registration failed');
-      }
+      if (error) throw new Error(error.message);
 
-      const { session, user: apiUser } = result.data!;
-
-      // Persist session tokens
-      if (session) {
-        saveSession(session, apiUser);
-      }
-
-      // Hydrate Supabase auth state (sign in locally so Supabase client is aware)
-      if (session?.access_token) {
-        const { data: localSession } = await supabase.auth.setSession({
-          access_token:  session.access_token,
-          refresh_token: session.refresh_token,
+      if (data?.user) {
+        // Create role request for approval
+        await supabase.from('role_requests').insert({
+          user_id: data.user.id,
+          requested_role: role,
+          status: 'pending',
         });
-        if (localSession?.user) {
-          await hydrateRoles(localSession.user.id);
-        }
       }
 
-      return { error: null, redirect: result.data?.redirect ?? ROUTES.dashboardPending };
+      return { error: null, redirect: ROUTES.dashboardPending };
     } catch (error) {
       return { error: error as Error };
     }
@@ -211,32 +203,30 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signIn = async (email: string, password: string) => {
     try {
-      // Call the /api/v1/auth/login Edge Function (handles rate-limiting + session)
-      const result = await apiLogin(email, password);
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
-      if (!result.success) {
-        throw new Error(result.error ?? 'Invalid credentials');
+      if (error) {
+        throw new Error(error.message);
       }
 
-      const { session, user: apiUser } = result.data!;
+      let redirect = '/control-panel?module=user-dashboard';
 
-      // Persist session tokens
-      if (session) {
-        saveSession(session, apiUser);
-      }
+      if (data?.user) {
+        await hydrateRoles(data.user.id);
 
-      // Hydrate Supabase auth state so the rest of the app works
-      if (session?.access_token) {
-        const { data: localSession } = await supabase.auth.setSession({
-          access_token:  session.access_token,
-          refresh_token: session.refresh_token,
-        });
-        if (localSession?.user) {
-          await hydrateRoles(localSession.user.id);
+        // Query role directly to compute redirect (state not yet updated)
+        const { data: roles } = await supabase
+          .from('user_roles')
+          .select('role, approval_status')
+          .eq('user_id', data.user.id)
+          .eq('approval_status', 'approved');
+
+        if (roles && roles.length > 0) {
+          const bestRole = selectBestRole(roles.map(r => r.role as AppRole));
+          redirect = getRoleDashboardRoute(bestRole);
         }
       }
 
-      const redirect = result.data?.redirect ?? getRoleRedirectPath(apiUser.role, apiUser.status);
       return { error: null, redirect };
     } catch (error) {
       return { error: error as Error };
