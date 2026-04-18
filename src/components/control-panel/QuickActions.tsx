@@ -10,6 +10,7 @@ import { Play, Pause, StopCircle, Lock, AlertTriangle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { toast } from 'sonner';
+import { runControlPanelAction } from '@/hooks/useControlPanelHub';
 
 interface QuickAction {
   id: string;
@@ -53,11 +54,19 @@ const ActionButton = memo<{ action: QuickAction; onClick: () => void }>(({ actio
 ActionButton.displayName = 'ActionButton';
 
 export const QuickActions: React.FC = memo(() => {
-  const handleAction = useCallback((action: QuickAction) => {
-    toast.success(`${action.label} action triggered`, {
-      description: 'Processing your request...',
-      duration: 2000,
-    });
+  const handleAction = useCallback(async (action: QuickAction) => {
+    try {
+      const result = await runControlPanelAction(action.id, { label: action.label });
+      toast.success(`${action.label} action ${result.status}`, {
+        description: 'Control panel action recorded and hooks triggered.',
+        duration: 2000,
+      });
+    } catch (error) {
+      toast.error(`${action.label} failed`, {
+        description: error instanceof Error ? error.message : 'Unable to run control panel action.',
+        duration: 2500,
+      });
+    }
   }, []);
 
   return (

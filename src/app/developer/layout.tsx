@@ -188,9 +188,9 @@ const DeveloperLayout: React.FC<DeveloperLayoutProps> = ({ children }) => {
   const navigation = [
     {
       name: 'Dashboard',
-      href: '/developer/dashboard',
+      href: '/control-panel/developer-dashboard',
       icon: LayoutDashboard,
-      current: isRouteActive('/developer/dashboard')
+      current: isRouteActive('/control-panel/developer-dashboard')
     },
     {
       name: 'Projects',
@@ -291,6 +291,7 @@ const DeveloperLayout: React.FC<DeveloperLayoutProps> = ({ children }) => {
                 <Link
                   key={item.name}
                   href={item.href}
+                  prefetch={false}
                   className={`
                     flex items-center space-x-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors
                     ${item.current

@@ -417,7 +417,7 @@ const SecureChatHub = () => {
               className="text-rose-400 hover:text-rose-300 hover:bg-rose-500/10"
             >
               <Crown className="w-4 h-4 mr-1" />
-              Admin Panel
+              Control Panel
             </Button>
           )}
           
@@ -671,7 +671,7 @@ const SecureChatHub = () => {
             <div className="space-y-1">
               <Button variant="ghost" size="sm" className="w-full justify-start text-xs text-slate-400 hover:text-amber-400">
                 <ArrowUpRight className="w-3 h-3 mr-2" />
-                Escalate to Admin
+                Escalate to Control Panel
               </Button>
               <Button variant="ghost" size="sm" className="w-full justify-start text-xs text-slate-400 hover:text-red-400">
                 <AlertTriangle className="w-3 h-3 mr-2" />
@@ -682,7 +682,7 @@ const SecureChatHub = () => {
         </div>
       </div>
 
-      {/* Boss Owner Panel */}
+      {/* Boss Owner Control Panel */}
       <AnimatePresence>
         {showSuperAdminPanel && isBossOwner && (
           <motion.div
@@ -696,7 +696,7 @@ const SecureChatHub = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Crown className="w-5 h-5 text-rose-400" />
-                  <h3 className="font-bold text-white">Super Admin Panel</h3>
+                  <h3 className="font-bold text-white">Control Panel</h3>
                 </div>
                 <Button variant="ghost" size="icon" onClick={() => setShowSuperAdminPanel(false)}>
                   <X className="w-4 h-4 text-slate-400" />

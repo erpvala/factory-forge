@@ -42,7 +42,6 @@ export const useResellerManagerAuth = () => {
     blocked: [
       '/super-admin',
       '/admin',
-      '/boss-panel',
       '/franchise-manager',
       '/lead-manager',
       '/task-manager',

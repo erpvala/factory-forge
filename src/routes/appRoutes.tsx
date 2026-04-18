@@ -27,7 +27,6 @@ import FranchiseDashboardPage from '@/pages/franchise/Dashboard';
 import FranchiseLayout from '@/components/layouts/FranchiseLayout';
 import InfluencerDashboard from '@/pages/InfluencerDashboard';
 import SecureDeveloperDashboard from '@/pages/developer/SecureDeveloperDashboard';
-import UserDashboard from '@/pages/user/UserDashboard';
 
 // ─── Additional role-specific dashboards ──────────────────────────────────────
 import SecureHRManagerDashboard from '@/pages/hr-manager/SecureHRManagerDashboard';
@@ -75,7 +74,7 @@ const FranchiseModule: React.FC = () => (
  *   /app/reseller/*         → ResellerDashboard         (reseller+)
  *   /app/influencer/*       → InfluencerDashboard       (influencer+)
  *   /app/developer/*        → SecureDeveloperDashboard  (developer+)
- *   /app/user/*             → UserDashboard             (user+)
+ *   /app/user/*             → Redirect to /control-panel (user+)
  */
 export function AppRoutes() {
   return (
@@ -275,7 +274,7 @@ export function AppRoutes() {
           path="reseller/*"
           element={
             <ModuleGuard moduleId="reseller">
-              <Navigate to="/reseller/dashboard" replace />
+              <Navigate to={ROUTES.resellerDashboard} replace />
             </ModuleGuard>
           }
         />
@@ -300,12 +299,12 @@ export function AppRoutes() {
           }
         />
 
-        {/* User Dashboard */}
+        {/* User route deprecated - force canonical control panel */}
         <Route
           path="user/*"
           element={
             <ModuleGuard moduleId="user">
-              <UserDashboard />
+              <Navigate to={ROUTES.controlPanelBase} replace />
             </ModuleGuard>
           }
         />

@@ -1,0 +1,8 @@
+{
+  "findings": [
+    "src/app/reseller/settings/page.tsx:forbidden_sensitive_log_pattern",
+    "src/components/security/LegacyRuntimeGuard.tsx:forbidden_sensitive_log_pattern",
+    "src/hooks/useZeroTrust.ts:forbidden_sensitive_log_pattern",
+    "src/lib/api/apiService.ts:forbidden_sensitive_log_pattern"
+  ]
+}

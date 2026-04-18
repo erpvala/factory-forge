@@ -92,7 +92,7 @@ const templateOptions = [
   { key: 'apk', label: 'APK Mobile Template' },
 ];
 
-const defaultPrompt = 'Build an APK-ready multi-role business app with login, JWT, 2FA, CRUD, admin panel, payments, approvals, tests, deployment, license locks, reporting, and backup.';
+const defaultPrompt = 'Build an APK-ready multi-role business app with login, JWT, 2FA, CRUD, control panel, payments, approvals, tests, deployment, license locks, reporting, and backup.';
 
 const ValaAICommandCenter: React.FC = () => {
   const [searchParams] = useSearchParams();

@@ -152,7 +152,7 @@ const DeveloperErrorBoundary: React.FC<ErrorBoundaryProps> = ({
               </Button>
               
               <Button 
-                onClick={() => navigate('/developer/dashboard')} 
+                onClick={() => navigate('/control-panel/developer-dashboard')} 
                 className="w-full"
                 variant="outline"
               >

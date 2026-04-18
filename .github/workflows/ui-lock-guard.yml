@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: '0 3 * * *'
+    - cron: '0 4 * * 0'
 
 jobs:
   guard:
@@ -24,6 +27,48 @@ jobs:
       - name: Legacy Guard
         run: npm run guard:legacy
 
+      - name: Banned Token Guard
+        run: npm run guard:banned-tokens
+
+      - name: Permanent Enforcement Guard
+        run: npm run guard:permanent
+
+      - name: Module Synchronization Check
+        run: npm run guard:module-sync
+
+      - name: UI Integrity Lock
+        run: npm run guard:ui-integrity
+
+      - name: Privacy Lock
+        run: npm run guard:privacy-lock
+
+      - name: Latency Lock
+        run: npm run guard:latency-lock
+
+      - name: Cost/Profit Lock
+        run: npm run guard:cost-profit
+
+      - name: Version/Rollback Lock
+        run: npm run guard:version-rollback
+
+      - name: Billing Accuracy Lock
+        run: npm run guard:billing-accuracy
+
+      - name: Account Security Lock
+        run: npm run guard:account-security
+
+      - name: Ultra God E2E Lock Contract
+        run: npm run guard:ultra-god-e2e
+
+      - name: Backup/DR Lock
+        run: npm run guard:backup-dr
+
+      - name: Knowledge Lock
+        run: npm run guard:knowledge-lock
+
+      - name: Flow Integrity Contract Check
+        run: npm run guard:flow-integrity
+
       - name: Lint Strict
         run: npm run lint:strict
 
@@ -32,3 +77,15 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Daily Route Self-Test
+        if: github.event_name == 'schedule' && github.event.schedule == '0 3 * * *'
+        run: npm run test:daily:lock
+
+      - name: Weekly DR Drill
+        if: github.event_name == 'schedule' && github.event.schedule == '0 4 * * 0'
+        run: npm run ops:dr-drill
+
+      - name: Weekly Ultra God E2E
+        if: github.event_name == 'schedule' && github.event.schedule == '0 4 * * 0'
+        run: npm run test:e2e:ultra-god

@@ -272,7 +272,7 @@ const GlobalOfferPopupInner = () => {
                     </Button>
                     <Button
                       size="sm"
-                      onClick={() => navigate('/boss/login')}
+                      onClick={() => navigate('/login')}                      
                       className="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs sm:text-sm gap-1 shadow-lg"
                     >
                       <Shield className="w-3 h-3 sm:w-4 sm:h-4" />

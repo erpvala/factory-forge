@@ -9,7 +9,7 @@ import { networkDetector, NetworkQuality, DataMode } from '../network/network-de
 import { offlineQueue } from '../offline/sync-queue';
 import { cacheManager } from '../offline/cache-manager';
 import { indexedDB } from '../offline/indexed-db';
-import { registerServiceWorker } from '../offline/service-worker-registration';
+import { unregisterServiceWorker } from '../offline/service-worker-registration';
 
 interface OfflineContextValue {
   isOnline: boolean;
@@ -40,7 +40,8 @@ export function OfflineProvider({ children }: OfflineProviderProps) {
     // Initialize offline infrastructure
     const init = async () => {
       await indexedDB.init();
-      await registerServiceWorker();
+      // Unregister any previously registered service worker to prevent stale cache serving
+      await unregisterServiceWorker();
       
       // Check for saved low-data preference
       const savedPref = localStorage.getItem('low_data_mode');

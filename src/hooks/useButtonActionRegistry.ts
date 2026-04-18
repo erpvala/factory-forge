@@ -59,17 +59,17 @@ export const ACTION_MAP: Record<string, ActionDefinition> = {
   
   // ================= DASHBOARD CARDS =================
   'btn_card_server_status': { type: 'ROUTE', target: '/server-manager', sidebarAction: 'enterModule', moduleId: 'server-manager' },
-  'btn_card_risk_level': { type: 'ROUTE', target: '/boss-panel' },
-  'btn_card_users_online': { type: 'ROUTE', target: '/boss-panel' },
+  'btn_card_risk_level': { type: 'ROUTE', target: '/login?redirect=%2Fcontrol-panel' },
+  'btn_card_users_online': { type: 'ROUTE', target: '/login?redirect=%2Fcontrol-panel' },
   'btn_card_revenue': { type: 'ROUTE', target: '/finance' },
   'btn_card_tasks_pending': { type: 'ROUTE', target: '/task-manager' },
   'btn_card_leads': { type: 'ROUTE', target: '/lead-manager', sidebarAction: 'enterModule', moduleId: 'lead-manager' },
-  'btn_card_system_health': { type: 'ROUTE', target: '/boss-panel' },
-  'btn_card_active_sessions': { type: 'ROUTE', target: '/boss-panel' },
-  'btn_card_alerts': { type: 'ROUTE', target: '/boss-panel' },
+  'btn_card_system_health': { type: 'ROUTE', target: '/login?redirect=%2Fcontrol-panel' },
+  'btn_card_active_sessions': { type: 'ROUTE', target: '/login?redirect=%2Fcontrol-panel' },
+  'btn_card_alerts': { type: 'ROUTE', target: '/login?redirect=%2Fcontrol-panel' },
   
   // ================= SIDEBAR NAVIGATION =================
-  'btn_sidebar_dashboard': { type: 'ROUTE', target: '/boss-panel', sidebarAction: 'show' },
+  'btn_sidebar_dashboard': { type: 'ROUTE', target: '/login?redirect=%2Fcontrol-panel', sidebarAction: 'show' },
   'btn_sidebar_server': { type: 'ROUTE', target: '/server-manager', sidebarAction: 'enterModule', moduleId: 'server-manager' },
   'btn_sidebar_vala_ai': { type: 'ROUTE', target: '/vala-ai', sidebarAction: 'enterModule', moduleId: 'vala-ai' },
   'btn_sidebar_products': { type: 'ROUTE', target: '/product-demo-manager', sidebarAction: 'enterModule', moduleId: 'product-demo' },
@@ -81,10 +81,10 @@ export const ACTION_MAP: Record<string, ActionDefinition> = {
   'btn_sidebar_support': { type: 'ROUTE', target: '/support' },
   'btn_sidebar_legal': { type: 'ROUTE', target: '/legal' },
   'btn_sidebar_back': { type: 'STATE', stateKey: 'sidebar', stateValue: 'parent', sidebarAction: 'exitModule' },
-  'btn_sidebar_home': { type: 'ROUTE', target: '/boss-panel', sidebarAction: 'show', successMessage: 'Returned to dashboard' },
+  'btn_sidebar_home': { type: 'ROUTE', target: '/login?redirect=%2Fcontrol-panel', sidebarAction: 'show', successMessage: 'Returned to dashboard' },
   'btn_sidebar_settings': { type: 'ROUTE', target: '/settings' },
   'btn_sidebar_security': { type: 'ROUTE', target: '/security-command' },
-  'btn_sidebar_audit': { type: 'ROUTE', target: '/boss-panel' },
+  'btn_sidebar_audit': { type: 'ROUTE', target: '/login?redirect=%2Fcontrol-panel' },
   
   // ================= CTA BUTTONS =================
   'btn_cta_create': { type: 'MODAL', modalId: 'create-modal', successMessage: 'Opening create form...' },
@@ -146,7 +146,7 @@ export const ACTION_MAP: Record<string, ActionDefinition> = {
   // ================= NAVIGATION BUTTONS =================
   'btn_nav_back': { type: 'STATE', stateKey: 'navigation', stateValue: 'back', sidebarAction: 'exitModule' },
   'btn_nav_forward': { type: 'STATE', stateKey: 'navigation', stateValue: 'forward' },
-  'btn_nav_home': { type: 'ROUTE', target: '/boss-panel', sidebarAction: 'show' },
+  'btn_nav_home': { type: 'ROUTE', target: '/login?redirect=%2Fcontrol-panel', sidebarAction: 'show' },
   
   // ================= DROPDOWN ACTIONS =================
   'btn_dropdown_item': { type: 'STATE', stateKey: 'selectedItem', stateValue: null },

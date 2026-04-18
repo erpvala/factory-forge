@@ -5,6 +5,7 @@
  */
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { 
   Home, Activity, Users, Server, TrendingUp, 
   Clock, Bell, ArrowRight, Star, Zap, Globe,
@@ -16,6 +17,8 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useAuth } from "@/hooks/useAuth";
+import { useControlPanelOverview } from '@/hooks/useControlPanelHub';
+import { getControlPanelWorkspaceByKey, getControlPanelWorkspaceHref } from '@/config/controlPanelHubRegistry';
 
 interface QuickAction {
   id: string;
@@ -32,30 +35,73 @@ interface RecentActivity {
   status: "success" | "pending" | "info";
 }
 
+const formatRelativeTime = (value: string) => {
+  const timestamp = new Date(value).getTime();
+  const diffSeconds = Math.max(0, Math.floor((Date.now() - timestamp) / 1000));
+  if (diffSeconds < 60) return 'Just now';
+  const diffMinutes = Math.floor(diffSeconds / 60);
+  if (diffMinutes < 60) return `${diffMinutes}m ago`;
+  const diffHours = Math.floor(diffMinutes / 60);
+  if (diffHours < 24) return `${diffHours}h ago`;
+  return `${Math.floor(diffHours / 24)}d ago`;
+};
+
 export default function HomeDashboard() {
   const { user, userRole } = useAuth();
+  const navigate = useNavigate();
+  const overviewQuery = useControlPanelOverview();
+  const overview = overviewQuery.data;
   
   const quickActions: QuickAction[] = [
-    { id: "1", label: "View Analytics", icon: BarChart3, color: "from-blue-500 to-cyan-500", route: "analytics" },
-    { id: "2", label: "Manage Users", icon: Users, color: "from-purple-500 to-pink-500", route: "users" },
-    { id: "3", label: "Server Status", icon: Server, color: "from-green-500 to-emerald-500", route: "servers" },
-    { id: "4", label: "Security", icon: Shield, color: "from-amber-500 to-orange-500", route: "security" },
+    { id: "1", label: "View Analytics", icon: BarChart3, color: "from-blue-500 to-cyan-500", route: getControlPanelWorkspaceHref(getControlPanelWorkspaceByKey('analytics')!) },
+    { id: "2", label: "CEO Dashboard", icon: Users, color: "from-purple-500 to-pink-500", route: getControlPanelWorkspaceHref(getControlPanelWorkspaceByKey('ceo')!) },
+    { id: "3", label: "Server Manager", icon: Server, color: "from-green-500 to-emerald-500", route: getControlPanelWorkspaceHref(getControlPanelWorkspaceByKey('server')!) },
+    { id: "4", label: "Security", icon: Shield, color: "from-amber-500 to-orange-500", route: getControlPanelWorkspaceHref(getControlPanelWorkspaceByKey('security')!) },
   ];
 
-  const recentActivity: RecentActivity[] = [
-    { id: "1", action: "New lead assigned to Franchise Mumbai", time: "2 min ago", status: "success" },
-    { id: "2", action: "Server backup completed", time: "15 min ago", status: "success" },
-    { id: "3", action: "New support ticket opened", time: "32 min ago", status: "pending" },
-    { id: "4", action: "Marketing campaign launched", time: "1 hour ago", status: "info" },
-    { id: "5", action: "Developer task completed", time: "2 hours ago", status: "success" },
-  ];
+  const recentActivity: RecentActivity[] = (overview?.recentEvents || []).map((event) => ({
+    id: event.id,
+    action: `${event.title}: ${event.message}`,
+    time: formatRelativeTime(event.createdAt),
+    status: event.status,
+  }));
 
   const stats = [
-    { label: "Active Users", value: "2,847", change: "+12%", icon: Users },
-    { label: "System Health", value: "99.9%", change: "Stable", icon: Activity },
-    { label: "Tasks Completed", value: "156", change: "Today", icon: CheckCircle },
-    { label: "Revenue", value: "₹24.5L", change: "+8%", icon: TrendingUp },
+    { label: "Active Users", value: overview ? overview.totalUsers.toLocaleString() : '--', change: `${overview?.activeModules || 0} modules`, icon: Users },
+    { label: "System Health", value: overview ? `${overview.systemHealth}%` : '--', change: overview && overview.systemHealth >= 90 ? 'Stable' : 'Needs Attention', icon: Activity },
+    { label: "Orders", value: overview ? overview.totalOrders.toLocaleString() : '--', change: `${overview?.pendingApplications || 0} approvals`, icon: CheckCircle },
+    { label: "Revenue", value: overview ? `₹${overview.totalRevenue.toLocaleString()}` : '--', change: `${overview?.unreadNotifications || 0} alerts`, icon: TrendingUp },
   ];
+
+  if (overviewQuery.loading && !overview) {
+    return (
+      <div className="h-full flex items-center justify-center">
+        <div className="flex items-center gap-3 text-slate-300">
+          <Activity className="h-5 w-5 animate-pulse text-blue-400" />
+          <span>Loading control panel overview...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (overviewQuery.error && !overview) {
+    return (
+      <div className="h-full p-6 flex items-center justify-center">
+        <Card className="w-full max-w-xl bg-slate-900/60 border-red-500/30">
+          <CardContent className="p-6 space-y-4">
+            <div className="flex items-center gap-3 text-red-300">
+              <Bell className="h-5 w-5" />
+              <span className="font-medium">Overview failed to load</span>
+            </div>
+            <p className="text-sm text-slate-300">{overviewQuery.error}</p>
+            <Button onClick={() => overviewQuery.refresh()} className="bg-red-600 hover:bg-red-700 text-white">
+              Retry Overview
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="h-full p-6 space-y-6 overflow-auto">
@@ -122,6 +168,7 @@ export default function HomeDashboard() {
                 key={action.id}
                 variant="ghost"
                 className="w-full justify-between h-14 bg-slate-800/30 hover:bg-slate-800/50"
+                 onClick={() => navigate(action.route)}
               >
                 <div className="flex items-center gap-3">
                   <div className={`h-10 w-10 rounded-lg bg-gradient-to-br ${action.color} flex items-center justify-center`}>
@@ -162,6 +209,11 @@ export default function HomeDashboard() {
                     <span className="text-xs text-slate-400">{activity.time}</span>
                   </div>
                 ))}
+                {recentActivity.length === 0 && (
+                  <div className="rounded-lg border border-slate-700/50 bg-slate-800/20 p-4 text-sm text-slate-400">
+                    No live activity available yet.
+                  </div>
+                )}
               </div>
             </ScrollArea>
           </CardContent>
@@ -179,9 +231,9 @@ export default function HomeDashboard() {
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { label: "API Response", value: 98, color: "bg-green-500" },
-              { label: "Database Load", value: 42, color: "bg-blue-500" },
-              { label: "Storage Used", value: 67, color: "bg-amber-500" },
+              { label: "API Response", value: overview?.systemHealth || 0, color: "bg-green-500" },
+              { label: "Database Load", value: Math.min(100, Math.max(10, overview ? Math.round((overview.totalOrders / Math.max(1, overview.totalUsers || 1)) * 10) : 0)), color: "bg-blue-500" },
+              { label: "Storage Used", value: Math.min(100, Math.max(5, overview ? Math.round((overview.activeModules / 40) * 100) : 0)), color: "bg-amber-500" },
             ].map((item, i) => (
               <div key={i} className="space-y-2">
                 <div className="flex items-center justify-between text-sm">

@@ -23,6 +23,9 @@ import DevManagerEscalations from '@/components/dev-manager/DevManagerEscalation
 import DevManagerInternalComms from '@/components/dev-manager/DevManagerInternalComms';
 
 export default function SecureDevManagerDashboard() {
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [empty, setEmpty] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
   const { user, signOut } = useAuth();
@@ -51,9 +54,34 @@ export default function SecureDevManagerDashboard() {
 
   const handleLogout = async () => {
     console.log(`[AUDIT] Dev Manager logout at ${new Date().toISOString()}`);
+    fetch('/api/v1/development-manager', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ action: 'logout', payload: { session_seconds: sessionTime, user_id: user?.id } }),
+    }).catch(() => {});
     await signOut();
     navigate('/login');
   };
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch('/api/v1/development-manager', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ action: 'view', payload: { tab: activeTab } }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setIsLoading(false);
+        if (data && data.empty) setEmpty(true);
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setError('Failed to load dashboard');
+      });
+  }, [activeTab]);
 
   const formatSessionTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -70,6 +98,28 @@ export default function SecureDevManagerDashboard() {
     escalations: 2
   };
 
+  if (isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black text-zinc-100">
+        <span className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mr-3" />
+        <span>Loading Dev Manager Dashboard...</span>
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black text-zinc-100">
+        <span className="text-red-400 font-bold">{error}</span>
+      </div>
+    );
+  }
+  if (empty) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black text-zinc-100">
+        <span className="text-zinc-400">No data available for this dashboard.</span>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen bg-black text-zinc-100">
       {/* Header */}

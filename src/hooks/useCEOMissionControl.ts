@@ -1,7 +1,20 @@
 // @ts-nocheck
 import { useCallback, useEffect, useState } from 'react';
 import { toast } from 'sonner';
-import { callEdgeRoute } from '@/lib/api/edge-client';
+
+const CEO_API = '/api/v1/ceo-dashboard';
+
+async function ceoPost<T>(action: string, payload: Record<string, unknown> = {}): Promise<{ data: T }> {
+  const res = await fetch(CEO_API, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify({ action, payload }),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok || !json.success) throw new Error(json?.error || `ceo_api_${action}_failed`);
+  return { data: json as T };
+}
 
 export interface CEOSummary {
   health_score: number;
@@ -115,16 +128,16 @@ export function useCEOMissionControl() {
     setLoading(true);
     try {
       const [dashboardResponse, actionsResponse, eventsResponse, alertsResponse] = await Promise.all([
-        callEdgeRoute<DashboardPayload>('api-ceo', 'dashboard'),
-        callEdgeRoute<ListPayload<CEOActionLog>>('api-ceo', 'actions'),
-        callEdgeRoute<ListPayload<Record<string, unknown>>>('api-ceo', 'events'),
-        callEdgeRoute<ListPayload<CEOAlert>>('api-ceo', 'alerts'),
+        ceoPost<DashboardPayload>('dashboard'),
+        ceoPost<ListPayload<CEOActionLog>>('actions'),
+        ceoPost<ListPayload<Record<string, unknown>>>('events'),
+        ceoPost<ListPayload<CEOAlert>>('alerts'),
       ]);
 
       setDashboard(dashboardResponse.data);
-      setActions(actionsResponse.data.items || []);
-      setEvents(eventsResponse.data.items || []);
-      setAlerts(alertsResponse.data.items || []);
+      setActions((actionsResponse.data as any)?.items || []);
+      setEvents((eventsResponse.data as any)?.items || []);
+      setAlerts((alertsResponse.data as any)?.items || []);
     } catch (error) {
       const message = error instanceof Error ? error.message : 'Failed to load CEO mission control';
       toast.error(message);
@@ -140,10 +153,7 @@ export function useCEOMissionControl() {
   const executeCommand = useCallback(async (text: string, approval = false) => {
     setExecuting(true);
     try {
-      const response = await callEdgeRoute<{ status: string; ai_action_id?: string; action_log_id?: string; result?: Record<string, unknown> }>('api-ceo', 'command', {
-        method: 'POST',
-        body: { text, approval },
-      });
+        const response = await ceoPost<{ status: string; ai_action_id?: string; action_log_id?: string; result?: Record<string, unknown> }>('command', { text, approval });
 
       if (response.data.status === 'approval_required') {
         toast.warning('Action queued for approval');
@@ -165,10 +175,7 @@ export function useCEOMissionControl() {
   const approveAction = useCallback(async (aiActionId: string) => {
     setApprovingIds((current) => new Set(current).add(aiActionId));
     try {
-      await callEdgeRoute<{ status: string }>('api-ceo', 'approve', {
-        method: 'POST',
-        body: { ai_action_id: aiActionId },
-      });
+        await ceoPost<{ status: string }>('approve', { ai_action_id: aiActionId });
       toast.success('Approval executed');
       await load();
     } catch (error) {

@@ -71,7 +71,10 @@ const GlobalHeader2035 = ({ roleName, maskedId, lowDataMode, onChatToggle }: Hea
   const handleJoinDeveloper = useCallback(() => goTo(ROUTES.applyDeveloper), [goTo]);
   const handleApplyJob = useCallback(() => goTo(ROUTES.applyJob), [goTo]);
   const handleLogin = useCallback(() => goTo(ROUTES.login), [goTo]);
-  const handleBossPortal = useCallback(() => goTo(ROUTES.bossPanel), [goTo]);
+  const handleBossPortal = useCallback(
+    () => handleAction('bossPortal'),
+    [handleAction]
+  );
 
   const handleSignOut = useCallback(async () => {
     try {

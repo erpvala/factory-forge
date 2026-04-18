@@ -102,7 +102,6 @@ const MODULE_REGISTRY: Omit<ModuleScanResult, 'status' | 'lastScanAt' | 'activit
   { id: 'marketplace-user', name: 'Marketplace User System', icon: LayoutDashboard, category: 'distribution', dbTable: 'marketplace_orders' },
   // System (5)
   { id: 'developer-dashboard', name: 'Developer Dashboard', icon: Code, category: 'system', dbTable: 'audit_logs' },
-  { id: 'user-dashboard', name: 'User Dashboard', icon: Users, category: 'system', dbTable: 'profiles' },
   { id: 'system-settings', name: 'System Settings', icon: Settings, category: 'system', dbTable: 'audit_logs' },
   { id: 'license-manager', name: 'License Manager', icon: ScrollText, category: 'system', dbTable: 'audit_logs' },
   { id: 'audit-logs-manager', name: 'Audit Logs Manager', icon: Layers, category: 'system', dbTable: 'audit_logs' },

@@ -1,6 +1,7 @@
 // @ts-nocheck
+'use client';
+
 import React, { useState } from 'react';
-import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { 
@@ -27,14 +28,19 @@ import { ResellerStateProvider } from '@/hooks/useResellerDashboardState';
 import { ResellerRoleAuthProvider } from '@/hooks/useResellerRoleAuth';
 import { useResellerDashboardStore } from '@/store/resellerDashboardStore';
 import { useResellerDemoDataService } from '@/services/resellerDemoDataService';
+import { usePathname, useRouter } from 'next/navigation';
 
-const ResellerLayout: React.FC = () => {
+export default function ResellerLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { user, isAuthenticated, logout } = useResellerDashboardAuth();
   const { canAccess, checkDirectAccess } = useResellerRoleAuth();
   const { refreshAllData } = useResellerDashboardStore();
   const { initializeDemoData, simulateRealTimeUpdates } = useResellerDemoDataService();
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Initialize demo data and real-time updates
@@ -53,15 +59,15 @@ const ResellerLayout: React.FC = () => {
 
   // Validate direct access on mount
   React.useEffect(() => {
-    if (isAuthenticated && !checkDirectAccess(location.pathname)) {
+    if (isAuthenticated && !checkDirectAccess(pathname)) {
       console.log('🚫 Direct access blocked, redirecting to dashboard');
-      navigate('/reseller/dashboard');
+      router.push('/control-panel/reseller-dashboard');
     }
-  }, [isAuthenticated, location.pathname, checkDirectAccess, navigate]);
+  }, [isAuthenticated, pathname, checkDirectAccess, router]);
 
   const menuItems = [
     {
-      path: '/reseller/dashboard',
+      path: '/control-panel/reseller-dashboard',
       label: 'Dashboard',
       icon: LayoutDashboard
     },
@@ -108,27 +114,36 @@ const ResellerLayout: React.FC = () => {
   ];
 
   const handleNavigation = (path: string) => {
-    navigate(path);
+    router.push(path);
     setSidebarOpen(false);
   };
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    router.push('/login');
   };
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Authentication Required</h2>
-          <p className="text-muted-foreground">Please log in to access the reseller dashboard.</p>
-        </div>
-      </div>
+      <ResellerAuthProvider>
+        <ResellerStateProvider>
+          <ResellerRoleAuthProvider>
+            <div className="min-h-screen flex items-center justify-center">
+              <div className="text-center">
+                <h2 className="text-2xl font-bold mb-4">Authentication Required</h2>
+                <p className="text-muted-foreground">Please log in to access the reseller dashboard.</p>
+              </div>
+            </div>
+          </ResellerRoleAuthProvider>
+        </ResellerStateProvider>
+      </ResellerAuthProvider>
     );
   }
 
   return (
+    <ResellerAuthProvider>
+      <ResellerStateProvider>
+        <ResellerRoleAuthProvider>
     <div className="min-h-screen bg-gray-50">
       {/* Mobile Menu Button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
@@ -178,7 +193,7 @@ const ResellerLayout: React.FC = () => {
           {/* Navigation */}
           <nav className="flex-1 p-4 space-y-2">
             {menuItems.map((item) => {
-              const isActive = location.pathname === item.path;
+              const isActive = pathname === item.path;
               return (
                 <Button
                   key={item.path}
@@ -217,7 +232,7 @@ const ResellerLayout: React.FC = () => {
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">
-                  {menuItems.find(item => item.path === location.pathname)?.label || 'Reseller Dashboard'}
+                  {menuItems.find(item => item.path === pathname)?.label || 'Reseller Dashboard'}
                 </h1>
               </div>
               <div className="flex items-center space-x-4">
@@ -238,7 +253,7 @@ const ResellerLayout: React.FC = () => {
         {/* Page Content */}
         <main className="p-4 sm:p-6 lg:p-8">
           <ResellerRouteGuard>
-            <Outlet />
+            {children}
           </ResellerRouteGuard>
         </main>
       </div>
@@ -251,20 +266,10 @@ const ResellerLayout: React.FC = () => {
         />
       )}
     </div>
-  );
-};
-
-export default ResellerLayout;
-
-// Wrapper component with all providers
-export const ResellerLayoutWithProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return (
-    <ResellerAuthProvider>
-      <ResellerStateProvider>
-        <ResellerRoleAuthProvider>
-          {children}
         </ResellerRoleAuthProvider>
       </ResellerStateProvider>
     </ResellerAuthProvider>
   );
-};
+}
+
+export const ResellerLayoutWithProviders = ResellerLayout;

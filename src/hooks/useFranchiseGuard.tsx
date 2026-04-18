@@ -57,7 +57,7 @@ const BLOCKED_ROUTES = [
 // Routes accessible by franchise
 const ALLOWED_ROUTES = [
   '/franchise',
-  '/franchise/dashboard',
+  '/control-panel/franchise-dashboard',
   '/franchise/profile',
   '/franchise/wallet',
   '/franchise/lead-board',
@@ -97,7 +97,7 @@ export function useFranchiseGuard() {
       toast.error('Access Denied', {
         description: 'You do not have permission to access this area.'
       });
-      navigate('/franchise/dashboard', { replace: true });
+      navigate('/control-panel/franchise-dashboard', { replace: true });
       return;
     }
 

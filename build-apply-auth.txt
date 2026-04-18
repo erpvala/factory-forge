@@ -1,4 +1,24 @@
 
+> vite_react_shadcn_ts@0.0.0 prebuild
+> npm run guard:legacy && npm run clean:ui-temp && npm run deploy:id
+
+
+> vite_react_shadcn_ts@0.0.0 guard:legacy
+> node scripts/guard-banned-ui.mjs
+
+Legacy UI guard passed: no banned UI traces found.
+
+> vite_react_shadcn_ts@0.0.0 clean:ui-temp
+> node scripts/auto-clean-ui.mjs
+
+Auto-clean completed.
+
+> vite_react_shadcn_ts@0.0.0 deploy:id
+> node scripts/generate-deploy-id.mjs
+
+Generated deploy ID: deploy-20260407161901736-g6vdil
+Wrote public/deploy-id.json
+
 > vite_react_shadcn_ts@0.0.0 build
 > vite build
 
@@ -7,12 +27,264 @@ transforming...
 Browserslist: browsers data (caniuse-lite) is 10 months old. Please run:
   npx update-browserslist-db@latest
   Why you should do it regularly: https://github.com/browserslist/update-db#readme
-[32m✓[39m 278 modules transformed.
-[31mx[39m Build failed in 21.04s
-[31merror during build:
-[31mCould not resolve "./SalesCRMDashboard" from "src/pages/sales-crm/SalesCRMDemo.tsx"[31m
-file: [36mC:/Users/DOLLY/Desktop/core/factory-forge/src/pages/sales-crm/SalesCRMDemo.tsx[31m
-    at getRollupError (file:///C:/Users/DOLLY/Desktop/core/factory-forge/node_modules/rollup/dist/es/shared/parseAst.js:395:41)
-    at error (file:///C:/Users/DOLLY/Desktop/core/factory-forge/node_modules/rollup/dist/es/shared/parseAst.js:391:42)
-    at ModuleLoader.handleInvalidResolvedId (file:///C:/Users/DOLLY/Desktop/core/factory-forge/node_modules/rollup/dist/es/shared/node-entry.js:20006:24)
-    at file:///C:/Users/DOLLY/Desktop/core/factory-forge/node_modules/rollup/dist/es/shared/node-entry.js:19966:26[39m
+[32m✓[39m 4228 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                                                                  [39m[1m[2m  3.06 kB[22m[1m[22m[2m │ gzip:   0.95 kB[22m
+[2mdist/[22m[32massets/jpg/assist-manager-logo-20260407161902228-C_nf5fak.jpg               [39m[1m[2m 15.85 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/promise-icon-20260407161902228-BurigcCW.jpg                      [39m[1m[2m 16.70 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/safe-assist-icon-20260407161902228-E5vnhT8_.jpg                  [39m[1m[2m 43.94 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/legal-20260407161902228-D9UtR639.jpg                             [39m[1m[2m 66.07 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/software-vala-logo-20260407161902228-3AuO9CEv.jpg                [39m[1m[2m 73.60 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/fitness-20260407161902228-B3Hzdja1.jpg                           [39m[1m[2m 78.69 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/hr-20260407161902228-BBIOoJBm.jpg                                [39m[1m[2m 82.44 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/religious-20260407161902228-bZ7GWZYb.jpg                         [39m[1m[2m 83.88 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/automotive-20260407161902228-CB-cQDUY.jpg                        [39m[1m[2m 86.41 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/retail-20260407161902228-CJcazWEM.jpg                            [39m[1m[2m 87.75 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/technology-20260407161902228-CYk8WuF8.jpg                        [39m[1m[2m 88.84 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/salon-20260407161902228-B-YuOcCL.jpg                             [39m[1m[2m 90.59 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/education-20260407161902228-DrowB-Tv.jpg                         [39m[1m[2m 93.07 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/finance-20260407161902228-BDBEA3QV.jpg                           [39m[1m[2m 94.41 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/healthcare-20260407161902228-BjhdHeYA.jpg                        [39m[1m[2m 96.86 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/transport-20260407161902228-DJOVnYum.jpg                         [39m[1m[2m 99.06 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/realestate-20260407161902228-W5U1MS-3.jpg                        [39m[1m[2m 99.33 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/agriculture-20260407161902228-DOKPO7y7.jpg                       [39m[1m[2m100.33 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/hospitality-20260407161902228-BL8qlNIy.jpg                       [39m[1m[2m110.30 kB[22m[1m[22m
+[2mdist/[22m[32massets/jpg/industry-20260407161902228-8x7YcXRB.jpg                          [39m[1m[2m113.75 kB[22m[1m[22m
+[2mdist/[22m[35massets/css/index-20260407161902228-fmxsDo2r.css                             [39m[1m[2m451.52 kB[22m[1m[22m[2m │ gzip:  58.15 kB[22m
+[2mdist/[22m[36massets/js/software-vala-logo-transparent-20260407161902228-Dnpchj4s.js      [39m[1m[2m  0.09 kB[22m[1m[22m[2m │ gzip:   0.11 kB[22m
+[2mdist/[22m[36massets/js/skeleton-20260407161902228-5vRu6xN5.js                            [39m[1m[2m  0.25 kB[22m[1m[22m[2m │ gzip:   0.20 kB[22m
+[2mdist/[22m[36massets/js/supabase-20260407161902228-DuS-Xpjj.js                            [39m[1m[2m  0.36 kB[22m[1m[22m[2m │ gzip:   0.19 kB[22m
+[2mdist/[22m[36massets/js/access-20260407161902228-CmV8Bj5i.js                              [39m[1m[2m  0.39 kB[22m[1m[22m[2m │ gzip:   0.22 kB[22m
+[2mdist/[22m[36massets/js/separator-20260407161902228-CUOe3B52.js                           [39m[1m[2m  0.46 kB[22m[1m[22m[2m │ gzip:   0.30 kB[22m
+[2mdist/[22m[36massets/js/PremiumDemoShowcaseNew-20260407161902228-CMtcOALH.js              [39m[1m[2m  0.50 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[2mdist/[22m[36massets/js/progress-20260407161902228-C8--gPoR.js                            [39m[1m[2m  0.52 kB[22m[1m[22m[2m │ gzip:   0.35 kB[22m
+[2mdist/[22m[36massets/js/avatar-20260407161902228-4QuzVINn.js                              [39m[1m[2m  0.73 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+[2mdist/[22m[36massets/js/apply-20260407161902228-uv38TdRk.js                               [39m[1m[2m  0.79 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[36massets/js/checkbox-20260407161902228-DhWLmodg.js                            [39m[1m[2m  0.80 kB[22m[1m[22m[2m │ gzip:   0.44 kB[22m
+[2mdist/[22m[36massets/js/slider-20260407161902228-CcL6RpCt.js                              [39m[1m[2m  0.83 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+[2mdist/[22m[36massets/js/MarketingManagerDashboard-20260407161902228-BsJ15cLs.js           [39m[1m[2m  0.86 kB[22m[1m[22m[2m │ gzip:   0.38 kB[22m
+[2mdist/[22m[36massets/js/RoleBadge-20260407161902228-IBL6D4Gn.js                           [39m[1m[2m  0.87 kB[22m[1m[22m[2m │ gzip:   0.50 kB[22m
+[2mdist/[22m[36massets/js/switch-20260407161902228-dlv2d15j.js                              [39m[1m[2m  0.90 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[2mdist/[22m[36massets/js/page-20260407161902228-B1d2GqSM.js                                [39m[1m[2m  1.01 kB[22m[1m[22m[2m │ gzip:   0.41 kB[22m
+[2mdist/[22m[36massets/js/SafeAssistDashboard-20260407161902228-BXHiR71w.js                 [39m[1m[2m  1.04 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[2mdist/[22m[36massets/js/useActivityLogger-20260407161902228-DhfTffd7.js                   [39m[1m[2m  1.04 kB[22m[1m[22m[2m │ gzip:   0.60 kB[22m
+[2mdist/[22m[36massets/js/alert-20260407161902228-BWqjts8t.js                               [39m[1m[2m  1.04 kB[22m[1m[22m[2m │ gzip:   0.52 kB[22m
+[2mdist/[22m[36massets/js/PrivacyPage-20260407161902228-VoeTBFYf.js                         [39m[1m[2m  1.09 kB[22m[1m[22m[2m │ gzip:   0.57 kB[22m
+[2mdist/[22m[36massets/js/TermsPage-20260407161902228-DPzOiVmU.js                           [39m[1m[2m  1.10 kB[22m[1m[22m[2m │ gzip:   0.58 kB[22m
+[2mdist/[22m[36massets/js/card-20260407161902228-_lU6Unv4.js                                [39m[1m[2m  1.11 kB[22m[1m[22m[2m │ gzip:   0.43 kB[22m
+[2mdist/[22m[36massets/js/tabs-20260407161902228-DmYkKQqD.js                                [39m[1m[2m  1.19 kB[22m[1m[22m[2m │ gzip:   0.50 kB[22m
+[2mdist/[22m[36massets/js/ValaStatusBadge-20260407161902228-CkMpAjmP.js                     [39m[1m[2m  1.24 kB[22m[1m[22m[2m │ gzip:   0.62 kB[22m
+[2mdist/[22m[36massets/js/useResellerManagerGuard-20260407161902228-Dduh7rYk.js             [39m[1m[2m  1.47 kB[22m[1m[22m[2m │ gzip:   0.62 kB[22m
+[2mdist/[22m[36massets/js/ValaOperationWorkspace-20260407161902228-pgt7dcHc.js              [39m[1m[2m  1.53 kB[22m[1m[22m[2m │ gzip:   0.81 kB[22m
+[2mdist/[22m[36massets/js/ValaRegionalWorkspace-20260407161902228-iOLdSlOq.js               [39m[1m[2m  1.53 kB[22m[1m[22m[2m │ gzip:   0.81 kB[22m
+[2mdist/[22m[36massets/js/table-20260407161902228-Bh04bBa4.js                               [39m[1m[2m  1.56 kB[22m[1m[22m[2m │ gzip:   0.55 kB[22m
+[2mdist/[22m[36massets/js/useCEOMissionControl-20260407161902228-D8LQmoUW.js                [39m[1m[2m  1.57 kB[22m[1m[22m[2m │ gzip:   0.75 kB[22m
+[2mdist/[22m[36massets/js/Page404-20260407161902228-DmBIhzVY.js                             [39m[1m[2m  1.62 kB[22m[1m[22m[2m │ gzip:   0.70 kB[22m
+[2mdist/[22m[36massets/js/InternalServerErrorPage-20260407161902228-hejQyROS.js             [39m[1m[2m  1.64 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[2mdist/[22m[36massets/js/Logout-20260407161902228-DP9FHjFQ.js                              [39m[1m[2m  1.73 kB[22m[1m[22m[2m │ gzip:   0.84 kB[22m
+[2mdist/[22m[36massets/js/page-20260407161902228-pNMjbjJ3.js                                [39m[1m[2m  1.78 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+[2mdist/[22m[36massets/js/sheet-20260407161902228-DA2GB_xn.js                               [39m[1m[2m  2.39 kB[22m[1m[22m[2m │ gzip:   0.94 kB[22m
+[2mdist/[22m[36massets/js/useSupportTickets-20260407161902228-C6cTLKpl.js                   [39m[1m[2m  2.95 kB[22m[1m[22m[2m │ gzip:   0.95 kB[22m
+[2mdist/[22m[36massets/js/MarketplaceCartPage-20260407161902228-xTR9H89Q.js                 [39m[1m[2m  3.05 kB[22m[1m[22m[2m │ gzip:   1.19 kB[22m
+[2mdist/[22m[36massets/js/select-20260407161902228-CrT1CMqi.js                              [39m[1m[2m  3.10 kB[22m[1m[22m[2m │ gzip:   1.13 kB[22m
+[2mdist/[22m[36massets/js/HooksControlPanel-20260407161902228-BHdKPnCh.js                   [39m[1m[2m  3.13 kB[22m[1m[22m[2m │ gzip:   1.15 kB[22m
+[2mdist/[22m[36massets/js/AccountSuspension-20260407161902228-VBul24C-.js                   [39m[1m[2m  3.14 kB[22m[1m[22m[2m │ gzip:   1.12 kB[22m
+[2mdist/[22m[36massets/js/page-20260407161902228-B1MCLmVp.js                                [39m[1m[2m  3.17 kB[22m[1m[22m[2m │ gzip:   0.92 kB[22m
+[2mdist/[22m[36massets/js/ParticleBackground-20260407161902228-bdvUqu3o.js                  [39m[1m[2m  3.26 kB[22m[1m[22m[2m │ gzip:   1.44 kB[22m
+[2mdist/[22m[36massets/js/OrderSuccess-20260407161902228-raRPrir9.js                        [39m[1m[2m  3.84 kB[22m[1m[22m[2m │ gzip:   1.38 kB[22m
+[2mdist/[22m[36massets/js/PaymentSuccess-20260407161902228-DlUOGckK.js                      [39m[1m[2m  3.90 kB[22m[1m[22m[2m │ gzip:   1.54 kB[22m
+[2mdist/[22m[36massets/js/ForgotPassword-20260407161902228-B0kXUZ8g.js                      [39m[1m[2m  3.92 kB[22m[1m[22m[2m │ gzip:   1.42 kB[22m
+[2mdist/[22m[36massets/js/OTPVerify-20260407161902228-BPVza2rA.js                           [39m[1m[2m  4.08 kB[22m[1m[22m[2m │ gzip:   1.65 kB[22m
+[2mdist/[22m[36massets/js/DeviceVerify-20260407161902228-XDpvfHCA.js                        [39m[1m[2m  4.10 kB[22m[1m[22m[2m │ gzip:   1.49 kB[22m
+[2mdist/[22m[36massets/js/IPVerify-20260407161902228-DGQEnLgm.js                            [39m[1m[2m  4.10 kB[22m[1m[22m[2m │ gzip:   1.38 kB[22m
+[2mdist/[22m[36massets/js/sectorsData-20260407161902228-Bwl3S0gF.js                         [39m[1m[2m  4.19 kB[22m[1m[22m[2m │ gzip:   1.41 kB[22m
+[2mdist/[22m[36massets/js/DashboardNotificationsPage-20260407161902228-D6L6q6Bn.js          [39m[1m[2m  4.21 kB[22m[1m[22m[2m │ gzip:   1.41 kB[22m
+[2mdist/[22m[36massets/js/Settings-20260407161902228-MD0U2yVd.js                            [39m[1m[2m  4.37 kB[22m[1m[22m[2m │ gzip:   1.54 kB[22m
+[2mdist/[22m[36massets/js/AICEODecisionEngine-20260407161902228-D4mN2-I7.js                 [39m[1m[2m  4.48 kB[22m[1m[22m[2m │ gzip:   1.49 kB[22m
+[2mdist/[22m[36massets/js/ValaSecureWorkspace-20260407161902228-BFd7ByLZ.js                 [39m[1m[2m  4.49 kB[22m[1m[22m[2m │ gzip:   1.76 kB[22m
+[2mdist/[22m[36massets/js/ChangePassword-20260407161902228-Bd51qo9f.js                      [39m[1m[2m  4.61 kB[22m[1m[22m[2m │ gzip:   1.62 kB[22m
+[2mdist/[22m[36massets/js/AICEOLiveMonitor-20260407161902228-D0roe1EZ.js                    [39m[1m[2m  4.67 kB[22m[1m[22m[2m │ gzip:   1.52 kB[22m
+[2mdist/[22m[36massets/js/AICEOSettings-20260407161902228-Cn-AZqha.js                       [39m[1m[2m  4.68 kB[22m[1m[22m[2m │ gzip:   1.42 kB[22m
+[2mdist/[22m[36massets/js/useResellerManagerAuth-20260407161902228-p5gNUYBw.js              [39m[1m[2m  4.72 kB[22m[1m[22m[2m │ gzip:   1.44 kB[22m
+[2mdist/[22m[36massets/js/ResetPassword-20260407161902228-BLP-fWiH.js                       [39m[1m[2m  4.86 kB[22m[1m[22m[2m │ gzip:   1.78 kB[22m
+[2mdist/[22m[36massets/js/apiService-20260407161902228-CCdMNAn-.js                          [39m[1m[2m  5.39 kB[22m[1m[22m[2m │ gzip:   1.90 kB[22m
+[2mdist/[22m[36massets/js/SessionExpiredPage-20260407161902228-DJUBbzv2.js                  [39m[1m[2m  5.52 kB[22m[1m[22m[2m │ gzip:   1.97 kB[22m
+[2mdist/[22m[36massets/js/SectorsBrowse-20260407161902228-DZ82IJQq.js                       [39m[1m[2m  5.56 kB[22m[1m[22m[2m │ gzip:   1.81 kB[22m
+[2mdist/[22m[36massets/js/MarketplaceCheckoutPage-20260407161902228-B35HUtb4.js             [39m[1m[2m  5.67 kB[22m[1m[22m[2m │ gzip:   2.15 kB[22m
+[2mdist/[22m[36massets/js/BootstrapAdmins-20260407161902228-CDPt263i.js                     [39m[1m[2m  5.68 kB[22m[1m[22m[2m │ gzip:   2.03 kB[22m
+[2mdist/[22m[36massets/js/AccessDenied-20260407161902228-GBhTc_vv.js                        [39m[1m[2m  5.85 kB[22m[1m[22m[2m │ gzip:   2.07 kB[22m
+[2mdist/[22m[36massets/js/AICEORiskCompliance-20260407161902228-Bvp9Y3CE.js                 [39m[1m[2m  5.99 kB[22m[1m[22m[2m │ gzip:   1.97 kB[22m
+[2mdist/[22m[36massets/js/ValaAIHeadWorkspace-20260407161902228-3RBfeuXA.js                 [39m[1m[2m  6.03 kB[22m[1m[22m[2m │ gzip:   2.23 kB[22m
+[2mdist/[22m[36massets/js/MarketplaceProductPage-20260407161902228-DhDA2GpM.js              [39m[1m[2m  6.09 kB[22m[1m[22m[2m │ gzip:   1.89 kB[22m
+[2mdist/[22m[36massets/js/PublicDemos-20260407161902228-DgR41YCg.js                         [39m[1m[2m  6.17 kB[22m[1m[22m[2m │ gzip:   2.16 kB[22m
+[2mdist/[22m[36massets/js/AICEOPerformance-20260407161902228-D7DDgOE6.js                    [39m[1m[2m  6.23 kB[22m[1m[22m[2m │ gzip:   1.87 kB[22m
+[2mdist/[22m[36massets/js/roles-20260407161902228-BTkRf3bW.js                               [39m[1m[2m  6.23 kB[22m[1m[22m[2m │ gzip:   1.47 kB[22m
+[2mdist/[22m[36massets/js/AICEOReports-20260407161902228-ClOFFkr9.js                        [39m[1m[2m  6.35 kB[22m[1m[22m[2m │ gzip:   1.93 kB[22m
+[2mdist/[22m[36massets/js/AICEOPredictions-20260407161902228-DcEi06wx.js                    [39m[1m[2m  6.47 kB[22m[1m[22m[2m │ gzip:   2.17 kB[22m
+[2mdist/[22m[36massets/js/page-20260407161902228-lRLqs5WR.js                                [39m[1m[2m  6.60 kB[22m[1m[22m[2m │ gzip:   1.76 kB[22m
+[2mdist/[22m[36massets/js/AICEOApprovals-20260407161902228-CMNeZY_3.js                      [39m[1m[2m  6.69 kB[22m[1m[22m[2m │ gzip:   2.03 kB[22m
+[2mdist/[22m[36massets/js/SimpleDemoView-20260407161902228-Bx6k5JF9.js                      [39m[1m[2m  6.69 kB[22m[1m[22m[2m │ gzip:   2.20 kB[22m
+[2mdist/[22m[36massets/js/state-20260407161902228-FB0WJWwF.js                               [39m[1m[2m  6.70 kB[22m[1m[22m[2m │ gzip:   3.12 kB[22m
+[2mdist/[22m[36massets/js/HRDashboard-20260407161902228-DFmHvPCP.js                         [39m[1m[2m  6.83 kB[22m[1m[22m[2m │ gzip:   2.01 kB[22m
+[2mdist/[22m[36massets/js/AICEOLearning-20260407161902228-BXgW8gUY.js                       [39m[1m[2m  6.91 kB[22m[1m[22m[2m │ gzip:   1.96 kB[22m
+[2mdist/[22m[36massets/js/ValaMasterWorkspace-20260407161902228-DZ2pa-QK.js                 [39m[1m[2m  6.93 kB[22m[1m[22m[2m │ gzip:   2.39 kB[22m
+[2mdist/[22m[36massets/js/EcommerceStoreDemo-20260407161902228-DkEsTzwZ.js                  [39m[1m[2m  6.96 kB[22m[1m[22m[2m │ gzip:   2.21 kB[22m
+[2mdist/[22m[36massets/js/MarketplaceOffersPage-20260407161902228-BASe-OtQ.js               [39m[1m[2m  7.02 kB[22m[1m[22m[2m │ gzip:   2.21 kB[22m
+[2mdist/[22m[36massets/js/RMActiveResellers-20260407161902228-VVDh6lPM.js                   [39m[1m[2m  7.11 kB[22m[1m[22m[2m │ gzip:   2.16 kB[22m
+[2mdist/[22m[36massets/js/ValaIsolatedModule-20260407161902228-BT63HGF8.js                  [39m[1m[2m  7.30 kB[22m[1m[22m[2m │ gzip:   2.73 kB[22m
+[2mdist/[22m[36massets/js/SchoolERPDemo-20260407161902228-Sv-0ByQa.js                       [39m[1m[2m  7.44 kB[22m[1m[22m[2m │ gzip:   2.11 kB[22m
+[2mdist/[22m[36massets/js/HospitalHMSDemo-20260407161902228-Cl-fgC7-.js                     [39m[1m[2m  7.51 kB[22m[1m[22m[2m │ gzip:   2.01 kB[22m
+[2mdist/[22m[36massets/js/marketplaceEcosystemStore-20260407161902228-B9w12P0a.js           [39m[1m[2m  7.53 kB[22m[1m[22m[2m │ gzip:   2.69 kB[22m
+[2mdist/[22m[36massets/js/InternalChat-20260407161902228-DcHnI5SO.js                        [39m[1m[2m  7.61 kB[22m[1m[22m[2m │ gzip:   2.48 kB[22m
+[2mdist/[22m[36massets/js/AutomotiveDemo-20260407161902228-XBRioAfx.js                      [39m[1m[2m  7.76 kB[22m[1m[22m[2m │ gzip:   2.71 kB[22m
+[2mdist/[22m[36massets/js/DemoLogin-20260407161902228-O2KWzuEv.js                           [39m[1m[2m  7.80 kB[22m[1m[22m[2m │ gzip:   2.56 kB[22m
+[2mdist/[22m[36massets/js/RestaurantSmallDemo-20260407161902228-CnMI3Uos.js                 [39m[1m[2m  7.84 kB[22m[1m[22m[2m │ gzip:   2.45 kB[22m
+[2mdist/[22m[36massets/js/DemoLibrary-20260407161902228-D5j0iilY.js                         [39m[1m[2m  7.85 kB[22m[1m[22m[2m │ gzip:   2.28 kB[22m
+[2mdist/[22m[36massets/js/LeadBoard-20260407161902228-CGyJTIEv.js                           [39m[1m[2m  7.87 kB[22m[1m[22m[2m │ gzip:   2.46 kB[22m
+[2mdist/[22m[36massets/js/SalesCRMDemo-20260407161902228-DGbGZC9G.js                        [39m[1m[2m  7.96 kB[22m[1m[22m[2m │ gzip:   2.97 kB[22m
+[2mdist/[22m[36massets/js/RestaurantPOSDemo-20260407161902228-DjvGzwPE.js                   [39m[1m[2m  7.98 kB[22m[1m[22m[2m │ gzip:   2.26 kB[22m
+[2mdist/[22m[36massets/js/AICEODashboard-20260407161902228-belmmzPo.js                      [39m[1m[2m  8.02 kB[22m[1m[22m[2m │ gzip:   3.00 kB[22m
+[2mdist/[22m[36massets/js/PendingApproval-20260407161902228-BUcK-6Qu.js                     [39m[1m[2m  8.06 kB[22m[1m[22m[2m │ gzip:   2.74 kB[22m
+[2mdist/[22m[36massets/js/SimpleCheckout-20260407161902228-DGlKt4e8.js                      [39m[1m[2m  8.10 kB[22m[1m[22m[2m │ gzip:   2.61 kB[22m
+[2mdist/[22m[36massets/js/AssignLead-20260407161902228-Cd-yKudo.js                          [39m[1m[2m  8.22 kB[22m[1m[22m[2m │ gzip:   2.21 kB[22m
+[2mdist/[22m[36massets/js/SecurityPanel-20260407161902228-1eTdpNnO.js                       [39m[1m[2m  8.29 kB[22m[1m[22m[2m │ gzip:   2.19 kB[22m
+[2mdist/[22m[36massets/js/useMarketplace-20260407161902228-BdeFLCj5.js                      [39m[1m[2m  8.40 kB[22m[1m[22m[2m │ gzip:   2.70 kB[22m
+[2mdist/[22m[36massets/js/RMApplicationsQueue-20260407161902228-B569P7kj.js                 [39m[1m[2m  8.40 kB[22m[1m[22m[2m │ gzip:   2.38 kB[22m
+[2mdist/[22m[36massets/js/SecurityDemo-20260407161902228-pz391_zA.js                        [39m[1m[2m  8.45 kB[22m[1m[22m[2m │ gzip:   2.45 kB[22m
+[2mdist/[22m[36massets/js/page-20260407161902228-CmkgGdvk.js                                [39m[1m[2m  8.49 kB[22m[1m[22m[2m │ gzip:   2.34 kB[22m
+[2mdist/[22m[36massets/js/HotelBookingDemo-20260407161902228-Cclgc7OJ.js                    [39m[1m[2m  8.52 kB[22m[1m[22m[2m │ gzip:   2.24 kB[22m
+[2mdist/[22m[36massets/js/Profile-20260407161902228-hSt_0QOP.js                             [39m[1m[2m  8.64 kB[22m[1m[22m[2m │ gzip:   1.85 kB[22m
+[2mdist/[22m[36massets/js/GlobalNotificationHeader-20260407161902228-C85S8z_Q.js            [39m[1m[2m  8.65 kB[22m[1m[22m[2m │ gzip:   2.67 kB[22m
+[2mdist/[22m[36massets/js/ValaControlHub-20260407161902228-DN_SlQWC.js                      [39m[1m[2m  8.66 kB[22m[1m[22m[2m │ gzip:   2.64 kB[22m
+[2mdist/[22m[36massets/js/TravelDemo-20260407161902228-CJxtG9JB.js                          [39m[1m[2m  8.72 kB[22m[1m[22m[2m │ gzip:   2.76 kB[22m
+[2mdist/[22m[36massets/js/page-20260407161902228-d3n6YyLt.js                                [39m[1m[2m  8.85 kB[22m[1m[22m[2m │ gzip:   2.33 kB[22m
+[2mdist/[22m[36massets/js/AICEODashboardMain-20260407161902228-DWu5bn5W.js                  [39m[1m[2m  8.86 kB[22m[1m[22m[2m │ gzip:   2.40 kB[22m
+[2mdist/[22m[36massets/js/NotificationBuzzerConsole-20260407161902228-WUJiJg2w.js           [39m[1m[2m  8.93 kB[22m[1m[22m[2m │ gzip:   2.93 kB[22m
+[2mdist/[22m[36massets/js/Performance-20260407161902228-Ce7nF7lA.js                         [39m[1m[2m  8.94 kB[22m[1m[22m[2m │ gzip:   2.22 kB[22m
+[2mdist/[22m[36massets/js/Wallet-20260407161902228-BldY1v_6.js                              [39m[1m[2m  9.03 kB[22m[1m[22m[2m │ gzip:   2.39 kB[22m
+[2mdist/[22m[36massets/js/SEOServices-20260407161902228-Dn-VX5p7.js                         [39m[1m[2m  9.04 kB[22m[1m[22m[2m │ gzip:   2.03 kB[22m
+[2mdist/[22m[36massets/js/SupportTicket-20260407161902228-DtQrCPcS.js                       [39m[1m[2m  9.04 kB[22m[1m[22m[2m │ gzip:   2.28 kB[22m
+[2mdist/[22m[36massets/js/SalesCenter-20260407161902228-hGRTWg0Z.js                         [39m[1m[2m  9.21 kB[22m[1m[22m[2m │ gzip:   2.21 kB[22m
+[2mdist/[22m[36massets/js/SchoolSmallDemo-20260407161902228-D7DNSTLp.js                     [39m[1m[2m  9.25 kB[22m[1m[22m[2m │ gzip:   2.69 kB[22m
+[2mdist/[22m[36massets/js/DemoDirectory-20260407161902228-BfaAcT4_.js                       [39m[1m[2m  9.27 kB[22m[1m[22m[2m │ gzip:   2.80 kB[22m
+[2mdist/[22m[36massets/js/TeamManagement-20260407161902228-UnxPH164.js                      [39m[1m[2m  9.31 kB[22m[1m[22m[2m │ gzip:   2.16 kB[22m
+[2mdist/[22m[36massets/js/LeadActivity-20260407161902228-ocCRTR_M.js                        [39m[1m[2m  9.31 kB[22m[1m[22m[2m │ gzip:   2.46 kB[22m
+[2mdist/[22m[36massets/js/page-20260407161902228-BNEszbas.js                                [39m[1m[2m  9.36 kB[22m[1m[22m[2m │ gzip:   2.35 kB[22m
+[2mdist/[22m[36massets/js/FinanceDemo-20260407161902228-ooDdK2NR.js                         [39m[1m[2m  9.37 kB[22m[1m[22m[2m │ gzip:   2.69 kB[22m
+[2mdist/[22m[36massets/js/CRM-20260407161902228-BvpyVh5k.js                                 [39m[1m[2m  9.72 kB[22m[1m[22m[2m │ gzip:   2.31 kB[22m
+[2mdist/[22m[36massets/js/DemoRequest-20260407161902228-B6L6KNiE.js                         [39m[1m[2m  9.75 kB[22m[1m[22m[2m │ gzip:   2.35 kB[22m
+[2mdist/[22m[36massets/js/TrainingCenter-20260407161902228-dl0kG1Z3.js                      [39m[1m[2m  9.81 kB[22m[1m[22m[2m │ gzip:   2.54 kB[22m
+[2mdist/[22m[36massets/js/SystemSettings-20260407161902228-DOZTHwnM.js                      [39m[1m[2m  9.98 kB[22m[1m[22m[2m │ gzip:   2.57 kB[22m
+[2mdist/[22m[36massets/js/BossApplications-20260407161902228-Cr4EUKbg.js                    [39m[1m[2m 10.14 kB[22m[1m[22m[2m │ gzip:   3.25 kB[22m
+[2mdist/[22m[36massets/js/HRM-20260407161902228-DFT36Lx4.js                                 [39m[1m[2m 10.15 kB[22m[1m[22m[2m │ gzip:   2.20 kB[22m
+[2mdist/[22m[36massets/js/SubCategoryDemos-20260407161902228-Cm6poCf4.js                    [39m[1m[2m 10.17 kB[22m[1m[22m[2m │ gzip:   3.02 kB[22m
+[2mdist/[22m[36massets/js/page-20260407161902228-LIxtd7Re.js                                [39m[1m[2m 10.57 kB[22m[1m[22m[2m │ gzip:   2.51 kB[22m
+[2mdist/[22m[36massets/js/page-20260407161902228-B9XKceQD.js                                [39m[1m[2m 10.60 kB[22m[1m[22m[2m │ gzip:   2.57 kB[22m
+[2mdist/[22m[36massets/js/SalonDemo-20260407161902228-TUjdfJmn.js                           [39m[1m[2m 10.86 kB[22m[1m[22m[2m │ gzip:   3.00 kB[22m
+[2mdist/[22m[36massets/js/LegalDemo-20260407161902228-CbnTf5HA.js                           [39m[1m[2m 11.04 kB[22m[1m[22m[2m │ gzip:   2.96 kB[22m
+[2mdist/[22m[36massets/js/GymDemo-20260407161902228-Dfmxv6EG.js                             [39m[1m[2m 11.05 kB[22m[1m[22m[2m │ gzip:   3.15 kB[22m
+[2mdist/[22m[36massets/js/EventDemo-20260407161902228-DSVU4lIc.js                           [39m[1m[2m 11.10 kB[22m[1m[22m[2m │ gzip:   3.09 kB[22m
+[2mdist/[22m[36massets/js/ChildcareDemo-20260407161902228-_jWoTi3Q.js                       [39m[1m[2m 11.11 kB[22m[1m[22m[2m │ gzip:   3.19 kB[22m
+[2mdist/[22m[36massets/js/PersonalChat-20260407161902228-4VaDuTgu.js                        [39m[1m[2m 11.19 kB[22m[1m[22m[2m │ gzip:   3.20 kB[22m
+[2mdist/[22m[36massets/js/ManufacturingDemo-20260407161902228-DG5hnrdD.js                   [39m[1m[2m 11.20 kB[22m[1m[22m[2m │ gzip:   3.18 kB[22m
+[2mdist/[22m[36massets/js/RealEstateDemo-20260407161902228-B8xAQRI-.js                      [39m[1m[2m 11.35 kB[22m[1m[22m[2m │ gzip:   3.28 kB[22m
+[2mdist/[22m[36massets/js/ContentGenerator-20260407161902228-DlwTXtCz.js                    [39m[1m[2m 11.43 kB[22m[1m[22m[2m │ gzip:   3.48 kB[22m
+[2mdist/[22m[36massets/js/layout-20260407161902228-C3gQbz4h.js                              [39m[1m[2m 11.52 kB[22m[1m[22m[2m │ gzip:   3.30 kB[22m
+[2mdist/[22m[36massets/js/DemoDashboard-20260407161902228-DMrKvcPT.js                       [39m[1m[2m 11.56 kB[22m[1m[22m[2m │ gzip:   3.23 kB[22m
+[2mdist/[22m[36massets/js/page-20260407161902228-B4Hg_jQG.js                                [39m[1m[2m 12.02 kB[22m[1m[22m[2m │ gzip:   2.68 kB[22m
+[2mdist/[22m[36massets/js/PetCareDemo-20260407161902228-bOJfnbZs.js                         [39m[1m[2m 12.04 kB[22m[1m[22m[2m │ gzip:   3.35 kB[22m
+[2mdist/[22m[36massets/js/CareerPortal-20260407161902228-Cqnl9R3-.js                        [39m[1m[2m 12.17 kB[22m[1m[22m[2m │ gzip:   4.13 kB[22m
+[2mdist/[22m[36massets/js/APIIntegrationDashboard-20260407161902228-BqCE9i-9.js             [39m[1m[2m 12.58 kB[22m[1m[22m[2m │ gzip:   3.82 kB[22m
+[2mdist/[22m[36massets/js/CRMDemo-20260407161902228-yyFczEKP.js                             [39m[1m[2m 12.69 kB[22m[1m[22m[2m │ gzip:   3.24 kB[22m
+[2mdist/[22m[36massets/js/LogisticsDemo-20260407161902228-DOQGpfQw.js                       [39m[1m[2m 12.94 kB[22m[1m[22m[2m │ gzip:   3.24 kB[22m
+[2mdist/[22m[36massets/js/TelecomDemo-20260407161902228-Dq0Ukead.js                         [39m[1m[2m 13.05 kB[22m[1m[22m[2m │ gzip:   3.45 kB[22m
+[2mdist/[22m[36massets/js/SupportDashboard-20260407161902228-0d5a5kVk.js                    [39m[1m[2m 13.56 kB[22m[1m[22m[2m │ gzip:   2.78 kB[22m
+[2mdist/[22m[36massets/js/SchoolSoftwareHomepage-20260407161902228-BriWdc1P.js              [39m[1m[2m 13.59 kB[22m[1m[22m[2m │ gzip:   3.70 kB[22m
+[2mdist/[22m[36massets/js/SchoolMediumDemo-20260407161902228-CFyPbKpg.js                    [39m[1m[2m 14.51 kB[22m[1m[22m[2m │ gzip:   3.94 kB[22m
+[2mdist/[22m[36massets/js/LeaderSecurityAssessment-20260407161902228-C7XUYIXG.js            [39m[1m[2m 14.56 kB[22m[1m[22m[2m │ gzip:   3.89 kB[22m
+[2mdist/[22m[36massets/js/DemoCredentials-20260407161902228-BDtChYmN.js                     [39m[1m[2m 14.72 kB[22m[1m[22m[2m │ gzip:   4.10 kB[22m
+[2mdist/[22m[36massets/js/RestaurantMediumDemo-20260407161902228-D6frPPaO.js                [39m[1m[2m 15.39 kB[22m[1m[22m[2m │ gzip:   4.10 kB[22m
+[2mdist/[22m[36massets/js/RestaurantLargeDemo-20260407161902228-D4Jxj0pf.js                 [39m[1m[2m 15.75 kB[22m[1m[22m[2m │ gzip:   3.76 kB[22m
+[2mdist/[22m[36massets/js/InternalChat-20260407161902228-6YZBOjiO.js                        [39m[1m[2m 15.90 kB[22m[1m[22m[2m │ gzip:   4.58 kB[22m
+[2mdist/[22m[36massets/js/EducationDemoHub-20260407161902228-OZ7KrBL7.js                    [39m[1m[2m 16.72 kB[22m[1m[22m[2m │ gzip:   4.99 kB[22m
+[2mdist/[22m[36massets/js/ValaAIFactoryPage-20260407161902228-COqoOxcY.js                   [39m[1m[2m 16.74 kB[22m[1m[22m[2m │ gzip:   4.78 kB[22m
+[2mdist/[22m[36massets/js/PremiumDemoShowcase-20260407161902228-BmlXCCEt.js                 [39m[1m[2m 17.05 kB[22m[1m[22m[2m │ gzip:   5.06 kB[22m
+[2mdist/[22m[36massets/js/DeveloperRegistration-20260407161902228-Dyx7v56L.js               [39m[1m[2m 17.10 kB[22m[1m[22m[2m │ gzip:   4.86 kB[22m
+[2mdist/[22m[36massets/js/CategoryOnboarding-20260407161902228-BIXkcAyy.js                  [39m[1m[2m 17.51 kB[22m[1m[22m[2m │ gzip:   4.41 kB[22m
+[2mdist/[22m[36massets/js/AutoDevEngine-20260407161902228-9pJzmg2F.js                       [39m[1m[2m 19.21 kB[22m[1m[22m[2m │ gzip:   5.23 kB[22m
+[2mdist/[22m[36massets/js/ClientPortal-20260407161902228-B8K_ShP1.js                        [39m[1m[2m 20.20 kB[22m[1m[22m[2m │ gzip:   5.76 kB[22m
+[2mdist/[22m[36massets/js/css-utils-20260407161902228--BulIq_u.js                           [39m[1m[2m 20.90 kB[22m[1m[22m[2m │ gzip:   7.11 kB[22m
+[2mdist/[22m[36massets/js/DemoOrderSystem-20260407161902228-ChtmqAWw.js                     [39m[1m[2m 21.02 kB[22m[1m[22m[2m │ gzip:   4.53 kB[22m
+[2mdist/[22m[36massets/js/InfluencerCommandCenter-20260407161902228-DPfplpGK.js             [39m[1m[2m 21.57 kB[22m[1m[22m[2m │ gzip:   5.02 kB[22m
+[2mdist/[22m[36massets/js/ResellerDashboard-20260407161902228-uHJyfjA_.js                   [39m[1m[2m 22.20 kB[22m[1m[22m[2m │ gzip:   4.87 kB[22m
+[2mdist/[22m[36massets/js/ControlPanelDashboard-20260407161902228-YMhnshqi.js               [39m[1m[2m 22.94 kB[22m[1m[22m[2m │ gzip:   5.79 kB[22m
+[2mdist/[22m[36massets/js/ApplyPage-20260407161902228-YFvipyo5.js                           [39m[1m[2m 24.45 kB[22m[1m[22m[2m │ gzip:   6.64 kB[22m
+[2mdist/[22m[36massets/js/ValaControlCenter-20260407161902228-CBfuoYXB.js                   [39m[1m[2m 24.76 kB[22m[1m[22m[2m │ gzip:   6.73 kB[22m
+[2mdist/[22m[36massets/js/ResellerPortal-20260407161902228-BuPJ-zLC.js                      [39m[1m[2m 25.12 kB[22m[1m[22m[2m │ gzip:   5.53 kB[22m
+[2mdist/[22m[36massets/js/SchoolLargeDemo-20260407161902228-DOiJ2MK7.js                     [39m[1m[2m 25.33 kB[22m[1m[22m[2m │ gzip:   6.52 kB[22m
+[2mdist/[22m[36massets/js/MarketplaceManagerDashboard-20260407161902228-C74rRWkS.js         [39m[1m[2m 25.65 kB[22m[1m[22m[2m │ gzip:   6.91 kB[22m
+[2mdist/[22m[36massets/js/Dashboard-20260407161902228-DcUL-6Hb.js                           [39m[1m[2m 26.85 kB[22m[1m[22m[2m │ gzip:   5.79 kB[22m
+[2mdist/[22m[36massets/js/PrimeUserDashboard-20260407161902228-LKiEqeiq.js                  [39m[1m[2m 27.29 kB[22m[1m[22m[2m │ gzip:   7.29 kB[22m
+[2mdist/[22m[36massets/js/PromiseManagementDashboard-20260407161902228-CbaiUsBS.js          [39m[1m[2m 27.56 kB[22m[1m[22m[2m │ gzip:   5.91 kB[22m
+[2mdist/[22m[36massets/js/CountryAdminStripeAtlas-20260407161902228-CxXKzizL.js             [39m[1m[2m 28.18 kB[22m[1m[22m[2m │ gzip:   5.69 kB[22m
+[2mdist/[22m[36massets/js/IncidentCrisisDashboard-20260407161902228-DAiG7r7q.js             [39m[1m[2m 28.41 kB[22m[1m[22m[2m │ gzip:   7.60 kB[22m
+[2mdist/[22m[36massets/js/factory-engine-20260407161902228-lVbLA5ZL.js                      [39m[1m[2m 29.07 kB[22m[1m[22m[2m │ gzip:  11.29 kB[22m
+[2mdist/[22m[36massets/js/CentralIntegrationHub-20260407161902228-b-lT6ERP.js               [39m[1m[2m 29.67 kB[22m[1m[22m[2m │ gzip:   8.28 kB[22m
+[2mdist/[22m[36massets/js/DashboardLayout-20260407161902228-DTuzE14h.js                     [39m[1m[2m 30.00 kB[22m[1m[22m[2m │ gzip:   8.38 kB[22m
+[2mdist/[22m[36massets/js/SimpleDemoList-20260407161902228-D65A8zbR.js                      [39m[1m[2m 30.14 kB[22m[1m[22m[2m │ gzip:   8.51 kB[22m
+[2mdist/[22m[36massets/js/ServerManagementPortal-20260407161902228-ClLCc1g6.js              [39m[1m[2m 31.15 kB[22m[1m[22m[2m │ gzip:   6.81 kB[22m
+[2mdist/[22m[36massets/js/EnterpriseControlHub-20260407161902228-DyxLVLrK.js                [39m[1m[2m 32.12 kB[22m[1m[22m[2m │ gzip:   7.37 kB[22m
+[2mdist/[22m[36massets/js/SecureDevManagerDashboard-20260407161902228-BvfPK-cr.js           [39m[1m[2m 32.52 kB[22m[1m[22m[2m │ gzip:   7.00 kB[22m
+[2mdist/[22m[36massets/js/DevCommandCenter-20260407161902228-c37LQXi-.js                    [39m[1m[2m 32.93 kB[22m[1m[22m[2m │ gzip:   7.97 kB[22m
+[2mdist/[22m[36massets/js/framer-20260407161902228-D0AvJkqW.js                              [39m[1m[2m 33.35 kB[22m[1m[22m[2m │ gzip:  11.62 kB[22m
+[2mdist/[22m[36massets/js/Homepage-20260407161902228-CSniMbCm.js                            [39m[1m[2m 33.53 kB[22m[1m[22m[2m │ gzip:   8.28 kB[22m
+[2mdist/[22m[36massets/js/SecureTaskManagerDashboard-20260407161902228-R0uLPGZB.js          [39m[1m[2m 35.74 kB[22m[1m[22m[2m │ gzip:   7.60 kB[22m
+[2mdist/[22m[36massets/js/FranchiseLanding-20260407161902228-C4HaUO7w.js                    [39m[1m[2m 36.12 kB[22m[1m[22m[2m │ gzip:   8.29 kB[22m
+[2mdist/[22m[36massets/js/tanstack-20260407161902228-BLRLEkCh.js                            [39m[1m[2m 37.30 kB[22m[1m[22m[2m │ gzip:  11.18 kB[22m
+[2mdist/[22m[36massets/js/SecureLegalManagerDashboard-20260407161902228-CVE40fU2.js         [39m[1m[2m 37.48 kB[22m[1m[22m[2m │ gzip:   8.22 kB[22m
+[2mdist/[22m[36massets/js/BulkActionsReference-20260407161902228-CR6zfgU9.js                [39m[1m[2m 37.95 kB[22m[1m[22m[2m │ gzip:   7.17 kB[22m
+[2mdist/[22m[36massets/js/SecureHRManagerDashboard-20260407161902228-EzSS6XQF.js            [39m[1m[2m 38.68 kB[22m[1m[22m[2m │ gzip:   8.26 kB[22m
+[2mdist/[22m[36massets/js/CommunicationModule-20260407161902228-CkCWAL8X.js                 [39m[1m[2m 39.01 kB[22m[1m[22m[2m │ gzip:   7.35 kB[22m
+[2mdist/[22m[36massets/js/ResellerLanding-20260407161902228-yS9X5MhY.js                     [39m[1m[2m 39.20 kB[22m[1m[22m[2m │ gzip:   8.77 kB[22m
+[2mdist/[22m[36massets/js/SecureResellerManagerDashboard-20260407161902228-CxuVtIDD.js      [39m[1m[2m 39.72 kB[22m[1m[22m[2m │ gzip:   8.60 kB[22m
+[2mdist/[22m[36massets/js/SecureSEOManagerDashboard-20260407161902228-BaFK0YnH.js           [39m[1m[2m 40.91 kB[22m[1m[22m[2m │ gzip:   8.89 kB[22m
+[2mdist/[22m[36massets/js/SecureLeadManagerDashboard-20260407161902228-DioQeD8p.js          [39m[1m[2m 40.91 kB[22m[1m[22m[2m │ gzip:   8.90 kB[22m
+[2mdist/[22m[36massets/js/MarketplacePage-20260407161902228-8Yq0XBDw.js                     [39m[1m[2m 41.80 kB[22m[1m[22m[2m │ gzip:   9.92 kB[22m
+[2mdist/[22m[36massets/js/RetailPOSDemo-20260407161902228-Bx9eCXoM.js                       [39m[1m[2m 42.24 kB[22m[1m[22m[2m │ gzip:   7.74 kB[22m
+[2mdist/[22m[36massets/js/AIBillingDashboard-20260407161902228-Qj4FDQ46.js                  [39m[1m[2m 45.34 kB[22m[1m[22m[2m │ gzip:   9.56 kB[22m
+[2mdist/[22m[36massets/js/SecureSalesSupportManagerDashboard-20260407161902228-DdwiqxAi.js  [39m[1m[2m 47.62 kB[22m[1m[22m[2m │ gzip:  10.02 kB[22m
+[2mdist/[22m[36massets/js/SecureInfluencerManagerDashboard-20260407161902228-DArhmt1-.js    [39m[1m[2m 50.79 kB[22m[1m[22m[2m │ gzip:   8.63 kB[22m
+[2mdist/[22m[36massets/js/index-20260407161902228-CaiWj5Zi.js                               [39m[1m[2m 53.42 kB[22m[1m[22m[2m │ gzip:  10.77 kB[22m
+[2mdist/[22m[36massets/js/AIOptimizationConsole-20260407161902228-BnnAyCVo.js               [39m[1m[2m 56.59 kB[22m[1m[22m[2m │ gzip:  11.20 kB[22m
+[2mdist/[22m[36massets/js/SecureFranchiseManagerDashboard-20260407161902228-BhG5i8Zf.js     [39m[1m[2m 58.84 kB[22m[1m[22m[2m │ gzip:  10.92 kB[22m
+[2mdist/[22m[36massets/js/PerformanceManager-20260407161902228-DfB6eiT-.js                  [39m[1m[2m 66.91 kB[22m[1m[22m[2m │ gzip:  14.77 kB[22m
+[2mdist/[22m[36massets/js/ContinentSuperAdminDashboard-20260407161902228-C_HY_ISW.js        [39m[1m[2m 72.27 kB[22m[1m[22m[2m │ gzip:  15.65 kB[22m
+[2mdist/[22m[36massets/js/DemoManagerDashboard-20260407161902228-C2Ca72Ys.js                [39m[1m[2m 72.62 kB[22m[1m[22m[2m │ gzip:  14.89 kB[22m
+[2mdist/[22m[36massets/js/SecureDeveloperDashboard-20260407161902228-B4XWpCuQ.js            [39m[1m[2m 73.52 kB[22m[1m[22m[2m │ gzip:  18.42 kB[22m
+[2mdist/[22m[36massets/js/SecurityCommandCenter-20260407161902228-CBm0zA7j.js               [39m[1m[2m 75.22 kB[22m[1m[22m[2m │ gzip:  13.67 kB[22m
+[2mdist/[22m[36massets/js/PromiseTrackerDashboard-20260407161902228-B2nQvBop.js             [39m[1m[2m 79.50 kB[22m[1m[22m[2m │ gzip:  12.85 kB[22m
+[2mdist/[22m[36massets/js/AssistManagerDashboard-20260407161902228-x9BLMRaM.js              [39m[1m[2m 86.17 kB[22m[1m[22m[2m │ gzip:  17.60 kB[22m
+[2mdist/[22m[36massets/js/InfluencerManager-20260407161902228-0xCAMPn2.js                   [39m[1m[2m 95.49 kB[22m[1m[22m[2m │ gzip:  18.51 kB[22m
+[2mdist/[22m[36massets/js/SchoolSoftwareDashboard-20260407161902228-BHuIqPZb.js             [39m[1m[2m 96.90 kB[22m[1m[22m[2m │ gzip:  18.78 kB[22m
+[2mdist/[22m[36massets/js/RnDDashboard-20260407161902228-VqeRYeEu.js                        [39m[1m[2m 97.48 kB[22m[1m[22m[2m │ gzip:  20.52 kB[22m
+[2mdist/[22m[36massets/js/ClientSuccessDashboard-20260407161902228-Bsemyrmr.js              [39m[1m[2m101.45 kB[22m[1m[22m[2m │ gzip:  22.67 kB[22m
+[2mdist/[22m[36massets/js/MarketingManager-20260407161902228-B3MvNe0V.js                    [39m[1m[2m106.13 kB[22m[1m[22m[2m │ gzip:  20.71 kB[22m
+[2mdist/[22m[36massets/js/ProductDemoManager-20260407161902228-BEpQPRAm.js                  [39m[1m[2m116.42 kB[22m[1m[22m[2m │ gzip:  26.72 kB[22m
+[2mdist/[22m[36massets/js/SalesSupportDashboard-20260407161902228-BoUFfr_5.js               [39m[1m[2m116.65 kB[22m[1m[22m[2m │ gzip:  21.65 kB[22m
+[2mdist/[22m[36massets/js/router-20260407161902228-whPTzLhT.js                              [39m[1m[2m116.74 kB[22m[1m[22m[2m │ gzip:  21.39 kB[22m
+[2mdist/[22m[36massets/js/SystemFlowPage-20260407161902228-B-fL9xXb.js                      [39m[1m[2m118.00 kB[22m[1m[22m[2m │ gzip:  30.48 kB[22m
+[2mdist/[22m[36massets/js/radix-20260407161902228-D2BvU8cC.js                               [39m[1m[2m123.15 kB[22m[1m[22m[2m │ gzip:  36.74 kB[22m
+[2mdist/[22m[36massets/js/LegalComplianceManager-20260407161902228-IK3OvnQl.js              [39m[1m[2m137.76 kB[22m[1m[22m[2m │ gzip:  23.75 kB[22m
+[2mdist/[22m[36massets/js/icons-20260407161902228-F_bKu669.js                               [39m[1m[2m140.51 kB[22m[1m[22m[2m │ gzip:  25.68 kB[22m
+[2mdist/[22m[36massets/js/ServerManagerDashboard-20260407161902228-N_Ma4DvY.js              [39m[1m[2m145.34 kB[22m[1m[22m[2m │ gzip:  27.63 kB[22m
+[2mdist/[22m[36massets/js/SEODashboard-20260407161902228-BiFsVsYp.js                        [39m[1m[2m149.54 kB[22m[1m[22m[2m │ gzip:  28.54 kB[22m
+[2mdist/[22m[36massets/js/FinanceManager-20260407161902228-Dj8DfhL6.js                      [39m[1m[2m171.81 kB[22m[1m[22m[2m │ gzip:  30.54 kB[22m
+[2mdist/[22m[36massets/js/supabase-20260407161902228-DV5_EK5c.js                            [39m[1m[2m185.48 kB[22m[1m[22m[2m │ gzip:  49.34 kB[22m
+[2mdist/[22m[36massets/js/react-core-20260407161902228-BsQE83o9.js                          [39m[1m[2m188.94 kB[22m[1m[22m[2m │ gzip:  62.12 kB[22m
+[2mdist/[22m[36massets/js/InfluencerDashboard-20260407161902228-Bkp09TU6.js                 [39m[1m[2m193.75 kB[22m[1m[22m[2m │ gzip:  38.65 kB[22m
+[2mdist/[22m[36massets/js/charts-20260407161902228-Cir4B56k.js                              [39m[1m[2m328.66 kB[22m[1m[22m[2m │ gzip:  89.46 kB[22m
+[2mdist/[22m[36massets/js/vendor-20260407161902228-CsngLfK4.js                              [39m[1m[2m367.41 kB[22m[1m[22m[2m │ gzip: 115.92 kB[22m
+[2mdist/[22m[36massets/js/index-20260407161902228-Cg0R-dDi.js                               [39m[1m[2m498.19 kB[22m[1m[22m[2m │ gzip: 118.45 kB[22m
+[32m✓ built in 37.58s[39m
+EXITCODE:0

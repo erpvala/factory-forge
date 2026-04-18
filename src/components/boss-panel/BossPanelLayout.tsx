@@ -3,22 +3,7 @@ import React, { useState } from 'react';
 import { BossPanelHeader } from './BossPanelHeader';
 import { BossPanelSidebar } from './BossPanelSidebar';
 import { BossPanelContent } from './BossPanelContent';
-
-export type BossPanelSection = 
-  | 'full-auto'
-  | 'live-activity'
-  | 'hierarchy'
-  | 'super-admins'
-  | 'roles'
-  | 'modules'
-  | 'products'
-  | 'revenue'
-  | 'audit'
-  | 'security'
-  | 'codepilot'
-  | 'server-hosting'
-  | 'vala-ai'
-  | 'settings';
+import { BossPanelSection } from '@/config/bossPanelRegistry';
 
 interface BossPanelLayoutProps {
   children?: React.ReactNode;

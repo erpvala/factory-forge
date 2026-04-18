@@ -2,9 +2,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
+import { useRouter } from 'next/navigation';
+import { supabase } from '@/lib/supabase';
+import { callEdgeRoute } from '@/lib/api/edge-client';
 import { 
   Code, 
   GitBranch, 
@@ -57,109 +61,140 @@ const DeveloperDashboardPage: React.FC = () => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [pipelines, setPipelines] = useState<Pipeline[]>([]);
   const [deployments, setDeployments] = useState<Deployment[]>([]);
+  const [commits, setCommits] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
 
-  // Demo data for GitLab-like experience
   useEffect(() => {
-    const demoProjects: Project[] = [
-      {
-        id: 'proj_1',
-        name: 'E-commerce Platform',
-        description: 'React-based e-commerce solution',
-        status: 'active',
-        lastCommit: '2 hours ago',
-        commits: 234,
-        branches: 8,
-        pipelineStatus: 'success',
-        deployments: 12
-      },
-      {
-        id: 'proj_2',
-        name: 'Mobile API Backend',
-        description: 'Node.js REST API for mobile apps',
-        status: 'active',
-        lastCommit: '5 hours ago',
-        commits: 156,
-        branches: 5,
-        pipelineStatus: 'running',
-        deployments: 8
-      },
-      {
-        id: 'proj_3',
-        name: 'Data Analytics Dashboard',
-        description: 'Python-based analytics platform',
-        status: 'active',
-        lastCommit: '1 day ago',
-        commits: 89,
-        branches: 3,
-        pipelineStatus: 'failed',
-        deployments: 5
+    // Load real developer data
+    const loadDeveloperData = async () => {
+      try {
+        setIsLoading(true);
+        
+        // Get current user
+        const { data: userData } = await supabase.auth.getUser();
+        setUser(userData?.user || null);
+        
+        // Load projects
+        const { data: projectsData, error: projectsError } = await supabase
+          .from('developer_projects')
+          .select('*')
+          .eq('developer_id', userData?.user?.id)
+          .order('created_at', { ascending: false });
+        
+        if (projectsError) throw projectsError;
+        
+        // Load pipelines
+        const { data: pipelinesData, error: pipelinesError } = await supabase
+          .from('developer_pipelines')
+          .select('*')
+          .eq('developer_id', userData?.user?.id)
+          .order('created_at', { ascending: false });
+        
+        if (pipelinesError) throw pipelinesError;
+        
+        // Load deployments
+        const { data: deploymentsData, error: deploymentsError } = await supabase
+          .from('developer_deployments')
+          .select('*')
+          .eq('developer_id', userData?.user?.id)
+          .order('created_at', { ascending: false });
+        
+        if (deploymentsError) throw deploymentsError;
+        
+        // Load commits
+        const { data: commitsData, error: commitsError } = await supabase
+          .from('developer_commits')
+          .select('*')
+          .eq('developer_id', userData?.user?.id)
+          .order('created_at', { ascending: false })
+          .limit(10);
+        
+        if (commitsError) throw commitsError;
+        
+        setProjects(projectsData || []);
+        setPipelines(pipelinesData || []);
+        setDeployments(deploymentsData || []);
+        setCommits(commitsData || []);
+        
+        // Log audit trail
+        await supabase.from('audit_logs').insert({
+          action: 'developer_dashboard_loaded',
+          module: 'developer_dashboard',
+          user_id: userData?.user?.id,
+          metadata: { 
+            projects_count: projectsData?.length || 0,
+            pipelines_count: pipelinesData?.length || 0
+          }
+        });
+        
+      } catch (error) {
+        console.error('Error loading developer dashboard data:', error);
+      } finally {
+        setIsLoading(false);
       }
-    ];
+    };
 
-    const demoPipelines: Pipeline[] = [
-      {
-        id: 'pipe_1',
-        projectId: 'proj_1',
-        status: 'success',
-        branch: 'main',
-        commit: 'a3f4b8c',
-        duration: 245,
-        timestamp: Date.now() - 3600000
-      },
-      {
-        id: 'pipe_2',
-        projectId: 'proj_2',
-        status: 'running',
-        branch: 'develop',
-        commit: 'f7d2e9a',
-        duration: 180,
-        timestamp: Date.now() - 1800000
-      },
-      {
-        id: 'pipe_3',
-        projectId: 'proj_3',
-        status: 'failed',
-        branch: 'feature/analytics',
-        commit: 'b5c1d4e',
-        duration: 120,
-        timestamp: Date.now() - 7200000
-      }
-    ];
-
-    const demoDeployments: Deployment[] = [
-      {
-        id: 'deploy_1',
-        projectId: 'proj_1',
-        environment: 'production',
-        status: 'deployed',
-        version: 'v2.3.1',
-        timestamp: Date.now() - 86400000
-      },
-      {
-        id: 'deploy_2',
-        projectId: 'proj_2',
-        environment: 'staging',
-        status: 'deploying',
-        version: 'v1.8.0-beta',
-        timestamp: Date.now() - 3600000
-      }
-    ];
-
-    setTimeout(() => {
-      setProjects(demoProjects);
-      setPipelines(demoPipelines);
-      setDeployments(demoDeployments);
-      setUser({
-        id: 'dev_1',
-        name: 'John Developer',
-        email: 'john@company.com',
-        role: 'developer'
-      });
-      setLoading(false);
-    }, 1000);
+    loadDeveloperData();
   }, []);
+
+  // Handle new project creation
+  const handleNewProject = async () => {
+    try {
+      const { data: userData } = await supabase.auth.getUser();
+      
+      const { data, error } = await supabase
+        .from('developer_projects')
+        .insert({
+          name: 'New Project',
+          status: 'development',
+          progress: 0,
+          developer_id: userData?.user?.id
+        })
+        .select()
+        .single();
+      
+      if (error) throw error;
+      
+      setProjects(prev => [data, ...prev]);
+      
+      // Log audit trail
+      await supabase.from('audit_logs').insert({
+        action: 'project_created',
+        module: 'developer_dashboard',
+        user_id: userData?.user?.id,
+        metadata: { project_id: data.id }
+      });
+      
+      // Navigate to project detail
+      router.push(`/developer/projects/${data.id}`);
+      
+    } catch (error) {
+      console.error('Error creating new project:', error);
+    }
+  };
+  
+  // Handle project click
+  const handleProjectClick = (projectId: string) => {
+    router.push(`/developer/projects/${projectId}`);
+  };
+  
+  // Handle pipeline click
+  const handlePipelineClick = (pipelineId: string) => {
+    router.push(`/developer/pipelines/${pipelineId}`);
+  };
+  
+  // Handle deployment click
+  const handleDeploymentClick = (deploymentId: string) => {
+    router.push(`/developer/deployments/${deploymentId}`);
+  };
+  
+  // Handle commit click
+  const handleCommitClick = (commitId: string) => {
+    router.push(`/developer/commits/${commitId}`);
+  };
 
   const getStatusIcon = (status: string) => {
     switch (status) {
@@ -215,7 +250,7 @@ const DeveloperDashboardPage: React.FC = () => {
             <h1 className="text-3xl font-bold">Developer Dashboard</h1>
             <p className="text-muted-foreground">Welcome back, {user?.name}</p>
           </div>
-          <Button>
+          <Button onClick={handleNewProject}>
             <Code className="h-4 w-4 mr-2" />
             New Project
           </Button>
@@ -280,7 +315,7 @@ const DeveloperDashboardPage: React.FC = () => {
           <CardContent>
             <div className="space-y-4">
               {projects.map((project) => (
-                <div key={project.id} className="flex items-center justify-between p-4 border rounded-lg">
+                <div key={project.id} className="flex items-center justify-between p-4 border rounded-lg cursor-pointer hover:bg-muted/50" onClick={() => handleProjectClick(project.id)}>
                   <div className="flex items-center space-x-4">
                     {getStatusIcon(project.status)}
                     <div>
@@ -297,7 +332,7 @@ const DeveloperDashboardPage: React.FC = () => {
                       <p className="text-sm text-muted-foreground">{project.branches} branches</p>
                     </div>
                     {getStatusBadge(project.pipelineStatus)}
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" onClick={(e) => { e.stopPropagation(); handleProjectClick(project.id); }}>
                       View
                     </Button>
                   </div>
@@ -316,7 +351,7 @@ const DeveloperDashboardPage: React.FC = () => {
             <CardContent>
               <div className="space-y-3">
                 {pipelines.slice(0, 3).map((pipeline) => (
-                  <div key={pipeline.id} className="flex items-center justify-between">
+                  <div key={pipeline.id} className="flex items-center justify-between cursor-pointer hover:bg-muted/50 p-2 rounded" onClick={() => handlePipelineClick(pipeline.id)}>
                     <div className="flex items-center space-x-3">
                       {getStatusIcon(pipeline.status)}
                       <div>
@@ -345,7 +380,7 @@ const DeveloperDashboardPage: React.FC = () => {
             <CardContent>
               <div className="space-y-3">
                 {deployments.slice(0, 3).map((deployment) => (
-                  <div key={deployment.id} className="flex items-center justify-between">
+                  <div key={deployment.id} className="flex items-center justify-between cursor-pointer hover:bg-muted/50 p-2 rounded" onClick={() => handleDeploymentClick(deployment.id)}>
                     <div className="flex items-center space-x-3">
                       {getStatusIcon(deployment.status)}
                       <div>

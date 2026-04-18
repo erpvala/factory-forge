@@ -1,0 +1,24 @@
+{
+  "release_version": "v1.0.1",
+  "frontend_version": "2026.04.07",
+  "backend_version": "2026.04.07",
+  "db_schema_version": "20260406233000_fix_apply_dashboard_status_sync",
+  "atomic_release": true,
+  "canary": {
+    "enabled": true,
+    "initial_percent": 5,
+    "full_rollout_after_minutes": 30
+  },
+  "feature_flags": {
+    "default_new_feature_state": "off",
+    "gradual_rollout_required": true
+  },
+  "auto_rollback": {
+    "enabled": true,
+    "required_checks": [
+      "health-check",
+      "route-check",
+      "flow-test"
+    ]
+  }
+}

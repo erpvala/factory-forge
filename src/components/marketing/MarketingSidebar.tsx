@@ -372,7 +372,7 @@ const MarketingSidebar = ({ activeSection, setActiveSection }: MarketingSidebarP
             variant="ghost"
             size="sm"
             className="flex-1 h-6 text-[9px] text-slate-400 hover:text-teal-300 hover:bg-teal-500/10 px-1"
-            onClick={() => navigate('/boss-panel')}
+            onClick={() => navigate('/login?redirect=%2Fcontrol-panel')}
           >
             <ArrowLeft className="w-2.5 h-2.5 mr-0.5" />
             Back

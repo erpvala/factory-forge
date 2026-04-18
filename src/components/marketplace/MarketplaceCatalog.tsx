@@ -305,7 +305,7 @@ export function MarketplaceCatalog({ title, subtitle, audienceLabel }: Marketpla
     if (!result) {
       return;
     }
-    navigateByUrl(result.redirect_to || '/developer/dashboard');
+    navigateByUrl(result.redirect_to || '/control-panel/developer-dashboard');
   };
 
   const handleCreateSupportTicket = () => {

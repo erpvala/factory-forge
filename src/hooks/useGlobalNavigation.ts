@@ -32,14 +32,14 @@ const BUTTON_ROUTE_MAP: Record<string, RouteDefinition> = {
   // Header Actions
   'btn_internal_chat': { path: '/internal-chat', state: { sidebar: 'collapsed', context: 'global' } },
   'btn_tasks': { path: '/task-manager', state: { sidebar: 'expanded', context: 'module' } },
-  'btn_alerts': { path: '/boss-panel', modal: false },
+  'btn_alerts': { path: '/control-panel', modal: false },
   'btn_profile': { path: '/settings', state: { context: 'global' } },
   'btn_settings': { path: '/settings', state: { context: 'global' } },
   'btn_logout': { path: '/auth/logout', state: { sidebar: 'hidden' } },
   
   // Dashboard Navigation
-  'btn_dashboard_main': { path: '/boss-panel', state: { sidebar: 'expanded', context: 'global' } },
-  'btn_boss_dashboard': { path: '/boss-panel', state: { sidebar: 'expanded', context: 'global' } },
+  'btn_dashboard_main': { path: '/control-panel', state: { sidebar: 'expanded', context: 'global' } },
+  'btn_boss_dashboard': { path: '/control-panel', state: { sidebar: 'expanded', context: 'global' } },
   'btn_ceo_dashboard': { path: '/ai-ceo', state: { sidebar: 'expanded', context: 'global' } },
   
   // Module Navigation
@@ -53,8 +53,8 @@ const BUTTON_ROUTE_MAP: Record<string, RouteDefinition> = {
   'btn_reseller': { path: '/reseller-manager/dashboard', state: { sidebar: 'expanded', context: 'module' } },
   'btn_support': { path: '/support', state: { sidebar: 'expanded', context: 'module' } },
   'btn_legal': { path: '/legal', state: { sidebar: 'expanded', context: 'module' } },
-  'btn_pro_manager': { path: '/boss-panel', state: { sidebar: 'expanded', context: 'module' } },
-  'btn_role_manager': { path: '/boss-panel', state: { sidebar: 'expanded', context: 'module' } },
+  'btn_pro_manager': { path: '/control-panel', state: { sidebar: 'expanded', context: 'module' } },
+  'btn_role_manager': { path: '/control-panel', state: { sidebar: 'expanded', context: 'module' } },
   
   // Table/Card Detail Views
   'btn_task_detail': { path: '/task-manager', modal: false },
@@ -72,8 +72,8 @@ const BUTTON_ROUTE_MAP: Record<string, RouteDefinition> = {
   'btn_school_dashboard': { path: '/school-software/dashboard', state: { sidebar: 'hidden', context: 'global' } },
   
   // Secure Pages
-  'btn_security_center': { path: '/super-admin/security-center', state: { sidebar: 'expanded' } },
-  'btn_audit_logs': { path: '/boss-panel', state: { sidebar: 'expanded' } },
+  'btn_security_center': { path: '/control-panel/security-manager', state: { sidebar: 'expanded' } },
+  'btn_audit_logs': { path: '/control-panel/audit-logs-manager', state: { sidebar: 'expanded' } },
 };
 
 // User permissions (would come from auth context in real app)
@@ -178,7 +178,7 @@ export function useGlobalNavigation() {
   // Go to home/dashboard
   const goHome = useCallback(() => {
     showGlobalSidebar();
-    navigate('/boss-panel');
+    navigate('/login?redirect=%2Fcontrol-panel');
     toast.success('Returned to Boss Dashboard');
   }, [navigate, showGlobalSidebar]);
 

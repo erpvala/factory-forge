@@ -138,10 +138,10 @@ export default function BossApplications() {
       <div className="sticky top-0 z-10 bg-gradient-to-r from-purple-800 to-indigo-800 px-4 py-4 shadow-xl md:px-6">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <button
-            onClick={() => navigate('/boss-panel')}
+            onClick={() => navigate('/login?redirect=%2Fcontrol-panel')}
             className="flex items-center gap-2 text-sm text-white/90 transition-colors hover:text-white active:scale-[0.98]"
           >
-            <ArrowLeft className="w-4 h-4" /> Boss Panel
+            <ArrowLeft className="w-4 h-4" /> Control Panel
           </button>
           <h1 className="flex items-center gap-2 text-xl font-semibold leading-tight">
             <Briefcase className="w-5 h-5" /> Applications

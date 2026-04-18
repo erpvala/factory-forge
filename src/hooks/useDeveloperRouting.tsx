@@ -38,7 +38,7 @@ const useDeveloperRouting = (): UseDeveloperRoutingReturn => {
       permissions: ['read:developer'],
       children: [
         {
-          path: '/developer/dashboard',
+          path: '/control-panel/developer-dashboard',
           name: 'Dashboard',
           component: 'DeveloperDashboardPage',
           permissions: ['read:developer']
@@ -163,7 +163,7 @@ const useDeveloperRouting = (): UseDeveloperRoutingReturn => {
     } else {
       console.warn(`❌ Access denied to: ${path}`);
       // Redirect to dashboard if access denied
-      router.push('/developer/dashboard');
+      router.push('/control-panel/developer-dashboard');
     }
   }, [router, canNavigateTo]);
 
@@ -172,7 +172,7 @@ const useDeveloperRouting = (): UseDeveloperRoutingReturn => {
     if (window.history.length > 2) {
       router.back();
     } else {
-      router.push('/developer/dashboard');
+      router.push('/control-panel/developer-dashboard');
     }
   }, [router]);
 
@@ -202,7 +202,7 @@ const useDeveloperRouting = (): UseDeveloperRoutingReturn => {
   useEffect(() => {
     if (pathname.startsWith('/developer') && !canNavigateTo(pathname)) {
       console.warn(`❌ Invalid route access: ${pathname}`);
-      router.push('/developer/dashboard');
+      router.push('/control-panel/developer-dashboard');
     }
   }, [pathname, canNavigateTo, router]);
 

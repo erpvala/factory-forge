@@ -1,0 +1,21 @@
+{
+  "billing_source": "ledger",
+  "usage_billing_map": {
+    "api_usage": "cost",
+    "subscription": "charge",
+    "order": "revenue"
+  },
+  "reconciliation": {
+    "schedule": "daily",
+    "checks": [
+      "payu_vs_payments",
+      "payments_vs_ledger",
+      "wallet_vs_ledger"
+    ],
+    "alert_on_mismatch": true
+  },
+  "tax": {
+    "enabled": true,
+    "mode": "gst_vat_per_order"
+  }
+}

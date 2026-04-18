@@ -135,7 +135,7 @@ const useDeveloperAuth = () => {
         });
 
         // Redirect to dashboard
-        router.push('/developer/dashboard');
+        router.push('/control-panel/developer-dashboard');
         
         return { success: true };
       } else {
@@ -189,7 +189,7 @@ const useDeveloperAuth = () => {
 
     if (requiredPermissions && requiredPermissions.length > 0) {
       if (!hasAllPermissions(requiredPermissions)) {
-        router.push('/developer/dashboard'); // Redirect to dashboard if insufficient permissions
+        router.push('/control-panel/developer-dashboard'); // Redirect to dashboard if insufficient permissions
         return false;
       }
     }

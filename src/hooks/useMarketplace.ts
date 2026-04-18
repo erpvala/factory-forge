@@ -274,11 +274,41 @@ export function useMarketplace() {
         throw new Error('Please sign in before purchasing');
       }
 
+      // Create pending order in database
+      const { data: orderData, error: orderError } = await supabase
+        .from('marketplace_orders')
+        .insert({
+          product_id: input.productId,
+          user_id: user.id,
+          payment_method: input.paymentMethod,
+          status: 'pending',
+          amount: 0, // Will be updated after payment processing
+          created_at: new Date().toISOString()
+        })
+        .select()
+        .single();
+
+      if (orderError) {
+        throw new Error(`Failed to create order: ${orderError.message}`);
+      }
+
       const pendingOrderId = createPendingCheckout({
         productId: input.productId,
         userId: user.id,
         amount: 0,
         paymentMethod: input.paymentMethod,
+      });
+
+      // Log audit trail for order creation
+      await supabase.from('audit_logs').insert({
+        action: 'marketplace_order_created',
+        module: 'marketplace',
+        user_id: user.id,
+        metadata: { 
+          order_id: orderData.id,
+          product_id: input.productId,
+          payment_method: input.paymentMethod
+        }
       });
 
       track_marketplace_event({
@@ -303,6 +333,7 @@ export function useMarketplace() {
         },
       });
 
+      // Process payment through real payment gateway
       const response = await callEdgeRoute<{
         payment_url: string;
         order_id: string;
@@ -311,12 +342,23 @@ export function useMarketplace() {
         body: {
           product_id: input.productId,
           user_id: user.id,
+          order_id: orderData.id,
+          payment_method: input.paymentMethod
         },
       });
 
       if (!response.data.payment_url) {
         throw new Error('Payment URL was not returned');
       }
+
+      // Update order with payment URL
+      await supabase
+        .from('marketplace_orders')
+        .update({
+          payment_url: response.data.payment_url,
+          updated_at: new Date().toISOString()
+        })
+        .eq('id', orderData.id);
 
       sendNotification({
         type: 'in_app',

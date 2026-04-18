@@ -30,7 +30,7 @@ const useDeveloperRoleAuth = () => {
   const rolePermissions: RolePermissions = {
     developer: {
       allowed: [
-        '/developer/dashboard',
+        '/control-panel/developer-dashboard',
         '/developer/projects',
         '/developer/repositories',
         '/developer/commits',
@@ -130,11 +130,11 @@ const useDeveloperRoleAuth = () => {
       setAccessDenied(true);
       // Redirect to appropriate dashboard based on role
       if (mockUserRole === 'developer') {
-        router.push('/developer/dashboard');
+        router.push('/control-panel/developer-dashboard');
       } else if (mockUserRole === 'admin') {
         router.push('/admin/dashboard');
       } else {
-        router.push('/developer/dashboard');
+        router.push('/control-panel/developer-dashboard');
       }
       return false;
     }
@@ -215,7 +215,7 @@ const useDeveloperRoleAuth = () => {
   // Check if user can access specific module
   const canAccessModule = useCallback((module: string): boolean => {
     const modulePaths: Record<string, string> = {
-      'developer': '/developer/dashboard',
+      'developer': '/control-panel/developer-dashboard',
       'admin': '/admin/dashboard',
       'business': '/business/dashboard',
       'franchise': '/franchise-manager/dashboard',
@@ -246,12 +246,12 @@ const useDeveloperRoleAuth = () => {
   // Redirect based on role
   const redirectToRoleDashboard = useCallback(() => {
     const dashboardPaths: Record<string, string> = {
-      developer: '/developer/dashboard',
+      developer: '/control-panel/developer-dashboard',
       admin: '/admin/dashboard',
       super_admin: '/ai-ceo/dashboard'
     };
 
-    const targetPath = dashboardPaths[userRole] || '/developer/dashboard';
+    const targetPath = dashboardPaths[userRole] || '/control-panel/developer-dashboard';
     router.push(targetPath);
   }, [userRole, router]);
 

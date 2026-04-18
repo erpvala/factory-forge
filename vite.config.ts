@@ -2,6 +2,59 @@ import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
+const ALLOWED_ENTRY_PREFIXES = ['/login', '/control-panel', '/api'];
+const BLOCKED_ENTRY_PREFIXES = ['/admin', '/super-admin', '/user', '/dashboard', '/old'];
+
+const shouldRouteGate = (requestUrl: string, acceptHeader: string | undefined): boolean => {
+  if (!acceptHeader || !acceptHeader.includes('text/html')) {
+    return false;
+  }
+
+  const pathname = (requestUrl || '/').split('?')[0];
+  if (
+    pathname.startsWith('/@vite') ||
+    pathname.startsWith('/@fs') ||
+    pathname.startsWith('/node_modules') ||
+    pathname.startsWith('/src') ||
+    pathname.startsWith('/assets') ||
+    pathname.startsWith('/public') ||
+    pathname.startsWith('/.well-known') ||
+    pathname === '/favicon.ico' ||
+    pathname === '/robots.txt' ||
+    pathname === '/route_config.json' ||
+    /\.[a-zA-Z0-9]+$/.test(pathname)
+  ) {
+    return false;
+  }
+
+  return true;
+};
+
+const isAllowedEntryPath = (pathname: string): boolean => {
+  if (BLOCKED_ENTRY_PREFIXES.some((prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`))) {
+    return false;
+  }
+  return ALLOWED_ENTRY_PREFIXES.some((prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`));
+};
+
+const routeGateMiddleware = (req: any, res: any, next: any) => {
+  const pathname = (req.url || '/').split('?')[0];
+  const acceptHeader = req.headers?.accept as string | undefined;
+
+  if (!shouldRouteGate(pathname, acceptHeader)) {
+    return next();
+  }
+
+  if (!isAllowedEntryPath(pathname)) {
+    res.statusCode = 302;
+    res.setHeader('Location', '/login');
+    res.end();
+    return;
+  }
+
+  return next();
+};
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   // Load env so we can read VITE_SUPABASE_URL for the dev proxy
@@ -35,6 +88,15 @@ export default defineConfig(({ mode }) => {
 
   plugins: [
     react(),
+    {
+      name: 'control-panel-route-gate',
+      configureServer(server) {
+        server.middlewares.use(routeGateMiddleware);
+      },
+      configurePreviewServer(server) {
+        server.middlewares.use(routeGateMiddleware);
+      },
+    },
   ],
 
   resolve: {

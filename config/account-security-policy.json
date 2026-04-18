@@ -1,0 +1,29 @@
+{
+  "password_policy": {
+    "min_length": 10,
+    "require_upper": true,
+    "require_lower": true,
+    "require_number": true,
+    "require_symbol": true,
+    "expiry_days": 90
+  },
+  "session_policy": {
+    "max_active_sessions": 3,
+    "single_device_mode": false,
+    "device_binding_required": true
+  },
+  "lock_policy": {
+    "failed_login_threshold": 5,
+    "lock_minutes": 30
+  },
+  "takeover_detection": {
+    "enabled": true,
+    "geo_change_alert": true,
+    "anomaly_auto_logout": true
+  },
+  "boss_recovery": {
+    "emergency_access_code_required": true,
+    "backup_email_required": true,
+    "manual_unlock_via_boss_panel": true
+  }
+}

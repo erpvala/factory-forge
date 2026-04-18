@@ -1,27 +1,26 @@
 // @ts-nocheck
-import { callEdgeRoute } from '@/lib/api/edge-client';
 
-const API_BASE = 'server-manager';
+const API_BASE = '/api/v1/server-manager';
 
 type ApiMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-function splitPathAndQuery(path: string) {
-  const [pathname, queryString = ''] = path.split('?');
-  return {
-    pathname: pathname.replace(/^\/+/, ''),
-    query: Object.fromEntries(new URLSearchParams(queryString).entries()),
-  };
-}
-
 async function apiCall<T>(path: string, method: ApiMethod = 'GET', body?: unknown): Promise<T> {
-  const { pathname, query } = splitPathAndQuery(path);
-  const response = await callEdgeRoute<T>(API_BASE, pathname, {
+  const normalizedPath = path.replace(/^\/+/, '');
+  const response = await fetch(`${API_BASE}/${normalizedPath}`, {
     method,
-    body,
-    query,
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: method === 'GET' ? undefined : JSON.stringify(body || {}),
+    credentials: 'include',
   });
 
-  return response.data;
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(data?.error || 'server_manager_request_failed');
+  }
+
+  return data as T;
 }
 
 export const serverManagerAPI = {

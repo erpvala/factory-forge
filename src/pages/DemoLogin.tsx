@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
-  Crown, Shield, Users, Server, Briefcase, UserCheck, 
-  TrendingUp, Headphones, Code, DollarSign, Eye, 
+  Crown, Shield, Users, UserCheck,
   Loader2, CheckCircle2, AlertTriangle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -12,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { getDemoRoleAccounts } from '@/services/demoRoleRegistry';
 
 // ============================================
 // DEMO LOGIN PAGE - ONE-CLICK TESTING
@@ -29,134 +29,25 @@ interface DemoAccount {
   tier: 'master' | 'admin' | 'manager' | 'staff';
 }
 
-const DEMO_ACCOUNTS: DemoAccount[] = [
-  // TIER 1: MASTER
-  {
-    id: 'master',
-    role: 'Master Admin',
-    email: 'masteradmin@demo.softwarevala.com',
-    password: 'Demo@Master2025!',
-    icon: Crown,
-    color: 'from-purple-500 to-purple-700',
-    description: 'System Owner • Root of Trust • Hidden Endpoint',
-    redirectPath: '/master-control-vault-x9k2m',
-    tier: 'master',
-  },
-  // TIER 2: SUPER ADMIN
-  {
-    id: 'super',
-    role: 'Super Admin',
-    email: 'superadmin@demo.softwarevala.com',
-    password: 'Demo@Super2025!',
-    icon: Shield,
-    color: 'from-amber-500 to-orange-600',
-    description: 'Platform Commander • Global Control',
-    redirectPath: '/super-admin',
-    tier: 'admin',
-  },
-  // TIER 3: ADMIN
-  {
-    id: 'admin',
-    role: 'Admin',
-    email: 'admin@demo.softwarevala.com',
-    password: 'Demo@Admin2025!',
-    icon: Users,
-    color: 'from-blue-500 to-blue-700',
-    description: 'System Operator • Daily Operations',
-    redirectPath: '/admin-secure',
-    tier: 'admin',
-  },
-  // TIER 4: MANAGERS
-  {
-    id: 'server',
-    role: 'Server Manager',
-    email: 'server@demo.softwarevala.com',
-    password: 'Demo@Server2025!',
-    icon: Server,
-    color: 'from-slate-500 to-slate-700',
-    description: 'Infra Guardian • Zero Trust',
-    redirectPath: '/server-manager',
-    tier: 'manager',
-  },
-  {
-    id: 'franchise',
-    role: 'Franchise Manager',
-    email: 'franchise@demo.softwarevala.com',
-    password: 'Demo@Franchise2025!',
-    icon: Briefcase,
-    color: 'from-emerald-500 to-emerald-700',
-    description: 'Business Operations • Regional Control',
-    redirectPath: '/franchise-manager',
-    tier: 'manager',
-  },
-  {
-    id: 'area',
-    role: 'Area Manager',
-    email: 'area@demo.softwarevala.com',
-    password: 'Demo@Area2025!',
-    icon: UserCheck,
-    color: 'from-teal-500 to-teal-700',
-    description: 'Regional Oversight • Territory Management',
-    redirectPath: '/area-manager',
-    tier: 'manager',
-  },
-  {
-    id: 'finance',
-    role: 'Finance Manager',
-    email: 'finance@demo.softwarevala.com',
-    password: 'Demo@Finance2025!',
-    icon: DollarSign,
-    color: 'from-green-500 to-green-700',
-    description: 'Financial Operations • Transactions',
-    redirectPath: '/finance',
-    tier: 'manager',
-  },
-  // TIER 5: STAFF
-  {
-    id: 'developer',
-    role: 'Developer',
-    email: 'developer@demo.softwarevala.com',
-    password: 'Demo@Dev2025!',
-    icon: Code,
-    color: 'from-violet-500 to-violet-700',
-    description: 'Development Tasks • Code Access',
-    redirectPath: '/developer',
-    tier: 'staff',
-  },
-  {
-    id: 'sales',
-    role: 'Sales Lead',
-    email: 'sales@demo.softwarevala.com',
-    password: 'Demo@Sales2025!',
-    icon: TrendingUp,
-    color: 'from-cyan-500 to-cyan-700',
-    description: 'Lead Management • Sales Pipeline',
-    redirectPath: '/sales',
-    tier: 'staff',
-  },
-  {
-    id: 'support',
-    role: 'Support Staff',
-    email: 'support@demo.softwarevala.com',
-    password: 'Demo@Support2025!',
-    icon: Headphones,
-    color: 'from-pink-500 to-pink-700',
-    description: 'Client Support • Issue Resolution',
-    redirectPath: '/support',
-    tier: 'staff',
-  },
-  {
-    id: 'viewer',
-    role: 'Viewer',
-    email: 'viewer@demo.softwarevala.com',
-    password: 'Demo@Viewer2025!',
-    icon: Eye,
-    color: 'from-gray-500 to-gray-700',
-    description: 'Read-Only Access • Monitoring',
-    redirectPath: '/app',
-    tier: 'staff',
-  },
-];
+const TIER_ICON: Record<DemoAccount['tier'], typeof Crown> = {
+  master: Crown,
+  admin: Shield,
+  manager: Users,
+  staff: UserCheck,
+};
+
+const TIER_COLOR: Record<DemoAccount['tier'], string> = {
+  master: 'from-purple-500 to-purple-700',
+  admin: 'from-amber-500 to-orange-600',
+  manager: 'from-blue-500 to-blue-700',
+  staff: 'from-emerald-500 to-emerald-700',
+};
+
+const DEMO_ACCOUNTS: DemoAccount[] = getDemoRoleAccounts().map((account) => ({
+  ...account,
+  icon: TIER_ICON[account.tier],
+  color: TIER_COLOR[account.tier],
+}));
 
 const DemoLogin = () => {
   const navigate = useNavigate();

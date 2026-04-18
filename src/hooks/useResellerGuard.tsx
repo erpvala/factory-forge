@@ -143,7 +143,7 @@ export const useResellerGuard = () => {
         severity: 'high'
       });
       toast.error('Access denied: This area is restricted');
-      navigate('/reseller/dashboard');
+      navigate('/control-panel/reseller-dashboard');
     }
   }, [location.pathname, isBlockedRoute, logSecurityEvent, navigate]);
 

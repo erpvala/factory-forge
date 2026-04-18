@@ -165,7 +165,7 @@ const SimpleDemoList = () => {
             <div className="flex items-center gap-3">
               {/* Cart Button */}
               <Link 
-                to="/user-dashboard" 
+                to="/cart" 
                 className="relative p-2.5 rounded-lg bg-slate-800/50 hover:bg-slate-700/50 transition-colors"
               >
                 <ShoppingBag className="w-5 h-5 text-slate-400" />

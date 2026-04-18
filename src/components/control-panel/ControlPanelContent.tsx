@@ -57,11 +57,11 @@ const CollapsedView = memo(() => {
   }, []);
 
   const handleOpenTasks = useCallback(() => {
-    navigate('/boss/tasks');
+    navigate('/control-panel/task-manager');
   }, [navigate]);
 
   const handleOpenAlerts = useCallback(() => {
-    navigate('/boss/alerts');
+    navigate('/control-panel/health');
   }, [navigate]);
 
   return (

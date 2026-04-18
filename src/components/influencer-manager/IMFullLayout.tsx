@@ -62,7 +62,7 @@ const IMFullLayout = () => {
   };
 
   return (
-    <div className="flex h-screen bg-slate-950">
+    <div className="flex min-h-screen bg-slate-950">
       <IMFullSidebar activeScreen={activeScreen} onScreenChange={setActiveScreen} />
       <div className="flex-1 overflow-auto">
         {renderScreen()}

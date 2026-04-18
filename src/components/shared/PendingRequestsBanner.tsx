@@ -12,6 +12,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
+import { assertSchemaOrThrow } from '@/services/uiDataSyncGuard';
 
 interface PendingRequest {
   id: string;
@@ -74,6 +75,12 @@ export function PendingRequestsBanner() {
       // Process reseller applications
       if (resellerApps && !resellerError) {
         resellerApps.forEach(app => {
+          if (!isValidRecord('reseller-manager', app, [
+            { key: 'id', type: 'string', required: true },
+            { key: 'created_at', type: 'string', required: true },
+          ])) {
+            return;
+          }
           requests.push({
             id: app.id,
             type: 'reseller_application',
@@ -89,6 +96,12 @@ export function PendingRequestsBanner() {
       // Process general approvals
       if (approvals && !approvalsError) {
         approvals.forEach(approval => {
+          if (!isValidRecord('approval-flow', approval, [
+            { key: 'id', type: 'string', required: true },
+            { key: 'request_type', type: 'string', required: true },
+          ])) {
+            return;
+          }
           requests.push({
             id: approval.id,
             type: 'approval',
@@ -96,7 +109,7 @@ export function PendingRequestsBanner() {
             subtitle: `Requested by user`,
             priority: approval.risk_score && approval.risk_score > 50 ? 'high' : 'medium',
             createdAt: new Date(approval.created_at || Date.now()),
-            actionUrl: '/master-admin'
+            actionUrl: '/login?redirect=%2Fcontrol-panel'
           });
         });
       }
@@ -104,6 +117,12 @@ export function PendingRequestsBanner() {
       // Process action approvals
       if (actionApprovals && !actionError) {
         actionApprovals.forEach(action => {
+          if (!isValidRecord('action-approval', action, [
+            { key: 'id', type: 'string', required: true },
+            { key: 'action_type', type: 'string', required: true },
+          ])) {
+            return;
+          }
           requests.push({
             id: action.id,
             type: 'action_approval',
@@ -111,7 +130,7 @@ export function PendingRequestsBanner() {
             subtitle: `Priority: ${action.priority || 'normal'}`,
             priority: action.priority === 'critical' ? 'high' : action.priority === 'high' ? 'medium' : 'low',
             createdAt: new Date(action.created_at || Date.now()),
-            actionUrl: '/master-admin'
+            actionUrl: '/login?redirect=%2Fcontrol-panel'
           });
         });
       }
@@ -162,6 +181,16 @@ export function PendingRequestsBanner() {
     }
   };
 
+  const isValidRecord = (moduleKey: string, record: Record<string, unknown>, fields: Array<{ key: string; type: string; required?: boolean }>) => {
+    try {
+      assertSchemaOrThrow(moduleKey, record, fields as any);
+      return true;
+    } catch (error) {
+      console.warn(`PendingRequestsBanner schema validation failed for ${moduleKey}:`, error);
+      return false;
+    }
+  };
+
   const getTypeIcon = (type: string) => {
     switch (type) {
       case 'reseller_application': return <Building2 className="w-4 h-4" />;
@@ -178,10 +207,7 @@ export function PendingRequestsBanner() {
     setIsExpanded(false);
   };
 
-  // FIX-01: Hide banner on Boss/Owner dashboard - always return null
-  // Banner should appear ONLY on Billing page
-  // For now, completely hide pending requests banner from Boss/Owner view
-  return null;
+  // The banner is part of the master/control dashboard experience and must render when data is available.
 
   return (
     <div className="relative z-50">
@@ -324,10 +350,10 @@ export function PendingRequestsBanner() {
                   Showing {pendingRequests.length} pending requests - Auto-refreshes every 30s
                 </p>
                 <Button
-                  onClick={() => navigate('/master-admin')}
+                  onClick={() => navigate('/login?redirect=%2Fcontrol-panel')}
                   className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600"
                 >
-                  Go to Admin Panel
+                  Go to Control Panel
                   <ChevronRight className="w-4 h-4 ml-1" />
                 </Button>
               </div>

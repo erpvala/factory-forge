@@ -427,7 +427,7 @@ export default function SecureDeveloperDashboard() {
         onClose={() => {
           setIsProfileOpen(false);
           if (location.pathname === '/developer/profile') {
-            navigate('/developer/dashboard', { replace: true });
+            navigate('/control-panel/developer-dashboard', { replace: true });
           }
         }}
       />

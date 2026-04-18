@@ -1,0 +1,20 @@
+{
+  "allowed": [
+    "/login",
+    "/control-panel",
+    "/api/*"
+  ],
+  "banned": [
+    "/user",
+    "/user/dashboard",
+    "/admin",
+    "/super-admin",
+    "/boss",
+    "/franchise",
+    "/influencer",
+    "/old",
+    "/dashboard"
+  ],
+  "signature": "5697dabdb3c78b4474d34dd56c26fb25781b26e2cb62c5840b8b97a448010fe1",
+  "routes_hash": "4ed024deca6258b4a4f5ff29d3c281b69be305da66bbe19b505aadab07afd490"
+}

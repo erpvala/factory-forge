@@ -1,0 +1,35 @@
+{
+  "backup": {
+    "full": "daily",
+    "incremental": "hourly",
+    "config_snapshot": "daily",
+    "secrets_snapshot": "daily"
+  },
+  "storage": {
+    "primary": "vps",
+    "secondary": "remote_s3",
+    "cross_region_copy": true
+  },
+  "verification": {
+    "checksum_required": true,
+    "test_read_required": true
+  },
+  "dr_drill": {
+    "frequency": "weekly",
+    "smoke_tests": [
+      "login",
+      "control-panel",
+      "order-flow"
+    ]
+  },
+  "targets": {
+    "rto_minutes_max": 15,
+    "rpo_minutes_max": 5
+  },
+  "access_control": {
+    "restore_trigger_roles": [
+      "boss_owner"
+    ],
+    "audit_required": true
+  }
+}

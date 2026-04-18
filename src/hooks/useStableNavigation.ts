@@ -104,7 +104,7 @@ export function useStableNavigation() {
   }, [navigate]);
 
   // Go back using history stack
-  const goBack = useCallback((fallbackPath = '/boss-panel'): boolean => {
+  const goBack = useCallback((fallbackPath = '/login?redirect=%2Fcontrol-panel'): boolean => {
     // Pop current entry
     historyStackRef.current.pop();
     
@@ -125,7 +125,7 @@ export function useStableNavigation() {
     exitToGlobal();
     showGlobalSidebar();
     
-    return navigateTo('/boss-panel', { replace: true });
+    return navigateTo('/login?redirect=%2Fcontrol-panel', { replace: true });
   }, [navigateTo, exitToGlobal, showGlobalSidebar]);
 
   // Check if can go back

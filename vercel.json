@@ -4,27 +4,12 @@
       "runtime": "@vercel/node@3"
     }
   },
-  "redirects": [
-    { "source": "/auth", "destination": "/login", "permanent": true },
-    { "source": "/dashboard", "destination": "/app", "permanent": true },
-    { "source": "/product/:id", "destination": "/marketplace/product/:id", "permanent": true },
-    { "source": "/reseller-dashboard", "destination": "/reseller/dashboard", "permanent": true },
-    { "source": "/franchise-dashboard", "destination": "/franchise/dashboard", "permanent": true },
-    { "source": "/developer-dashboard", "destination": "/developer/dashboard", "permanent": true },
-    { "source": "/influencer-dashboard", "destination": "/influencer/dashboard", "permanent": true }
-  ],
+  "redirects": [],
   "routes": [
-    { "src": "/api/v1/auth/register", "dest": "/api/v1/auth/register" },
-    { "src": "/api/v1/auth/login",    "dest": "/api/v1/auth/login"    },
-    { "src": "/api/v1/auth/logout",   "dest": "/api/v1/auth/logout"   },
-    { "src": "/api/v1/auth/me",       "dest": "/api/v1/auth/me"       },
-    { "src": "/api/v1/auth/refresh",  "dest": "/api/v1/auth/refresh"  },
-    { "src": "/api/v1/auth/logout-all", "dest": "/api/v1/auth/logout-all" },
-    { "src": "/api/v1/apply", "dest": "/api/v1/apply" },
-    { "src": "/api/v1/applications", "dest": "/api/v1/applications" },
-    { "src": "/api/v1/applications/approve", "dest": "/api/v1/applications/approve" },
-    { "src": "/api/v1/applications/reject", "dest": "/api/v1/applications/reject" },
-    { "src": "/(.*)", "dest": "/" }
+    { "src": "^/api/(.*)$", "dest": "/api/$1" },
+    { "src": "^/login$", "dest": "/" },
+    { "src": "^/control-panel(?:/(.*))?$", "dest": "/" },
+    { "src": "^/(.*)$", "status": 302, "headers": { "Location": "/login" } }
   ],
   "headers": [
     {

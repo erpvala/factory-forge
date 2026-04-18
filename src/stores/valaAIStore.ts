@@ -17,6 +17,19 @@ import {
   softwarePipeline,
 } from '@/vala/factory-engine';
 
+async function logValaAction(action: string, payload: Record<string, unknown> = {}) {
+  try {
+    await fetch('/api/v1/vala-ai', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ action, payload }),
+    });
+  } catch {
+    // Flow logging should be best-effort.
+  }
+}
+
 // ─── Job History Entry ────────────────────────────────────────────────────────
 export interface ValaJobHistoryEntry {
   jobId:       string;
@@ -129,6 +142,8 @@ export const useValaAIStore = create<ValaAIState>()(
           },
         });
 
+        void logValaAction('start', { job_id: request.jobId, target: request.target, idea: request.idea });
+
         try {
           const result = await runValaFactory(
             request,
@@ -151,18 +166,27 @@ export const useValaAIStore = create<ValaAIState>()(
               ...s.history.slice(0, 49), // keep last 50
             ],
           }));
+          void logValaAction('complete', {
+            job_id: result.jobId,
+            target: result.target,
+            status: result.status,
+            completed_at: result.completedAt ?? null,
+          });
         } catch {
           set({ isRunning: false });
+          void logValaAction('failed', { job_id: request.jobId, target: request.target });
         }
       },
 
       cancelJob: () => {
+        const active = get().activePipeline;
         set((s) => ({
           isRunning: false,
           activePipeline: s.activePipeline
             ? { ...s.activePipeline, status: 'failed', completedAt: new Date().toISOString() }
             : null,
         }));
+        void logValaAction('stop', { job_id: active?.jobId || null });
       },
 
       resetPipeline: () => {
@@ -172,6 +196,7 @@ export const useValaAIStore = create<ValaAIState>()(
           logs:           [],
           isRunning:      false,
         });
+        void logValaAction('reset', {});
       },
     }),
     {

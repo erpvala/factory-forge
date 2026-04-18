@@ -23,7 +23,7 @@ export default function PTFullLayout() {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate('/boss-panel');
+    navigate('/login?redirect=%2Fcontrol-panel');
   };
 
   const renderContent = () => {

@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { z } from 'zod';
 import { 
   Mail, Lock, User, ArrowRight, Eye, EyeOff, CheckCircle2, ArrowLeft,
@@ -12,7 +12,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useAuth } from '@/hooks/useAuth';
-import { getRoleRedirectPath } from '@/api/v1/auth';
 import { ROUTES } from '@/routes/routes';
 import { toast } from 'sonner';
 import { Database } from '@/integrations/supabase/types';
@@ -107,18 +106,16 @@ const Auth = () => {
   
   const { signIn, signUp, signInWithProvider, user, userRole, approvalStatus } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const { showWelcome, showWelcomeBack } = useAnimationContext();
 
-  // Redirect already-logged-in users to their dashboard
+  // Redirect already-logged-in users ALWAYS to /control-panel (HARD MANDATE)
   useEffect(() => {
-    if (user && userRole) {
-      const status = approvalStatus === 'approved' ? 'ACTIVE' :
-                     approvalStatus === 'rejected'  ? 'REJECTED' : 'PENDING';
-      navigate(getRoleRedirectPath(userRole, status), { replace: true });
-    } else if (user) {
-      navigate(ROUTES.dashboardPending, { replace: true });
+    if (user) {
+      // HARD REDIRECT: ALL users go to /control-panel regardless of role or status
+      navigate(ROUTES.controlPanelBase, { replace: true });
     }
-  }, [user, userRole, approvalStatus, navigate]);
+  }, [user, navigate]);
 
   useEffect(() => {
     emailInputRef.current?.focus();
@@ -212,7 +209,8 @@ const Auth = () => {
           toast.success('✅ 🎉 Login Successful');
 
           showWelcomeBack(email.split('@')[0], 'default', 'SV-' + Math.random().toString(36).substring(2, 6).toUpperCase());
-          const dest = redirect ?? ROUTES.dashboardPending;
+          // HARD REDIRECT: ALWAYS go to /control-panel (no role-specific dashboards)
+          const dest = ROUTES.controlPanelBase;
           setTimeout(() => navigate(dest, { replace: true }), 300);
         }
       } else {
@@ -232,8 +230,8 @@ const Auth = () => {
           playTone(620, 0.18, 'triangle', 0.03);
           toast.success('✅ 🎉 Login Successful');
           showWelcome(fullName || email.split('@')[0], selectedRole);
-          // New users always go to pending dashboard
-          const dest = redirect ?? ROUTES.dashboardPending;
+          // HARD REDIRECT: New users ALWAYS go to /control-panel
+          const dest = ROUTES.controlPanelBase;
           setTimeout(() => navigate(dest, { replace: true }), 4000);
         }
       }

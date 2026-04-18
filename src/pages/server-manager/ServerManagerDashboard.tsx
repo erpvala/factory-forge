@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Button } from '@/components/ui/button';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { useAuth } from '@/hooks/useAuth';
 
@@ -120,7 +119,7 @@ const ServerManagerDashboard = () => {
   const [activeView, setActiveView] = useState<ViewType>('dashboard');
   const [sessionTime, setSessionTime] = useState('00:00');
   const navigate = useNavigate();
-  const { user } = useAuth();
+    const { user, signOut } = useAuth();
 
   useEffect(() => {
     const startTime = Date.now();
@@ -134,14 +133,13 @@ const ServerManagerDashboard = () => {
   }, []);
 
   const handleLogout = async () => {
-    await supabase.from('audit_logs').insert({
-      user_id: user?.id,
-      role: 'server_manager' as any,
-      module: 'server-manager',
-      action: 'secure_logout',
-      meta_json: { session_duration: sessionTime }
-    });
-    await supabase.auth.signOut();
+    fetch('/api/v1/server-manager', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ action: 'logout', payload: { session_duration: sessionTime, user_id: user?.id } }),
+    }).catch(() => {});
+    await signOut();
     toast.success('Logged out');
     navigate('/login');
   };
@@ -179,12 +177,14 @@ const ServerManagerDashboard = () => {
       {/* ═══ VERCEL-STYLE TOP BAR ═══ */}
       <header className="h-12 bg-[#000] flex items-center justify-between px-4 flex-shrink-0 border-b border-[#333]">
         <div className="flex items-center gap-3">
-          <button 
+          <Button 
+            variant="ghost"
+            size="icon"
             onClick={() => navigate('/server-manager')}
             className="flex items-center gap-2 text-[#888] hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-          </button>
+          </Button>
 
           {/* Vercel-style breadcrumb */}
           <div className="flex items-center gap-2">
@@ -201,17 +201,22 @@ const ServerManagerDashboard = () => {
 
         <div className="flex items-center gap-3">
           {/* Search */}
-          <button className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-[#333] bg-[#111] text-[#666] text-xs hover:border-[#555] transition-colors">
-            <Search className="w-3 h-3" />
-            <span>Search...</span>
-            <kbd className="ml-4 px-1.5 py-0.5 rounded bg-[#222] text-[#555] text-[10px] border border-[#333]">⌘K</kbd>
-          </button>
+          <Button asChild variant="outline" size="sm" className="flex items-center gap-2 px-3 py-1.5 rounded-md border border-[#333] bg-[#111] text-[#666] text-xs hover:border-[#555] transition-colors" aria-label="Search" title="Search">
+            <span className="flex items-center">
+              <Search className="w-3 h-3" aria-hidden="true" />
+              <span>Search...</span>
+              <kbd className="ml-4 px-1.5 py-0.5 rounded bg-[#222] text-[#555] text-[10px] border border-[#333]">⌘K</kbd>
+            </span>
+          </Button>
 
           {/* Notifications */}
-          <button className="relative p-2 text-[#888] hover:text-white transition-colors">
-            <Bell className="w-4 h-4" />
-            <span className="absolute top-1 right-1 w-2 h-2 bg-blue-500 rounded-full" />
-          </button>
+          <Button asChild variant="ghost" size="icon" className="relative p-2 text-[#888] hover:text-white transition-colors" aria-label="Show notifications" title="Show notifications">
+            <span className="flex items-center">
+              <Bell className="w-4 h-4" aria-hidden="true" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-blue-500 rounded-full" />
+              <span className="sr-only">Show notifications</span>
+            </span>
+          </Button>
 
           {/* Session */}
           <div className="flex items-center gap-1.5 text-[#555] text-xs font-mono">
@@ -220,13 +225,15 @@ const ServerManagerDashboard = () => {
           </div>
 
           {/* User */}
-          <button 
+          <Button 
+            variant="gradient"
+            size="icon"
             onClick={handleLogout}
             className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold"
             title="Logout"
           >
             {user?.email?.charAt(0).toUpperCase() || 'U'}
-          </button>
+          </Button>
         </div>
       </header>
 
@@ -247,8 +254,10 @@ const ServerManagerDashboard = () => {
                     {section.items.map((item) => {
                       const isActive = activeView === item.id;
                       return (
-                        <button
+                        <Button
                           key={item.id}
+                          variant={isActive ? 'secondary' : 'ghost'}
+                          size="sm"
                           onClick={() => setActiveView(item.id)}
                           className={`w-full flex items-center gap-2.5 px-3 py-[7px] rounded-md text-[13px] transition-all ${
                             isActive
@@ -263,7 +272,7 @@ const ServerManagerDashboard = () => {
                               {item.badge}
                             </span>
                           )}
-                        </button>
+                        </Button>
                       );
                     })}
                   </div>

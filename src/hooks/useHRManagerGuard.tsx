@@ -20,7 +20,8 @@ const ALLOWED_ROUTES = [
   '/hr-manager',
   '/app/hr',
   '/logout',
-  '/settings'
+  '/settings',
+  '/control-panel'
 ];
 
 export function useHRManagerGuard() {

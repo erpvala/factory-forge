@@ -49,7 +49,7 @@ const ALLOWED_ROUTES = [
   '/products',
   '/demo',
   '/checkout',
-  '/user-dashboard',
+  '/control-panel',
   '/pricing',
   '/sectors',
   '/demo-directory',
@@ -146,7 +146,7 @@ export function useUserRole() {
         p_route: currentPath
       }).then(() => {
         toast.error('Access denied. Redirecting to your dashboard.');
-        navigate('/user-dashboard', { replace: true });
+        navigate('/control-panel', { replace: true });
       });
     }
   }, [location.pathname, isUser, user, navigate]);

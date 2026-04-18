@@ -122,7 +122,7 @@ const BootstrapAdmins = () => {
           <Button 
             variant="ghost" 
             size="sm" 
-            onClick={() => navigate('/master-admin')}
+            onClick={() => navigate('/login?redirect=%2Fcontrol-panel')}
             className="absolute top-4 left-4"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />

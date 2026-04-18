@@ -27,7 +27,7 @@ export const clearRedirectAfterLogin = () => {
 
 /** Maps each role to its primary dashboard route */
 export const getDefaultDashboardRoute = (role?: AppRole | null): string => {
-  return ROLE_DASHBOARD_ROUTE[role || ''] || ROUTES.userDashboard;
+  return ROLE_DASHBOARD_ROUTE[role || ''] || ROUTES.controlPanelBase;
 };
 
 /** Maps action keys to their apply or nav routes */
@@ -38,7 +38,7 @@ const ACTION_ROUTES: Record<string, string> = {
   applyReseller:    ROUTES.applyReseller,
   applyFranchise:   ROUTES.applyFranchise,
   login:            ROUTES.login,
-  bossPortal:       ROUTES.bossPanel,
+  bossPortal:       ROUTES.login,
 };
 
 export const useProtectedActionHandler = () => {
@@ -57,7 +57,7 @@ export const useProtectedActionHandler = () => {
       return;
     }
     if (actionKey === 'bossPortal') {
-      navigate(ROUTES.bossPanel);
+      navigate(`${ROUTES.login}?redirect=${encodeURIComponent(ROUTES.controlPanelBase)}`);
       return;
     }
     // Generic: if logged in navigate to their dashboard, else login

@@ -140,7 +140,7 @@ export const useResellerSessionGuard = (options: SessionGuardOptions = {}) => {
     } else {
       // Check role-based access
       const protectedRoutes = {
-        '/reseller/dashboard': ['reseller', 'admin'],
+        '/control-panel/reseller-dashboard': ['reseller', 'admin'],
         '/reseller/customers': ['reseller', 'admin'],
         '/reseller/products': ['reseller', 'admin'],
         '/reseller/licenses': ['reseller', 'admin'],

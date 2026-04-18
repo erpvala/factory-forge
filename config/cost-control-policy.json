@@ -1,0 +1,25 @@
+{
+  "currency": "USD",
+  "profit": {
+    "default_min_margin_percent": 12,
+    "critical_block_margin_percent": 5
+  },
+  "api_limits": {
+    "per_user_per_hour": 1200,
+    "per_tenant_per_hour": 12000
+  },
+  "ai_limits": {
+    "free": {
+      "requests_per_hour": 40,
+      "tokens_per_hour": 80000
+    },
+    "paid": {
+      "requests_per_hour": 300,
+      "tokens_per_hour": 600000
+    }
+  },
+  "cost_spike": {
+    "percent_increase_threshold": 60,
+    "lookback_minutes": 30
+  }
+}

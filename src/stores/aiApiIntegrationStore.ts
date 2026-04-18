@@ -55,6 +55,19 @@ interface AIApiIntegrationState {
 
 const VAULT_SECRET = import.meta.env.VITE_AI_API_MANAGER_VAULT_SECRET || 'vala-ai-api-manager-vault';
 
+async function logAIApiManagerAction(action: string, payload: Record<string, unknown> = {}) {
+  try {
+    await fetch('/api/v1/ai-api-manager', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ action, payload }),
+    });
+  } catch {
+    // Keep UI responsive even if logging fails.
+  }
+}
+
 function createId(prefix: string) {
   return `${prefix}_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
 }
@@ -144,6 +157,13 @@ export const useAIApiIntegrationStore = create<AIApiIntegrationState>()(
           ].slice(0, 80),
         }));
 
+        void logAIApiManagerAction('register', {
+          api_id,
+          provider_id: payload.provider_id,
+          api_name: payload.api_name.trim(),
+          usage_limit: payload.usage_limit,
+        });
+
         return { ok: true };
       },
 
@@ -176,6 +196,7 @@ export const useAIApiIntegrationStore = create<AIApiIntegrationState>()(
               : state.events,
           };
         });
+        void logAIApiManagerAction('toggle', { api_id: apiId });
       },
 
       updateUsageLimit(apiId, usageLimit) {
@@ -186,6 +207,7 @@ export const useAIApiIntegrationStore = create<AIApiIntegrationState>()(
               : integration,
           ),
         }));
+        void logAIApiManagerAction('update', { api_id: apiId, usage_limit: usageLimit });
       },
 
       recordUsage(apiId, amount = 1) {
@@ -253,6 +275,7 @@ export const useAIApiIntegrationStore = create<AIApiIntegrationState>()(
               : state.events,
           };
         });
+        void logAIApiManagerAction('error', { api_id: apiId, message });
       },
 
       async rotateCredentials(apiId, credentials) {
@@ -290,6 +313,7 @@ export const useAIApiIntegrationStore = create<AIApiIntegrationState>()(
             ...state.events,
           ].slice(0, 80),
         }));
+        void logAIApiManagerAction('rotate', { api_id: apiId });
         return { ok: true };
       },
 
@@ -323,6 +347,7 @@ export const useAIApiIntegrationStore = create<AIApiIntegrationState>()(
               : state.events,
           };
         });
+        void logAIApiManagerAction('recover', { api_id: apiId });
       },
 
       getProviderLabel(providerId) {

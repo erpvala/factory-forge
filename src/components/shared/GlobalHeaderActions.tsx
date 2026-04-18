@@ -497,7 +497,7 @@ export const GlobalHeaderActions = ({
               className="w-full" 
               onClick={() => {
                 setAlertsOpen(false);
-                navigate('/boss-panel');
+                navigate('/login?redirect=%2Fcontrol-panel');
               }}
             >
               View All Alerts

@@ -140,7 +140,7 @@ export const generatePerson = (continent?: string) => {
 
 export const generateTask = (assignee?: string) => {
   const taskTypes = ['Feature', 'Bug Fix', 'Enhancement', 'Documentation', 'Testing', 'Refactoring', 'API Integration', 'UI Design', 'Performance', 'Security'];
-  const modules = ['Payment Gateway', 'User Authentication', 'Dashboard Analytics', 'Notification System', 'Report Generator', 'API Gateway', 'Mobile App', 'Admin Panel', 'Inventory Management', 'Order Processing'];
+  const modules = ['Payment Gateway', 'User Authentication', 'Dashboard Analytics', 'Notification System', 'Report Generator', 'API Gateway', 'Mobile App', 'Control Panel', 'Inventory Management', 'Order Processing'];
   const priorities = ['urgent', 'high', 'medium', 'low'];
   const statuses = ['pending', 'in_progress', 'review', 'completed', 'blocked'];
   

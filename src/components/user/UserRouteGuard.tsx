@@ -71,7 +71,7 @@ export function UserRouteGuard({ children }: UserRouteGuardProps) {
     return (
       <div className="min-h-screen bg-background">
         <AccessDeniedUI 
-          dashboardPath="/user-dashboard"
+          dashboardPath="/control-panel"
           customMessage={`You attempted to access: ${currentPath}`}
         />
       </div>

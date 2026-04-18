@@ -1,0 +1,211 @@
+# Database ERD Visual Diagram
+
+## Entity Relationship Diagram (Visual Representation)
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           FACTORY FORGE DATABASE ERD                           │
+└─────────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│      USERS      │    │   APPLICATIONS  │    │    PAYMENTS     │    │    LICENSES     │
+│─────────────────│    │─────────────────│    │─────────────────│    │─────────────────│
+│ _id (PK)        │◄───┤ _id (PK)        │    │ _id (PK)        │    │ _id (PK)        │
+│ name            │    │ userId (FK)     │───►│ userId (FK)     │───►│ userId (FK)     │
+│ email (UK)      │    │ roleType        │    │ amount          │    │ productId       │
+│ phone           │    │ data (JSON)     │    │ currency        │    │ licenseKey (UK) │
+│ passwordHash    │    │ status          │    │ status          │    │ type            │
+│ role            │    │ createdAt       │    │ paymentMethod   │    │ status          │
+│ status          │    │ updatedAt       │    │ transactionId   │    │ expiresAt       │
+│ createdAt       │    └─────────────────┘    │ description     │    │ features        │
+│ updatedAt       │                           │ metadata        │    │ metadata        │
+└─────────────────┘                           │ createdAt       │    │ createdAt       │
+                                             │ updatedAt       │    │ updatedAt       │
+                                             └─────────────────┘    └─────────────────┘
+
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│      TASKS      │    │      LEADS      │    │   AUDITLOGS     │    │    EVENTBUS     │
+│─────────────────│    │─────────────────│    │─────────────────│    │─────────────────│
+│ _id (PK)        │    │ _id (PK)        │    │ _id (PK)        │    │ _id (PK)        │
+│ title           │    │ name            │    │ userId (FK)     │───►│ userId (FK)     │
+│ description     │    │ email (UK)      │    │ action          │    │ eventType       │
+│ assignedTo (FK) │◄───┤ phone           │    │ resource        │    │ source          │
+│ assignedBy (FK) │◄───┤ company         │    │ resourceId      │    │ data (JSON)     │
+│ status          │    │ source          │    │ details         │    │ processed       │
+│ priority        │    │ status          │    │ ipAddress       │    │ processedAt     │
+│ type            │    │ assignedTo (FK) │───┤ userAgent       │    │ error           │
+│ tags            │    │ value           │    │ timestamp       │    │ timestamp       │
+│ dueDate         │    │ notes           │    └─────────────────┘    └─────────────────┘
+│ completedAt     │    │ metadata        │
+│ metadata        │    │ createdAt       │
+│ createdAt       │    │ updatedAt       │
+│ updatedAt       │    └─────────────────┘
+└─────────────────┘
+
+┌─────────────────┐
+│  SYSTEMMETRICS  │
+│─────────────────│
+│ _id (PK)        │
+│ metricType      │
+│ value           │
+│ unit            │
+│ tags (JSON)     │
+│ timestamp       │
+└─────────────────┘
+
+RELATIONSHIP ARROWS:
+─────────────────
+Users ◄─── Applications (1:N)
+Users ◄─── Payments (1:N)
+Users ◄─── Licenses (1:N)
+Users ◄─── Tasks (assignedTo) (1:N)
+Users ◄─── Tasks (assignedBy) (1:N)
+Users ◄─── Leads (assignedTo) (1:N)
+Users ◄─── AuditLogs (1:N)
+Users ◄─── EventBus (1:N)
+
+KEY:
+──────
+PK = Primary Key
+FK = Foreign Key
+UK = Unique Key
+```
+
+## Entity Details
+
+### USERS (Core Entity)
+```
+Role Options:
+- developer: Can access development tools and repositories
+- reseller: Can sell products and manage customers
+- franchise: Can manage territory and resellers
+- influencer: Can promote products and earn commissions
+- boss: Can access admin panel and approve applications
+
+Status Flow:
+PENDING → ACTIVE → REJECTED
+```
+
+### APPLICATIONS (Application Workflow)
+```
+RoleType Options:
+- developer: Technical assessment required
+- reseller: Business background verification
+- franchise: Territory and investment review
+- influencer: Social media and audience verification
+- job: Skills and experience evaluation
+
+Status Flow:
+PENDING → APPROVED/REJECTED
+```
+
+### PAYMENTS (Financial Transactions)
+```
+Amount Storage: Stored in cents (e.g., 24900 = $249.00)
+
+Status Flow:
+PENDING → COMPLETED/FAILED/REFUNDED
+
+Payment Methods:
+- credit_card
+- debit_card
+- paypal
+- bank_transfer
+- crypto
+```
+
+### LICENSES (Product Licensing)
+```
+Types:
+- TRIAL: 30-day limited access
+- STANDARD: Full feature access
+- PREMIUM: Advanced features + support
+- ENTERPRISE: Custom features + dedicated support
+
+Status Flow:
+ACTIVE → EXPIRED/SUSPENDED/CANCELLED
+```
+
+### TASKS (Task Management)
+```
+Priority Levels:
+LOW → MEDIUM → HIGH → URGENT
+
+Type Categories:
+- BUG: Error fixes
+- FEATURE: New functionality
+- IMPROVEMENT: Enhancements
+- TASK: General tasks
+- EPIC: Large initiatives
+
+Status Flow:
+TODO → IN_PROGRESS → REVIEW → COMPLETED/CANCELLED
+```
+
+### LEADS (Sales Pipeline)
+```
+Status Flow:
+NEW → CONTACTED → QUALIFIED → CONVERTED/LOST
+
+Source Categories:
+- website: Organic website traffic
+- referral: User referrals
+- direct: Direct marketing
+- social: Social media campaigns
+- partner: Partner channels
+```
+
+### AUDITLOGS (Compliance Tracking)
+```
+Action Types:
+- CREATE: Resource creation
+- UPDATE: Resource modification
+- DELETE: Resource deletion
+- LOGIN: User authentication
+- LOGOUT: User session end
+- APPROVE: Application approval
+- REJECT: Application rejection
+```
+
+### EVENTBUS (Event System)
+```
+Event Types:
+- user.created: New user registration
+- user.updated: User profile changes
+- payment.completed: Successful payment
+- license.created: New license issued
+- task.assigned: Task assignment
+- lead.converted: Lead conversion
+
+Processing Flow:
+UNPROCESSED → PROCESSED/ERROR
+```
+
+### SYSTEMMETRICS (Monitoring)
+```
+Metric Types:
+- CPU: Processor usage percentage
+- MEMORY: Memory usage percentage
+- DISK: Disk usage percentage
+- NETWORK: Network throughput
+- USERS: Active user count
+- REVENUE: Revenue metrics
+- ERRORS: Error counts
+- PERFORMANCE: Response times
+```
+
+## Data Flow Summary
+
+1. **User Registration**: Users → Applications → Approval → Role Assignment
+2. **Payment Processing**: Users → Payments → License Generation
+3. **Task Management**: Users → Tasks → Assignment → Completion
+4. **Lead Management**: Leads → Assignment → Conversion → Payment
+5. **System Monitoring**: All actions → AuditLogs → EventBus → SystemMetrics
+
+## Performance Optimization
+
+- **Indexing Strategy**: All foreign keys and frequently queried fields
+- **Data Partitioning**: Time-based partitioning for metrics and logs
+- **Caching Layer**: Redis for frequently accessed data
+- **Connection Pooling**: MongoDB connection pooling
+- **Query Optimization**: Efficient queries with proper projections

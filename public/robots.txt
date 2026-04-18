@@ -1,3 +1,17 @@
+User-agent: *
+Disallow: /user/
+Disallow: /admin/
+Disallow: /super-admin/
+Disallow: /old/
+Disallow: /dashboard/
+Disallow: /dev/
+Disallow: /staging/
+Disallow: /wireframe/
+Disallow: /legacy-ui/
+Allow: /login
+Allow: /control-panel/
+Allow: /api/
+
 User-agent: Googlebot
 Allow: /
 
@@ -8,7 +22,4 @@ User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
 Allow: /

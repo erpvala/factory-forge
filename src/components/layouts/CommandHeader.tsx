@@ -30,6 +30,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
 import { SafeAssistTrigger } from '@/components/support/SafeAssistTrigger';
 import promiseIcon from '@/assets/promise-icon.jpg';
+import { useControlPanelNotifications } from '@/hooks/useControlPanelHub';
 
 interface Alert {
   id: string;
@@ -43,15 +44,12 @@ interface Alert {
 const CommandHeader = memo(() => {
   const { user, userRole, signOut } = useAuth();
   const location = useLocation();
+  const notificationsQuery = useControlPanelNotifications(8, location.pathname.startsWith('/control-panel') ? 15000 : 0);
   const [buzzerActive, setBuzzerActive] = useState(false);
   const [buzzerMuted, setBuzzerMuted] = useState(false);
   const [promiseState, setPromiseState] = useState<'idle' | 'pending' | 'active'>('idle');
   const [chatbotOpen, setChatbotOpen] = useState(false);
-  const [alerts, setAlerts] = useState<Alert[]>([
-    { id: '1', type: 'critical', title: 'Demo Down', message: 'E-commerce demo offline', timestamp: new Date(), acknowledged: false },
-    { id: '2', type: 'warning', title: 'SLA Breach', message: 'Task #2847 exceeded deadline', timestamp: new Date(), acknowledged: false },
-    { id: '3', type: 'info', title: 'New Lead', message: 'Hot lead from Mumbai assigned', timestamp: new Date(), acknowledged: true },
-  ]);
+  const [alerts, setAlerts] = useState<Alert[]>([]);
   const [searchOpen, setSearchOpen] = useState(false);
 
   const handleChatbotClick = useCallback(() => {
@@ -87,6 +85,24 @@ const CommandHeader = memo(() => {
 
   const unacknowledgedCount = alerts.filter(a => !a.acknowledged).length;
   const roleConfig = userRole ? ROLE_CONFIG[userRole as AppRole] : null;
+
+  useEffect(() => {
+    if (!location.pathname.startsWith('/control-panel')) {
+      setAlerts([]);
+      return;
+    }
+
+    const incomingAlerts = (notificationsQuery.data || []).map((notification, index) => ({
+      id: notification.id,
+      type: notification.source.includes('error') ? 'critical' as const : notification.source.includes('application') ? 'warning' as const : 'info' as const,
+      title: notification.title,
+      message: notification.message,
+      timestamp: new Date(notification.createdAt),
+      acknowledged: index > 2,
+    }));
+
+    setAlerts(incomingAlerts);
+  }, [location.pathname, notificationsQuery.data]);
 
   // Buzzer effect for critical alerts
   useEffect(() => {
@@ -150,21 +166,21 @@ const CommandHeader = memo(() => {
       {/* Right: Actions */}
       <div className="flex items-center gap-2">
         {/* Download APK Button */}
-        <motion.button
-          whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(6, 182, 212, 0.4)' }}
-          whileTap={{ scale: 0.95 }}
+        <Button
+          variant="gradient"
+          size="sm"
           onClick={handleDownloadAPK}
           className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 text-white font-semibold text-sm shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all border border-cyan-400/30"
         >
           <Smartphone className="w-4 h-4" />
           <span className="hidden md:inline">Download App</span>
           <Download className="w-4 h-4" />
-        </motion.button>
+        </Button>
 
         {/* Promise Button */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+        <Button
+          variant={promiseState === 'active' ? 'success' : promiseState === 'pending' ? 'warning' : 'secondary'}
+          size="sm"
           onClick={handlePromiseClick}
           className={cn(
             "flex items-center gap-2 px-3 py-2 rounded-xl font-medium text-sm transition-all shadow-md",
@@ -179,28 +195,31 @@ const CommandHeader = memo(() => {
           <span className="hidden sm:inline">
             {promiseState === 'active' ? 'Active' : promiseState === 'pending' ? 'Promise' : 'No Task'}
           </span>
-        </motion.button>
+        </Button>
 
         {/* Safe Assist Button */}
         <SafeAssistTrigger variant="compact" />
 
         {/* AI Chatbot Button */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+        <Button
+          variant="gradient"
+          size="sm"
           onClick={handleChatbotClick}
           className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white font-medium text-sm shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all border border-purple-400/30"
         >
           <Bot className="w-4 h-4" />
           <span className="hidden md:inline">AI Chat</span>
-        </motion.button>
+        </Button>
 
         {/* Alert Button */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <Button
+              asChild
+              variant={unacknowledgedCount > 0 ? 'destructive' : 'secondary'}
+              size="sm"
+              aria-label="Show alerts"
+              title="Show alerts"
               className={cn(
                 "relative flex items-center gap-2 px-3 py-2 rounded-xl font-medium text-sm transition-all shadow-md",
                 unacknowledgedCount > 0
@@ -208,18 +227,18 @@ const CommandHeader = memo(() => {
                   : "bg-secondary/80 text-foreground border border-border/50 hover:border-primary/50"
               )}
             >
-              <Bell className="w-4 h-4" />
-              <span className="hidden md:inline">Alerts</span>
-              {unacknowledgedCount > 0 && (
-                <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="absolute -top-2 -right-2 w-5 h-5 bg-white text-red-600 text-xs rounded-full flex items-center justify-center font-bold shadow-md"
-                >
-                  {unacknowledgedCount}
-                </motion.span>
-              )}
-            </motion.button>
+              <span className="flex items-center">
+                <Bell className="w-4 h-4" aria-hidden="true" />
+                <span className="hidden md:inline">Alerts</span>
+                {unacknowledgedCount > 0 && (
+                  <span
+                    className="absolute -top-2 -right-2 w-5 h-5 bg-white text-red-600 text-xs rounded-full flex items-center justify-center font-bold shadow-md"
+                  >
+                    {unacknowledgedCount}
+                  </span>
+                )}
+              </span>
+            </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-80 bg-card/95 backdrop-blur-xl border-border/50">
             <DropdownMenuLabel className="flex items-center justify-between">
@@ -286,10 +305,10 @@ const CommandHeader = memo(() => {
         {/* User Menu */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="icon">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-neon-teal flex items-center justify-center">
-                <User className="w-4 h-4 text-primary-foreground" />
-              </div>
+            <Button asChild variant="ghost" size="icon" aria-label="User menu" title="User menu">
+              <span className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-neon-teal flex items-center justify-center">
+                <User className="w-4 h-4 text-primary-foreground" aria-hidden="true" />
+              </span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56 bg-card/95 backdrop-blur-xl border-border/50">

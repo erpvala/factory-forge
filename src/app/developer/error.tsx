@@ -28,7 +28,7 @@ const DeveloperErrorPage: React.FC<ErrorPageProps> = ({
     if (reset) {
       reset();
     } else {
-      navigate('/developer/dashboard', { replace: true });
+      navigate('/control-panel/developer-dashboard', { replace: true });
     }
   };
 
@@ -67,7 +67,7 @@ const DeveloperErrorPage: React.FC<ErrorPageProps> = ({
                 Try Again
               </Button>
               
-              <Link to="/developer/dashboard">
+              <Link to="/control-panel/developer-dashboard">
                 <Button className="w-full" variant="outline">
                   <Home className="h-4 w-4 mr-2" />
                   Go to Dashboard

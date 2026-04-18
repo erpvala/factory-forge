@@ -99,7 +99,7 @@ interface BulkVerifyStats {
   pending: number;
 }
 
-const DEMO_TYPES = ["Admin Panel", "Dashboard", "Frontend", "Backend", "Full Stack", "API", "Mobile App"];
+const DEMO_TYPES = ["Control Panel", "Dashboard", "Frontend", "Backend", "Full Stack", "API", "Mobile App"];
 const CATEGORIES = [
   "Education", "Healthcare", "E-Commerce", "POS/Billing", "CRM", "HRM", 
   "Hotel/Booking", "Restaurant", "Real Estate", "ERP", "General", "Finance",

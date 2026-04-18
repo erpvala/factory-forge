@@ -33,7 +33,7 @@ export function FOFixedHeader({
 
   const handleBack = () => {
     if (activeSection === 'dashboard') {
-      navigate('/franchise/dashboard');
+      navigate('/control-panel/franchise-dashboard');
     } else {
       onNavigate('dashboard');
     }

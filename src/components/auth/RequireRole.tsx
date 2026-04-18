@@ -6,6 +6,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Loader2 } from "lucide-react";
 import { Database } from '@/integrations/supabase/types';
 import { ROUTES } from '@/routes/routes';
+import { validateControlPanelSecurity } from '@/lib/controlPanelSecurity';
 
 type AppRole = Database['public']['Enums']['app_role'];
 
@@ -42,7 +43,7 @@ const logUnauthorizedAccess = async (
 };
 
 export default function RequireRole({ allowed, children, masterOnly = false }: RequireRoleProps) {
-  const { user, userRole, userRoles, approvedRoles, loading, approvalStatus, isBossOwner, isCEO, wasForceLoggedOut, switchRole } = useAuth();
+  const { user, session, userRole, userRoles, approvedRoles, loading, approvalStatus, isBossOwner, isCEO, wasForceLoggedOut, switchRole } = useAuth();
   const location = useLocation();
   const hasLoggedRef = useRef(false);
   const [switchingRole, setSwitchingRole] = useState(false);
@@ -138,6 +139,16 @@ export default function RequireRole({ allowed, children, masterOnly = false }: R
   if (!user) return <Navigate to={ROUTES.login} replace />;
 
   if (!userRole) return <Navigate to={ROUTES.dashboardPending} replace />;
+
+  const controlPanelSecurity = validateControlPanelSecurity({
+    pathname: location.pathname,
+    user,
+    session,
+    userRole,
+  });
+  if (!controlPanelSecurity.ok) {
+    return <Navigate to={`/access-denied?reason=${encodeURIComponent(controlPanelSecurity.reason)}`} replace />;
+  }
 
   // Boss Owner-only routes
   if (masterOnly && !isBossOwner) {

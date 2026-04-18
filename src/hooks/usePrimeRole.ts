@@ -52,7 +52,7 @@ const ALLOWED_ROUTES = [
   '/checkout',
   '/prime',
   '/prime-user',
-  '/user-dashboard',
+  '/control-panel',
   '/pricing',
   '/sectors',
   '/demo-directory',

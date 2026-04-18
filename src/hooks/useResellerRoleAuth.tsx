@@ -83,7 +83,7 @@ export const ResellerRoleAuthProvider: React.FC<ResellerRoleAuthProviderProps> =
 
     // Check if path is allowed for reseller role
     const allowedPaths = [
-      '/reseller/dashboard',
+      '/control-panel/reseller-dashboard',
       '/reseller/products',
       '/reseller/licenses',
       '/reseller/sales',

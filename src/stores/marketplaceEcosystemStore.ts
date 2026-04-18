@@ -207,10 +207,10 @@ export const useMarketplaceEcosystemStore = create<MarketplaceEcosystemState>()(
 
       trackApplyClick: (program, userId) => {
         const redirectMap: Record<ApplyProgram, string> = {
-          reseller: '/reseller/dashboard',
-          franchise: '/franchise/dashboard',
-          influencer: '/influencer/dashboard',
-          developer: '/developer/dashboard',
+          reseller: '/control-panel/reseller-dashboard',
+          franchise: '/control-panel/franchise-dashboard',
+          influencer: '/control-panel/influencer-dashboard',
+          developer: '/control-panel/developer-dashboard',
         };
         const application = {
           applicationId: uid('APP-'),

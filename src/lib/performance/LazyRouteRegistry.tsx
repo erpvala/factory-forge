@@ -168,7 +168,7 @@ export const LazyLegalComplianceManager = createLazyRoute(() => import('@/pages/
 export const LazyMarketingManager = createLazyRoute(() => import('@/pages/MarketingManager'));
 export const LazySalesSupportDashboard = createLazyRoute(() => import('@/pages/SalesSupportDashboard'));
 export const LazyClientPortal = createLazyRoute(() => import('@/pages/ClientPortal'));
-export const LazyUserDashboard = createLazyRoute(() => import('@/pages/user/UserDashboard'));
+export const LazyUserDashboard = createLazyRoute(() => import('@/pages/control-panel/ControlPanelDashboard'));
 
 // ============================================
 // AI & SYSTEM

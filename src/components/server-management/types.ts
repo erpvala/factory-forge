@@ -244,5 +244,5 @@ export const generateAIActions = (): AIAutomationAction[] => [
 export const generateSecurityThreats = (): SecurityThreat[] => [
   { id: "threat-001", type: "brute-force", severity: "high", source: "45.33.***", target: "SSH (srv-005)", timestamp: "10 min ago", status: "mitigated", autoBlocked: true },
   { id: "threat-002", type: "ddos", severity: "medium", source: "Multiple IPs", target: "API Gateway", timestamp: "1 hour ago", status: "mitigated", autoBlocked: true },
-  { id: "threat-003", type: "unauthorized-access", severity: "low", source: "Internal", target: "Admin Panel", timestamp: "3 hours ago", status: "investigating", autoBlocked: false },
+  { id: "threat-003", type: "unauthorized-access", severity: "low", source: "Internal", target: "Control Panel", timestamp: "3 hours ago", status: "investigating", autoBlocked: false },
 ];

@@ -316,7 +316,7 @@ const useDeveloperSessionGuard = (config: Partial<SessionGuardConfig> = {}) => {
 
       // Check if user can access current route
       if (!canAccessRoute(pathname)) {
-        router.push('/developer/dashboard');
+        router.push('/control-panel/developer-dashboard');
         setIsLoading(false);
         return;
       }

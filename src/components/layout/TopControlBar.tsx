@@ -60,13 +60,13 @@ const TopControlBar = () => {
             label: 'System',
             status: 'online',
             icon: <Server className="w-3.5 h-3.5" />,
-            path: '/super-admin/system-settings',
+            path: '/control-panel/system-settings',
           },
           {
             label: 'Demo',
             status: 'online',
             icon: <Activity className="w-3.5 h-3.5" />,
-            path: '/super-admin/demo-manager',
+            path: '/control-panel/demo-manager',
           },
         ] as StatusItem[])
       : []),
@@ -82,19 +82,19 @@ const TopControlBar = () => {
             label: 'AI',
             status: 'online',
             icon: <Bot className="w-3.5 h-3.5" />,
-            path: '/super-admin/ai-billing',
+            path: '/control-panel/analytics-manager',
           },
           {
             label: 'Wallet',
             status: 'online',
             icon: <Wallet className="w-3.5 h-3.5" />,
-            path: '/super-admin/finance-center',
+            path: '/control-panel/finance-manager',
           },
           {
             label: 'Server',
             status: 'online',
             icon: <Cpu className="w-3.5 h-3.5" />,
-            path: '/super-admin/system-settings',
+            path: '/control-panel/system-settings',
           },
         ] as StatusItem[])
       : []),

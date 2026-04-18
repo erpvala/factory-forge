@@ -15,6 +15,10 @@ export function ControlPanelHeader({ streamingOn, onStreamingToggle }: ControlPa
   const navigate = useNavigate();
   const { user, userRole } = useAuth();
 
+  const handleNotifications = () => {
+    toast.info('Notifications panel coming soon');
+  };
+
   const handleLogout = async () => {
     await supabase.auth.signOut();
     toast.success('Logged out successfully');
@@ -52,7 +56,11 @@ export function ControlPanelHeader({ streamingOn, onStreamingToggle }: ControlPa
           {userRole?.replace('_', ' ').toUpperCase() || 'USER'} • {user?.email?.split('@')[0]}
         </span>
 
-        <button className="text-white/60 hover:text-white transition-colors" title="Notifications">
+        <button
+          onClick={handleNotifications}
+          className="text-white/60 hover:text-white transition-colors"
+          title="Notifications"
+        >
           <Bell className="w-4 h-4" />
         </button>
 

@@ -33,7 +33,7 @@ const demoIssues = [
   { 
     demo: "RetailMaster Demo - Kenya",
     issueType: "Permission Error",
-    description: "Admin panel access denied",
+    description: "Control panel access denied",
     severity: "medium",
     detected: "5 hours ago",
     status: "in-progress"

@@ -100,8 +100,8 @@ export const MASKED_ID_CONFIG: Record<string, {
 export const ROLE_ROUTES: Partial<Record<AppRole, string[]>> = {
   boss_owner: ['*'], // Boss Owner has full access to everything
   ceo: ['*'], // CEO has full access
-  server_manager: ['/server-manager', '/server-manager/*'], // Infrastructure only - no business data
-  area_manager: ['/boss-panel', '/country-head/*'], // Redirects to Country Head
+  server_manager: ['/server-manager', '/server-manager/*', '/control-panel/server-manager', '/control-panel/server-manager/*'], // Infrastructure only - no business data
+  area_manager: ['/control-panel', '/control-panel/dashboard', '/country-head/*'], // Redirects to Country Head
   developer: ['/developer', '/tasks', '/settings'],
   franchise: ['/franchise', '/leads', '/resellers', '/settings'],
   reseller: ['/reseller', '/leads', '/settings'],
@@ -194,36 +194,36 @@ export function isValidRole(role: string): role is AppRole {
 // NOTE: master and super_admin merged into boss_owner
 export function getDashboardRoute(role: AppRole): string {
   const routeMap: Partial<Record<AppRole, string>> = {
-    boss_owner: '/boss-panel',
-    master: '/boss-panel',
-    ceo: '/ai-ceo',
-    area_manager: '/country-dashboard', // Redirects to Country Head
+    boss_owner: '/control-panel',
+    master: '/control-panel',
+    ceo: '/control-panel/ceo-dashboard',
+    area_manager: '/control-panel/country-admin',
     developer: '/developer',
     franchise: '/franchise',
     reseller: '/reseller',
     influencer: '/influencer',
-    prime: '/prime',
-    client: '/prime',
-    lead_manager: '/leads',
-    task_manager: '/tasks',
-    seo_manager: '/seo',
-    finance_manager: '/finance',
+    prime: '/control-panel/pro-manager',
+    client: '/control-panel',
+    lead_manager: '/control-panel/lead-manager',
+    task_manager: '/control-panel/task-manager',
+    seo_manager: '/control-panel/seo-manager',
+    finance_manager: '/control-panel/finance-manager',
     hr_manager: '/hr',
-    legal_compliance: '/legal',
-    marketing_manager: '/marketing',
-    client_success: '/clients',
+    legal_compliance: '/control-panel/legal-manager',
+    marketing_manager: '/control-panel/marketing-manager',
+    client_success: '/control-panel/customer-support',
     rnd_manager: '/rnd',
     r_and_d: '/rnd',
-    performance_manager: '/performance',
-    demo_manager: '/demos',
-    ai_manager: '/ai-console',
-    api_security: '/api-integrations',
-    support: '/support',
+    performance_manager: '/control-panel/analytics-manager',
+    demo_manager: '/control-panel/demo-manager',
+    ai_manager: '/control-panel/ai-api-manager',
+    api_security: '/control-panel/integration-manager',
+    support: '/control-panel/customer-support',
     // New roles (25-28)
-    safe_assist: '/safe-assist',
-    assist_manager: '/assist-manager',
-    promise_tracker: '/promise-tracker',
-    promise_management: '/promise-management',
+    safe_assist: '/control-panel/assist-manager',
+    assist_manager: '/control-panel/assist-manager',
+    promise_tracker: '/control-panel/promise-tracker',
+    promise_management: '/control-panel/promise-tracker',
   };
   
   return routeMap[role] || '/settings';

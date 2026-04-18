@@ -23,6 +23,7 @@ import { Badge } from '@/components/ui/badge';
 import { useResellerManagerGuard } from '@/hooks/useResellerManagerGuard';
 import { useResellerManagerAuth } from '@/hooks/useResellerManagerAuth';
 import { useResellerManagerEvents } from '@/hooks/useResellerManagerEvents';
+import { resolveControlPanelPath } from '@/config/controlPanelModules';
 
 interface NavItem {
   id: string;
@@ -44,18 +45,19 @@ const ResellerManagerLayout: React.FC = () => {
 
   const activeFlows = getAllActiveFlows();
   const activeEventFlows = getActiveEventFlows();
+  const basePath = resolveControlPanelPath('reseller-manager');
 
   const navItems: NavItem[] = [
-    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: '/reseller-manager/dashboard' },
-    { id: 'resellers', label: 'Resellers', icon: Users, path: '/reseller-manager/resellers' },
-    { id: 'onboarding', label: 'Onboarding', icon: UserPlus, path: '/reseller-manager/onboarding', badge: canAccessFeature('onboarding_approve') ? 'New' : undefined },
-    { id: 'products', label: 'Products', icon: Package, path: '/reseller-manager/products' },
-    { id: 'licenses', label: 'Licenses', icon: Key, path: '/reseller-manager/licenses' },
-    { id: 'sales', label: 'Sales', icon: TrendingUp, path: '/reseller-manager/sales' },
-    { id: 'commission', label: 'Commission', icon: Percent, path: '/reseller-manager/commission' },
-    { id: 'payout', label: 'Payout', icon: CreditCard, path: '/reseller-manager/payout', badge: canAccessFeature('payout_approve') ? 'Pending' : undefined },
-    { id: 'invoices', label: 'Invoices', icon: FileText, path: '/reseller-manager/invoices' },
-    { id: 'settings', label: 'Settings', icon: Settings, path: '/reseller-manager/settings' }
+    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, path: `${basePath}/dashboard` },
+    { id: 'resellers', label: 'Resellers', icon: Users, path: `${basePath}/resellers` },
+    { id: 'onboarding', label: 'Onboarding', icon: UserPlus, path: `${basePath}/onboarding`, badge: canAccessFeature('onboarding_approve') ? 'New' : undefined },
+    { id: 'products', label: 'Products', icon: Package, path: `${basePath}/products` },
+    { id: 'licenses', label: 'Licenses', icon: Key, path: `${basePath}/licenses` },
+    { id: 'sales', label: 'Sales', icon: TrendingUp, path: `${basePath}/sales` },
+    { id: 'commission', label: 'Commission', icon: Percent, path: `${basePath}/commission` },
+    { id: 'payout', label: 'Payout', icon: CreditCard, path: `${basePath}/payout`, badge: canAccessFeature('payout_approve') ? 'Pending' : undefined },
+    { id: 'invoices', label: 'Invoices', icon: FileText, path: `${basePath}/invoices` },
+    { id: 'settings', label: 'Settings', icon: Settings, path: `${basePath}/settings` }
   ].filter(item => {
     // Filter nav items based on permissions
     if (item.id === 'resellers' && !canAccessFeature('reseller_control')) return false;

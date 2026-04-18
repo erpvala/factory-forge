@@ -3,6 +3,7 @@ import { ReactNode, forwardRef } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Loader2 } from "lucide-react";
+import { validateControlPanelSecurity } from "@/lib/controlPanelSecurity";
 
 type RequireAuthProps = {
   children: ReactNode;
@@ -26,7 +27,16 @@ const RequireAuth = forwardRef<HTMLDivElement, RequireAuthProps>(
       return <Navigate to={`/login?reason=expired&redirect=${encodeURIComponent(redirect)}`} replace />;
     }
 
-    // Wait for role hydration before gating
+    const controlPanelSecurity = validateControlPanelSecurity({
+      pathname: location.pathname,
+      user,
+      session,
+      userRole,
+    });
+    if (!controlPanelSecurity.ok) {
+      return <Navigate to={`/access-denied?reason=${encodeURIComponent(controlPanelSecurity.reason)}`} replace />;
+    }
+
     if (approvalStatus === null && !userRole) {
       return (
         <div ref={ref} className="min-h-screen bg-background flex items-center justify-center">

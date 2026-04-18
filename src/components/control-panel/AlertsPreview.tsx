@@ -9,6 +9,7 @@ import React, { memo, useCallback } from 'react';
 import { AlertCircle, AlertTriangle, Info, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useNavigate } from 'react-router-dom';
+import { useControlPanelNotifications } from '@/hooks/useControlPanelHub';
 
 interface Alert {
   id: string;
@@ -17,11 +18,22 @@ interface Alert {
   timestamp: string;
 }
 
-const alerts: Alert[] = [
-  { id: '1', message: 'Server CPU high', type: 'error', timestamp: '2m ago' },
-  { id: '2', message: 'SLA breach risk', type: 'warning', timestamp: '5m ago' },
-  { id: '3', message: 'Backup complete', type: 'info', timestamp: '8m ago' },
-];
+const normalizeAlertType = (source: string): Alert['type'] => {
+  if (source.includes('error') || source.includes('security')) return 'error';
+  if (source.includes('application') || source.includes('approval')) return 'warning';
+  return 'info';
+};
+
+const formatRelativeTime = (value: string) => {
+  const timestamp = new Date(value).getTime();
+  const diffSeconds = Math.max(0, Math.floor((Date.now() - timestamp) / 1000));
+  if (diffSeconds < 60) return 'Just now';
+  const diffMinutes = Math.floor(diffSeconds / 60);
+  if (diffMinutes < 60) return `${diffMinutes}m ago`;
+  const diffHours = Math.floor(diffMinutes / 60);
+  if (diffHours < 24) return `${diffHours}h ago`;
+  return `${Math.floor(diffHours / 24)}d ago`;
+};
 
 const getAlertIcon = (type: Alert['type']) => {
   switch (type) {
@@ -63,16 +75,33 @@ AlertRow.displayName = 'AlertRow';
 
 export const AlertsPreview: React.FC = memo(() => {
   const navigate = useNavigate();
+  const notificationsQuery = useControlPanelNotifications(3, 15000);
+  const alerts: Alert[] = (notificationsQuery.data || []).map((notification) => ({
+    id: notification.id,
+    message: notification.message || notification.title,
+    type: normalizeAlertType(notification.source),
+    timestamp: formatRelativeTime(notification.createdAt),
+  }));
 
   const handleViewAll = useCallback(() => {
-    navigate('/boss-panel');
+    navigate('/control-panel/notifications');
   }, [navigate]);
 
   return (
     <div className="space-y-1.5">
+      {notificationsQuery.loading && alerts.length === 0 && (
+        <div className="rounded-md border border-white/10 bg-white/5 px-2 py-2 text-[10px] text-white/60">
+          Loading alerts...
+        </div>
+      )}
       {alerts.map((alert) => (
         <AlertRow key={alert.id} alert={alert} />
       ))}
+      {!notificationsQuery.loading && alerts.length === 0 && (
+        <div className="rounded-md border border-white/10 bg-white/5 px-2 py-2 text-[10px] text-white/60">
+          No live alerts right now.
+        </div>
+      )}
       
       <button
         onClick={handleViewAll}

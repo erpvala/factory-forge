@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { useState, useEffect, useCallback } from 'react';
-import { supabase } from '@/integrations/supabase/client';
 
 export interface CEOProductPerf {
   product_name: string;
@@ -42,10 +41,14 @@ export function useCEODashboard() {
 
   const callEndpoint = useCallback(async (endpoint: string, params?: any) => {
     try {
-      const { data, error } = await supabase.functions.invoke('ceo-dashboard', {
-        body: { endpoint, params },
+      const response = await fetch('/api/v1/ceo-dashboard', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ action: endpoint, payload: params || {} }),
       });
-      if (error) throw error;
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok || !data.success) throw new Error(data?.error || 'ceo_dashboard_request_failed');
       return data;
     } catch (err) {
       console.error(`[CEO] ${endpoint} error:`, err);

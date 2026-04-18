@@ -88,9 +88,9 @@ export default function OrderSuccess() {
             )}
 
             <div className="flex flex-col gap-3 pt-2">
-              <Button onClick={() => navigate('/user-dashboard')} className="w-full gap-2">
+              <Button onClick={() => navigate('/control-panel')} className="w-full gap-2">
                 <ArrowRight className="w-4 h-4" />
-                Open User Dashboard
+                Open Control Panel
               </Button>
               <Button variant="outline" onClick={() => navigate('/marketplace')} className="w-full gap-2">
                 <KeyRound className="w-4 h-4" />

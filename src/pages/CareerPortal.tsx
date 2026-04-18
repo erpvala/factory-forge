@@ -127,8 +127,8 @@ const CareerPortal = () => {
   }, [resolvedType]);
 
   const getPostSubmitRoute = (type: PortalType) => {
-    if (type === 'developer') return '/developer/dashboard';
-    if (type === 'influencer') return '/influencer/dashboard';
+    if (type === 'developer') return '/control-panel/developer-dashboard';
+    if (type === 'influencer') return '/control-panel/influencer-dashboard';
     return '/careers';
   };
 

@@ -39,12 +39,12 @@ const ResellerRouteGuard: React.FC<ResellerRouteGuardProps> = ({
   // Check direct URL access
   if (!checkDirectAccess(location.pathname)) {
     console.log(`🚫 Route Guard: Direct access blocked for ${location.pathname}`);
-    return <Navigate to="/reseller/dashboard" replace />;
+    return <Navigate to="/control-panel/reseller-dashboard" replace />;
   }
 
   // Check for duplicate or invalid paths
   const validPaths = [
-    '/reseller/dashboard',
+    '/control-panel/reseller-dashboard',
     '/reseller/products',
     '/reseller/licenses',
     '/reseller/sales',
@@ -61,7 +61,7 @@ const ResellerRouteGuard: React.FC<ResellerRouteGuardProps> = ({
 
   if (!isPathValid) {
     console.log(`🚫 Route Guard: Invalid path ${location.pathname}, redirecting to dashboard`);
-    return <Navigate to="/reseller/dashboard" replace />;
+    return <Navigate to="/control-panel/reseller-dashboard" replace />;
   }
 
   // All checks passed, render children
