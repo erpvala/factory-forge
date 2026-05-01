@@ -1,10 +1,11 @@
 // @ts-nocheck
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Shield, Wifi, WifiOff, Bell, Settings, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { fetchNotifications, pingAutoHeal, NotificationItem } from '@/services/backgroundServices';
 
 interface ControlPanelHeaderProps {
   streamingOn: boolean;
@@ -14,9 +15,33 @@ interface ControlPanelHeaderProps {
 export function ControlPanelHeader({ streamingOn, onStreamingToggle }: ControlPanelHeaderProps) {
   const navigate = useNavigate();
   const { user, userRole } = useAuth();
+  const [notifications, setNotifications] = useState<NotificationItem[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const load = async () => {
+      const items = await fetchNotifications();
+      if (!cancelled) setNotifications(items);
+    };
+    load();
+    pingAutoHeal();
+    const notifTimer = setInterval(load, 60_000);
+    const healTimer = setInterval(() => pingAutoHeal(), 120_000);
+    return () => {
+      cancelled = true;
+      clearInterval(notifTimer);
+      clearInterval(healTimer);
+    };
+  }, []);
 
   const handleNotifications = () => {
-    toast.info('Notifications panel coming soon');
+    if (notifications.length === 0) {
+      toast.info('No new notifications');
+      return;
+    }
+    toast.info(`${notifications.length} recent activity item(s)`, {
+      description: notifications.slice(0, 3).map((n) => n.title).join(' • '),
+    });
   };
 
   const handleLogout = async () => {
@@ -58,10 +83,18 @@ export function ControlPanelHeader({ streamingOn, onStreamingToggle }: ControlPa
 
         <button
           onClick={handleNotifications}
-          className="text-white/60 hover:text-white transition-colors"
+          className="relative text-white/60 hover:text-white transition-colors"
           title="Notifications"
         >
           <Bell className="w-4 h-4" />
+          {notifications.length > 0 && (
+            <span
+              className="absolute -top-1.5 -right-1.5 min-w-[16px] h-4 px-1 rounded-full text-[10px] font-bold flex items-center justify-center"
+              style={{ background: '#ef4444', color: 'white' }}
+            >
+              {notifications.length > 99 ? '99+' : notifications.length}
+            </span>
+          )}
         </button>
 
         <button
