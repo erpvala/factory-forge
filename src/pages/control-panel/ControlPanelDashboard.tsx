@@ -93,7 +93,7 @@ const ICON_MAP = {
   workflow: Workflow,
 } as const;
 
-const EMBEDDED_MODULES: Record<string, React.LazyExoticComponent<() => JSX.Element>> = {
+const EMBEDDED_MODULES: Record<string, React.LazyExoticComponent<React.ComponentType<any>>> = {
   'ceo-dashboard': AICEODashboard,
   'ai-api-manager': CentralIntegrationHub,
   'development-manager': SecureDevManagerDashboard,
