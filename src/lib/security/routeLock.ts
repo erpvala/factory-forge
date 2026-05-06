@@ -226,14 +226,18 @@ export const installRuntimeRouteScanner = () => {
   }
 
   const enforce = (targetPathname: string, source: string) => {
-    const violation = getRouteViolation(targetPathname);
+    // Strip query string and hash — only the pathname is route-locked.
+    const pathOnly = (targetPathname || '/').split('?')[0].split('#')[0] || '/';
+    const violation = getRouteViolation(pathOnly);
     if (!violation) {
       return false;
     }
 
     recordRouteIncident(targetPathname, `${source}:${violation}`);
-    window.location.replace('/login');
-    return true;
+    // Non-fatal: log the violation but do NOT hard-redirect. Hard redirects
+    // here caused white-screen loops when query-string URLs (e.g.
+    // /login?reason=expired) were misclassified as unknown paths.
+    return false;
   };
 
   void verifyImmutableRouteConfig().then((ok) => {
