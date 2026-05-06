@@ -369,7 +369,9 @@ const CONTROL_PANEL_AUTH_ROUTES: Array<{ moduleId: string; element: React.ReactN
   { moduleId: 'development-manager', element: <SecureDevManagerDashboard /> },
 ];
 
-const CONTROL_PANEL_LOGIN_REDIRECT = ROUTES.login;
+// All legacy role-dashboard URLs now route into the unified Control Panel.
+// RequireAuth (mounted on /control-panel) will bounce unauthenticated users to /login.
+const CONTROL_PANEL_LOGIN_REDIRECT = ROUTES.controlPanelBase;
 
 const HARD_ALLOWED_PREFIXES = [ROUTES.login, ROUTES.controlPanelBase, '/admin', '/super-admin', '/dashboard'];
 const HARD_BLOCKED_PREFIXES = ['/user', '/old', '/boss', '/franchise', '/influencer'];
