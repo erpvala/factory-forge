@@ -373,15 +373,30 @@ const CONTROL_PANEL_AUTH_ROUTES: Array<{ moduleId: string; element: React.ReactN
 // RequireAuth (mounted on /control-panel) will bounce unauthenticated users to /login.
 const CONTROL_PANEL_LOGIN_REDIRECT = ROUTES.controlPanelBase;
 
-const HARD_ALLOWED_PREFIXES = [ROUTES.login, ROUTES.controlPanelBase, '/admin', '/super-admin', '/dashboard'];
-const HARD_BLOCKED_PREFIXES = ['/user', '/old', '/boss', '/franchise', '/influencer'];
+const HARD_ALLOWED_PREFIXES = [
+  ROUTES.login,
+  ROUTES.controlPanelBase,
+  '/admin',
+  '/super-admin',
+  '/dashboard',
+  '/franchise',
+  '/influencer',
+  '/reseller',
+  '/developer',
+  '/boss',
+  '/user',
+  '/prime',
+  '/owner',
+];
+const HARD_BLOCKED_PREFIXES = ['/old'];
 
 const SystemRoutingTakeover = () => {
   const location = useLocation();
 
   useEffect(() => {
     const normalized = location.pathname.toLowerCase();
-    if (normalized === '/admin' || normalized.startsWith('/admin/') || normalized === '/super-admin' || normalized.startsWith('/super-admin/') || normalized === '/dashboard' || normalized.startsWith('/dashboard/')) {
+    const legacyDashboardPrefixes = ['/admin', '/super-admin', '/dashboard', '/franchise', '/influencer', '/reseller', '/developer', '/boss', '/user', '/prime', '/owner'];
+    if (legacyDashboardPrefixes.some((p) => normalized === p || normalized.startsWith(`${p}/`))) {
       window.location.replace(ROUTES.controlPanelBase);
       return;
     }
