@@ -462,14 +462,14 @@ const App = () => (
               <Route path="/demos/public" element={<PublicDemos />} />
               <Route path="/showcase" element={<PremiumDemoShowcaseNew />} />
               <Route path="/server-portal" element={<RequireAuth><ServerManagementPortal /></RequireAuth>} />
-              <Route path={ROUTES.auth} element={<Navigate to={ROUTES.login} replace />} />
+              <Route path={ROUTES.auth} element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               <Route path="/dashboard" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               <Route path="/dashboard/notifications" element={<RequireAuth><DashboardNotificationsPage /></RequireAuth>} />
               {/* Basic profile route to satisfy header navigation */}
               <Route path="/profile" element={<RequireAuth><SettingsPage /></RequireAuth>} />
-              <Route path="/dashboard/pending" element={<Navigate to={ROUTES.login} replace />} />
+              <Route path="/dashboard/pending" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               {/* Legacy alias: /pending-approval → /login */}
-              <Route path={ROUTES.pendingApprovalLegacy} element={<Navigate to={ROUTES.login} replace />} />
+              <Route path={ROUTES.pendingApprovalLegacy} element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               <Route path="/settings" element={<RequireAuth><SettingsPage /></RequireAuth>} />
               <Route path="/change-password" element={<RequireAuth><ChangePassword /></RequireAuth>} />
               <Route path="/onboard" element={<Homepage />} />
@@ -482,7 +482,7 @@ const App = () => (
               <Route path="/join-influencer" element={<Navigate to={ROUTES.applyInfluencer} replace />} />
               <Route path="/jobs" element={<Navigate to={ROUTES.applyJob} replace />} />
               {/* Boss Applications panel - hard redirect to login */}
-              <Route path="/boss/applications" element={<Navigate to={ROUTES.login} replace />} />
+              <Route path="/boss/applications" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               {/* Bootstrap is Master-only after initial setup */}
               <Route path="/bootstrap-admins" element={<RequireRole allowed={["boss_owner"]} masterOnly><BootstrapAdmins /></RequireRole>} />
               <Route path="/sectors" element={<SectorsBrowse />} />
@@ -557,10 +557,10 @@ const App = () => (
 
               {/* Global Auth Routes */}
               <Route path={ROUTES.login} element={<Auth />} />
-              <Route path="/role-login" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path={ROUTES.register} element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/easy-login" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/quick-signup" element={<Navigate to={ROUTES.login} replace />} />
+              <Route path="/role-login" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path={ROUTES.register} element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/easy-login" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/quick-signup" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/otp-verify" element={<OTPVerify />} />
               <Route path="/device-verify" element={<DeviceVerify />} />
@@ -574,9 +574,9 @@ const App = () => (
               <Route path="/session-expired" element={<SessionExpiredPage />} />
 
               {/* Boss Auth - redirects to unified login */}
-              <Route path="/boss-fortress" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/boss-register" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/boss/login" element={<Navigate to={ROUTES.login} replace />} />
+              <Route path="/boss-fortress" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/boss-register" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/boss/login" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
 
               {/* CONTROL PANEL — Single Source of Truth */}
               <Route path="/control-panel" element={<RequireAuth><ControlPanelPage /></RequireAuth>} />
@@ -649,20 +649,20 @@ const App = () => (
 
 
               {/* Super Admin / admin - legacy routes blocked */}
-              <Route path="/admin" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/admin/*" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/super-admin" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/super-admin/*" element={<Navigate to={ROUTES.login} replace />} />
+              <Route path="/admin" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/admin/*" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/super-admin" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/super-admin/*" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               <Route path="/old-control" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               <Route path="/old-control/*" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               <Route path="/security-dashboard" element={<Navigate to={CONTROL_PANEL_LOGIN_REDIRECT} replace />} />
               <Route path="/audit-logs" element={<Navigate to={CONTROL_PANEL_LOGIN_REDIRECT} replace />} />
 
               {/* Franchise legacy routes blocked */}
-              <Route path="/franchise" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/franchise/*" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/franchise-program" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/franchise-landing" element={<Navigate to={ROUTES.login} replace />} />
+              <Route path="/franchise" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/franchise/*" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/franchise-program" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/franchise-landing" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               <Route path="/franchise-dashboard" element={<Navigate to="/control-panel/franchise" replace />} />
 
               {/* Reseller Routes - HARD REDIRECT to /control-panel (no old dashboards) */}
@@ -671,8 +671,8 @@ const App = () => (
               <Route path="/reseller/*" element={<Navigate to={CONTROL_PANEL_LOGIN_REDIRECT} replace />} />
               <Route path="/reseller/portal" element={<Navigate to={CONTROL_PANEL_LOGIN_REDIRECT} replace />} />
               <Route path="/reseller-portal" element={<Navigate to={CONTROL_PANEL_LOGIN_REDIRECT} replace />} />
-              <Route path="/reseller-program" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/reseller-landing" element={<Navigate to={ROUTES.login} replace />} />
+              <Route path="/reseller-program" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/reseller-landing" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               <Route path="/reseller-dashboard" element={<Navigate to="/control-panel/reseller" replace />} />
 
               {/* Developer Routes - HARD REDIRECT to /control-panel (no old dashboards) */}
@@ -821,9 +821,9 @@ const App = () => (
               <Route path="/hr-manager" element={<RequireAuth><SecureHRManagerDashboard /></RequireAuth>} />
 
               {/* Dashboard shortcuts - legacy routes blocked */}
-              <Route path="/boss/dashboard" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/ceo/dashboard" element={<Navigate to={ROUTES.login} replace />} />
-              <Route path="/admin/dashboard" element={<Navigate to={ROUTES.login} replace />} />
+              <Route path="/boss/dashboard" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/ceo/dashboard" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
+              <Route path="/admin/dashboard" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               <Route path="/continent/dashboard" element={<Navigate to={CONTROL_PANEL_LOGIN_REDIRECT} replace />} />
               <Route path="/country/dashboard" element={<Navigate to={CONTROL_PANEL_LOGIN_REDIRECT} replace />} />
               <Route path="/admin-secure" element={<Navigate to={CONTROL_PANEL_LOGIN_REDIRECT} replace />} />
@@ -839,7 +839,7 @@ const App = () => (
               <Route path="/system-flow/*" element={<RequireRole allowed={["boss_owner", "ceo", "super_admin"]}><SystemFlowPage /></RequireRole>} />
 
               {/* /app/* - legacy route blocked */}
-              <Route path="/app/*" element={<Navigate to={ROUTES.login} replace />} />
+              <Route path="/app/*" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
               
               {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
               {/* HARD DELETE + HARD REDIRECT: FORCE ALL OLD DASHBOARDS TO /login + /control-panel */}
@@ -855,7 +855,7 @@ const App = () => (
               <Route path={ROUTES.notFound} element={<Page404 />} />
 
                           {/* Catch-all */}
-                          <Route path="*" element={<Navigate to={ROUTES.login} replace />} />
+                          <Route path="*" element={<Navigate to={ROUTES.controlPanelBase} replace />} />
                         </Routes>
                           </Suspense>
                           </AppErrorBoundary>
