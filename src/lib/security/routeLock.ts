@@ -183,11 +183,9 @@ export const recordRouteIncident = (pathname: string, reason: string) => {
     const next = [...current, payload].slice(-50);
     localStorage.setItem(key, JSON.stringify(next));
 
-    const blacklistKey = 'route_lock_blacklist';
-    const currentBlacklist = JSON.parse(localStorage.getItem(blacklistKey) || '[]');
-    const normalizedPath = pathname.toLowerCase();
-    const nextBlacklist = Array.from(new Set([...(Array.isArray(currentBlacklist) ? currentBlacklist : []), normalizedPath])).slice(-200);
-    localStorage.setItem(blacklistKey, JSON.stringify(nextBlacklist));
+    // Clear any stale blacklist — auto-blacklisting caused white-screen loops
+    // when core routes like /login or /control-panel were ever flagged.
+    localStorage.removeItem('route_lock_blacklist');
   } catch {
     // Keep runtime guard resilient.
   }
@@ -240,8 +238,9 @@ export const installRuntimeRouteScanner = () => {
 
   void verifyImmutableRouteConfig().then((ok) => {
     if (!ok) {
-      recordRouteIncident(window.location.pathname, 'route_config_signature_invalid');
-      window.location.replace('/login');
+      // Log only — do not redirect. A signature mismatch from a stale build
+      // shouldn't take down the whole app.
+      console.warn('[ROUTE_LOCK] route_config signature mismatch (non-fatal)');
     }
   });
 

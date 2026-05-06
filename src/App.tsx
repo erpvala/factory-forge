@@ -107,6 +107,7 @@ const EnterpriseControlHub  = lazy(() => import("@/pages/enterprise-control/Ente
 const SystemFlowPage        = lazy(() => import("@/pages/SystemFlowPage"));
 const SystemSettings        = lazy(() => import("@/pages/SystemSettings"));
 const ContinentAdminDashboard = lazy(() => import("@/pages/continent-super-admin/ContinentSuperAdminDashboard"));
+const SystemAudit = lazy(() => import("@/pages/super-admin/SystemAudit"));
 const CountryAdminDashboard = lazy(() => import("@/components/country-dashboard/CountryAdminStripeAtlas"));
 
 // AI CEO

@@ -76,6 +76,7 @@ const CONTROL_PANEL_API_SET = new Set(CONTROL_PANEL_MODULES.map((moduleDef) => m
 
 export const isKnownControlPanelRoute = (pathname: string) => {
   const normalized = pathname.toLowerCase();
+  if (normalized === '/control-panel' || normalized === '/control-panel/') return true;
   return Array.from(CONTROL_PANEL_PATH_SET).some((basePath) => normalized === basePath || normalized.startsWith(`${basePath}/`));
 };
 

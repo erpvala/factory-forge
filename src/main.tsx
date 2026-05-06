@@ -45,6 +45,9 @@ const SyncBlockedScreen = ({ errors }: { errors: string[] }) => (
 const bootstrap = async () => {
   if (typeof window !== "undefined") {
   try {
+    // Clear any stale auto-blacklist entries that previously caused white-screen loops.
+    try { localStorage.removeItem('route_lock_blacklist'); } catch {}
+
     const routeViolation = getRouteViolation(window.location.pathname);
     if (routeViolation) {
       console.error("[ROUTE_LOCK_BOOT]", routeViolation);
