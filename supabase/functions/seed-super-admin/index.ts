@@ -15,7 +15,7 @@ Deno.serve(async (req) => {
   );
 
   const email = "Softwarevala@admim.com";
-  const password = "softwarevala#123456";
+  const password = "Softwarevala#123456";
 
   let userId: string | null = null;
   const { data, error } = await admin.auth.admin.createUser({
