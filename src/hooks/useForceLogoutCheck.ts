@@ -66,7 +66,7 @@ export function useForceLogoutCheck() {
       if (!user) return;
 
       channel = supabase
-        .channel('force-logout')
+        .channel(`force-logout-${user.id}-${Date.now()}`)
         .on(
           'postgres_changes',
           {
