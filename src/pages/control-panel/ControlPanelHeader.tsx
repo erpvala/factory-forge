@@ -6,6 +6,46 @@ import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { ROLE_DASHBOARD_ROUTE } from '@/routes/routes';
+
+// Map role -> control-panel module id (query param consumed by ControlPanelPage)
+const ROLE_MODULE: Record<string, string> = {
+  boss_owner: 'boss-dashboard',
+  super_admin: 'boss-dashboard',
+  admin: 'boss-dashboard',
+  ceo: 'ceo-dashboard',
+  developer: 'developer-dashboard',
+  franchise: 'franchise-dashboard',
+  franchise_owner: 'franchise-dashboard',
+  franchise_manager: 'franchise-manager',
+  reseller: 'pro-manager',
+  reseller_manager: 'reseller-manager',
+  influencer: 'influencer-manager',
+  influencer_manager: 'influencer-manager',
+  lead_manager: 'lead-manager',
+  marketing_manager: 'marketing-manager',
+  seo_manager: 'seo-manager',
+  sales_support: 'customer-support',
+  finance_manager: 'finance-manager',
+  legal_manager: 'legal-manager',
+  hr_manager: 'hr-manager',
+  task_manager: 'task-manager',
+  product_manager: 'product-manager',
+  demo_manager: 'demo-manager',
+  server_manager: 'server-manager',
+  api_ai_manager: 'ai-api-manager',
+  continent_admin: 'continent-admin',
+  country_admin: 'country-admin',
+  security_manager: 'security-manager',
+  marketplace_manager: 'marketplace-manager',
+  license_manager: 'license-manager',
+  deployment_manager: 'deployment-manager',
+  analytics_manager: 'analytics-manager',
+  notification_manager: 'notification-manager',
+  integration_manager: 'integration-manager',
+  audit_manager: 'audit-logs-manager',
+  prime_user: 'pro-manager',
+  user: 'user-dashboard',
+};
 import {
   fetchNotifications,
   pingAutoHeal,
@@ -37,15 +77,15 @@ export function ControlPanelHeader({ streamingOn, onStreamingToggle }: ControlPa
 
   const isPrivileged = userRole === 'super_admin' || userRole === 'boss_owner' || userRole === 'admin' || userRole === 'ceo';
   const roleEntries = useMemo(() => {
-    const entries = Object.entries(ROLE_DASHBOARD_ROUTE);
+    const entries = Object.entries(ROLE_MODULE);
     if (isPrivileged) return entries;
     return entries.filter(([role]) => role === userRole);
   }, [isPrivileged, userRole]);
 
-  const switchTo = (role: string, path: string) => {
+  const switchTo = (role: string, moduleId: string) => {
     setSwitcherOpen(false);
     try { sessionStorage.setItem('active_role_view', role); } catch {}
-    navigate(path);
+    navigate(`/control-panel?module=${moduleId}`);
     toast.success(`Switched to ${role.replace(/_/g, ' ')}`);
   };
 
@@ -203,14 +243,14 @@ export function ControlPanelHeader({ streamingOn, onStreamingToggle }: ControlPa
                 Role Dashboards {isPrivileged ? '' : '(restricted)'}
               </div>
               <div className="max-h-96 overflow-y-auto">
-                {roleEntries.map(([role, path]) => (
+                {roleEntries.map(([role, moduleId]) => (
                   <button
                     key={role}
-                    onClick={() => switchTo(role, path)}
+                    onClick={() => switchTo(role, moduleId)}
                     className="w-full text-left px-4 py-2 hover:bg-white/5 border-b border-white/5 transition-colors flex items-center justify-between"
                   >
                     <span className="text-xs text-white capitalize">{role.replace(/_/g, ' ')}</span>
-                    <span className="text-[10px] text-white/40 truncate max-w-[140px]">{path}</span>
+                    <span className="text-[10px] text-white/40 truncate max-w-[140px]">{moduleId}</span>
                   </button>
                 ))}
               </div>
