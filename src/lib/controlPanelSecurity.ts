@@ -56,6 +56,12 @@ export const validateControlPanelSecurity = ({ pathname, user, session, userRole
     return { ok: false, reason: 'missing_active_role' };
   }
 
+  // Privileged roles bypass tenant/access-key checks
+  const PRIVILEGED = new Set(['super_admin', 'boss_owner', 'admin', 'ceo']);
+  if (PRIVILEGED.has(userRole)) {
+    return { ok: true, reason: 'ok_privileged' };
+  }
+
   const userMeta = (user?.user_metadata ?? {}) as Record<string, unknown>;
   const appMeta = (user?.app_metadata ?? {}) as Record<string, unknown>;
 
