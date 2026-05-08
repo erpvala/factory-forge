@@ -29,32 +29,7 @@ const isValidActionButton = (el: HTMLElement) => {
 
 export const installButtonActionWatcher = () => {
   if (typeof window === 'undefined') return () => {};
-
-  const clickHandler = (event: Event) => {
-    const target = event.target as HTMLElement | null;
-    if (!target) return;
-
-    const button = target.closest('button, [role="button"], a') as HTMLElement | null;
-    if (!button) return;
-
-    if (isValidActionButton(button)) return;
-
-    const detail = {
-      reason: 'missing_button_action',
-      text: button.textContent?.trim().slice(0, 120) || '<empty>',
-      className: button.className || '',
-      timestamp: new Date().toISOString(),
-    };
-
-    event.preventDefault();
-    event.stopPropagation();
-    pushIncident(detail);
-    alert('Blocked unsafe UI action: button has no action mapping.');
-  };
-
-  document.addEventListener('click', clickHandler, true);
-
-  return () => {
-    document.removeEventListener('click', clickHandler, true);
-  };
+  // Disabled: React attaches onClick as a synthetic-event property, not an HTML
+  // attribute, so this watcher produced false positives on every valid button.
+  return () => {};
 };
