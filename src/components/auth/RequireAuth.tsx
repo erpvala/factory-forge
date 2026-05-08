@@ -27,6 +27,16 @@ const RequireAuth = forwardRef<HTMLDivElement, RequireAuthProps>(
       return <Navigate to={`/login?reason=expired&redirect=${encodeURIComponent(redirect)}`} replace />;
     }
 
+    // Wait for role hydration BEFORE running control-panel security checks,
+    // otherwise privileged users get bounced to /access-denied on first render.
+    if (approvalStatus === null && !userRole) {
+      return (
+        <div ref={ref} className="min-h-screen bg-background flex items-center justify-center">
+          <Loader2 className="w-10 h-10 animate-spin text-primary" />
+        </div>
+      );
+    }
+
     const controlPanelSecurity = validateControlPanelSecurity({
       pathname: location.pathname,
       user,
@@ -35,14 +45,6 @@ const RequireAuth = forwardRef<HTMLDivElement, RequireAuthProps>(
     });
     if (!controlPanelSecurity.ok) {
       return <Navigate to={`/access-denied?reason=${encodeURIComponent(controlPanelSecurity.reason)}`} replace />;
-    }
-
-    if (approvalStatus === null && !userRole) {
-      return (
-        <div ref={ref} className="min-h-screen bg-background flex items-center justify-center">
-          <Loader2 className="w-10 h-10 animate-spin text-primary" />
-        </div>
-      );
     }
 
     if (approvalStatus === 'pending') {
