@@ -73,57 +73,6 @@ const bootstrap = async () => {
     clearLegacyStorage(localStorage);
     clearLegacyStorage(sessionStorage);
 
-    // LAYER 4: Complete cleanup on every boot
-    // This ensures zero cached old UI can ever be served
-    
-    // Clear ALL localStorage (not just legacy patterns)
-    localStorage.clear();
-    sessionStorage.clear();
-
-    // Clear all service workers and caches (async, non-blocking)
-    void (async () => {
-      // Clear all service workers
-      if ("serviceWorker" in navigator) {
-        try {
-          const registrations = await navigator.serviceWorker.getRegistrations();
-          for (const registration of registrations) {
-            await registration.unregister();
-            console.log('✓ Unregistered SW:', registration.scope);
-          }
-        } catch (error) {
-          console.error('✗ Failed to unregister SW:', error);
-        }
-      }
-
-      // Clear HTTP cache via Cache API
-      if ("caches" in window) {
-        try {
-          const cacheNames = await caches.keys();
-          for (const cacheName of cacheNames) {
-            await caches.delete(cacheName);
-            console.log('✓ Cleared cache:', cacheName);
-          }
-        } catch (error) {
-          console.error('✗ Failed to clear caches:', error);
-        }
-      }
-
-      // Clear IndexedDB caches
-      if ("indexedDB" in window) {
-        try {
-          const databases = await (indexedDB as IDBFactory & { databases?: () => Promise<{ name?: string }[]> }).databases?.() ?? [];
-          for (const db of databases) {
-            if (db.name?.includes('cache') || db.name?.includes('sw')) {
-              indexedDB.deleteDatabase(db.name!);
-              console.log('✓ Cleared IndexedDB:', db.name);
-            }
-          }
-        } catch {
-          // IndexedDB not available in all browsers
-        }
-      }
-    })();
-
     // Install immutable runtime route scanner and hard blocker.
     installRuntimeRouteScanner();
     installButtonActionWatcher();
