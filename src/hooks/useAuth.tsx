@@ -36,6 +36,28 @@ const PRIVILEGED_ROLES: AppRole[] = ['boss_owner', 'ceo', 'super_admin'];
 const ACTIVE_ROLE_KEY = 'sv.active-role';
 const DEVICE_KEY = 'sv.device.id';
 
+const clearStaleAuthStorage = () => {
+  if (typeof window === 'undefined') return;
+
+  const clearMatchingKeys = (storage: Storage) => {
+    for (let i = storage.length - 1; i >= 0; i -= 1) {
+      const key = storage.key(i);
+      if (!key) continue;
+      const normalized = key.toLowerCase();
+      if (
+        normalized === 'supabase.auth.token' ||
+        /^sb-.+-auth-token$/.test(normalized) ||
+        (normalized.startsWith('sv.auth.') && normalized !== 'sv.auth.remember')
+      ) {
+        storage.removeItem(key);
+      }
+    }
+  };
+
+  clearMatchingKeys(localStorage);
+  clearMatchingKeys(sessionStorage);
+};
+
 const ROLE_PRIORITY: AppRole[] = [
   'boss_owner', 'ceo', 'super_admin', 'admin',
   'server_manager', 'api_ai_manager', 'finance_manager',
@@ -203,6 +225,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signIn = async (email: string, password: string) => {
     try {
+      // A previously invalid refresh token can make the auth client keep retrying
+      // and block a fresh password login. Clear only auth-session keys first.
+      clearStaleAuthStorage();
+      await supabase.auth.signOut({ scope: 'local' }).catch(() => {});
+
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
       if (error) {
@@ -300,7 +327,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       if (!refresh) return;
 
       const refreshed = await apiRefresh(refresh).catch(() => ({ success: false } as any));
-      if (!alive || !refreshed?.success || !refreshed?.data?.session) return;
+      if (!alive) return;
+      if (!refreshed?.success || !refreshed?.data?.session) {
+        clearStaleAuthStorage();
+        return;
+      }
 
       const next = refreshed.data.session;
       await supabase.auth.setSession({
