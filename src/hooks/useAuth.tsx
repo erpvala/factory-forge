@@ -47,7 +47,7 @@ const clearStaleAuthStorage = () => {
       if (
         normalized === 'supabase.auth.token' ||
         /^sb-.+-auth-token$/.test(normalized) ||
-        normalized.startsWith('sv.auth.')
+        (normalized.startsWith('sv.auth.') && normalized !== 'sv.auth.remember')
       ) {
         storage.removeItem(key);
       }
