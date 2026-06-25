@@ -616,22 +616,14 @@ async function handleRefresh(req: Request): Promise<Response> {
     return err('Refresh token expired or invalid', 401);
   }
 
-  const { data: publicUser } = await supabase
-    .from('users')
-    .select('user_id, role, status, auth_id')
-    .eq('auth_id', data.user.id)
-    .maybeSingle();
-
-  if (!publicUser?.user_id) return err('User not found', 404);
-
   const accessState = await resolveUserAccessState(
     supabase,
-    publicUser.auth_id,
-    publicUser.role ?? 'user',
-    publicUser.status,
+    data.user.id,
+    (data.user.user_metadata?.role as string) ?? 'user',
+    'PENDING',
   );
 
-  await supabase
+  await safeQuery('session refresh record', supabase
     .from('sessions')
     .update({
       token: data.session.access_token,
@@ -641,8 +633,8 @@ async function handleRefresh(req: Request): Promise<Response> {
       revoked_at: null,
       revoked_reason: null,
     })
-    .eq('user_id', publicUser.user_id)
-    .eq('refresh_token', body.refresh_token);
+    .eq('user_id', data.user.id)
+    .eq('refresh_token', body.refresh_token));
 
   return ok({
     session: {
@@ -705,19 +697,11 @@ async function handleMe(req: Request): Promise<Response> {
   const { token, authUser } = await getCurrentAuthUser(req, supabase);
   if (!token || !authUser) return err('Invalid or expired token', 401);
 
-  const { data: publicUser, error: findError } = await supabase
-    .from('users')
-    .select('user_id, name, email, role, status, created_at, email_verified_at, two_factor_enabled')
-    .eq('auth_id', authUser.id)
-    .maybeSingle();
-
-  if (findError || !publicUser) return err('User not found', 404);
-
   const accessState = await resolveUserAccessState(
     supabase,
     authUser.id,
-    publicUser.role ?? 'user',
-    publicUser.status,
+    (authUser.user_metadata?.role as string) ?? 'user',
+    'PENDING',
   );
 
   const { data: sessionRow } = await supabase
@@ -728,10 +712,10 @@ async function handleMe(req: Request): Promise<Response> {
 
   if (sessionRow?.revoked_at) return err('Session revoked', 401);
 
-  await supabase
+  await safeQuery('session touch', supabase
     .from('sessions')
     .update({ last_active_at: nowISO() })
-    .eq('token', token);
+    .eq('token', token));
 
   const { data: roles } = await supabase
     .from('user_roles')
@@ -740,11 +724,14 @@ async function handleMe(req: Request): Promise<Response> {
 
   return ok({
     user: {
-      ...publicUser,
+      user_id: authUser.id,
+      name: displayNameFromAuthUser(authUser, authUser.email ?? ''),
+      email: authUser.email,
       role: accessState.role,
       status: accessState.status,
       roles: accessState.roles,
-      email_verified: !!publicUser.email_verified_at,
+      created_at: authUser.created_at,
+      email_verified: !!authUser.email_confirmed_at,
     },
   });
 }
