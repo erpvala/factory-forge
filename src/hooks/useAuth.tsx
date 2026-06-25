@@ -230,10 +230,39 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       clearStaleAuthStorage();
       await supabase.auth.signOut({ scope: 'local' }).catch(() => {});
 
+      const apiResult = await apiLogin(email, password);
+      if (apiResult.success && apiResult.data?.session) {
+        saveSession(apiResult.data.session, apiResult.data.user);
+        const { data, error } = await supabase.auth.setSession({
+          access_token: apiResult.data.session.access_token,
+          refresh_token: apiResult.data.session.refresh_token,
+        });
+
+        if (error) throw new Error(error.message);
+
+        let redirect = apiResult.data.redirect || '/control-panel?module=user-dashboard';
+
+        if (data?.user) {
+          await hydrateRoles(data.user.id);
+          const { data: roles } = await supabase
+            .from('user_roles')
+            .select('role, approval_status')
+            .eq('user_id', data.user.id)
+            .eq('approval_status', 'approved');
+
+          if (roles && roles.length > 0) {
+            const bestRole = selectBestRole(roles.map(r => r.role as AppRole));
+            redirect = getRoleDashboardRoute(bestRole);
+          }
+        }
+
+        return { error: null, redirect };
+      }
+
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
       if (error) {
-        throw new Error(error.message);
+        throw new Error(apiResult.error || error.message);
       }
 
       let redirect = '/control-panel?module=user-dashboard';
