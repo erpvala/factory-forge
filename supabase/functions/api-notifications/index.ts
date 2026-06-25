@@ -40,7 +40,14 @@ Deno.serve(async (req) => {
         .limit(20);
       notifications = (data ?? []).map((row: any) => ({
         id: row.id,
-        title: row.action ?? "Activity",
+        type: "info",
+        message: row.action ?? "Activity",
+        event_type: row.module ?? "system",
+        created_at: row.timestamp,
+        action_label: null,
+        action_url: null,
+        is_buzzer: false,
+        role_target: [],
         module: row.module ?? "system",
         timestamp: row.timestamp,
         meta: row.meta_json ?? {},
@@ -50,11 +57,12 @@ Deno.serve(async (req) => {
 
     return new Response(
       JSON.stringify({ success: true, notifications, count: notifications.length }),
+      JSON.stringify({ success: true, data: { items: notifications, unread: notifications.length } }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 },
     );
   } catch (err) {
     return new Response(
-      JSON.stringify({ success: true, notifications: [], count: 0, warning: String(err) }),
+      JSON.stringify({ success: true, data: { items: [], unread: 0 }, warning: String(err) }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" }, status: 200 },
     );
   }
