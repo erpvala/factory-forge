@@ -46,6 +46,40 @@ function adminClient() {
   });
 }
 
+async function safeQuery(label: string, query: unknown) {
+  try {
+    const { error } = await query as { error?: { message?: string } | null };
+    if (error) console.warn(`[auth-v1] ${label} skipped:`, error.message ?? error);
+  } catch (error) {
+    console.warn(`[auth-v1] ${label} skipped:`, error);
+  }
+}
+
+async function findAuthUserByEmail(supabase: ReturnType<typeof adminClient>, email: string) {
+  const normalizedEmail = email.toLowerCase().trim();
+  let page = 1;
+
+  while (page <= 20) {
+    const { data, error } = await supabase.auth.admin.listUsers({ page, perPage: 1000 });
+    if (error) throw error;
+
+    const found = data?.users?.find((user) => (user.email ?? '').toLowerCase() === normalizedEmail);
+    if (found) return found;
+
+    if (!data?.users || data.users.length < 1000) break;
+    page += 1;
+  }
+
+  return null;
+}
+
+function displayNameFromAuthUser(authUser: unknown, fallbackEmail: string) {
+  const user = authUser as { user_metadata?: Record<string, unknown>; email?: string };
+  const fullName = user?.user_metadata?.full_name;
+  if (typeof fullName === 'string' && fullName.trim()) return fullName.trim();
+  return (user?.email ?? fallbackEmail).split('@')[0];
+}
+
 async function sha256(text: string): Promise<string> {
   const data = new TextEncoder().encode(text);
   const digest = await crypto.subtle.digest('SHA-256', data);
@@ -197,33 +231,36 @@ async function createPendingAccount(
       full_name: name.trim(),
       phone: options.mobile ?? null,
       updated_at: nowISO(),
-    }, { onConflict: 'user_id' })
-    .catch(() => {});
+    }, { onConflict: 'user_id' });
 
-  await supabase.from('role_requests').insert({
+  const roleRequestWithApplication = await supabase.from('role_requests').insert({
     user_id: authUser.id,
     requested_role: normalizedRole,
     status: 'pending',
     application_data: options.applicationData ?? null,
-  }).catch(async () => {
-    await supabase.from('role_requests').insert({
+  });
+
+  if (roleRequestWithApplication.error) {
+    await safeQuery('role request fallback', supabase.from('role_requests').insert({
       user_id: authUser.id,
       requested_role: normalizedRole,
       status: 'pending',
-    }).catch(() => {});
-  });
+    }));
+  }
 
-  await supabase.from('user_roles').upsert({
+  const roleUpsert = await supabase.from('user_roles').upsert({
     user_id: authUser.id,
     role: normalizedRole,
     approval_status: 'pending',
-  }, { onConflict: 'user_id,role' }).catch(async () => {
-    await supabase.from('user_roles').insert({
+  }, { onConflict: 'user_id,role' });
+
+  if (roleUpsert.error) {
+    await safeQuery('user role fallback', supabase.from('user_roles').insert({
       user_id: authUser.id,
       role: normalizedRole,
       approval_status: 'pending',
-    }).catch(() => {});
-  });
+    }));
+  }
 
   const verifyToken = randomToken(32);
   const verifyHash = await sha256(verifyToken);
@@ -352,7 +389,7 @@ async function logLogin(
   supabase: ReturnType<typeof adminClient>,
   payload: { userId?: string | null; email?: string; ip?: string; device?: string; success: boolean; failureReason?: string }
 ) {
-  await supabase.from('login_logs').insert({
+  await safeQuery('login log', supabase.from('login_logs').insert({
     user_id: payload.userId ?? null,
     email: payload.email ?? null,
     ip: payload.ip ?? null,
@@ -361,21 +398,21 @@ async function logLogin(
     success: payload.success,
     failure_reason: payload.failureReason ?? null,
     timestamp: nowISO(),
-  }).catch(() => {});
+  }));
 }
 
 async function logActivity(
   supabase: ReturnType<typeof adminClient>,
   payload: { userId?: string | null; eventType: string; riskLevel?: string; ip?: string; device?: string; metadata?: Record<string, unknown> }
 ) {
-  await supabase.from('activity_events').insert({
+  await safeQuery('activity event', supabase.from('activity_events').insert({
     user_id: payload.userId ?? null,
     event_type: payload.eventType,
     risk_level: payload.riskLevel ?? 'low',
     ip_address: payload.ip ?? null,
     device: payload.device ?? null,
     metadata: payload.metadata ?? {},
-  }).catch(() => {});
+  }));
 }
 
 async function upsertDevice(
