@@ -10,7 +10,7 @@
 import { ROUTES, getRoleDashboardRoute } from '@/routes/routes';
 
 const SUPABASE_URL      = import.meta.env.VITE_SUPABASE_URL as string;
-const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
+const SUPABASE_ANON_KEY = (import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY) as string;
 
 // ─── Strict spec routes (/api/v1/auth/*) ─────────────────────────────────────
 // Dev:  Vite proxy  /api/v1/auth/* → {SUPABASE_URL}/functions/v1/auth-v1/*
