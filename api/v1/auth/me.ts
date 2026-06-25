@@ -18,7 +18,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const supabaseUrl  = process.env.VITE_SUPABASE_URL!;
-  const anonKey      = process.env.VITE_SUPABASE_ANON_KEY!;
+  const anonKey      = (process.env.VITE_SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_PUBLISHABLE_KEY)!;
   const targetUrl    = `${supabaseUrl}/functions/v1/auth-v1/me`;
   const authHeader   = (req.headers['authorization'] as string) ?? `Bearer ${anonKey}`;
 

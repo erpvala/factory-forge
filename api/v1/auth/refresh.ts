@@ -15,7 +15,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   const supabaseUrl = process.env.VITE_SUPABASE_URL!;
-  const anonKey = process.env.VITE_SUPABASE_ANON_KEY!;
+  const anonKey = (process.env.VITE_SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_PUBLISHABLE_KEY)!;
 
   try {
     const upstream = await fetch(`${supabaseUrl}/functions/v1/auth-v1/refresh`, {
