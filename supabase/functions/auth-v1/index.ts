@@ -533,7 +533,9 @@ async function handleLogin(req: Request): Promise<Response> {
   const { email, password } = body;
   if (!email || !password) return err('Email and password are required');
 
-  const identifier = `${ip}:${email.toLowerCase().trim()}`;
+  const normalizedEmail = String(email).toLowerCase().trim();
+
+  const identifier = `${ip}:${normalizedEmail}`;
   const allowed = await checkRateLimit(identifier);
   if (!allowed) {
     return err('Too many login attempts. Temporary block active.', 429);
@@ -542,138 +544,34 @@ async function handleLogin(req: Request): Promise<Response> {
   const supabase = adminClient();
   const device = deviceFromRequest(req);
 
-  const { data: publicUser, error: findError } = await supabase
-    .from('users')
-    .select('user_id, name, email, password_hash, role, status, auth_id, email_verified_at, lock_until, failed_login_attempts, two_factor_enabled')
-    .eq('email', email.toLowerCase().trim())
-    .maybeSingle();
-
-  if (findError || !publicUser) {
-    await logLogin(supabase, { email, ip, device: device.name, success: false, failureReason: 'invalid_credentials' });
-    return err('Invalid credentials', 401);
-  }
-
-  if (publicUser.lock_until && new Date(publicUser.lock_until) > new Date()) {
-    await logActivity(supabase, {
-      userId: publicUser.user_id,
-      eventType: 'blocked_login_while_locked',
-      riskLevel: 'high',
-      ip,
-      device: device.name,
-    });
-    return err('Account temporarily locked due to suspicious activity', 423);
-  }
-
-  const passwordMatch = await bcrypt.compare(password, publicUser.password_hash);
-  if (!publicUser.password_hash.startsWith('$supabase$') && !passwordMatch) {
-    const attempts = (publicUser.failed_login_attempts ?? 0) + 1;
-    const lockNow = attempts >= RATE_LIMIT_MAX;
-
-    await supabase
-      .from('users')
-      .update({
-        failed_login_attempts: attempts,
-        lock_until: lockNow ? new Date(Date.now() + RATE_LIMIT_BLOCK).toISOString() : null,
-      })
-      .eq('user_id', publicUser.user_id);
-
-    await logLogin(supabase, {
-      userId: publicUser.user_id,
-      email: publicUser.email,
-      ip,
-      device: device.name,
-      success: false,
-      failureReason: lockNow ? 'account_locked' : 'invalid_password',
-    });
-
-    if (lockNow) {
-      await logActivity(supabase, {
-        userId: publicUser.user_id,
-        eventType: 'account_locked',
-        riskLevel: 'high',
-        ip,
-        device: device.name,
-      });
-    }
-
-    return err('Invalid credentials', 401);
-  }
-
   const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
-    email: email.toLowerCase().trim(),
+    email: normalizedEmail,
     password,
   });
 
   if (signInError || !signInData?.session) {
     await logLogin(supabase, {
-      userId: publicUser.user_id,
-      email: publicUser.email,
+      email: normalizedEmail,
       ip,
       device: device.name,
       success: false,
-      failureReason: 'supabase_auth_failed',
+      failureReason: 'invalid_credentials',
     });
     return err('Invalid credentials', 401);
   }
 
-  // reset lock/fail counters on success
-  await supabase
-    .from('users')
-    .update({ failed_login_attempts: 0, lock_until: null, last_login_at: nowISO() })
-    .eq('user_id', publicUser.user_id);
-
-  if (!publicUser.email_verified_at) {
-    await logActivity(supabase, {
-      userId: publicUser.user_id,
-      eventType: 'login_requires_email_verification',
-      riskLevel: 'medium',
-      ip,
-      device: device.name,
-    });
-
-    return err('Email verification required before full access', 403, {
-      action: 'verify_email',
-      redirect: '/dashboard/pending',
-    });
-  }
-
-  if (publicUser.two_factor_enabled) {
-    const otp = generateOtp();
-    const otpHash = await sha256(otp);
-    const expiry = new Date(Date.now() + OTP_EXPIRY_MIN * 60 * 1000).toISOString();
-
-    const { data: challenge } = await supabase
-      .from('otp_challenges')
-      .insert({ user_id: publicUser.user_id, otp_hash: otpHash, expiry })
-      .select('challenge_id')
-      .single();
-
-    await supabase.auth.admin.signOut(signInData.session.access_token).catch(() => {});
-
-    return ok({
-      requires_2fa: true,
-      challenge_id: challenge?.challenge_id,
-      message: 'OTP sent. Complete 2FA to finish login.',
-      otp_preview: Deno.env.get('ENV') === 'development' ? otp : undefined,
-    });
-  }
-
   const session = signInData.session;
-  const deviceId = await upsertDevice(supabase, publicUser.user_id, device, ip);
+  const authUser = signInData.user;
 
-  await storeSession(
-    supabase,
-    publicUser.user_id,
-    session.access_token,
-    session.refresh_token,
-    ip,
-    device.ua,
-    deviceId,
-  );
+  await safeQuery('profile upsert', supabase.from('profiles').upsert({
+    user_id: authUser.id,
+    full_name: displayNameFromAuthUser(authUser, normalizedEmail),
+    updated_at: nowISO(),
+  }, { onConflict: 'user_id' }));
 
   await logLogin(supabase, {
-    userId: publicUser.user_id,
-    email: publicUser.email,
+    userId: authUser.id,
+    email: normalizedEmail,
     ip,
     device: device.name,
     success: true,
@@ -681,27 +579,21 @@ async function handleLogin(req: Request): Promise<Response> {
 
   const accessState = await resolveUserAccessState(
     supabase,
-    publicUser.auth_id,
-    publicUser.role ?? 'user',
-    publicUser.status,
+    authUser.id,
+    (authUser.user_metadata?.role as string) ?? 'user',
+    'PENDING',
   );
-
-  if (accessState.role !== publicUser.role || accessState.status !== publicUser.status) {
-    await supabase
-      .from('users')
-      .update({ role: accessState.role, status: accessState.status })
-      .eq('user_id', publicUser.user_id);
-  }
 
   const redirect = resolveRedirect(accessState.role, accessState.status);
 
   return ok({
     user: {
-      user_id: publicUser.user_id,
-      name: publicUser.name,
-      email: publicUser.email,
+      user_id: authUser.id,
+      name: displayNameFromAuthUser(authUser, normalizedEmail),
+      email: normalizedEmail,
       role: accessState.role,
       status: accessState.status,
+      roles: accessState.roles,
     },
     session: {
       access_token: session.access_token,
