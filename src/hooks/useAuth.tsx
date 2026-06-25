@@ -58,6 +58,31 @@ const clearStaleAuthStorage = () => {
   clearMatchingKeys(sessionStorage);
 };
 
+const getSupabaseStorageKey = () => {
+  try {
+    const host = new URL(import.meta.env.VITE_SUPABASE_URL).hostname;
+    const projectRef = host.split('.')[0];
+    return projectRef ? `sb-${projectRef}-auth-token` : null;
+  } catch {
+    return null;
+  }
+};
+
+const persistSupabaseSession = (session: any, user: any) => {
+  const storageKey = getSupabaseStorageKey();
+  if (!storageKey || !session?.access_token || !session?.refresh_token) return;
+
+  const expiresAt = session.expires_at ?? Math.floor(Date.now() / 1000) + 3600;
+  localStorage.setItem(storageKey, JSON.stringify({
+    access_token: session.access_token,
+    token_type: session.token_type || 'bearer',
+    expires_in: Math.max(0, expiresAt - Math.floor(Date.now() / 1000)),
+    expires_at: expiresAt,
+    refresh_token: session.refresh_token,
+    user,
+  }));
+};
+
 const ROLE_PRIORITY: AppRole[] = [
   'boss_owner', 'ceo', 'super_admin', 'admin',
   'server_manager', 'api_ai_manager', 'finance_manager',
@@ -230,10 +255,53 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       clearStaleAuthStorage();
       await supabase.auth.signOut({ scope: 'local' }).catch(() => {});
 
+      const apiResult = await apiLogin(email, password);
+      if (apiResult.success && apiResult.data?.session) {
+        saveSession(apiResult.data.session, apiResult.data.user);
+        const authUser = {
+          id: apiResult.data.user.user_id,
+          aud: 'authenticated',
+          role: 'authenticated',
+          email: apiResult.data.user.email,
+          email_confirmed_at: new Date().toISOString(),
+          confirmed_at: new Date().toISOString(),
+          app_metadata: { provider: 'email', providers: ['email'] },
+          user_metadata: { full_name: apiResult.data.user.name },
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        };
+        persistSupabaseSession(apiResult.data.session, authUser);
+
+        const nextSession = {
+          ...apiResult.data.session,
+          user: authUser,
+          expires_in: Math.max(0, (apiResult.data.session.expires_at ?? Math.floor(Date.now() / 1000) + 3600) - Math.floor(Date.now() / 1000)),
+        } as Session;
+
+        setSession(nextSession);
+        setUser(authUser as User);
+
+        let redirect = apiResult.data.redirect || '/control-panel?module=user-dashboard';
+        const apiRoles = apiResult.data.user.roles || [];
+        if (apiRoles.length > 0) {
+          const assignments = apiRoles.map((row: any) => ({
+            role: row.role as AppRole,
+            approvalStatus: (row.approval_status as ApprovalStatus) ?? null,
+          }));
+          setRoleAssignments(assignments);
+          const approved = assignments.filter(a => a.approvalStatus === 'approved').map(a => a.role);
+          const bestRole = selectBestRole(approved.length > 0 ? approved : assignments.map(a => a.role));
+          syncActiveRole(bestRole);
+          redirect = getRoleDashboardRoute(bestRole);
+        }
+
+        return { error: null, redirect };
+      }
+
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
       if (error) {
-        throw new Error(error.message);
+        throw new Error(apiResult.error || error.message);
       }
 
       let redirect = '/control-panel?module=user-dashboard';
